@@ -7,9 +7,7 @@ namespace Sistem_Informasi_Sekolah
             InitializeComponent();
         }
 
-        
-
-        private void NextPersonalButton_Click(object sender, EventArgs e)
+        private void TglLahirIbuPicker_ValueChanged(object sender, EventArgs e)
         {
 
         }
