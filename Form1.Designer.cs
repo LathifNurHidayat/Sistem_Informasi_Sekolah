@@ -42,23 +42,23 @@
             label19 = new Label();
             TinggalCombo = new ComboBox();
             label18 = new Label();
-            TelephonText = new TextBox();
+            NoHpText = new TextBox();
             label17 = new Label();
             AlamatText = new TextBox();
             label16 = new Label();
             YatimPiatuCombo = new ComboBox();
             BahasaText = new TextBox();
             label13 = new Label();
-            SaudaraAngkatText = new TextBox();
+            SdrAngkatText = new TextBox();
             label12 = new Label();
             label11 = new Label();
             panel1 = new Panel();
-            radioButton3 = new RadioButton();
-            radioButton4 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
-            numericUpDown1 = new NumericUpDown();
-            comboBox1 = new ComboBox();
+            AsingRadio = new RadioButton();
+            WniRadio = new RadioButton();
+            PerempuanRadio = new RadioButton();
+            LakiRadio = new RadioButton();
+            NikNumeric = new NumericUpDown();
+            AgamaCombo = new ComboBox();
             label109 = new Label();
             label64 = new Label();
             label15 = new Label();
@@ -70,10 +70,10 @@
             TempatLahirText = new TextBox();
             label4 = new Label();
             label3 = new Label();
-            SaudaraKandungText = new TextBox();
+            SdrKandungText = new TextBox();
             NamaPanggilanText = new TextBox();
             label9 = new Label();
-            SaudaraTiriText = new TextBox();
+            SdrTiriText = new TextBox();
             label10 = new Label();
             label2 = new Label();
             AnakKeText = new TextBox();
@@ -82,22 +82,22 @@
             label1 = new Label();
             tabPage3 = new TabPage();
             panel4 = new Panel();
-            textBox2 = new TextBox();
+            BeaDari3Text = new TextBox();
             label71 = new Label();
-            textBox3 = new TextBox();
+            BeaKelas3Text = new TextBox();
             label75 = new Label();
-            textBox4 = new TextBox();
+            BeaTahun3Text = new TextBox();
             label80 = new Label();
             label111 = new Label();
             BackKesehatanButton = new Button();
             NextKesehatanButton = new Button();
             label56 = new Label();
             TglMeninggalkanPicker = new DateTimePicker();
-            IjazahNomorText = new TextBox();
+            IjazahNoText = new TextBox();
             AlasanMeninggalkanText = new TextBox();
             label57 = new Label();
             BeaDari2Text = new TextBox();
-            TamatBelajarText = new TextBox();
+            TamatBljrText = new TextBox();
             label58 = new Label();
             label53 = new Label();
             label50 = new Label();
@@ -117,7 +117,7 @@
             label45 = new Label();
             CitaCitaText = new TextBox();
             label43 = new Label();
-            MembacaMenulisText = new TextBox();
+            HobiText = new TextBox();
             label44 = new Label();
             KemasyarakatanText = new TextBox();
             label40 = new Label();
@@ -127,9 +127,9 @@
             label42 = new Label();
             panel3 = new Panel();
             label61 = new Label();
-            numericUpDown3 = new NumericUpDown();
-            numericUpDown2 = new NumericUpDown();
-            comboBox3 = new ComboBox();
+            BeratNumeric = new NumericUpDown();
+            TinggiNumeric = new NumericUpDown();
+            GolDarahCombo = new ComboBox();
             DiterimaTglPicker = new DateTimePicker();
             label31 = new Label();
             DiterimaKeahlianText = new TextBox();
@@ -140,36 +140,36 @@
             label29 = new Label();
             PindahanAlasanText = new TextBox();
             label22 = new Label();
-            PindahanDariText = new TextBox();
+            PindahanDrText = new TextBox();
             label28 = new Label();
             TglIjazahPicker = new DateTimePicker();
             label36 = new Label();
             LamaBelajarText = new TextBox();
             label35 = new Label();
-            NomorIjazahText = new TextBox();
+            NoIjazahText = new TextBox();
             label34 = new Label();
             KelainanText = new TextBox();
             label33 = new Label();
             label21 = new Label();
             label23 = new Label();
-            LulusanDariText = new TextBox();
+            LulusanDrText = new TextBox();
             label24 = new Label();
             label25 = new Label();
             label26 = new Label();
             label27 = new Label();
-            RiwayatPenyakitText = new TextBox();
+            RiwayatText = new TextBox();
             label30 = new Label();
             label32 = new Label();
             tabPage4 = new TabPage();
             panel6 = new Panel();
-            radioButton13 = new RadioButton();
-            radioButton14 = new RadioButton();
-            radioButton11 = new RadioButton();
+            AsingWaliRadio = new RadioButton();
+            WniWaliRadio = new RadioButton();
+            HidupIbuRadio = new RadioButton();
             BackOrtuButton = new Button();
-            radioButton12 = new RadioButton();
+            MeningglIbuRadio = new RadioButton();
             label86 = new Label();
             NextOrtuButton = new Button();
-            textBox5 = new TextBox();
+            ThnMeningglIbuText = new TextBox();
             label93 = new Label();
             NoTeleponWaliText = new TextBox();
             label95 = new Label();
@@ -179,7 +179,7 @@
             label97 = new Label();
             PekerjaanWaliText = new TextBox();
             label98 = new Label();
-            PendidikanWaliText = new TextBox();
+            PnddkanWaliText = new TextBox();
             label99 = new Label();
             TglLahirWaliPicker = new DateTimePicker();
             TmpLahirWaliText = new TextBox();
@@ -190,7 +190,7 @@
             NamaWaliText = new TextBox();
             label92 = new Label();
             label87 = new Label();
-            NoTeleponIbuText = new TextBox();
+            NoTlpIbuText = new TextBox();
             label81 = new Label();
             label82 = new Label();
             AlamatIbuText = new TextBox();
@@ -198,15 +198,15 @@
             label83 = new Label();
             PekerjaanIbuText = new TextBox();
             label84 = new Label();
-            PendidikanIbuText = new TextBox();
+            PnddkanIbuText = new TextBox();
             panel5 = new Panel();
-            radioButton9 = new RadioButton();
-            radioButton10 = new RadioButton();
-            radioButton7 = new RadioButton();
-            radioButton8 = new RadioButton();
-            radioButton6 = new RadioButton();
-            radioButton5 = new RadioButton();
-            textBox1 = new TextBox();
+            AsingIbuRadio = new RadioButton();
+            WniIbuRadio = new RadioButton();
+            AsingAyahRadio = new RadioButton();
+            WniAyahRadio = new RadioButton();
+            HidupAyahRadio = new RadioButton();
+            MeningglAyahRadio = new RadioButton();
+            PenghasilanAyahText = new TextBox();
             label76 = new Label();
             label100 = new Label();
             TglLahirIbuPicker = new DateTimePicker();
@@ -219,18 +219,18 @@
             label72 = new Label();
             NikAyahText = new TextBox();
             label73 = new Label();
-            KetHidupAyahText = new TextBox();
+            ThnMeningglAyahText = new TextBox();
             label74 = new Label();
-            NoTeleponAyahText = new TextBox();
+            NoTlpAyahText = new TextBox();
             label70 = new Label();
             label68 = new Label();
-            NomorKKText = new TextBox();
+            NoKkText = new TextBox();
             label69 = new Label();
             AlamatAyahText = new TextBox();
             label66 = new Label();
             PekerjaanAyahText = new TextBox();
             label67 = new Label();
-            PendidikanAyahText = new TextBox();
+            PnddkanAyahText = new TextBox();
             TglLahirAyahPicker = new DateTimePicker();
             TmpLahirAyahText = new TextBox();
             label65 = new Label();
@@ -243,9 +243,10 @@
             label63 = new Label();
             tabPage5 = new TabPage();
             panel7 = new Panel();
+            panel8 = new Panel();
             BackLulusButton = new Button();
-            TglBekerjaText = new DateTimePicker();
             label108 = new Label();
+            TglBekerjaText = new DateTimePicker();
             SaveButton = new Button();
             label107 = new Label();
             PenghasilanText = new TextBox();
@@ -257,19 +258,18 @@
             MelanjutkanText = new TextBox();
             label102 = new Label();
             label103 = new Label();
-            panel8 = new Panel();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabPage2.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NikNumeric).BeginInit();
             tabPage3.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BeratNumeric).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TinggiNumeric).BeginInit();
             tabPage4.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
@@ -349,14 +349,14 @@
             panel2.Controls.Add(label19);
             panel2.Controls.Add(TinggalCombo);
             panel2.Controls.Add(label18);
-            panel2.Controls.Add(TelephonText);
+            panel2.Controls.Add(NoHpText);
             panel2.Controls.Add(label17);
             panel2.Controls.Add(AlamatText);
             panel2.Controls.Add(label16);
             panel2.Controls.Add(YatimPiatuCombo);
             panel2.Controls.Add(BahasaText);
             panel2.Controls.Add(label13);
-            panel2.Controls.Add(SaudaraAngkatText);
+            panel2.Controls.Add(SdrAngkatText);
             panel2.Controls.Add(label12);
             panel2.Controls.Add(label11);
             panel2.Location = new Point(534, 6);
@@ -436,12 +436,12 @@
             label18.TabIndex = 22;
             label18.Text = "Tinggal Dengan                       :";
             // 
-            // TelephonText
+            // NoHpText
             // 
-            TelephonText.Location = new Point(247, 381);
-            TelephonText.Name = "TelephonText";
-            TelephonText.Size = new Size(266, 27);
-            TelephonText.TabIndex = 5;
+            NoHpText.Location = new Point(247, 381);
+            NoHpText.Name = "NoHpText";
+            NoHpText.Size = new Size(266, 27);
+            NoHpText.TabIndex = 5;
             // 
             // label17
             // 
@@ -493,12 +493,12 @@
             label13.TabIndex = 14;
             label13.Text = "Bahasa sehari-hari di rumah   :";
             // 
-            // SaudaraAngkatText
+            // SdrAngkatText
             // 
-            SaudaraAngkatText.Location = new Point(246, 77);
-            SaudaraAngkatText.Name = "SaudaraAngkatText";
-            SaudaraAngkatText.Size = new Size(267, 27);
-            SaudaraAngkatText.TabIndex = 1;
+            SdrAngkatText.Location = new Point(246, 77);
+            SdrAngkatText.Name = "SdrAngkatText";
+            SdrAngkatText.Size = new Size(267, 27);
+            SdrAngkatText.TabIndex = 1;
             // 
             // label12
             // 
@@ -521,12 +521,12 @@
             // panel1
             // 
             panel1.BackColor = Color.LightGray;
-            panel1.Controls.Add(radioButton3);
-            panel1.Controls.Add(radioButton4);
-            panel1.Controls.Add(radioButton2);
-            panel1.Controls.Add(radioButton1);
-            panel1.Controls.Add(numericUpDown1);
-            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(AsingRadio);
+            panel1.Controls.Add(WniRadio);
+            panel1.Controls.Add(PerempuanRadio);
+            panel1.Controls.Add(LakiRadio);
+            panel1.Controls.Add(NikNumeric);
+            panel1.Controls.Add(AgamaCombo);
             panel1.Controls.Add(label109);
             panel1.Controls.Add(label64);
             panel1.Controls.Add(label15);
@@ -538,10 +538,10 @@
             panel1.Controls.Add(TempatLahirText);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(SaudaraKandungText);
+            panel1.Controls.Add(SdrKandungText);
             panel1.Controls.Add(NamaPanggilanText);
             panel1.Controls.Add(label9);
-            panel1.Controls.Add(SaudaraTiriText);
+            panel1.Controls.Add(SdrTiriText);
             panel1.Controls.Add(label10);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(AnakKeText);
@@ -553,64 +553,64 @@
             panel1.Size = new Size(522, 694);
             panel1.TabIndex = 0;
             // 
-            // radioButton3
+            // AsingRadio
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(396, 329);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(67, 24);
-            radioButton3.TabIndex = 38;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Asing";
-            radioButton3.UseVisualStyleBackColor = true;
+            AsingRadio.AutoSize = true;
+            AsingRadio.Location = new Point(396, 329);
+            AsingRadio.Name = "AsingRadio";
+            AsingRadio.Size = new Size(67, 24);
+            AsingRadio.TabIndex = 9;
+            AsingRadio.TabStop = true;
+            AsingRadio.Text = "Asing";
+            AsingRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // WniRadio
             // 
-            radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(244, 329);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(59, 24);
-            radioButton4.TabIndex = 37;
-            radioButton4.TabStop = true;
-            radioButton4.Text = "WNI";
-            radioButton4.UseVisualStyleBackColor = true;
+            WniRadio.AutoSize = true;
+            WniRadio.Location = new Point(244, 329);
+            WniRadio.Name = "WniRadio";
+            WniRadio.Size = new Size(59, 24);
+            WniRadio.TabIndex = 8;
+            WniRadio.TabStop = true;
+            WniRadio.Text = "WNI";
+            WniRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // PerempuanRadio
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(370, 158);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(104, 24);
-            radioButton2.TabIndex = 36;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Perempuan";
-            radioButton2.UseVisualStyleBackColor = true;
+            PerempuanRadio.AutoSize = true;
+            PerempuanRadio.Location = new Point(370, 158);
+            PerempuanRadio.Name = "PerempuanRadio";
+            PerempuanRadio.Size = new Size(104, 24);
+            PerempuanRadio.TabIndex = 4;
+            PerempuanRadio.TabStop = true;
+            PerempuanRadio.Text = "Perempuan";
+            PerempuanRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // LakiRadio
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(244, 160);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(93, 24);
-            radioButton1.TabIndex = 35;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Laki - laki";
-            radioButton1.UseVisualStyleBackColor = true;
+            LakiRadio.AutoSize = true;
+            LakiRadio.Location = new Point(244, 160);
+            LakiRadio.Name = "LakiRadio";
+            LakiRadio.Size = new Size(93, 24);
+            LakiRadio.TabIndex = 3;
+            LakiRadio.TabStop = true;
+            LakiRadio.Text = "Laki - laki";
+            LakiRadio.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // NikNumeric
             // 
-            numericUpDown1.Location = new Point(209, 405);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(291, 27);
-            numericUpDown1.TabIndex = 34;
+            NikNumeric.Location = new Point(209, 405);
+            NikNumeric.Name = "NikNumeric";
+            NikNumeric.Size = new Size(291, 27);
+            NikNumeric.TabIndex = 10;
             // 
-            // comboBox1
+            // AgamaCombo
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(210, 284);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(290, 28);
-            comboBox1.TabIndex = 32;
+            AgamaCombo.FormattingEnabled = true;
+            AgamaCombo.Location = new Point(210, 284);
+            AgamaCombo.Name = "AgamaCombo";
+            AgamaCombo.Size = new Size(290, 28);
+            AgamaCombo.TabIndex = 7;
             // 
             // label109
             // 
@@ -657,7 +657,7 @@
             TglLahirPicker.Location = new Point(210, 242);
             TglLahirPicker.Name = "TglLahirPicker";
             TglLahirPicker.Size = new Size(291, 27);
-            TglLahirPicker.TabIndex = 5;
+            TglLahirPicker.TabIndex = 6;
             // 
             // label7
             // 
@@ -690,7 +690,7 @@
             TempatLahirText.Location = new Point(210, 200);
             TempatLahirText.Name = "TempatLahirText";
             TempatLahirText.Size = new Size(291, 27);
-            TempatLahirText.TabIndex = 4;
+            TempatLahirText.TabIndex = 5;
             // 
             // label4
             // 
@@ -710,12 +710,12 @@
             label3.TabIndex = 6;
             label3.Text = "Jenis Kelamin                   :";
             // 
-            // SaudaraKandungText
+            // SdrKandungText
             // 
-            SaudaraKandungText.Location = new Point(209, 488);
-            SaudaraKandungText.Name = "SaudaraKandungText";
-            SaudaraKandungText.Size = new Size(291, 27);
-            SaudaraKandungText.TabIndex = 10;
+            SdrKandungText.Location = new Point(209, 488);
+            SdrKandungText.Name = "SdrKandungText";
+            SdrKandungText.Size = new Size(291, 27);
+            SdrKandungText.TabIndex = 12;
             // 
             // NamaPanggilanText
             // 
@@ -733,12 +733,12 @@
             label9.TabIndex = 6;
             label9.Text = "Jumlah Saudara Kandung :";
             // 
-            // SaudaraTiriText
+            // SdrTiriText
             // 
-            SaudaraTiriText.Location = new Point(209, 530);
-            SaudaraTiriText.Name = "SaudaraTiriText";
-            SaudaraTiriText.Size = new Size(290, 27);
-            SaudaraTiriText.TabIndex = 11;
+            SdrTiriText.Location = new Point(209, 530);
+            SdrTiriText.Name = "SdrTiriText";
+            SdrTiriText.Size = new Size(290, 27);
+            SdrTiriText.TabIndex = 13;
             // 
             // label10
             // 
@@ -763,7 +763,7 @@
             AnakKeText.Location = new Point(209, 446);
             AnakKeText.Name = "AnakKeText";
             AnakKeText.Size = new Size(291, 27);
-            AnakKeText.TabIndex = 9;
+            AnakKeText.TabIndex = 11;
             // 
             // NamaLengkapText
             // 
@@ -805,22 +805,22 @@
             // panel4
             // 
             panel4.BackColor = Color.LightGray;
-            panel4.Controls.Add(textBox2);
+            panel4.Controls.Add(BeaDari3Text);
             panel4.Controls.Add(label71);
-            panel4.Controls.Add(textBox3);
+            panel4.Controls.Add(BeaKelas3Text);
             panel4.Controls.Add(label75);
-            panel4.Controls.Add(textBox4);
+            panel4.Controls.Add(BeaTahun3Text);
             panel4.Controls.Add(label80);
             panel4.Controls.Add(label111);
             panel4.Controls.Add(BackKesehatanButton);
             panel4.Controls.Add(NextKesehatanButton);
             panel4.Controls.Add(label56);
             panel4.Controls.Add(TglMeninggalkanPicker);
-            panel4.Controls.Add(IjazahNomorText);
+            panel4.Controls.Add(IjazahNoText);
             panel4.Controls.Add(AlasanMeninggalkanText);
             panel4.Controls.Add(label57);
             panel4.Controls.Add(BeaDari2Text);
-            panel4.Controls.Add(TamatBelajarText);
+            panel4.Controls.Add(TamatBljrText);
             panel4.Controls.Add(label58);
             panel4.Controls.Add(label53);
             panel4.Controls.Add(label50);
@@ -840,7 +840,7 @@
             panel4.Controls.Add(label45);
             panel4.Controls.Add(CitaCitaText);
             panel4.Controls.Add(label43);
-            panel4.Controls.Add(MembacaMenulisText);
+            panel4.Controls.Add(HobiText);
             panel4.Controls.Add(label44);
             panel4.Controls.Add(KemasyarakatanText);
             panel4.Controls.Add(label40);
@@ -852,14 +852,14 @@
             panel4.Location = new Point(503, 8);
             panel4.Name = "panel4";
             panel4.Size = new Size(563, 696);
-            panel4.TabIndex = 16;
+            panel4.TabIndex = 1;
             // 
-            // textBox2
+            // BeaDari3Text
             // 
-            textBox2.Location = new Point(362, 338);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(179, 27);
-            textBox2.TabIndex = 59;
+            BeaDari3Text.Location = new Point(362, 338);
+            BeaDari3Text.Name = "BeaDari3Text";
+            BeaDari3Text.Size = new Size(179, 27);
+            BeaDari3Text.TabIndex = 14;
             // 
             // label71
             // 
@@ -870,12 +870,12 @@
             label71.TabIndex = 62;
             label71.Text = "Dari";
             // 
-            // textBox3
+            // BeaKelas3Text
             // 
-            textBox3.Location = new Point(220, 338);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(101, 27);
-            textBox3.TabIndex = 58;
+            BeaKelas3Text.Location = new Point(220, 338);
+            BeaKelas3Text.Name = "BeaKelas3Text";
+            BeaKelas3Text.Size = new Size(101, 27);
+            BeaKelas3Text.TabIndex = 13;
             // 
             // label75
             // 
@@ -886,12 +886,12 @@
             label75.TabIndex = 61;
             label75.Text = "/Kelas";
             // 
-            // textBox4
+            // BeaTahun3Text
             // 
-            textBox4.Location = new Point(71, 338);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(95, 27);
-            textBox4.TabIndex = 57;
+            BeaTahun3Text.Location = new Point(71, 338);
+            BeaTahun3Text.Name = "BeaTahun3Text";
+            BeaTahun3Text.Size = new Size(95, 27);
+            BeaTahun3Text.TabIndex = 12;
             // 
             // label80
             // 
@@ -921,7 +921,7 @@
             BackKesehatanButton.Location = new Point(325, 650);
             BackKesehatanButton.Name = "BackKesehatanButton";
             BackKesehatanButton.Size = new Size(109, 33);
-            BackKesehatanButton.TabIndex = 16;
+            BackKesehatanButton.TabIndex = 19;
             BackKesehatanButton.Text = "Back";
             BackKesehatanButton.UseVisualStyleBackColor = false;
             // 
@@ -933,7 +933,7 @@
             NextKesehatanButton.Location = new Point(440, 649);
             NextKesehatanButton.Name = "NextKesehatanButton";
             NextKesehatanButton.Size = new Size(109, 35);
-            NextKesehatanButton.TabIndex = 17;
+            NextKesehatanButton.TabIndex = 20;
             NextKesehatanButton.Text = "Next";
             NextKesehatanButton.UseVisualStyleBackColor = false;
             // 
@@ -953,14 +953,14 @@
             TglMeninggalkanPicker.Location = new Point(250, 427);
             TglMeninggalkanPicker.Name = "TglMeninggalkanPicker";
             TglMeninggalkanPicker.Size = new Size(291, 27);
-            TglMeninggalkanPicker.TabIndex = 12;
+            TglMeninggalkanPicker.TabIndex = 15;
             // 
-            // IjazahNomorText
+            // IjazahNoText
             // 
-            IjazahNomorText.Location = new Point(250, 587);
-            IjazahNomorText.Name = "IjazahNomorText";
-            IjazahNomorText.Size = new Size(291, 27);
-            IjazahNomorText.TabIndex = 15;
+            IjazahNoText.Location = new Point(250, 587);
+            IjazahNoText.Name = "IjazahNoText";
+            IjazahNoText.Size = new Size(291, 27);
+            IjazahNoText.TabIndex = 18;
             // 
             // AlasanMeninggalkanText
             // 
@@ -968,7 +968,7 @@
             AlasanMeninggalkanText.Multiline = true;
             AlasanMeninggalkanText.Name = "AlasanMeninggalkanText";
             AlasanMeninggalkanText.Size = new Size(291, 62);
-            AlasanMeninggalkanText.TabIndex = 13;
+            AlasanMeninggalkanText.TabIndex = 16;
             // 
             // label57
             // 
@@ -986,12 +986,12 @@
             BeaDari2Text.Size = new Size(179, 27);
             BeaDari2Text.TabIndex = 11;
             // 
-            // TamatBelajarText
+            // TamatBljrText
             // 
-            TamatBelajarText.Location = new Point(250, 553);
-            TamatBelajarText.Name = "TamatBelajarText";
-            TamatBelajarText.Size = new Size(291, 27);
-            TamatBelajarText.TabIndex = 14;
+            TamatBljrText.Location = new Point(250, 553);
+            TamatBljrText.Name = "TamatBljrText";
+            TamatBljrText.Size = new Size(291, 27);
+            TamatBljrText.TabIndex = 17;
             // 
             // label58
             // 
@@ -1156,12 +1156,12 @@
             label43.TabIndex = 41;
             label43.Text = "Hobi                                          :";
             // 
-            // MembacaMenulisText
+            // HobiText
             // 
-            MembacaMenulisText.Location = new Point(250, 147);
-            MembacaMenulisText.Name = "MembacaMenulisText";
-            MembacaMenulisText.Size = new Size(291, 27);
-            MembacaMenulisText.TabIndex = 4;
+            HobiText.Location = new Point(250, 147);
+            HobiText.Name = "HobiText";
+            HobiText.Size = new Size(291, 27);
+            HobiText.TabIndex = 4;
             // 
             // label44
             // 
@@ -1225,9 +1225,9 @@
             // 
             panel3.BackColor = Color.LightGray;
             panel3.Controls.Add(label61);
-            panel3.Controls.Add(numericUpDown3);
-            panel3.Controls.Add(numericUpDown2);
-            panel3.Controls.Add(comboBox3);
+            panel3.Controls.Add(BeratNumeric);
+            panel3.Controls.Add(TinggiNumeric);
+            panel3.Controls.Add(GolDarahCombo);
             panel3.Controls.Add(DiterimaTglPicker);
             panel3.Controls.Add(label31);
             panel3.Controls.Add(DiterimaKeahlianText);
@@ -1238,24 +1238,24 @@
             panel3.Controls.Add(label29);
             panel3.Controls.Add(PindahanAlasanText);
             panel3.Controls.Add(label22);
-            panel3.Controls.Add(PindahanDariText);
+            panel3.Controls.Add(PindahanDrText);
             panel3.Controls.Add(label28);
             panel3.Controls.Add(TglIjazahPicker);
             panel3.Controls.Add(label36);
             panel3.Controls.Add(LamaBelajarText);
             panel3.Controls.Add(label35);
-            panel3.Controls.Add(NomorIjazahText);
+            panel3.Controls.Add(NoIjazahText);
             panel3.Controls.Add(label34);
             panel3.Controls.Add(KelainanText);
             panel3.Controls.Add(label33);
             panel3.Controls.Add(label21);
             panel3.Controls.Add(label23);
-            panel3.Controls.Add(LulusanDariText);
+            panel3.Controls.Add(LulusanDrText);
             panel3.Controls.Add(label24);
             panel3.Controls.Add(label25);
             panel3.Controls.Add(label26);
             panel3.Controls.Add(label27);
-            panel3.Controls.Add(RiwayatPenyakitText);
+            panel3.Controls.Add(RiwayatText);
             panel3.Controls.Add(label30);
             panel3.Controls.Add(label32);
             panel3.Location = new Point(6, 8);
@@ -1273,27 +1273,27 @@
             label61.TabIndex = 56;
             label61.Text = "Kesehatan :";
             // 
-            // numericUpDown3
+            // BeratNumeric
             // 
-            numericUpDown3.Location = new Point(193, 169);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(287, 27);
-            numericUpDown3.TabIndex = 41;
+            BeratNumeric.Location = new Point(193, 169);
+            BeratNumeric.Name = "BeratNumeric";
+            BeratNumeric.Size = new Size(287, 27);
+            BeratNumeric.TabIndex = 5;
             // 
-            // numericUpDown2
+            // TinggiNumeric
             // 
-            numericUpDown2.Location = new Point(193, 136);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(287, 27);
-            numericUpDown2.TabIndex = 40;
+            TinggiNumeric.Location = new Point(193, 136);
+            TinggiNumeric.Name = "TinggiNumeric";
+            TinggiNumeric.Size = new Size(287, 27);
+            TinggiNumeric.TabIndex = 4;
             // 
-            // comboBox3
+            // GolDarahCombo
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(193, 36);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(287, 28);
-            comboBox3.TabIndex = 39;
+            GolDarahCombo.FormattingEnabled = true;
+            GolDarahCombo.Location = new Point(193, 36);
+            GolDarahCombo.Name = "GolDarahCombo";
+            GolDarahCombo.Size = new Size(287, 28);
+            GolDarahCombo.TabIndex = 1;
             // 
             // DiterimaTglPicker
             // 
@@ -1381,12 +1381,12 @@
             label22.TabIndex = 30;
             label22.Text = "Dari Sekolah               :";
             // 
-            // PindahanDariText
+            // PindahanDrText
             // 
-            PindahanDariText.Location = new Point(193, 408);
-            PindahanDariText.Name = "PindahanDariText";
-            PindahanDariText.Size = new Size(287, 27);
-            PindahanDariText.TabIndex = 10;
+            PindahanDrText.Location = new Point(193, 408);
+            PindahanDrText.Name = "PindahanDrText";
+            PindahanDrText.Size = new Size(287, 27);
+            PindahanDrText.TabIndex = 10;
             // 
             // label28
             // 
@@ -1432,12 +1432,12 @@
             label35.TabIndex = 24;
             label35.Text = "Nomor Ijazah             :";
             // 
-            // NomorIjazahText
+            // NoIjazahText
             // 
-            NomorIjazahText.Location = new Point(193, 308);
-            NomorIjazahText.Name = "NomorIjazahText";
-            NomorIjazahText.Size = new Size(287, 27);
-            NomorIjazahText.TabIndex = 8;
+            NoIjazahText.Location = new Point(193, 308);
+            NoIjazahText.Name = "NoIjazahText";
+            NoIjazahText.Size = new Size(287, 27);
+            NoIjazahText.TabIndex = 8;
             // 
             // label34
             // 
@@ -1483,12 +1483,12 @@
             label23.TabIndex = 14;
             label23.Text = "Lulusan Dari               :";
             // 
-            // LulusanDariText
+            // LulusanDrText
             // 
-            LulusanDariText.Location = new Point(193, 242);
-            LulusanDariText.Name = "LulusanDariText";
-            LulusanDariText.Size = new Size(287, 27);
-            LulusanDariText.TabIndex = 6;
+            LulusanDrText.Location = new Point(193, 242);
+            LulusanDrText.Name = "LulusanDrText";
+            LulusanDrText.Size = new Size(287, 27);
+            LulusanDrText.TabIndex = 6;
             // 
             // label24
             // 
@@ -1526,12 +1526,12 @@
             label27.TabIndex = 6;
             label27.Text = "Kelainan Jasmani       :";
             // 
-            // RiwayatPenyakitText
+            // RiwayatText
             // 
-            RiwayatPenyakitText.Location = new Point(193, 70);
-            RiwayatPenyakitText.Name = "RiwayatPenyakitText";
-            RiwayatPenyakitText.Size = new Size(287, 27);
-            RiwayatPenyakitText.TabIndex = 2;
+            RiwayatText.Location = new Point(193, 70);
+            RiwayatText.Name = "RiwayatText";
+            RiwayatText.Size = new Size(287, 27);
+            RiwayatText.TabIndex = 2;
             // 
             // label30
             // 
@@ -1566,14 +1566,14 @@
             // panel6
             // 
             panel6.BackColor = Color.LightGray;
-            panel6.Controls.Add(radioButton13);
-            panel6.Controls.Add(radioButton14);
-            panel6.Controls.Add(radioButton11);
+            panel6.Controls.Add(AsingWaliRadio);
+            panel6.Controls.Add(WniWaliRadio);
+            panel6.Controls.Add(HidupIbuRadio);
             panel6.Controls.Add(BackOrtuButton);
-            panel6.Controls.Add(radioButton12);
+            panel6.Controls.Add(MeningglIbuRadio);
             panel6.Controls.Add(label86);
             panel6.Controls.Add(NextOrtuButton);
-            panel6.Controls.Add(textBox5);
+            panel6.Controls.Add(ThnMeningglIbuText);
             panel6.Controls.Add(label93);
             panel6.Controls.Add(NoTeleponWaliText);
             panel6.Controls.Add(label95);
@@ -1583,7 +1583,7 @@
             panel6.Controls.Add(label97);
             panel6.Controls.Add(PekerjaanWaliText);
             panel6.Controls.Add(label98);
-            panel6.Controls.Add(PendidikanWaliText);
+            panel6.Controls.Add(PnddkanWaliText);
             panel6.Controls.Add(label99);
             panel6.Controls.Add(TglLahirWaliPicker);
             panel6.Controls.Add(TmpLahirWaliText);
@@ -1594,7 +1594,7 @@
             panel6.Controls.Add(NamaWaliText);
             panel6.Controls.Add(label92);
             panel6.Controls.Add(label87);
-            panel6.Controls.Add(NoTeleponIbuText);
+            panel6.Controls.Add(NoTlpIbuText);
             panel6.Controls.Add(label81);
             panel6.Controls.Add(label82);
             panel6.Controls.Add(AlamatIbuText);
@@ -1602,44 +1602,44 @@
             panel6.Controls.Add(label83);
             panel6.Controls.Add(PekerjaanIbuText);
             panel6.Controls.Add(label84);
-            panel6.Controls.Add(PendidikanIbuText);
+            panel6.Controls.Add(PnddkanIbuText);
             panel6.Location = new Point(542, 6);
             panel6.Name = "panel6";
             panel6.Size = new Size(527, 698);
             panel6.TabIndex = 1;
             // 
-            // radioButton13
+            // AsingWaliRadio
             // 
-            radioButton13.AutoSize = true;
-            radioButton13.Location = new Point(367, 416);
-            radioButton13.Name = "radioButton13";
-            radioButton13.Size = new Size(67, 24);
-            radioButton13.TabIndex = 103;
-            radioButton13.TabStop = true;
-            radioButton13.Text = "Asing";
-            radioButton13.UseVisualStyleBackColor = true;
+            AsingWaliRadio.AutoSize = true;
+            AsingWaliRadio.Location = new Point(367, 416);
+            AsingWaliRadio.Name = "AsingWaliRadio";
+            AsingWaliRadio.Size = new Size(67, 24);
+            AsingWaliRadio.TabIndex = 14;
+            AsingWaliRadio.TabStop = true;
+            AsingWaliRadio.Text = "Asing";
+            AsingWaliRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton14
+            // WniWaliRadio
             // 
-            radioButton14.AutoSize = true;
-            radioButton14.Location = new Point(192, 419);
-            radioButton14.Name = "radioButton14";
-            radioButton14.Size = new Size(59, 24);
-            radioButton14.TabIndex = 102;
-            radioButton14.TabStop = true;
-            radioButton14.Text = "WNI";
-            radioButton14.UseVisualStyleBackColor = true;
+            WniWaliRadio.AutoSize = true;
+            WniWaliRadio.Location = new Point(192, 419);
+            WniWaliRadio.Name = "WniWaliRadio";
+            WniWaliRadio.Size = new Size(59, 24);
+            WniWaliRadio.TabIndex = 13;
+            WniWaliRadio.TabStop = true;
+            WniWaliRadio.Text = "WNI";
+            WniWaliRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton11
+            // HidupIbuRadio
             // 
-            radioButton11.AutoSize = true;
-            radioButton11.Location = new Point(186, 230);
-            radioButton11.Name = "radioButton11";
-            radioButton11.Size = new Size(114, 24);
-            radioButton11.TabIndex = 101;
-            radioButton11.TabStop = true;
-            radioButton11.Text = "Masih Hidup";
-            radioButton11.UseVisualStyleBackColor = true;
+            HidupIbuRadio.AutoSize = true;
+            HidupIbuRadio.Location = new Point(186, 230);
+            HidupIbuRadio.Name = "HidupIbuRadio";
+            HidupIbuRadio.Size = new Size(114, 24);
+            HidupIbuRadio.TabIndex = 6;
+            HidupIbuRadio.TabStop = true;
+            HidupIbuRadio.Text = "Masih Hidup";
+            HidupIbuRadio.UseVisualStyleBackColor = true;
             // 
             // BackOrtuButton
             // 
@@ -1650,20 +1650,20 @@
             BackOrtuButton.Location = new Point(286, 652);
             BackOrtuButton.Name = "BackOrtuButton";
             BackOrtuButton.Size = new Size(109, 33);
-            BackOrtuButton.TabIndex = 17;
+            BackOrtuButton.TabIndex = 20;
             BackOrtuButton.Text = "Back";
             BackOrtuButton.UseVisualStyleBackColor = false;
             // 
-            // radioButton12
+            // MeningglIbuRadio
             // 
-            radioButton12.AutoSize = true;
-            radioButton12.Location = new Point(365, 230);
-            radioButton12.Name = "radioButton12";
-            radioButton12.Size = new Size(146, 24);
-            radioButton12.TabIndex = 100;
-            radioButton12.TabStop = true;
-            radioButton12.Text = "Sudah Meninggal";
-            radioButton12.UseVisualStyleBackColor = true;
+            MeningglIbuRadio.AutoSize = true;
+            MeningglIbuRadio.Location = new Point(365, 230);
+            MeningglIbuRadio.Name = "MeningglIbuRadio";
+            MeningglIbuRadio.Size = new Size(146, 24);
+            MeningglIbuRadio.TabIndex = 7;
+            MeningglIbuRadio.TabStop = true;
+            MeningglIbuRadio.Text = "Sudah Meninggal";
+            MeningglIbuRadio.UseVisualStyleBackColor = true;
             // 
             // label86
             // 
@@ -1682,17 +1682,17 @@
             NextOrtuButton.Location = new Point(401, 651);
             NextOrtuButton.Name = "NextOrtuButton";
             NextOrtuButton.Size = new Size(110, 35);
-            NextOrtuButton.TabIndex = 18;
+            NextOrtuButton.TabIndex = 21;
             NextOrtuButton.Text = "Next";
             NextOrtuButton.UseVisualStyleBackColor = false;
             // 
-            // textBox5
+            // ThnMeningglIbuText
             // 
-            textBox5.Location = new Point(186, 258);
-            textBox5.Name = "textBox5";
-            textBox5.PlaceholderText = "Tahun meninggal";
-            textBox5.Size = new Size(325, 27);
-            textBox5.TabIndex = 98;
+            ThnMeningglIbuText.Location = new Point(186, 258);
+            ThnMeningglIbuText.Name = "ThnMeningglIbuText";
+            ThnMeningglIbuText.PlaceholderText = "Tahun meninggal";
+            ThnMeningglIbuText.Size = new Size(325, 27);
+            ThnMeningglIbuText.TabIndex = 8;
             // 
             // label93
             // 
@@ -1708,7 +1708,7 @@
             NoTeleponWaliText.Location = new Point(188, 606);
             NoTeleponWaliText.Name = "NoTeleponWaliText";
             NoTeleponWaliText.Size = new Size(325, 27);
-            NoTeleponWaliText.TabIndex = 16;
+            NoTeleponWaliText.TabIndex = 19;
             // 
             // label95
             // 
@@ -1734,14 +1734,14 @@
             AlamatWaliText.Multiline = true;
             AlamatWaliText.Name = "AlamatWaliText";
             AlamatWaliText.Size = new Size(325, 60);
-            AlamatWaliText.TabIndex = 15;
+            AlamatWaliText.TabIndex = 18;
             // 
             // PenghasilanWaliText
             // 
             PenghasilanWaliText.Location = new Point(187, 511);
             PenghasilanWaliText.Name = "PenghasilanWaliText";
             PenghasilanWaliText.Size = new Size(325, 27);
-            PenghasilanWaliText.TabIndex = 14;
+            PenghasilanWaliText.TabIndex = 17;
             PenghasilanWaliText.Text = "Rp.";
             // 
             // label97
@@ -1758,7 +1758,7 @@
             PekerjaanWaliText.Location = new Point(188, 480);
             PekerjaanWaliText.Name = "PekerjaanWaliText";
             PekerjaanWaliText.Size = new Size(325, 27);
-            PekerjaanWaliText.TabIndex = 13;
+            PekerjaanWaliText.TabIndex = 16;
             // 
             // label98
             // 
@@ -1769,12 +1769,12 @@
             label98.TabIndex = 79;
             label98.Text = "Pendidikan               :";
             // 
-            // PendidikanWaliText
+            // PnddkanWaliText
             // 
-            PendidikanWaliText.Location = new Point(188, 449);
-            PendidikanWaliText.Name = "PendidikanWaliText";
-            PendidikanWaliText.Size = new Size(325, 27);
-            PendidikanWaliText.TabIndex = 12;
+            PnddkanWaliText.Location = new Point(188, 449);
+            PnddkanWaliText.Name = "PnddkanWaliText";
+            PnddkanWaliText.Size = new Size(325, 27);
+            PnddkanWaliText.TabIndex = 15;
             // 
             // label99
             // 
@@ -1792,14 +1792,14 @@
             TglLahirWaliPicker.Location = new Point(353, 356);
             TglLahirWaliPicker.Name = "TglLahirWaliPicker";
             TglLahirWaliPicker.Size = new Size(160, 27);
-            TglLahirWaliPicker.TabIndex = 9;
+            TglLahirWaliPicker.TabIndex = 11;
             // 
             // TmpLahirWaliText
             // 
             TmpLahirWaliText.Location = new Point(187, 356);
             TmpLahirWaliText.Name = "TmpLahirWaliText";
             TmpLahirWaliText.Size = new Size(160, 27);
-            TmpLahirWaliText.TabIndex = 8;
+            TmpLahirWaliText.TabIndex = 10;
             // 
             // label89
             // 
@@ -1824,7 +1824,7 @@
             AgamaWaliText.Location = new Point(188, 387);
             AgamaWaliText.Name = "AgamaWaliText";
             AgamaWaliText.Size = new Size(325, 27);
-            AgamaWaliText.TabIndex = 10;
+            AgamaWaliText.TabIndex = 12;
             // 
             // label91
             // 
@@ -1840,7 +1840,7 @@
             NamaWaliText.Location = new Point(187, 325);
             NamaWaliText.Name = "NamaWaliText";
             NamaWaliText.Size = new Size(326, 27);
-            NamaWaliText.TabIndex = 7;
+            NamaWaliText.TabIndex = 9;
             // 
             // label92
             // 
@@ -1861,12 +1861,12 @@
             label87.TabIndex = 64;
             label87.Text = "Nomor Telepon      :";
             // 
-            // NoTeleponIbuText
+            // NoTlpIbuText
             // 
-            NoTeleponIbuText.Location = new Point(187, 196);
-            NoTeleponIbuText.Name = "NoTeleponIbuText";
-            NoTeleponIbuText.Size = new Size(325, 27);
-            NoTeleponIbuText.TabIndex = 5;
+            NoTlpIbuText.Location = new Point(187, 196);
+            NoTlpIbuText.Name = "NoTlpIbuText";
+            NoTlpIbuText.Size = new Size(325, 27);
+            NoTlpIbuText.TabIndex = 5;
             // 
             // label81
             // 
@@ -1927,23 +1927,23 @@
             label84.TabIndex = 55;
             label84.Text = "Pendidikan               :";
             // 
-            // PendidikanIbuText
+            // PnddkanIbuText
             // 
-            PendidikanIbuText.Location = new Point(186, 39);
-            PendidikanIbuText.Name = "PendidikanIbuText";
-            PendidikanIbuText.Size = new Size(325, 27);
-            PendidikanIbuText.TabIndex = 1;
+            PnddkanIbuText.Location = new Point(186, 39);
+            PnddkanIbuText.Name = "PnddkanIbuText";
+            PnddkanIbuText.Size = new Size(325, 27);
+            PnddkanIbuText.TabIndex = 1;
             // 
             // panel5
             // 
             panel5.BackColor = Color.LightGray;
-            panel5.Controls.Add(radioButton9);
-            panel5.Controls.Add(radioButton10);
-            panel5.Controls.Add(radioButton7);
-            panel5.Controls.Add(radioButton8);
-            panel5.Controls.Add(radioButton6);
-            panel5.Controls.Add(radioButton5);
-            panel5.Controls.Add(textBox1);
+            panel5.Controls.Add(AsingIbuRadio);
+            panel5.Controls.Add(WniIbuRadio);
+            panel5.Controls.Add(AsingAyahRadio);
+            panel5.Controls.Add(WniAyahRadio);
+            panel5.Controls.Add(HidupAyahRadio);
+            panel5.Controls.Add(MeningglAyahRadio);
+            panel5.Controls.Add(PenghasilanAyahText);
             panel5.Controls.Add(label76);
             panel5.Controls.Add(label100);
             panel5.Controls.Add(TglLahirIbuPicker);
@@ -1956,18 +1956,18 @@
             panel5.Controls.Add(label72);
             panel5.Controls.Add(NikAyahText);
             panel5.Controls.Add(label73);
-            panel5.Controls.Add(KetHidupAyahText);
+            panel5.Controls.Add(ThnMeningglAyahText);
             panel5.Controls.Add(label74);
-            panel5.Controls.Add(NoTeleponAyahText);
+            panel5.Controls.Add(NoTlpAyahText);
             panel5.Controls.Add(label70);
             panel5.Controls.Add(label68);
-            panel5.Controls.Add(NomorKKText);
+            panel5.Controls.Add(NoKkText);
             panel5.Controls.Add(label69);
             panel5.Controls.Add(AlamatAyahText);
             panel5.Controls.Add(label66);
             panel5.Controls.Add(PekerjaanAyahText);
             panel5.Controls.Add(label67);
-            panel5.Controls.Add(PendidikanAyahText);
+            panel5.Controls.Add(PnddkanAyahText);
             panel5.Controls.Add(TglLahirAyahPicker);
             panel5.Controls.Add(TmpLahirAyahText);
             panel5.Controls.Add(label65);
@@ -1983,79 +1983,79 @@
             panel5.Size = new Size(530, 698);
             panel5.TabIndex = 0;
             // 
-            // radioButton9
+            // AsingIbuRadio
             // 
-            radioButton9.AutoSize = true;
-            radioButton9.Location = new Point(367, 620);
-            radioButton9.Name = "radioButton9";
-            radioButton9.Size = new Size(67, 24);
-            radioButton9.TabIndex = 97;
-            radioButton9.TabStop = true;
-            radioButton9.Text = "Asing";
-            radioButton9.UseVisualStyleBackColor = true;
+            AsingIbuRadio.AutoSize = true;
+            AsingIbuRadio.Location = new Point(367, 620);
+            AsingIbuRadio.Name = "AsingIbuRadio";
+            AsingIbuRadio.Size = new Size(67, 24);
+            AsingIbuRadio.TabIndex = 22;
+            AsingIbuRadio.TabStop = true;
+            AsingIbuRadio.Text = "Asing";
+            AsingIbuRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton10
+            // WniIbuRadio
             // 
-            radioButton10.AutoSize = true;
-            radioButton10.Location = new Point(192, 623);
-            radioButton10.Name = "radioButton10";
-            radioButton10.Size = new Size(59, 24);
-            radioButton10.TabIndex = 96;
-            radioButton10.TabStop = true;
-            radioButton10.Text = "WNI";
-            radioButton10.UseVisualStyleBackColor = true;
+            WniIbuRadio.AutoSize = true;
+            WniIbuRadio.Location = new Point(192, 623);
+            WniIbuRadio.Name = "WniIbuRadio";
+            WniIbuRadio.Size = new Size(59, 24);
+            WniIbuRadio.TabIndex = 21;
+            WniIbuRadio.TabStop = true;
+            WniIbuRadio.Text = "WNI";
+            WniIbuRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
+            // AsingAyahRadio
             // 
-            radioButton7.AutoSize = true;
-            radioButton7.Location = new Point(367, 135);
-            radioButton7.Name = "radioButton7";
-            radioButton7.Size = new Size(67, 24);
-            radioButton7.TabIndex = 95;
-            radioButton7.TabStop = true;
-            radioButton7.Text = "Asing";
-            radioButton7.UseVisualStyleBackColor = true;
+            AsingAyahRadio.AutoSize = true;
+            AsingAyahRadio.Location = new Point(367, 135);
+            AsingAyahRadio.Name = "AsingAyahRadio";
+            AsingAyahRadio.Size = new Size(67, 24);
+            AsingAyahRadio.TabIndex = 6;
+            AsingAyahRadio.TabStop = true;
+            AsingAyahRadio.Text = "Asing";
+            AsingAyahRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton8
+            // WniAyahRadio
             // 
-            radioButton8.AutoSize = true;
-            radioButton8.Location = new Point(192, 135);
-            radioButton8.Name = "radioButton8";
-            radioButton8.Size = new Size(59, 24);
-            radioButton8.TabIndex = 94;
-            radioButton8.TabStop = true;
-            radioButton8.Text = "WNI";
-            radioButton8.UseVisualStyleBackColor = true;
+            WniAyahRadio.AutoSize = true;
+            WniAyahRadio.Location = new Point(192, 135);
+            WniAyahRadio.Name = "WniAyahRadio";
+            WniAyahRadio.Size = new Size(59, 24);
+            WniAyahRadio.TabIndex = 5;
+            WniAyahRadio.TabStop = true;
+            WniAyahRadio.Text = "WNI";
+            WniAyahRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // HidupAyahRadio
             // 
-            radioButton6.AutoSize = true;
-            radioButton6.Location = new Point(192, 386);
-            radioButton6.Name = "radioButton6";
-            radioButton6.Size = new Size(114, 24);
-            radioButton6.TabIndex = 93;
-            radioButton6.TabStop = true;
-            radioButton6.Text = "Masih Hidup";
-            radioButton6.UseVisualStyleBackColor = true;
+            HidupAyahRadio.AutoSize = true;
+            HidupAyahRadio.Location = new Point(192, 386);
+            HidupAyahRadio.Name = "HidupAyahRadio";
+            HidupAyahRadio.Size = new Size(114, 24);
+            HidupAyahRadio.TabIndex = 13;
+            HidupAyahRadio.TabStop = true;
+            HidupAyahRadio.Text = "Masih Hidup";
+            HidupAyahRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // MeningglAyahRadio
             // 
-            radioButton5.AutoSize = true;
-            radioButton5.Location = new Point(367, 386);
-            radioButton5.Name = "radioButton5";
-            radioButton5.Size = new Size(146, 24);
-            radioButton5.TabIndex = 92;
-            radioButton5.TabStop = true;
-            radioButton5.Text = "Sudah Meninggal";
-            radioButton5.UseVisualStyleBackColor = true;
+            MeningglAyahRadio.AutoSize = true;
+            MeningglAyahRadio.Location = new Point(367, 386);
+            MeningglAyahRadio.Name = "MeningglAyahRadio";
+            MeningglAyahRadio.Size = new Size(146, 24);
+            MeningglAyahRadio.TabIndex = 14;
+            MeningglAyahRadio.TabStop = true;
+            MeningglAyahRadio.Text = "Sudah Meninggal";
+            MeningglAyahRadio.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // PenghasilanAyahText
             // 
-            textBox1.Location = new Point(188, 227);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(327, 27);
-            textBox1.TabIndex = 91;
-            textBox1.Text = "Rp.";
+            PenghasilanAyahText.Location = new Point(188, 227);
+            PenghasilanAyahText.Name = "PenghasilanAyahText";
+            PenghasilanAyahText.Size = new Size(327, 27);
+            PenghasilanAyahText.TabIndex = 9;
+            PenghasilanAyahText.Text = "Rp.";
             // 
             // label76
             // 
@@ -2083,7 +2083,7 @@
             TglLahirIbuPicker.Location = new Point(353, 556);
             TglLahirIbuPicker.Name = "TglLahirIbuPicker";
             TglLahirIbuPicker.Size = new Size(160, 27);
-            TglLahirIbuPicker.TabIndex = 16;
+            TglLahirIbuPicker.TabIndex = 19;
             TglLahirIbuPicker.ValueChanged += TglLahirIbuPicker_ValueChanged;
             // 
             // TmpLahirIbutext
@@ -2091,7 +2091,7 @@
             TmpLahirIbutext.Location = new Point(186, 556);
             TmpLahirIbutext.Name = "TmpLahirIbutext";
             TmpLahirIbutext.Size = new Size(162, 27);
-            TmpLahirIbutext.TabIndex = 15;
+            TmpLahirIbutext.TabIndex = 18;
             // 
             // label77
             // 
@@ -2107,7 +2107,7 @@
             AgamaIbuText.Location = new Point(186, 587);
             AgamaIbuText.Name = "AgamaIbuText";
             AgamaIbuText.Size = new Size(327, 27);
-            AgamaIbuText.TabIndex = 17;
+            AgamaIbuText.TabIndex = 20;
             // 
             // label78
             // 
@@ -2123,7 +2123,7 @@
             NamaIbuText.Location = new Point(186, 525);
             NamaIbuText.Name = "NamaIbuText";
             NamaIbuText.Size = new Size(327, 27);
-            NamaIbuText.TabIndex = 14;
+            NamaIbuText.TabIndex = 17;
             // 
             // label79
             // 
@@ -2149,7 +2149,7 @@
             NikAyahText.Location = new Point(186, 447);
             NikAyahText.Name = "NikAyahText";
             NikAyahText.Size = new Size(329, 27);
-            NikAyahText.TabIndex = 13;
+            NikAyahText.TabIndex = 16;
             // 
             // label73
             // 
@@ -2160,13 +2160,13 @@
             label73.TabIndex = 55;
             label73.Text = "Masih Hidup/\r\nMeninggal Tahun    :";
             // 
-            // KetHidupAyahText
+            // ThnMeningglAyahText
             // 
-            KetHidupAyahText.Location = new Point(188, 414);
-            KetHidupAyahText.Name = "KetHidupAyahText";
-            KetHidupAyahText.PlaceholderText = "Tahun meninggal";
-            KetHidupAyahText.Size = new Size(325, 27);
-            KetHidupAyahText.TabIndex = 12;
+            ThnMeningglAyahText.Location = new Point(188, 414);
+            ThnMeningglAyahText.Name = "ThnMeningglAyahText";
+            ThnMeningglAyahText.PlaceholderText = "Tahun meninggal";
+            ThnMeningglAyahText.Size = new Size(325, 27);
+            ThnMeningglAyahText.TabIndex = 15;
             // 
             // label74
             // 
@@ -2177,12 +2177,12 @@
             label74.TabIndex = 53;
             label74.Text = "Nomor Telepon      :";
             // 
-            // NoTeleponAyahText
+            // NoTlpAyahText
             // 
-            NoTeleponAyahText.Location = new Point(188, 353);
-            NoTeleponAyahText.Name = "NoTeleponAyahText";
-            NoTeleponAyahText.Size = new Size(325, 27);
-            NoTeleponAyahText.TabIndex = 11;
+            NoTlpAyahText.Location = new Point(188, 353);
+            NoTlpAyahText.Name = "NoTlpAyahText";
+            NoTlpAyahText.Size = new Size(325, 27);
+            NoTlpAyahText.TabIndex = 12;
             // 
             // label70
             // 
@@ -2202,12 +2202,12 @@
             label68.TabIndex = 49;
             label68.Text = "Nomor KK               :";
             // 
-            // NomorKKText
+            // NoKkText
             // 
-            NomorKKText.Location = new Point(188, 322);
-            NomorKKText.Name = "NomorKKText";
-            NomorKKText.Size = new Size(325, 27);
-            NomorKKText.TabIndex = 10;
+            NoKkText.Location = new Point(188, 322);
+            NoKkText.Name = "NoKkText";
+            NoKkText.Size = new Size(325, 27);
+            NoKkText.TabIndex = 11;
             // 
             // label69
             // 
@@ -2224,7 +2224,7 @@
             AlamatAyahText.Multiline = true;
             AlamatAyahText.Name = "AlamatAyahText";
             AlamatAyahText.Size = new Size(327, 60);
-            AlamatAyahText.TabIndex = 9;
+            AlamatAyahText.TabIndex = 10;
             // 
             // label66
             // 
@@ -2240,7 +2240,7 @@
             PekerjaanAyahText.Location = new Point(188, 196);
             PekerjaanAyahText.Name = "PekerjaanAyahText";
             PekerjaanAyahText.Size = new Size(327, 27);
-            PekerjaanAyahText.TabIndex = 7;
+            PekerjaanAyahText.TabIndex = 8;
             // 
             // label67
             // 
@@ -2251,12 +2251,12 @@
             label67.TabIndex = 42;
             label67.Text = "Pendidikan               :";
             // 
-            // PendidikanAyahText
+            // PnddkanAyahText
             // 
-            PendidikanAyahText.Location = new Point(188, 165);
-            PendidikanAyahText.Name = "PendidikanAyahText";
-            PendidikanAyahText.Size = new Size(327, 27);
-            PendidikanAyahText.TabIndex = 6;
+            PnddkanAyahText.Location = new Point(188, 165);
+            PnddkanAyahText.Name = "PnddkanAyahText";
+            PnddkanAyahText.Size = new Size(327, 27);
+            PnddkanAyahText.TabIndex = 7;
             // 
             // TglLahirAyahPicker
             // 
@@ -2363,6 +2363,28 @@
             panel7.Size = new Size(1060, 698);
             panel7.TabIndex = 0;
             // 
+            // panel8
+            // 
+            panel8.BackColor = Color.LightGray;
+            panel8.Controls.Add(BackLulusButton);
+            panel8.Controls.Add(label108);
+            panel8.Controls.Add(TglBekerjaText);
+            panel8.Controls.Add(SaveButton);
+            panel8.Controls.Add(label107);
+            panel8.Controls.Add(PenghasilanText);
+            panel8.Controls.Add(label106);
+            panel8.Controls.Add(NamaPerusahaanText);
+            panel8.Controls.Add(label105);
+            panel8.Controls.Add(label101);
+            panel8.Controls.Add(label104);
+            panel8.Controls.Add(MelanjutkanText);
+            panel8.Controls.Add(label102);
+            panel8.Controls.Add(label103);
+            panel8.Location = new Point(118, 68);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(828, 555);
+            panel8.TabIndex = 92;
+            // 
             // BackLulusButton
             // 
             BackLulusButton.BackColor = Color.White;
@@ -2376,15 +2398,6 @@
             BackLulusButton.Text = "Back";
             BackLulusButton.UseVisualStyleBackColor = false;
             // 
-            // TglBekerjaText
-            // 
-            TglBekerjaText.CustomFormat = "dd/MMM/yyyy";
-            TglBekerjaText.Format = DateTimePickerFormat.Custom;
-            TglBekerjaText.Location = new Point(327, 214);
-            TglBekerjaText.Name = "TglBekerjaText";
-            TglBekerjaText.Size = new Size(477, 27);
-            TglBekerjaText.TabIndex = 2;
-            // 
             // label108
             // 
             label108.AutoSize = true;
@@ -2394,6 +2407,15 @@
             label108.Size = new Size(220, 20);
             label108.TabIndex = 91;
             label108.Text = "NB : Kosongi Yang Tidak Perlu";
+            // 
+            // TglBekerjaText
+            // 
+            TglBekerjaText.CustomFormat = "dd/MMM/yyyy";
+            TglBekerjaText.Format = DateTimePickerFormat.Custom;
+            TglBekerjaText.Location = new Point(327, 214);
+            TglBekerjaText.Name = "TglBekerjaText";
+            TglBekerjaText.Size = new Size(477, 27);
+            TglBekerjaText.TabIndex = 2;
             // 
             // SaveButton
             // 
@@ -2494,28 +2516,6 @@
             label103.TabIndex = 46;
             label103.Text = "A. Melanjutkan ke Perguruan Tinggi:";
             // 
-            // panel8
-            // 
-            panel8.BackColor = Color.LightGray;
-            panel8.Controls.Add(BackLulusButton);
-            panel8.Controls.Add(label108);
-            panel8.Controls.Add(TglBekerjaText);
-            panel8.Controls.Add(SaveButton);
-            panel8.Controls.Add(label107);
-            panel8.Controls.Add(PenghasilanText);
-            panel8.Controls.Add(label106);
-            panel8.Controls.Add(NamaPerusahaanText);
-            panel8.Controls.Add(label105);
-            panel8.Controls.Add(label101);
-            panel8.Controls.Add(label104);
-            panel8.Controls.Add(MelanjutkanText);
-            panel8.Controls.Add(label102);
-            panel8.Controls.Add(label103);
-            panel8.Location = new Point(118, 68);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(828, 555);
-            panel8.TabIndex = 92;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -2531,14 +2531,14 @@
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NikNumeric).EndInit();
             tabPage3.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BeratNumeric).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TinggiNumeric).EndInit();
             tabPage4.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
@@ -2573,11 +2573,11 @@
         private Label label5;
         private TextBox TempatLahirText;
         private Label label4;
-        private TextBox SaudaraAngkatText;
+        private TextBox SdrAngkatText;
         private Label label11;
-        private TextBox SaudaraTiriText;
+        private TextBox SdrTiriText;
         private Label label10;
-        private TextBox SaudaraKandungText;
+        private TextBox SdrKandungText;
         private Label label9;
         private TextBox AnakKeText;
         private Label label8;
@@ -2589,7 +2589,7 @@
         private Label label12;
         private Label label15;
         private Label label18;
-        private TextBox TelephonText;
+        private TextBox NoHpText;
         private Label label17;
         private TextBox AlamatText;
         private Label label16;
@@ -2602,18 +2602,18 @@
         private Panel panel3;
         private Label label21;
         private Label label23;
-        private TextBox LulusanDariText;
+        private TextBox LulusanDrText;
         private Label label24;
         private Label label25;
         private Label label26;
         private Label label27;
-        private TextBox RiwayatPenyakitText;
+        private TextBox RiwayatText;
         private Label label30;
         private Label label32;
         private TextBox KelainanText;
         private Label label33;
         private Label label35;
-        private TextBox NomorIjazahText;
+        private TextBox NoIjazahText;
         private Label label34;
         private DateTimePicker TglIjazahPicker;
         private Label label36;
@@ -2628,11 +2628,11 @@
         private Label label29;
         private TextBox PindahanAlasanText;
         private Label label22;
-        private TextBox PindahanDariText;
+        private TextBox PindahanDrText;
         private Label label28;
         private Panel panel4;
         private Label label43;
-        private TextBox MembacaMenulisText;
+        private TextBox HobiText;
         private Label label44;
         private TextBox KemasyarakatanText;
         private Label label40;
@@ -2661,9 +2661,9 @@
         private Label label48;
         private Label label56;
         private DateTimePicker TglMeninggalkanPicker;
-        private TextBox IjazahNomorText;
+        private TextBox IjazahNoText;
         private Label label57;
-        private TextBox TamatBelajarText;
+        private TextBox TamatBljrText;
         private Label label58;
         private Button NextKesehatanButton;
         private Panel panel5;
@@ -2680,21 +2680,21 @@
         private Label label65;
         private Label label70;
         private Label label68;
-        private TextBox NomorKKText;
+        private TextBox NoKkText;
         private Label label69;
         private TextBox AlamatAyahText;
         private Label label66;
         private TextBox PekerjaanAyahText;
         private Label label67;
-        private TextBox PendidikanAyahText;
+        private TextBox PnddkanAyahText;
         private Label label72;
         private TextBox NikAyahText;
         private Label label73;
-        private TextBox KetHidupAyahText;
+        private TextBox ThnMeningglAyahText;
         private Label label74;
-        private TextBox NoTeleponAyahText;
+        private TextBox NoTlpAyahText;
         private Label label87;
-        private TextBox NoTeleponIbuText;
+        private TextBox NoTlpIbuText;
         private Label label81;
         private Label label82;
         private TextBox AlamatIbuText;
@@ -2702,7 +2702,7 @@
         private Label label83;
         private TextBox PekerjaanIbuText;
         private Label label84;
-        private TextBox PendidikanIbuText;
+        private TextBox PnddkanIbuText;
         private Label label85;
         private DateTimePicker TglLahirIbuPicker;
         private TextBox TmpLahirIbutext;
@@ -2720,7 +2720,7 @@
         private Label label97;
         private TextBox PekerjaanWaliText;
         private Label label98;
-        private TextBox PendidikanWaliText;
+        private TextBox PnddkanWaliText;
         private Label label99;
         private DateTimePicker TglLahirWaliPicker;
         private TextBox TmpLahirWaliText;
@@ -2752,36 +2752,36 @@
         private Button BackLulusButton;
         private Label label109;
         private Label label110;
-        private ComboBox comboBox1;
-        private NumericUpDown numericUpDown1;
-        private NumericUpDown numericUpDown3;
-        private NumericUpDown numericUpDown2;
-        private ComboBox comboBox3;
-        private RadioButton radioButton3;
-        private RadioButton radioButton4;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
+        private ComboBox AgamaCombo;
+        private NumericUpDown NikNumeric;
+        private NumericUpDown BeratNumeric;
+        private NumericUpDown TinggiNumeric;
+        private ComboBox GolDarahCombo;
+        private RadioButton AsingRadio;
+        private RadioButton WniRadio;
+        private RadioButton PerempuanRadio;
+        private RadioButton LakiRadio;
         private Label label61;
         private Label label111;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox PenghasilanAyahText;
+        private TextBox BeaDari3Text;
         private Label label71;
-        private TextBox textBox3;
+        private TextBox BeaKelas3Text;
         private Label label75;
-        private TextBox textBox4;
+        private TextBox BeaTahun3Text;
         private Label label80;
-        private RadioButton radioButton9;
-        private RadioButton radioButton10;
-        private RadioButton radioButton7;
-        private RadioButton radioButton8;
-        private RadioButton radioButton6;
-        private RadioButton radioButton5;
-        private RadioButton radioButton13;
-        private RadioButton radioButton14;
-        private RadioButton radioButton11;
-        private RadioButton radioButton12;
+        private RadioButton AsingIbuRadio;
+        private RadioButton WniIbuRadio;
+        private RadioButton AsingAyahRadio;
+        private RadioButton WniAyahRadio;
+        private RadioButton HidupAyahRadio;
+        private RadioButton MeningglAyahRadio;
+        private RadioButton AsingWaliRadio;
+        private RadioButton WniWaliRadio;
+        private RadioButton HidupIbuRadio;
+        private RadioButton MeningglIbuRadio;
         private Label label86;
-        private TextBox textBox5;
+        private TextBox ThnMeningglIbuText;
         private Panel panel8;
     }
 }
