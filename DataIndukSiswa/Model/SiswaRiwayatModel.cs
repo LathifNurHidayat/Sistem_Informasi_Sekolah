@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sistem_Informasi_Sekolah.ConnectDB
+namespace Sistem_Informasi_Sekolah.DataIndukSiswa.Model
 {
     public class SiswaRiwayatModel
     {

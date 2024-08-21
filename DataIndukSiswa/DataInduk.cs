@@ -18,7 +18,7 @@ namespace Sistem_Informasi_Sekolah
 
 
             ComboAgama.DataSource = new List<string>(agama);
-            ComboAgamaAyh.DataSource = new List<String>(agama);
+            ComboAgamaAyah.DataSource = new List<String>(agama);
             ComboAgamaIbu.DataSource = new List<String>(agama);
             ComboAgamaWali.DataSource = new List<String>(agama);
         }
@@ -26,20 +26,13 @@ namespace Sistem_Informasi_Sekolah
         public void ComboBox()
         {
 
-            ComboYatimPiatu.Items.Add("");
-            ComboYatimPiatu.Items.Add("Yatim");
-            ComboYatimPiatu.Items.Add("Piatu");
-            ComboYatimPiatu.Items.Add("Yatim Piatu");
+            List<string> YatimPiatu = new List<string>() {"Masih Hidup","Yatim","Piatu","Yatim Piatu"};
+            ComboYatimPiatu.DataSource = new List<string>(YatimPiatu);
 
-            ComboTinggal.Items.Add("Orang Tua");
-            ComboTinggal.Items.Add("Saudara");
-            ComboTinggal.Items.Add("Di Asrama");
+            List<string> TinggalDengan = new List<string>() { "Orang Tua", "Saudara", "Di Asrama" };
+            ComboTinggal.DataSource = new List<string>(TinggalDengan);
 
-            ComboGolDarah.Items.Add("A");
-            ComboGolDarah.Items.Add("B");
-            ComboGolDarah.Items.Add("AB");
-            ComboGolDarah.Items.Add("O");
-            ComboGolDarah.Items.Add("Tidak tahu");
+
         }
 
 
@@ -49,7 +42,7 @@ namespace Sistem_Informasi_Sekolah
         {
             if (RadioHidupAyah.Checked)
             {
-                TextThnMeningglAyah.ReadOnly= true;
+                TextThnMeningglAyah.ReadOnly = true;
             }
             else
             {
@@ -58,10 +51,10 @@ namespace Sistem_Informasi_Sekolah
         }
 
 
-private void TextThnMeningglIbu_TextChanged(object sender, EventArgs e)
+        private void TextThnMeningglIbu_TextChanged(object sender, EventArgs e)
         {
             if (RadioHidupIbu.Checked)
-{
+            {
                 TextThnMeningglIbu.ReadOnly = true;
             }
             else
@@ -70,7 +63,7 @@ private void TextThnMeningglIbu_TextChanged(object sender, EventArgs e)
             }
         }
 
-private void ButtonSave1_Click(object sender, EventArgs e)
+        private void ButtonSave1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(TextNamaLengkap.Text))
             {
@@ -79,6 +72,9 @@ private void ButtonSave1_Click(object sender, EventArgs e)
             }
         }
 
-    
+        private void DataInduk_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

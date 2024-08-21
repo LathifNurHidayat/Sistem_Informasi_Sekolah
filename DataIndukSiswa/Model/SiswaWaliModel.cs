@@ -5,7 +5,7 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sistem_Informasi_Sekolah.ConnectDB
+namespace Sistem_Informasi_Sekolah.DataIndukSiswa.Model
 {
     public class SiswaWaliModel
     {
@@ -24,6 +24,6 @@ namespace Sistem_Informasi_Sekolah.ConnectDB
         public string NoKK { get; set; }
         public string NoTelp { get; set; }
         public string StatusHidup { get; set; }
-        public string NIK {  get; set; }
+        public string NIK { get; set; }
     }
 }
