@@ -17,11 +17,11 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
             const string Sql = @"
             INSERT INTO SiswaBeasiswa
                 (
-                    SiswaId, Tahun, Kelas, AsalBeasiswa
+                    SiswaId, Nomor, Tahun, Kelas, AsalBeasiswa
                 )
             VALUES 
                 (
-                    @SiswaId, @Tahun, @Kelas, @AsalBeasiswa
+                    @SiswaId, @Nomor, @Tahun, @Kelas, @AsalBeasiswa
                 )";
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
@@ -29,6 +29,7 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
             {
                 var Dp = new DynamicParameters();
                 Dp.Add("@SiswaId", item.SiswaId);
+                Dp.Add("@Nomor", item.Nomor);
                 Dp.Add("@Tahun", item.Tahun);
                 Dp.Add("@Kelas", item.Kelas);
                 Dp.Add("@AsalBeasiswa", item.AsalBeasiswa);
@@ -66,7 +67,7 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
                 SiswaId = @SiswaId";
 
             var Dp = new DynamicParameters();
-            Dp.Add("@SiswaId", SiswaId, System.Data.DbType.Int32);
+            Dp.Add("@SiswaId", SiswaId, System.Data.DbType.Int16);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             return Conn.Query<SiswaBeasiswaModel>(Sql,Dp);

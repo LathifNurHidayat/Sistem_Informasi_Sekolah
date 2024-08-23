@@ -74,7 +74,7 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
                 Agama = @Agama,
                 Kewarganegaraan = @Kewarganegaraan,
                 NIK = @NIK,
-                AkanKe = @AnakKe,
+                AnakKe = @AnakKe,
                 JmlhSdrKandung = @JmlhSdrKandung,
                 JmlhSdrTiri = @JmlhSdrTiri,
                 JmlhSdrAngkat = @JmlhSdrAngkat,

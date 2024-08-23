@@ -11,7 +11,7 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.Model
     {
 
         public int SiswaId { get; set; }
-        public string JenisWali { get; set; }
+        public int JenisWali { get; set; }
         public string Nama { get; set; }
         public string TmpLahir { get; set; }
         public DateTime TglLahir { get; set; }

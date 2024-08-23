@@ -21,7 +21,6 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
                     (SiswaId, JenisWali, Nama, TmpLahir, TglLahir, Agama, 
                     Kewarga, Pendidikan, Pekerjaan, Penghasilan,    
                     Alamat, NoKK, NoTelp, StatusHidup, NIK)
-
             VALUES     
                     (@SiswaId, @JenisWali, @Nama, @TmpLahir, @TglLahir, @Agama, 
                     @Kewarga, @Pendidikan, @Pekerjaan, @Penghasilan, 
@@ -31,7 +30,7 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
             foreach (var item in siswaWali) 
             {
                 var Dp = new DynamicParameters();
-                Dp.Add("@SiswId", item.SiswaId, System.Data.DbType.Int32);
+                Dp.Add("@SiswaId", item.SiswaId, System.Data.DbType.Int32);
                 Dp.Add("@JenisWali", item.JenisWali, DbType.String);
                 Dp.Add("@Nama", item.Nama, DbType.String);
                 Dp.Add("@TmpLahir", item.TmpLahir, DbType.String);
@@ -46,10 +45,9 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
                 Dp.Add("@NoTelp", item.NoTelp, DbType.String);
                 Dp.Add("@StatusHidup", item.StatusHidup, DbType.String);
                 Dp.Add("@NIK", item.NIK, DbType.String);
-
+                conn.Execute(sql, Dp);
             }
         }
-
 
 
         public void Delete(int SiswaId)
@@ -66,7 +64,6 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             Conn.Execute(Sql, Dp);
         }
-
 
 
         public IEnumerable<SiswaWaliModel> ListData(int SiswaId)

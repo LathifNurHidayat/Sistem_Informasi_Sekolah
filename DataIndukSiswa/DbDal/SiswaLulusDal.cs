@@ -18,17 +18,17 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
             const string Sql = @"
             INSERT INTO SiswaLulus
                 (SiswaId, LanjutDi, TglMulaiKerja, NamaPerusahaan, Penghasilan)
-            VALUE 
+            VALUES
                 (@SiswaId, @LanjutDi, @TglMulaiKerja, @NamaPerusahaan, @Penghasilan)";
 
             var Dp = new DynamicParameters();
-            Dp.Add("@SiswaId", siswaLulus.SiswaId, DbType.Int32);
+            Dp.Add("@SiswaId", siswaLulus.SiswaId, System.Data.DbType.Int32);
             Dp.Add("@LanjutDi", siswaLulus.LanjutDi, DbType.String);
             Dp.Add("@TglMulaiKerja", siswaLulus.TglMulaiKerja, DbType.DateTime);
             Dp.Add("@NamaPerusahaan", siswaLulus.NamaPerusahaan, DbType.String);
             Dp.Add("@Penghasilan", siswaLulus.Penghasilan, DbType.Decimal);
 
-            var Conn = new SqlConnection(ConnStringHelper.Get());
+            using var Conn = new SqlConnection(ConnStringHelper.Get());
             Conn.Execute(Sql, Dp);
         }
 
@@ -49,12 +49,12 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
 
             var Dp = new DynamicParameters();
             Dp.Add("@SiswaId", siswaLulus.SiswaId, DbType.Int32);
-            Dp.Add("@lanjutDi", siswaLulus.LanjutDi, DbType.String);
+            Dp.Add("@LanjutDi", siswaLulus.LanjutDi, DbType.String);
             Dp.Add("@TglMulaiKerja", siswaLulus.TglMulaiKerja, DbType.DateTime);
             Dp.Add("@NamaPerusahaan", siswaLulus.NamaPerusahaan, DbType.String);
             Dp.Add("@Penghasilan", siswaLulus.Penghasilan, DbType.Decimal);
 
-            var Conn = new SqlConnection(ConnStringHelper.Get());
+            using var Conn = new SqlConnection(ConnStringHelper.Get());
             Conn.Execute(Sql, Dp);
         }
 
@@ -96,7 +96,7 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
 
 
 
-        public IEnumerable<SiswaLulusModel> ListData(int SiswaId)
+        public IEnumerable<SiswaLulusModel> ListData()
         {
             const string Sql = @"
             SELECT
@@ -107,6 +107,8 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             return Conn.Query<SiswaLulusModel>(Sql);
         }
+
+
     }
 }
 
