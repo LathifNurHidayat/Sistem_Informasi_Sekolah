@@ -60,7 +60,7 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
         {
             const string Sql = @"
             SELECT 
-                SiswaId, Tahun, Kelas, AsalBeasiswa
+                SiswaId, Nomor, Tahun, Kelas, AsalBeasiswa
             FROM 
                 SiswaBeasiswa
             WHERE

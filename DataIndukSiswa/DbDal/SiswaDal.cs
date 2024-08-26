@@ -137,9 +137,10 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
         {
             const string Sql = @"
             SELECT 
-                NamaLengkap, NamaPanggil, TmpLahir, TglLahir, Gender, 
-                Agama, Kewarganegaraan, AnakKe, JmlhSdrKandung, JmlhSdrTiri, 
-                JmlhSdrAngkat, Alamat, NoTelp, TngglDengan, JrkKeSekolah, TransportSekolah
+                NamaLengkap, NamaPanggil, Gender, TmpLahir, TglLahir,Agama, 
+                Kewarganegaraan, NIK, AnakKe, JmlhSdrKandung, JmlhSdrTiri, 
+                JmlhSdrAngkat, YatimPiatu, Bahasa, Alamat, NoTelp, TngglDengan,
+                JrkKeSekolah, TransportSekolah
             FROM 
                 Siswa
             WHERE
@@ -158,9 +159,9 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
         {
             const string Sql = @"
             SELECT 
-                SiswaId, NamaLengkap, NamaPanggil, TmpLahir, TglLahir,
-                Gender, Agama, Kewarganegaraan, AnakKe, JmlhSdrKandung, 
-                JmlhSdrTiri, JmlhSdrAngkat, Alamat, NoTelp, TngglDengan, 
+                SiswaId, NamaLengkap, NamaPanggil, Gender, TmpLahir, TglLahir,Agama, 
+                Kewarganegaraan, NIK, AnakKe, JmlhSdrKandung, JmlhSdrTiri, 
+                JmlhSdrAngkat, YatimPiatu, Bahasa, Alamat, NoTelp, TngglDengan,
                 JrkKeSekolah, TransportSekolah
             FROM
                 Siswa";

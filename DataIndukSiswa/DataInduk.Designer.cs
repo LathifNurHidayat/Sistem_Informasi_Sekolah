@@ -30,6 +30,7 @@
         {
             TabControlSiswa = new TabControl();
             PageListdata = new TabPage();
+            ButtonUpdate = new Button();
             ButtonDelete = new Button();
             ButtonRefresh = new Button();
             NewButton = new Button();
@@ -265,7 +266,6 @@
             TextMelanjutkanKe = new TextBox();
             label102 = new Label();
             label103 = new Label();
-            ButtonUpdate = new Button();
             TabControlSiswa.SuspendLayout();
             PageListdata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
@@ -343,6 +343,18 @@
             PageListdata.TabIndex = 0;
             PageListdata.Text = "List Data";
             PageListdata.UseVisualStyleBackColor = true;
+            // 
+            // ButtonUpdate
+            // 
+            ButtonUpdate.BackColor = Color.DodgerBlue;
+            ButtonUpdate.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonUpdate.ForeColor = SystemColors.ControlLightLight;
+            ButtonUpdate.Location = new Point(718, 687);
+            ButtonUpdate.Name = "ButtonUpdate";
+            ButtonUpdate.Size = new Size(112, 35);
+            ButtonUpdate.TabIndex = 4;
+            ButtonUpdate.Text = "Update";
+            ButtonUpdate.UseVisualStyleBackColor = false;
             // 
             // ButtonDelete
             // 
@@ -1717,9 +1729,9 @@
             // 
             groupBox7.Controls.Add(RadioHidupIbu);
             groupBox7.Controls.Add(RadioMeningglIbu);
-            groupBox7.Location = new Point(167, 216);
+            groupBox7.Location = new Point(170, 216);
             groupBox7.Name = "groupBox7";
-            groupBox7.Size = new Size(351, 57);
+            groupBox7.Size = new Size(348, 57);
             groupBox7.TabIndex = 94;
             groupBox7.TabStop = false;
             // 
@@ -2076,9 +2088,9 @@
             // 
             groupBox5.Controls.Add(RadioHidupAyah);
             groupBox5.Controls.Add(RadioMeningglAyah);
-            groupBox5.Location = new Point(175, 379);
+            groupBox5.Location = new Point(175, 377);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(347, 46);
+            groupBox5.Size = new Size(347, 48);
             groupBox5.TabIndex = 93;
             groupBox5.TabStop = false;
             // 
@@ -2628,18 +2640,6 @@
             label103.Size = new Size(260, 20);
             label103.TabIndex = 46;
             label103.Text = "A. Melanjutkan ke Perguruan Tinggi:";
-            // 
-            // ButtonUpdate
-            // 
-            ButtonUpdate.BackColor = Color.DodgerBlue;
-            ButtonUpdate.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonUpdate.ForeColor = SystemColors.ControlLightLight;
-            ButtonUpdate.Location = new Point(718, 687);
-            ButtonUpdate.Name = "ButtonUpdate";
-            ButtonUpdate.Size = new Size(112, 35);
-            ButtonUpdate.TabIndex = 4;
-            ButtonUpdate.Text = "Update";
-            ButtonUpdate.UseVisualStyleBackColor = false;
             // 
             // DataInduk
             // 

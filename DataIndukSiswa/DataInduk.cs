@@ -113,7 +113,7 @@ namespace Sistem_Informasi_Sekolah
             }
             else
             {
-                DeleteAllData(SiswaId);
+            //    DeleteAllData(SiswaId);
             }
             
         }
@@ -414,11 +414,11 @@ namespace Sistem_Informasi_Sekolah
             NumericSdrTiri.Value = siswaPersonal.JmlhSdrTiri;
             NumericSdrAngkat.Value = siswaPersonal.JmlhSdrAngkat;
 
-            foreach (var item in ComboAgama.Items)
+            foreach (var item in ComboYatimPiatu.Items)
             {
-                if (item.ToString() == siswaPersonal.Agama)
+                if (item.ToString() == siswaPersonal.YatimPiatu)
                 {
-                    ComboAgama.SelectedItem = item;
+                    ComboYatimPiatu.SelectedItem = item;
                 }
             }
 
@@ -503,8 +503,8 @@ namespace Sistem_Informasi_Sekolah
                 TextAlamatAyah.Text = ayah.Alamat;
                 TextNoKk.Text = ayah.NoKK;
                 TextNoTlpAyah.Text = ayah.NoTelp;
-                if (ayah.StatusHidup == "Masih Hidup") RadioHidupAyah.Checked = true;
-                if (ayah.StatusHidup == "SudahMeninggal") RadioMeningglAyah.Checked = true;
+                
+                if ( ayah.StatusHidup == "Masih Hidup" 
                 TextNikAyah.Text = ayah.NIK;
             }
 
@@ -531,8 +531,8 @@ namespace Sistem_Informasi_Sekolah
                 NumericPenghasilanIbu.Value = ibu.Penghasilan;
                 TextAlamatIbu.Text = ibu.Alamat;
                 TextNoTlpIbu.Text = ibu.NoTelp;
-                if (ibu.StatusHidup == "Masih Hidup") RadioHidupAyah.Checked = true;
-                if (ibu.StatusHidup == "SudahMeninggal") RadioMeningglAyah.Checked = true;
+                
+
             }
 
 
