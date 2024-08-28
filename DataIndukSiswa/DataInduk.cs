@@ -712,13 +712,8 @@ namespace Sistem_Informasi_Sekolah
 
         public void DeleteAllData()
         {
-            //_siswaDal.Delete(SiswaId);
-           // _siswaRiwayatDal.Delete(SiswaId);
-           // _siswaWaliDal.Delete(SiswaId);
-           // _siswaLulusDal.Dalete(SiswaId);
-           // _siswaBeasiswaDal.Delete(SiswaId);
+            
 
-            //BELUM SELESAI
         }
 
 
