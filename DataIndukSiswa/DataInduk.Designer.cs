@@ -265,6 +265,7 @@
             TextMelanjutkanKe = new TextBox();
             label102 = new Label();
             label103 = new Label();
+            ButtonDelete = new Button();
             TabControlSiswa.SuspendLayout();
             PageListdata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
@@ -330,6 +331,7 @@
             // 
             // PageListdata
             // 
+            PageListdata.Controls.Add(ButtonDelete);
             PageListdata.Controls.Add(ButtonUpdate);
             PageListdata.Controls.Add(ButtonRefresh);
             PageListdata.Controls.Add(NewButton);
@@ -347,7 +349,7 @@
             ButtonUpdate.BackColor = Color.DodgerBlue;
             ButtonUpdate.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonUpdate.ForeColor = SystemColors.ControlLightLight;
-            ButtonUpdate.Location = new Point(819, 687);
+            ButtonUpdate.Location = new Point(836, 687);
             ButtonUpdate.Name = "ButtonUpdate";
             ButtonUpdate.Size = new Size(112, 35);
             ButtonUpdate.TabIndex = 4;
@@ -2638,6 +2640,18 @@
             label103.TabIndex = 46;
             label103.Text = "A. Melanjutkan ke Perguruan Tinggi:";
             // 
+            // ButtonDelete
+            // 
+            ButtonDelete.BackColor = Color.Crimson;
+            ButtonDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonDelete.ForeColor = SystemColors.ControlLightLight;
+            ButtonDelete.Location = new Point(716, 687);
+            ButtonDelete.Name = "ButtonDelete";
+            ButtonDelete.Size = new Size(112, 35);
+            ButtonDelete.TabIndex = 5;
+            ButtonDelete.Text = "Delete";
+            ButtonDelete.UseVisualStyleBackColor = false;
+            // 
             // DataInduk
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -2952,5 +2966,6 @@
         private GroupBox groupBox4;
         private Button ButtonUpdate;
         private GroupBox groupBox5;
+        private Button ButtonDelete;
     }
 }

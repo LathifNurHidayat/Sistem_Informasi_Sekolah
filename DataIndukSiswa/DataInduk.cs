@@ -38,7 +38,6 @@ namespace Sistem_Informasi_Sekolah
             InitialGrid();
             ControlEvent();
             RefreshData();
-
         }
 
         #region INITIAL FORM
@@ -78,8 +77,8 @@ namespace Sistem_Informasi_Sekolah
             ButtonRefresh.Click += ButtonRefresh_Click;
             GridListData.CellDoubleClick += GridListData_CellDoubleClick;
             ButtonUpdate.Click += ButtonUpdate_Click;
-
-
+            ButtonDelete.Click += ButtonDelete_Click;
+            
 
             List<Button> buttonSave = new List<Button>
             {
@@ -90,6 +89,29 @@ namespace Sistem_Informasi_Sekolah
             };
             foreach (var button in buttonSave)
                 button.Click += ButtonSave_Click;
+        }
+
+        private void ButtonDelete_Click(object? sender, EventArgs e)
+        {
+            var namaSiswa = GridListData.CurrentRow.Cells["NamaLengkap"].Value.ToString();
+            if (MessageBox.Show($"Anda yakin ingin menghapus seluruh data dari \"{namaSiswa}\"", "Informasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            {
+                var siswaStr = GridListData.CurrentRow.Cells["SiswaId"].Value.ToString();
+                if (siswaStr == null)
+                    return;
+
+                var siswaId = Convert.ToInt32(siswaStr);
+                _siswaDal.Delete(siswaId);
+                _siswaRiwayatDal.Delete(siswaId);
+                _siswaWaliDal.Delete(siswaId);
+                _siswaBeasiswaDal.Delete(siswaId);
+                _siswaLulusDal.Dalete(siswaId);
+
+                MessageBox.Show("Data berhasil dihapus");
+                RefreshData();
+            }
+            else
+                return;
         }
 
 
@@ -107,13 +129,14 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonSave_Click(object? sender, EventArgs e)
         {
-            RefreshData();
             SaveSiswa();
 
-            if (MessageBox.Show("Data disimpan, lanjut isi form berikutnya ?", "Informasi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            if (MessageBox.Show("Data berhasil disimpan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+            {
+                RefreshData();
                 return;
-            else
-                TabControlSiswa.SelectedIndex = 0;
+            }
+
         }
 
 
@@ -325,7 +348,7 @@ namespace Sistem_Informasi_Sekolah
                 NoTelp = TextNoTeleponWali.Text,
             };
 
-            var listSiswaWali = new List<SiswaWaliModel>
+            var SiswaWali = new List<SiswaWaliModel>
             {
                 Ayah,
                 Ibu,
@@ -333,7 +356,7 @@ namespace Sistem_Informasi_Sekolah
             };
 
             _siswaWaliDal.Delete(SiswaId);
-            _siswaWaliDal.Insert(listSiswaWali);
+            _siswaWaliDal.Insert(SiswaWali);
         }
 
         private void SaveSiswaLulus(int SiswaId)
@@ -701,7 +724,6 @@ namespace Sistem_Informasi_Sekolah
         }
 
         #endregion
-
 
 
         public class SiswaDto
