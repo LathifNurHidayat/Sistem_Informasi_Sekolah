@@ -205,7 +205,6 @@
             RadioAsingWali = new RadioButton();
             RadioWniWali = new RadioButton();
             panel5 = new Panel();
-            groupBox5 = new GroupBox();
             RadioHidupAyah = new RadioButton();
             RadioMeningglAyah = new RadioButton();
             NumericPenghasilanAyah = new NumericUpDown();
@@ -266,6 +265,7 @@
             TextMelanjutkanKe = new TextBox();
             label102 = new Label();
             label103 = new Label();
+            groupBox5 = new GroupBox();
             TabControlSiswa.SuspendLayout();
             PageListdata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
@@ -305,7 +305,6 @@
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilanIbu).BeginInit();
             groupBox8.SuspendLayout();
             panel5.SuspendLayout();
-            groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilanAyah).BeginInit();
             groupBox6.SuspendLayout();
             PageLulus.SuspendLayout();
@@ -314,6 +313,7 @@
             panel7.SuspendLayout();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilan).BeginInit();
+            groupBox5.SuspendLayout();
             SuspendLayout();
             // 
             // TabControlSiswa
@@ -511,6 +511,7 @@
             // NumericJarakKeSekolah
             // 
             NumericJarakKeSekolah.Location = new Point(233, 467);
+            NumericJarakKeSekolah.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             NumericJarakKeSekolah.Name = "NumericJarakKeSekolah";
             NumericJarakKeSekolah.Size = new Size(267, 27);
             NumericJarakKeSekolah.TabIndex = 33;
@@ -528,6 +529,7 @@
             // NumericSdrAngkat
             // 
             NumericSdrAngkat.Location = new Point(233, 63);
+            NumericSdrAngkat.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             NumericSdrAngkat.Name = "NumericSdrAngkat";
             NumericSdrAngkat.Size = new Size(267, 27);
             NumericSdrAngkat.TabIndex = 32;
@@ -785,6 +787,7 @@
             // NumericSdrTiri
             // 
             NumericSdrTiri.Location = new Point(197, 493);
+            NumericSdrTiri.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             NumericSdrTiri.Name = "NumericSdrTiri";
             NumericSdrTiri.Size = new Size(291, 27);
             NumericSdrTiri.TabIndex = 33;
@@ -792,6 +795,7 @@
             // NumericSdrKandung
             // 
             NumericSdrKandung.Location = new Point(198, 451);
+            NumericSdrKandung.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             NumericSdrKandung.Name = "NumericSdrKandung";
             NumericSdrKandung.Size = new Size(291, 27);
             NumericSdrKandung.TabIndex = 31;
@@ -799,6 +803,7 @@
             // NumericAnakKe
             // 
             NumericAnakKe.Location = new Point(198, 409);
+            NumericAnakKe.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             NumericAnakKe.Name = "NumericAnakKe";
             NumericAnakKe.Size = new Size(291, 27);
             NumericAnakKe.TabIndex = 30;
@@ -1374,6 +1379,7 @@
             // NumericBerat
             // 
             NumericBerat.Location = new Point(182, 166);
+            NumericBerat.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             NumericBerat.Name = "NumericBerat";
             NumericBerat.Size = new Size(268, 27);
             NumericBerat.TabIndex = 5;
@@ -1381,6 +1387,7 @@
             // NumericTinggi
             // 
             NumericTinggi.Location = new Point(182, 133);
+            NumericTinggi.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             NumericTinggi.Name = "NumericTinggi";
             NumericTinggi.Size = new Size(268, 27);
             NumericTinggi.TabIndex = 4;
@@ -1760,6 +1767,7 @@
             // NumericPenghasilanWali
             // 
             NumericPenghasilanWali.Location = new Point(188, 493);
+            NumericPenghasilanWali.Maximum = new decimal(new int[] { 1316134911, 2328, 0, 0 });
             NumericPenghasilanWali.Name = "NumericPenghasilanWali";
             NumericPenghasilanWali.Size = new Size(327, 27);
             NumericPenghasilanWali.TabIndex = 93;
@@ -1767,6 +1775,7 @@
             // NumericPenghasilanIbu
             // 
             NumericPenghasilanIbu.Location = new Point(187, 88);
+            NumericPenghasilanIbu.Maximum = new decimal(new int[] { -727379969, 232, 0, 0 });
             NumericPenghasilanIbu.Name = "NumericPenghasilanIbu";
             NumericPenghasilanIbu.Size = new Size(327, 27);
             NumericPenghasilanIbu.TabIndex = 92;
@@ -2084,20 +2093,10 @@
             panel5.Size = new Size(530, 670);
             panel5.TabIndex = 0;
             // 
-            // groupBox5
-            // 
-            groupBox5.Controls.Add(RadioHidupAyah);
-            groupBox5.Controls.Add(RadioMeningglAyah);
-            groupBox5.Location = new Point(175, 377);
-            groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(347, 48);
-            groupBox5.TabIndex = 93;
-            groupBox5.TabStop = false;
-            // 
             // RadioHidupAyah
             // 
             RadioHidupAyah.AutoSize = true;
-            RadioHidupAyah.Location = new Point(17, 7);
+            RadioHidupAyah.Location = new Point(17, 5);
             RadioHidupAyah.Name = "RadioHidupAyah";
             RadioHidupAyah.Size = new Size(114, 24);
             RadioHidupAyah.TabIndex = 13;
@@ -2119,6 +2118,7 @@
             // NumericPenghasilanAyah
             // 
             NumericPenghasilanAyah.Location = new Point(188, 218);
+            NumericPenghasilanAyah.Maximum = new decimal(new int[] { 1316134911, 2328, 0, 0 });
             NumericPenghasilanAyah.Name = "NumericPenghasilanAyah";
             NumericPenghasilanAyah.Size = new Size(327, 27);
             NumericPenghasilanAyah.TabIndex = 91;
@@ -2538,6 +2538,7 @@
             // NumericPenghasilan
             // 
             NumericPenghasilan.Location = new Point(327, 304);
+            NumericPenghasilan.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             NumericPenghasilan.Name = "NumericPenghasilan";
             NumericPenghasilan.Size = new Size(477, 27);
             NumericPenghasilan.TabIndex = 92;
@@ -2641,6 +2642,16 @@
             label103.TabIndex = 46;
             label103.Text = "A. Melanjutkan ke Perguruan Tinggi:";
             // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(RadioHidupAyah);
+            groupBox5.Controls.Add(RadioMeningglAyah);
+            groupBox5.Location = new Point(177, 379);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(339, 40);
+            groupBox5.TabIndex = 95;
+            groupBox5.TabStop = false;
+            // 
             // DataInduk
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -2700,8 +2711,6 @@
             groupBox8.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            groupBox5.ResumeLayout(false);
-            groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilanAyah).EndInit();
             groupBox6.ResumeLayout(false);
             groupBox6.PerformLayout();
@@ -2712,6 +2721,8 @@
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilan).EndInit();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -2952,9 +2963,9 @@
         private GroupBox groupBox8;
         private GroupBox groupBox7;
         private GroupBox groupBox6;
-        private GroupBox groupBox5;
         private GroupBox groupBox4;
         private Button ButtonDelete;
         private Button ButtonUpdate;
+        private GroupBox groupBox5;
     }
 }

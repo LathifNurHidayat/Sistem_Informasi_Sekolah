@@ -18,7 +18,7 @@ namespace Sistem_Informasi_Sekolah
         private readonly BindingSource _beasiswaBinding;
         private readonly BindingList<BeasiswaDto> _listBeasiswaBinding;
 
-
+        
         public DataInduk()
         {
             _siswaDal = new SiswaDal();
@@ -314,7 +314,7 @@ namespace Sistem_Informasi_Sekolah
                 Penghasilan = (int)NumericPenghasilanIbu.Value,
                 Alamat = TextAlamatIbu.Text,
                 NoTelp = TextNoTlpIbu.Text,
-                StatusHidup = RadioHidupIbu.Checked ? RadioHidupIbu.Text : RadioMeningglIbu.Text
+                StatusHidup = RadioHidupIbu.Checked ? RadioHidupIbu.Text : RadioMeningglIbu.Text,
             };
 
             var Wali = new SiswaWaliModel
@@ -504,7 +504,9 @@ namespace Sistem_Informasi_Sekolah
                 TextNoKk.Text = ayah.NoKK;
                 TextNoTlpAyah.Text = ayah.NoTelp;
                 
-                if ( ayah.StatusHidup == "Masih Hidup" 
+                if ( ayah.StatusHidup == "Masih Hidup" ) RadioHidupAyah.Checked = true;
+                if(ayah.StatusHidup == "Sudah Meninggal" ) RadioMeningglAyah.Checked = true;
+
                 TextNikAyah.Text = ayah.NIK;
             }
 
@@ -531,6 +533,9 @@ namespace Sistem_Informasi_Sekolah
                 NumericPenghasilanIbu.Value = ibu.Penghasilan;
                 TextAlamatIbu.Text = ibu.Alamat;
                 TextNoTlpIbu.Text = ibu.NoTelp;
+
+                if(ibu.StatusHidup == "Masih Hidup") RadioHidupIbu.Checked = true;
+                if(ibu.StatusHidup == "Sudah Meninggal") RadioMeningglIbu.Checked = true;
                 
 
             }
