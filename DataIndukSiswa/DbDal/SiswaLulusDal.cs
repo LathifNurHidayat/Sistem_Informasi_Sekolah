@@ -33,7 +33,6 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
         }
 
 
-
         public void Update(SiswaLulusModel siswaLulus)
         {
             const string Sql = @"
@@ -59,7 +58,6 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
         }
 
 
-
         public void Dalete(int SiswaId)
         {
             const string Sql = @"
@@ -74,7 +72,6 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             Conn.Execute(Sql, Dp);
         }
-
 
 
         public SiswaLulusModel? GetData(int SiswaId)
@@ -95,7 +92,6 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
         }
 
 
-
         public IEnumerable<SiswaLulusModel> ListData()
         {
             const string Sql = @"
@@ -107,8 +103,6 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             return Conn.Query<SiswaLulusModel>(Sql);
         }
-
-
     }
 }
 

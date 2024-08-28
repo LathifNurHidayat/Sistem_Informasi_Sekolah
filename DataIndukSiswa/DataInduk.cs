@@ -40,6 +40,7 @@ namespace Sistem_Informasi_Sekolah
             RefreshData();
         }
 
+
         #region INITIAL FORM
 
         public void InitialCombo()
@@ -90,6 +91,7 @@ namespace Sistem_Informasi_Sekolah
             foreach (var button in buttonSave)
                 button.Click += ButtonSave_Click;
         }
+
 
         private void ButtonDelete_Click(object? sender, EventArgs e)
         {
@@ -709,16 +711,15 @@ namespace Sistem_Informasi_Sekolah
         private void RefreshData()
         {
             var listSiswa = _siswaDal.ListData() ?? new List<SiswaModel>();
-            var DataSiswa = listSiswa
-                .Select(x => new SiswaDto
+            var DataSiswa = listSiswa.Select(x => new SiswaDto
                 {
                     SiswaId = x.SiswaId,
                     NamaLengkap = x.NamaLengkap,
                     Tgllahir = x.TglLahir,
                     Gender = x.Gender == 1 ? "Laki-laki" : "Perempuan",
                     Alamat = x.Alamat
-                })
-                .ToList();
+                }).ToList();
+
             GridListData.DataSource = DataSiswa;
             GridListData.Refresh();
         }
