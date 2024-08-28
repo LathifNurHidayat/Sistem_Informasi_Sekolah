@@ -64,7 +64,6 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
         }
 
 
-
         public void Update(SiswaRiwayatModel siswaRiwayat)
         {
             const string Sql = @"
@@ -143,7 +142,6 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
         }
 
 
-
         public SiswaRiwayatModel? GetData(int SiswaId)
         {
             const string Sql = @"
@@ -165,6 +163,7 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             return Conn.QueryFirstOrDefault<SiswaRiwayatModel>(Sql, Dp);       
         }
+
 
         public IEnumerable<SiswaRiwayatModel> ListData()
         {

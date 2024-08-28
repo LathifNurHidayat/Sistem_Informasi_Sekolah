@@ -1,5 +1,4 @@
-﻿CREATE TABLE SiswaBeasiswa
-(
+﻿CREATE TABLE SiswaBeasiswa(
     SiswaId int,   
     Nomor INT Default'0',
     Tahun VARCHAR(10),

@@ -77,7 +77,6 @@ namespace Sistem_Informasi_Sekolah
             NewButton.Click += NewButton_Click;
             ButtonRefresh.Click += ButtonRefresh_Click;
             GridListData.CellDoubleClick += GridListData_CellDoubleClick;
-            ButtonDelete.Click += ButtonDelete_Click;
             ButtonUpdate.Click += ButtonUpdate_Click;
 
 
@@ -93,6 +92,7 @@ namespace Sistem_Informasi_Sekolah
                 button.Click += ButtonSave_Click;
         }
 
+
         private void ButtonUpdate_Click(object? sender, EventArgs e)
         {
             var SiswaStr = GridListData.CurrentRow.Cells["SiswaId"].Value.ToString();
@@ -104,24 +104,16 @@ namespace Sistem_Informasi_Sekolah
             TabControlSiswa.SelectedIndex = 1;
         }
 
-        private void ButtonDelete_Click(object? sender, EventArgs e)
-        {
-            var siswaIdStr = GridListData.CurrentRow.Cells["SiswaId"].Value.ToString();
-            if (siswaIdStr is null)
-            {
-                MessageBox.Show("Pilih Data yang akan dihapus!");
-            }
-            else
-            {
-            //    DeleteAllData(SiswaId);
-            }
-            
-        }
 
         private void ButtonSave_Click(object? sender, EventArgs e)
         {
             RefreshData();
             SaveSiswa();
+
+            if (MessageBox.Show("Data disimpan, lanjut isi form berikutnya ?", "Informasi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                return;
+            else
+                TabControlSiswa.SelectedIndex = 0;
         }
 
 
@@ -640,7 +632,7 @@ namespace Sistem_Informasi_Sekolah
             TextKemasyarakatan.Clear();
             TextHobi.Clear();
             TextCitaCita.Clear();
-            PickerMeninggalkanSekolah.Value = new DateTime(3000, 1, 1);
+            PickerMeninggalkanSekolah.Value = new DateTime(2000, 1, 1);
             TextAlasanMeninggalkan.Clear();
             PickerTamatBljr.Value = new DateTime(2000, 1, 1);
             TextIjazahNo.Clear();
@@ -710,11 +702,6 @@ namespace Sistem_Informasi_Sekolah
 
         #endregion
 
-        public void DeleteAllData()
-        {
-            
-
-        }
 
 
         public class SiswaDto
@@ -734,7 +721,5 @@ namespace Sistem_Informasi_Sekolah
             public string Tahun { get; set; }
             public string AsalBeasiswa { get; set; }
         }
-
-      
     }
 }

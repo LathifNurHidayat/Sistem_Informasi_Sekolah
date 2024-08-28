@@ -31,7 +31,6 @@
             TabControlSiswa = new TabControl();
             PageListdata = new TabPage();
             ButtonUpdate = new Button();
-            ButtonDelete = new Button();
             ButtonRefresh = new Button();
             NewButton = new Button();
             GridListData = new DataGridView();
@@ -205,6 +204,7 @@
             RadioAsingWali = new RadioButton();
             RadioWniWali = new RadioButton();
             panel5 = new Panel();
+            groupBox5 = new GroupBox();
             RadioHidupAyah = new RadioButton();
             RadioMeningglAyah = new RadioButton();
             NumericPenghasilanAyah = new NumericUpDown();
@@ -265,7 +265,6 @@
             TextMelanjutkanKe = new TextBox();
             label102 = new Label();
             label103 = new Label();
-            groupBox5 = new GroupBox();
             TabControlSiswa.SuspendLayout();
             PageListdata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
@@ -305,6 +304,7 @@
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilanIbu).BeginInit();
             groupBox8.SuspendLayout();
             panel5.SuspendLayout();
+            groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilanAyah).BeginInit();
             groupBox6.SuspendLayout();
             PageLulus.SuspendLayout();
@@ -313,7 +313,6 @@
             panel7.SuspendLayout();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilan).BeginInit();
-            groupBox5.SuspendLayout();
             SuspendLayout();
             // 
             // TabControlSiswa
@@ -332,7 +331,6 @@
             // PageListdata
             // 
             PageListdata.Controls.Add(ButtonUpdate);
-            PageListdata.Controls.Add(ButtonDelete);
             PageListdata.Controls.Add(ButtonRefresh);
             PageListdata.Controls.Add(NewButton);
             PageListdata.Controls.Add(GridListData);
@@ -349,24 +347,12 @@
             ButtonUpdate.BackColor = Color.DodgerBlue;
             ButtonUpdate.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonUpdate.ForeColor = SystemColors.ControlLightLight;
-            ButtonUpdate.Location = new Point(718, 687);
+            ButtonUpdate.Location = new Point(819, 687);
             ButtonUpdate.Name = "ButtonUpdate";
             ButtonUpdate.Size = new Size(112, 35);
             ButtonUpdate.TabIndex = 4;
             ButtonUpdate.Text = "Update";
             ButtonUpdate.UseVisualStyleBackColor = false;
-            // 
-            // ButtonDelete
-            // 
-            ButtonDelete.BackColor = Color.Red;
-            ButtonDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonDelete.ForeColor = SystemColors.ControlLightLight;
-            ButtonDelete.Location = new Point(836, 687);
-            ButtonDelete.Name = "ButtonDelete";
-            ButtonDelete.Size = new Size(112, 35);
-            ButtonDelete.TabIndex = 3;
-            ButtonDelete.Text = "Delete";
-            ButtonDelete.UseVisualStyleBackColor = false;
             // 
             // ButtonRefresh
             // 
@@ -2093,6 +2079,16 @@
             panel5.Size = new Size(530, 670);
             panel5.TabIndex = 0;
             // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(RadioHidupAyah);
+            groupBox5.Controls.Add(RadioMeningglAyah);
+            groupBox5.Location = new Point(177, 379);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(339, 40);
+            groupBox5.TabIndex = 95;
+            groupBox5.TabStop = false;
+            // 
             // RadioHidupAyah
             // 
             RadioHidupAyah.AutoSize = true;
@@ -2642,16 +2638,6 @@
             label103.TabIndex = 46;
             label103.Text = "A. Melanjutkan ke Perguruan Tinggi:";
             // 
-            // groupBox5
-            // 
-            groupBox5.Controls.Add(RadioHidupAyah);
-            groupBox5.Controls.Add(RadioMeningglAyah);
-            groupBox5.Location = new Point(177, 379);
-            groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(339, 40);
-            groupBox5.TabIndex = 95;
-            groupBox5.TabStop = false;
-            // 
             // DataInduk
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -2711,6 +2697,8 @@
             groupBox8.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilanAyah).EndInit();
             groupBox6.ResumeLayout(false);
             groupBox6.PerformLayout();
@@ -2721,8 +2709,6 @@
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilan).EndInit();
-            groupBox5.ResumeLayout(false);
-            groupBox5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -2964,7 +2950,6 @@
         private GroupBox groupBox7;
         private GroupBox groupBox6;
         private GroupBox groupBox4;
-        private Button ButtonDelete;
         private Button ButtonUpdate;
         private GroupBox groupBox5;
     }
