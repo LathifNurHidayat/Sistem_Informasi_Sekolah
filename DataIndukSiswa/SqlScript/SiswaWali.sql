@@ -1,0 +1,16 @@
+﻿Create TABLE SiswaWali (
+	SiswaId INT,
+	JenisWali int,
+	Nama VARCHAR(50),
+    TmpLahir VARCHAR(30),
+    TglLahir DATETIME,
+    Agama VARCHAR(50),
+    Kewarga VARCHAR(30),
+    Pendidikan VARCHAR(50),
+    Pekerjaan VARCHAR(50),
+    Penghasilan DECIMAL(18,0),
+    Alamat VARCHAR(100),
+    NoKK VARCHAR(20),
+    NoTelp VARCHAR(15),
+    StatusHidup VARCHAR(30),
+    NIK VARCHAR(20));
