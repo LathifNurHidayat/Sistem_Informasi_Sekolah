@@ -10,7 +10,7 @@ namespace Sistem_Informasi_Sekolah.ConnHelper
     public class ConnStringHelper
     {
         public static string Get()
-            => $"Server=(local);Database=SekolahKuUU;Trusted_Connection=True;TrustServerCertificate=True";
+            => $"Server=(local);Database=SekolahKu;Trusted_Connection=True;TrustServerCertificate=True";
 
     }
 }
