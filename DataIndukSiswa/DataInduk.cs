@@ -18,7 +18,9 @@ namespace Sistem_Informasi_Sekolah
         private readonly BindingSource _beasiswaBinding;
         private readonly BindingList<BeasiswaDto> _listBeasiswaBinding;
 
-        
+        private string _pilihGambar = string.Empty;
+
+
         public DataInduk()
         {
             _siswaDal = new SiswaDal();
@@ -79,7 +81,14 @@ namespace Sistem_Informasi_Sekolah
             GridListData.CellDoubleClick += GridListData_CellDoubleClick;
             ButtonUpdate.Click += ButtonUpdate_Click;
             ButtonDelete.Click += ButtonDelete_Click;
-            
+
+            ButtonPilihGambar.Click += ButtonPilihGambar_Click;
+            ButtonDeleteGambar.Click += ButtonDeleteGambar_Click;
+            GridListData.CellClick += GridListData_CellClick;
+            GridListData.CellEnter += GridListData_CellEnter;
+            ButtonSaveGambar.Click += ButtonSaveGambar_Click;
+
+
 
             List<Button> buttonSave = new List<Button>
             {
@@ -92,6 +101,71 @@ namespace Sistem_Informasi_Sekolah
                 button.Click += ButtonSave_Click;
         }
 
+        private void ButtonSaveGambar_Click(object? sender, EventArgs e)
+        {
+            var siswa = _siswaDal.GetData(Convert.ToInt32(LabelSiswaId.Text));
+
+            _siswaDal.Update(siswa);
+
+        }
+
+        private void GridListData_CellEnter(object? sender, DataGridViewCellEventArgs e) 
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow SelectRow = GridListData.Rows[e.RowIndex];
+
+                string SiswaId = SelectRow.Cells[0].Value.ToString();
+                string NamaSiswa = SelectRow.Cells[1].Value.ToString();
+
+                LabelSiswaId.Text = SiswaId;
+                LabelSiswaNama.Text = NamaSiswa;
+
+
+                var siswa = _siswaDal.GetData(Convert.ToInt32(SiswaId));
+                _pilihGambar = siswa?.LokasiPhoto ?? string.Empty;
+
+                if (_pilihGambar != string.Empty)
+                    PictureSiswa.Image = Image.FromFile(_pilihGambar);
+                else
+                    PictureSiswa.Image = null;
+
+            }
+        }
+
+
+        private void GridListData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+
+        private void ButtonDeleteGambar_Click(object? sender, EventArgs e)
+        {
+            PictureSiswa.Image = null;
+            _pilihGambar = string.Empty;
+        }
+
+
+        private void ButtonPilihGambar_Click(object? sender, EventArgs e)
+        {
+            var opendialog = new OpenFileDialog
+            {
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif",
+                FilterIndex = 1,
+                Title = "Pilih Gambar"
+            };
+
+            if (opendialog.ShowDialog() == DialogResult.OK)
+            {
+                PictureSiswa.Image = System.Drawing.Image.FromFile(opendialog.FileName);
+                PictureSiswa.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                _pilihGambar = opendialog.FileName;
+
+                UpdateGambar();
+            }
+        }
 
         private void ButtonDelete_Click(object? sender, EventArgs e)
         {
@@ -520,9 +594,9 @@ namespace Sistem_Informasi_Sekolah
                 TextAlamatAyah.Text = ayah.Alamat;
                 TextNoKk.Text = ayah.NoKK;
                 TextNoTlpAyah.Text = ayah.NoTelp;
-                
-                if ( ayah.StatusHidup == "Masih Hidup" ) RadioHidupAyah.Checked = true;
-                if(ayah.StatusHidup == "Sudah Meninggal" ) RadioMeningglAyah.Checked = true;
+
+                if (ayah.StatusHidup == "Masih Hidup") RadioHidupAyah.Checked = true;
+                if (ayah.StatusHidup == "Sudah Meninggal") RadioMeningglAyah.Checked = true;
 
                 TextNikAyah.Text = ayah.NIK;
             }
@@ -551,9 +625,9 @@ namespace Sistem_Informasi_Sekolah
                 TextAlamatIbu.Text = ibu.Alamat;
                 TextNoTlpIbu.Text = ibu.NoTelp;
 
-                if(ibu.StatusHidup == "Masih Hidup") RadioHidupIbu.Checked = true;
-                if(ibu.StatusHidup == "Sudah Meninggal") RadioMeningglIbu.Checked = true;
-                
+                if (ibu.StatusHidup == "Masih Hidup") RadioHidupIbu.Checked = true;
+                if (ibu.StatusHidup == "Sudah Meninggal") RadioMeningglIbu.Checked = true;
+
 
             }
 
@@ -712,19 +786,34 @@ namespace Sistem_Informasi_Sekolah
         {
             var listSiswa = _siswaDal.ListData() ?? new List<SiswaModel>();
             var DataSiswa = listSiswa.Select(x => new SiswaDto
-                {
-                    SiswaId = x.SiswaId,
-                    NamaLengkap = x.NamaLengkap,
-                    Tgllahir = x.TglLahir,
-                    Gender = x.Gender == 1 ? "Laki-laki" : "Perempuan",
-                    Alamat = x.Alamat
-                }).ToList();
+            {
+                SiswaId = x.SiswaId,
+                NamaLengkap = x.NamaLengkap,
+                Tgllahir = x.TglLahir,
+                Gender = x.Gender == 1 ? "Laki-laki" : "Perempuan",
+                Alamat = x.Alamat
+            }).ToList();
 
             GridListData.DataSource = DataSiswa;
             GridListData.Refresh();
         }
 
         #endregion
+
+
+        private void UpdateGambar()
+        {
+            var siswaCek = _siswaDal.GetData(Convert.ToInt32(LabelSiswaId.Text));
+
+            if (siswaCek is null)
+            {
+                PictureSiswa.Image = null;
+                _pilihGambar = string.Empty;
+                return;
+            }
+            siswaCek.LokasiPhoto = _pilihGambar;
+            _siswaDal.Update(siswaCek);
+        }
 
 
         public class SiswaDto
@@ -743,6 +832,35 @@ namespace Sistem_Informasi_Sekolah
             public string Kelas { get; set; }
             public string Tahun { get; set; }
             public string AsalBeasiswa { get; set; }
+        }
+
+        private void ButtonPilihGambar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GridListData_SelectionChanged(object sender, EventArgs e)
+        {
+            if (GridListData.SelectedRows.Count >0)
+            {
+                DataGridViewRow SelectRow = GridListData.SelectedRows[0];
+
+                string SiswaId = SelectRow.Cells[0].Value.ToString();
+                string NamaSiswa = SelectRow.Cells[1].Value.ToString();
+
+                LabelSiswaId.Text = SiswaId;
+                LabelSiswaNama.Text = NamaSiswa;
+
+
+                var siswa = _siswaDal.GetData(Convert.ToInt32(SiswaId));
+                _pilihGambar = siswa?.LokasiPhoto ?? string.Empty;
+
+                if (_pilihGambar != string.Empty)
+                    PictureSiswa.Image = Image.FromFile(_pilihGambar);
+                else
+                    PictureSiswa.Image = null;
+
+            }
         }
     }
 }

@@ -30,6 +30,17 @@
         {
             TabControlSiswa = new TabControl();
             PageListdata = new TabPage();
+            panel23 = new Panel();
+            panel25 = new Panel();
+            panel27 = new Panel();
+            panel26 = new Panel();
+            LabelSiswaNama = new Label();
+            LabelSiswaId = new Label();
+            panel24 = new Panel();
+            ButtonPilihGambar = new Button();
+            ButtonDeleteGambar = new Button();
+            PictureSiswa = new PictureBox();
+            ButtonDelete = new Button();
             ButtonUpdate = new Button();
             ButtonRefresh = new Button();
             NewButton = new Button();
@@ -265,9 +276,15 @@
             TextMelanjutkanKe = new TextBox();
             label102 = new Label();
             label103 = new Label();
-            ButtonDelete = new Button();
+            label49 = new Label();
             TabControlSiswa.SuspendLayout();
             PageListdata.SuspendLayout();
+            panel23.SuspendLayout();
+            panel25.SuspendLayout();
+            panel27.SuspendLayout();
+            panel26.SuspendLayout();
+            panel24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PictureSiswa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
             PagePersonal.SuspendLayout();
             panel15.SuspendLayout();
@@ -331,6 +348,7 @@
             // 
             // PageListdata
             // 
+            PageListdata.Controls.Add(panel23);
             PageListdata.Controls.Add(ButtonDelete);
             PageListdata.Controls.Add(ButtonUpdate);
             PageListdata.Controls.Add(ButtonRefresh);
@@ -343,6 +361,127 @@
             PageListdata.TabIndex = 0;
             PageListdata.Text = "List Data";
             PageListdata.UseVisualStyleBackColor = true;
+            // 
+            // panel23
+            // 
+            panel23.BackColor = Color.DarkGray;
+            panel23.Controls.Add(panel25);
+            panel23.Location = new Point(716, 6);
+            panel23.Name = "panel23";
+            panel23.Size = new Size(355, 670);
+            panel23.TabIndex = 6;
+            // 
+            // panel25
+            // 
+            panel25.BackColor = Color.Silver;
+            panel25.BorderStyle = BorderStyle.FixedSingle;
+            panel25.Controls.Add(panel27);
+            panel25.Controls.Add(panel26);
+            panel25.Controls.Add(panel24);
+            panel25.Controls.Add(PictureSiswa);
+            panel25.Location = new Point(6, 5);
+            panel25.Name = "panel25";
+            panel25.Size = new Size(342, 659);
+            panel25.TabIndex = 7;
+            // 
+            // panel27
+            // 
+            panel27.BackColor = Color.Gainsboro;
+            panel27.BorderStyle = BorderStyle.FixedSingle;
+            panel27.Controls.Add(label49);
+            panel27.Location = new Point(3, 3);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(333, 71);
+            panel27.TabIndex = 5;
+            // 
+            // panel26
+            // 
+            panel26.BackColor = Color.Gainsboro;
+            panel26.BorderStyle = BorderStyle.FixedSingle;
+            panel26.Controls.Add(LabelSiswaNama);
+            panel26.Controls.Add(LabelSiswaId);
+            panel26.Location = new Point(4, 80);
+            panel26.Name = "panel26";
+            panel26.Size = new Size(333, 113);
+            panel26.TabIndex = 4;
+            // 
+            // LabelSiswaNama
+            // 
+            LabelSiswaNama.AutoSize = true;
+            LabelSiswaNama.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelSiswaNama.Location = new Point(26, 67);
+            LabelSiswaNama.Name = "LabelSiswaNama";
+            LabelSiswaNama.Size = new Size(50, 20);
+            LabelSiswaNama.TabIndex = 1;
+            LabelSiswaNama.Text = "Nama";
+            // 
+            // LabelSiswaId
+            // 
+            LabelSiswaId.AutoSize = true;
+            LabelSiswaId.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            LabelSiswaId.Location = new Point(26, 19);
+            LabelSiswaId.Name = "LabelSiswaId";
+            LabelSiswaId.Size = new Size(22, 20);
+            LabelSiswaId.TabIndex = 0;
+            LabelSiswaId.Text = "Id";
+            // 
+            // panel24
+            // 
+            panel24.BackColor = Color.Gainsboro;
+            panel24.BorderStyle = BorderStyle.FixedSingle;
+            panel24.Controls.Add(ButtonPilihGambar);
+            panel24.Controls.Add(ButtonDeleteGambar);
+            panel24.Location = new Point(3, 565);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(333, 89);
+            panel24.TabIndex = 3;
+            // 
+            // ButtonPilihGambar
+            // 
+            ButtonPilihGambar.BackColor = Color.Gray;
+            ButtonPilihGambar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonPilihGambar.ForeColor = SystemColors.ControlLightLight;
+            ButtonPilihGambar.Location = new Point(13, 30);
+            ButtonPilihGambar.Name = "ButtonPilihGambar";
+            ButtonPilihGambar.Size = new Size(120, 35);
+            ButtonPilihGambar.TabIndex = 8;
+            ButtonPilihGambar.Text = "Pilih Gambar";
+            ButtonPilihGambar.UseVisualStyleBackColor = false;
+            ButtonPilihGambar.Click += ButtonPilihGambar_Click_1;
+            // 
+            // ButtonDeleteGambar
+            // 
+            ButtonDeleteGambar.BackColor = Color.Crimson;
+            ButtonDeleteGambar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonDeleteGambar.ForeColor = SystemColors.ControlLightLight;
+            ButtonDeleteGambar.Location = new Point(197, 30);
+            ButtonDeleteGambar.Name = "ButtonDeleteGambar";
+            ButtonDeleteGambar.Size = new Size(120, 35);
+            ButtonDeleteGambar.TabIndex = 7;
+            ButtonDeleteGambar.Text = "Delete Gambar";
+            ButtonDeleteGambar.UseVisualStyleBackColor = false;
+            // 
+            // PictureSiswa
+            // 
+            PictureSiswa.BackColor = Color.LightGray;
+            PictureSiswa.BorderStyle = BorderStyle.FixedSingle;
+            PictureSiswa.Location = new Point(4, 223);
+            PictureSiswa.Name = "PictureSiswa";
+            PictureSiswa.Size = new Size(333, 317);
+            PictureSiswa.TabIndex = 2;
+            PictureSiswa.TabStop = false;
+            // 
+            // ButtonDelete
+            // 
+            ButtonDelete.BackColor = Color.Crimson;
+            ButtonDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonDelete.ForeColor = SystemColors.ControlLightLight;
+            ButtonDelete.Location = new Point(716, 687);
+            ButtonDelete.Name = "ButtonDelete";
+            ButtonDelete.Size = new Size(112, 35);
+            ButtonDelete.TabIndex = 5;
+            ButtonDelete.Text = "Delete";
+            ButtonDelete.UseVisualStyleBackColor = false;
             // 
             // ButtonUpdate
             // 
@@ -388,8 +527,9 @@
             GridListData.Name = "GridListData";
             GridListData.RowHeadersWidth = 51;
             GridListData.RowTemplate.Height = 29;
-            GridListData.Size = new Size(1058, 670);
+            GridListData.Size = new Size(702, 670);
             GridListData.TabIndex = 0;
+            GridListData.SelectionChanged += GridListData_SelectionChanged;
             // 
             // PagePersonal
             // 
@@ -2640,17 +2780,15 @@
             label103.TabIndex = 46;
             label103.Text = "A. Melanjutkan ke Perguruan Tinggi:";
             // 
-            // ButtonDelete
+            // label49
             // 
-            ButtonDelete.BackColor = Color.Crimson;
-            ButtonDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonDelete.ForeColor = SystemColors.ControlLightLight;
-            ButtonDelete.Location = new Point(716, 687);
-            ButtonDelete.Name = "ButtonDelete";
-            ButtonDelete.Size = new Size(112, 35);
-            ButtonDelete.TabIndex = 5;
-            ButtonDelete.Text = "Delete";
-            ButtonDelete.UseVisualStyleBackColor = false;
+            label49.AutoSize = true;
+            label49.Font = new Font("Franklin Gothic Medium Cond", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label49.Location = new Point(95, 16);
+            label49.Name = "label49";
+            label49.Size = new Size(132, 36);
+            label49.TabIndex = 8;
+            label49.Text = "Foto Profile";
             // 
             // DataInduk
             // 
@@ -2661,6 +2799,14 @@
             Name = "DataInduk";
             TabControlSiswa.ResumeLayout(false);
             PageListdata.ResumeLayout(false);
+            panel23.ResumeLayout(false);
+            panel25.ResumeLayout(false);
+            panel27.ResumeLayout(false);
+            panel27.PerformLayout();
+            panel26.ResumeLayout(false);
+            panel26.PerformLayout();
+            panel24.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)PictureSiswa).EndInit();
             ((System.ComponentModel.ISupportInitialize)GridListData).EndInit();
             PagePersonal.ResumeLayout(false);
             panel15.ResumeLayout(false);
@@ -2967,5 +3113,16 @@
         private Button ButtonUpdate;
         private GroupBox groupBox5;
         private Button ButtonDelete;
+        private Panel panel23;
+        private Panel panel25;
+        private Label LabelSiswaNama;
+        private Label LabelSiswaId;
+        private Panel panel24;
+        private Button ButtonPilihGambar;
+        private Button ButtonDeleteGambar;
+        private PictureBox PictureSiswa;
+        private Panel panel27;
+        private Panel panel26;
+        private Label label49;
     }
 }
