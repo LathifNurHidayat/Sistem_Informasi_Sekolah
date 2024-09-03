@@ -86,7 +86,7 @@ namespace Sistem_Informasi_Sekolah
             ButtonDeleteGambar.Click += ButtonDeleteGambar_Click;
             GridListData.CellClick += GridListData_CellClick;
             GridListData.CellEnter += GridListData_CellEnter;
-            ButtonSaveGambar.Click += ButtonSaveGambar_Click;
+            ButtonPilihGambar.Click += ButtonSaveGambar_Click;
 
 
 

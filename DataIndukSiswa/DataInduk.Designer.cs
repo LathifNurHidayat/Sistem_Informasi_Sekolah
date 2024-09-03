@@ -33,6 +33,7 @@
             panel23 = new Panel();
             panel25 = new Panel();
             panel27 = new Panel();
+            label49 = new Label();
             panel26 = new Panel();
             LabelSiswaNama = new Label();
             LabelSiswaId = new Label();
@@ -276,7 +277,7 @@
             TextMelanjutkanKe = new TextBox();
             label102 = new Label();
             label103 = new Label();
-            label49 = new Label();
+            panel28 = new Panel();
             TabControlSiswa.SuspendLayout();
             PageListdata.SuspendLayout();
             panel23.SuspendLayout();
@@ -331,6 +332,7 @@
             panel7.SuspendLayout();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilan).BeginInit();
+            panel28.SuspendLayout();
             SuspendLayout();
             // 
             // TabControlSiswa
@@ -348,12 +350,12 @@
             // 
             // PageListdata
             // 
+            PageListdata.Controls.Add(panel28);
             PageListdata.Controls.Add(panel23);
             PageListdata.Controls.Add(ButtonDelete);
             PageListdata.Controls.Add(ButtonUpdate);
             PageListdata.Controls.Add(ButtonRefresh);
             PageListdata.Controls.Add(NewButton);
-            PageListdata.Controls.Add(GridListData);
             PageListdata.Location = new Point(4, 29);
             PageListdata.Name = "PageListdata";
             PageListdata.Padding = new Padding(3);
@@ -393,6 +395,16 @@
             panel27.Name = "panel27";
             panel27.Size = new Size(333, 71);
             panel27.TabIndex = 5;
+            // 
+            // label49
+            // 
+            label49.AutoSize = true;
+            label49.Font = new Font("Franklin Gothic Medium Cond", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label49.Location = new Point(95, 16);
+            label49.Name = "label49";
+            label49.Size = new Size(132, 36);
+            label49.TabIndex = 8;
+            label49.Text = "Foto Profile";
             // 
             // panel26
             // 
@@ -523,11 +535,11 @@
             // 
             GridListData.BackgroundColor = Color.LightGray;
             GridListData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridListData.Location = new Point(8, 6);
+            GridListData.Location = new Point(4, 5);
             GridListData.Name = "GridListData";
             GridListData.RowHeadersWidth = 51;
             GridListData.RowTemplate.Height = 29;
-            GridListData.Size = new Size(702, 670);
+            GridListData.Size = new Size(696, 659);
             GridListData.TabIndex = 0;
             GridListData.SelectionChanged += GridListData_SelectionChanged;
             // 
@@ -2780,15 +2792,14 @@
             label103.TabIndex = 46;
             label103.Text = "A. Melanjutkan ke Perguruan Tinggi:";
             // 
-            // label49
+            // panel28
             // 
-            label49.AutoSize = true;
-            label49.Font = new Font("Franklin Gothic Medium Cond", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label49.Location = new Point(95, 16);
-            label49.Name = "label49";
-            label49.Size = new Size(132, 36);
-            label49.TabIndex = 8;
-            label49.Text = "Foto Profile";
+            panel28.BackColor = Color.DarkGray;
+            panel28.Controls.Add(GridListData);
+            panel28.Location = new Point(7, 6);
+            panel28.Name = "panel28";
+            panel28.Size = new Size(704, 670);
+            panel28.TabIndex = 7;
             // 
             // DataInduk
             // 
@@ -2869,6 +2880,7 @@
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilan).EndInit();
+            panel28.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -3124,5 +3136,6 @@
         private Panel panel27;
         private Panel panel26;
         private Label label49;
+        private Panel panel28;
     }
 }
