@@ -14,6 +14,7 @@ namespace Sistem_Informasi_Sekolah
     {
         public Home()
         {
+            //fcgvhjkl
             InitializeComponent();
         }
     }
