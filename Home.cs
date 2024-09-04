@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sistem_Informasi_Sekolah.JadwalPelajaran;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,8 +15,52 @@ namespace Sistem_Informasi_Sekolah
     {
         public Home()
         {
-            //fcgvhjkl
             InitializeComponent();
+            InitialEvent();
+        }
+
+
+        #region EVENT
+        private void InitialEvent()
+        {
+            dataIndukSiswaToolStripMenuItem.Click += DataIndukSiswaToolStripMenuItem_Click;
+            jurusanToolStripMenuItem.Click += JurusanToolStripMenuItem_Click;
+            kelasToolStripMenuItem.Click += KelasToolStripMenuItem_Click;
+            mataPelajaranToolStripMenuItem.Click += MataPelajaranToolStripMenuItem_Click;
+        }
+
+        private void MataPelajaranToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            LoadForm(new MataPelajaran());
+        }
+
+        private void KelasToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            LoadForm(new Kelas());
+        }
+
+        private void JurusanToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            LoadForm(new Jurusan());
+        }
+
+        private void DataIndukSiswaToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            LoadForm(new DataInduk());
+        }
+
+        #endregion
+
+
+        private void LoadForm (Form form)
+        {
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+
+            PanelMain.Controls.Clear();
+            PanelMain.Controls.Add(form);
+            form.Show();
         }
     }
 }

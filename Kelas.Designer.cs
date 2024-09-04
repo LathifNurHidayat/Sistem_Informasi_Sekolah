@@ -33,14 +33,14 @@
             panel4 = new Panel();
             GridKelas = new DataGridView();
             panel3 = new Panel();
+            label3 = new Label();
+            TextJurusanKelas = new TextBox();
             ButtonKelasSave = new Button();
             ButtonKelasDelete = new Button();
             label2 = new Label();
             label1 = new Label();
             TextKelasName = new TextBox();
             TextKelasId = new TextBox();
-            label3 = new Label();
-            TextJurusanKelas = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
@@ -81,11 +81,11 @@
             // 
             GridKelas.BackgroundColor = SystemColors.ButtonHighlight;
             GridKelas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridKelas.Location = new Point(3, 3);
+            GridKelas.Location = new Point(9, 9);
             GridKelas.Name = "GridKelas";
             GridKelas.RowHeadersWidth = 51;
             GridKelas.RowTemplate.Height = 29;
-            GridKelas.Size = new Size(467, 534);
+            GridKelas.Size = new Size(455, 520);
             GridKelas.TabIndex = 0;
             // 
             // panel3
@@ -103,6 +103,27 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(305, 540);
             panel3.TabIndex = 0;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = SystemColors.ButtonHighlight;
+            label3.Location = new Point(23, 241);
+            label3.Name = "label3";
+            label3.Size = new Size(142, 28);
+            label3.TabIndex = 9;
+            label3.Text = "Jurusan Name";
+            // 
+            // TextJurusanKelas
+            // 
+            TextJurusanKelas.BackColor = SystemColors.ControlLightLight;
+            TextJurusanKelas.BorderStyle = BorderStyle.FixedSingle;
+            TextJurusanKelas.Location = new Point(23, 272);
+            TextJurusanKelas.Name = "TextJurusanKelas";
+            TextJurusanKelas.Size = new Size(258, 27);
+            TextJurusanKelas.TabIndex = 8;
             // 
             // ButtonKelasSave
             // 
@@ -155,6 +176,7 @@
             // TextKelasName
             // 
             TextKelasName.BackColor = SystemColors.ControlLightLight;
+            TextKelasName.BorderStyle = BorderStyle.FixedSingle;
             TextKelasName.Location = new Point(23, 189);
             TextKelasName.Name = "TextKelasName";
             TextKelasName.Size = new Size(258, 27);
@@ -162,31 +184,13 @@
             // 
             // TextKelasId
             // 
-            TextKelasId.BackColor = SystemColors.ControlLightLight;
+            TextKelasId.BackColor = SystemColors.AppWorkspace;
+            TextKelasId.BorderStyle = BorderStyle.FixedSingle;
             TextKelasId.Location = new Point(23, 94);
             TextKelasId.Name = "TextKelasId";
+            TextKelasId.ReadOnly = true;
             TextKelasId.Size = new Size(258, 27);
             TextKelasId.TabIndex = 0;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = SystemColors.ButtonHighlight;
-            label3.Location = new Point(23, 241);
-            label3.Name = "label3";
-            label3.Size = new Size(142, 28);
-            label3.TabIndex = 9;
-            label3.Text = "Jurusan Name";
-            // 
-            // TextJurusanKelas
-            // 
-            TextJurusanKelas.BackColor = SystemColors.ControlLightLight;
-            TextJurusanKelas.Location = new Point(23, 272);
-            TextJurusanKelas.Name = "TextJurusanKelas";
-            TextJurusanKelas.Size = new Size(258, 27);
-            TextJurusanKelas.TabIndex = 8;
             // 
             // Kelas
             // 

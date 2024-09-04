@@ -30,6 +30,8 @@
         {
             TabControlSiswa = new TabControl();
             PageListdata = new TabPage();
+            panel28 = new Panel();
+            GridListData = new DataGridView();
             panel23 = new Panel();
             panel25 = new Panel();
             panel27 = new Panel();
@@ -45,7 +47,6 @@
             ButtonUpdate = new Button();
             ButtonRefresh = new Button();
             NewButton = new Button();
-            GridListData = new DataGridView();
             PagePersonal = new TabPage();
             panel15 = new Panel();
             panel16 = new Panel();
@@ -277,16 +278,17 @@
             TextMelanjutkanKe = new TextBox();
             label102 = new Label();
             label103 = new Label();
-            panel28 = new Panel();
+            label50 = new Label();
             TabControlSiswa.SuspendLayout();
             PageListdata.SuspendLayout();
+            panel28.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
             panel23.SuspendLayout();
             panel25.SuspendLayout();
             panel27.SuspendLayout();
             panel26.SuspendLayout();
             panel24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PictureSiswa).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
             PagePersonal.SuspendLayout();
             panel15.SuspendLayout();
             panel16.SuspendLayout();
@@ -332,7 +334,6 @@
             panel7.SuspendLayout();
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilan).BeginInit();
-            panel28.SuspendLayout();
             SuspendLayout();
             // 
             // TabControlSiswa
@@ -363,6 +364,27 @@
             PageListdata.TabIndex = 0;
             PageListdata.Text = "List Data";
             PageListdata.UseVisualStyleBackColor = true;
+            // 
+            // panel28
+            // 
+            panel28.BackColor = Color.DarkGray;
+            panel28.Controls.Add(GridListData);
+            panel28.Location = new Point(7, 6);
+            panel28.Name = "panel28";
+            panel28.Size = new Size(704, 670);
+            panel28.TabIndex = 7;
+            // 
+            // GridListData
+            // 
+            GridListData.BackgroundColor = Color.LightGray;
+            GridListData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GridListData.Location = new Point(4, 5);
+            GridListData.Name = "GridListData";
+            GridListData.RowHeadersWidth = 51;
+            GridListData.RowTemplate.Height = 29;
+            GridListData.Size = new Size(696, 659);
+            GridListData.TabIndex = 0;
+            GridListData.SelectionChanged += GridListData_SelectionChanged;
             // 
             // panel23
             // 
@@ -410,6 +432,7 @@
             // 
             panel26.BackColor = Color.Gainsboro;
             panel26.BorderStyle = BorderStyle.FixedSingle;
+            panel26.Controls.Add(label50);
             panel26.Controls.Add(LabelSiswaNama);
             panel26.Controls.Add(LabelSiswaId);
             panel26.Location = new Point(4, 80);
@@ -421,7 +444,7 @@
             // 
             LabelSiswaNama.AutoSize = true;
             LabelSiswaNama.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelSiswaNama.Location = new Point(26, 67);
+            LabelSiswaNama.Location = new Point(78, 68);
             LabelSiswaNama.Name = "LabelSiswaNama";
             LabelSiswaNama.Size = new Size(50, 20);
             LabelSiswaNama.TabIndex = 1;
@@ -431,7 +454,7 @@
             // 
             LabelSiswaId.AutoSize = true;
             LabelSiswaId.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelSiswaId.Location = new Point(26, 19);
+            LabelSiswaId.Location = new Point(78, 21);
             LabelSiswaId.Name = "LabelSiswaId";
             LabelSiswaId.Size = new Size(22, 20);
             LabelSiswaId.TabIndex = 0;
@@ -530,18 +553,6 @@
             NewButton.TabIndex = 1;
             NewButton.Text = "New data";
             NewButton.UseVisualStyleBackColor = false;
-            // 
-            // GridListData
-            // 
-            GridListData.BackgroundColor = Color.LightGray;
-            GridListData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridListData.Location = new Point(4, 5);
-            GridListData.Name = "GridListData";
-            GridListData.RowHeadersWidth = 51;
-            GridListData.RowTemplate.Height = 29;
-            GridListData.Size = new Size(696, 659);
-            GridListData.TabIndex = 0;
-            GridListData.SelectionChanged += GridListData_SelectionChanged;
             // 
             // PagePersonal
             // 
@@ -2792,14 +2803,14 @@
             label103.TabIndex = 46;
             label103.Text = "A. Melanjutkan ke Perguruan Tinggi:";
             // 
-            // panel28
+            // label50
             // 
-            panel28.BackColor = Color.DarkGray;
-            panel28.Controls.Add(GridListData);
-            panel28.Location = new Point(7, 6);
-            panel28.Name = "panel28";
-            panel28.Size = new Size(704, 670);
-            panel28.TabIndex = 7;
+            label50.AutoSize = true;
+            label50.Location = new Point(14, 21);
+            label50.Name = "label50";
+            label50.Size = new Size(58, 20);
+            label50.TabIndex = 2;
+            label50.Text = "label50";
             // 
             // DataInduk
             // 
@@ -2810,6 +2821,8 @@
             Name = "DataInduk";
             TabControlSiswa.ResumeLayout(false);
             PageListdata.ResumeLayout(false);
+            panel28.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)GridListData).EndInit();
             panel23.ResumeLayout(false);
             panel25.ResumeLayout(false);
             panel27.ResumeLayout(false);
@@ -2818,7 +2831,6 @@
             panel26.PerformLayout();
             panel24.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PictureSiswa).EndInit();
-            ((System.ComponentModel.ISupportInitialize)GridListData).EndInit();
             PagePersonal.ResumeLayout(false);
             panel15.ResumeLayout(false);
             panel16.ResumeLayout(false);
@@ -2880,7 +2892,6 @@
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NumericPenghasilan).EndInit();
-            panel28.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -3137,5 +3148,6 @@
         private Panel panel26;
         private Label label49;
         private Panel panel28;
+        private Label label50;
     }
 }

@@ -4,4 +4,3 @@ SELECT * FROM SiswaRiwayat;
 SELECT * FROM Siswa;
 SELECT * FROM SiswaLulus;
 
-create database Sekolah;

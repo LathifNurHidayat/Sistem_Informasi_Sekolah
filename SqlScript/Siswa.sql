@@ -1,4 +1,4 @@
-﻿
+
 CREATE TABLE Siswa (
     SiswaId INT IDENTITY(1,1),
     NamaLengkap VARCHAR(50) NOT NULL DEFAULT(''),
