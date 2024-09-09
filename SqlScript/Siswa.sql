@@ -20,8 +20,6 @@ CREATE TABLE Siswa (
     TngglDengan VARCHAR(20) NOT NULL DEFAULT(''),
     JrkKeSekolah INT NOT NULL DEFAULT(0),
     TransportSekolah VARCHAR(30) NOT NULL DEFAULT(''),
+    LokasiPhoto VARCHAR(225) NOT NULL DEFAULT(''),
 
     CONSTRAINT PK_Siswa PRIMARY KEY CLUSTERED(SiswaId));
-
-    ALTER TABLE Siswa
-        ADD LokasiPhoto VARCHAR(225) NOT NULL DEFAULT ('');

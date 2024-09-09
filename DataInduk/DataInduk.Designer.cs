@@ -31,12 +31,14 @@
             TabControlSiswa = new TabControl();
             PageListdata = new TabPage();
             panel28 = new Panel();
-            GridListData = new DataGridView();
+            GridListSiswa = new DataGridView();
             panel23 = new Panel();
             panel25 = new Panel();
             panel27 = new Panel();
             label49 = new Label();
             panel26 = new Panel();
+            label51 = new Label();
+            label50 = new Label();
             LabelSiswaNama = new Label();
             LabelSiswaId = new Label();
             panel24 = new Panel();
@@ -278,11 +280,10 @@
             TextMelanjutkanKe = new TextBox();
             label102 = new Label();
             label103 = new Label();
-            label50 = new Label();
             TabControlSiswa.SuspendLayout();
             PageListdata.SuspendLayout();
             panel28.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)GridListData).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)GridListSiswa).BeginInit();
             panel23.SuspendLayout();
             panel25.SuspendLayout();
             panel27.SuspendLayout();
@@ -368,23 +369,23 @@
             // panel28
             // 
             panel28.BackColor = Color.DarkGray;
-            panel28.Controls.Add(GridListData);
+            panel28.Controls.Add(GridListSiswa);
             panel28.Location = new Point(7, 6);
             panel28.Name = "panel28";
             panel28.Size = new Size(704, 670);
             panel28.TabIndex = 7;
             // 
-            // GridListData
+            // GridListSiswa
             // 
-            GridListData.BackgroundColor = Color.LightGray;
-            GridListData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridListData.Location = new Point(4, 5);
-            GridListData.Name = "GridListData";
-            GridListData.RowHeadersWidth = 51;
-            GridListData.RowTemplate.Height = 29;
-            GridListData.Size = new Size(696, 659);
-            GridListData.TabIndex = 0;
-            GridListData.SelectionChanged += GridListData_SelectionChanged;
+            GridListSiswa.BackgroundColor = Color.LightGray;
+            GridListSiswa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GridListSiswa.Location = new Point(4, 5);
+            GridListSiswa.Name = "GridListSiswa";
+            GridListSiswa.RowHeadersWidth = 51;
+            GridListSiswa.RowTemplate.Height = 29;
+            GridListSiswa.Size = new Size(696, 659);
+            GridListSiswa.TabIndex = 0;
+            GridListSiswa.SelectionChanged += GridListData_SelectionChanged;
             // 
             // panel23
             // 
@@ -432,6 +433,7 @@
             // 
             panel26.BackColor = Color.Gainsboro;
             panel26.BorderStyle = BorderStyle.FixedSingle;
+            panel26.Controls.Add(label51);
             panel26.Controls.Add(label50);
             panel26.Controls.Add(LabelSiswaNama);
             panel26.Controls.Add(LabelSiswaId);
@@ -440,25 +442,45 @@
             panel26.Size = new Size(333, 113);
             panel26.TabIndex = 4;
             // 
+            // label51
+            // 
+            label51.AutoSize = true;
+            label51.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label51.Location = new Point(14, 68);
+            label51.Name = "label51";
+            label51.Size = new Size(70, 20);
+            label51.TabIndex = 3;
+            label51.Text = "Nama    :";
+            // 
+            // label50
+            // 
+            label50.AutoSize = true;
+            label50.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label50.Location = new Point(14, 21);
+            label50.Name = "label50";
+            label50.Size = new Size(70, 20);
+            label50.TabIndex = 2;
+            label50.Text = "Id           :";
+            // 
             // LabelSiswaNama
             // 
             LabelSiswaNama.AutoSize = true;
             LabelSiswaNama.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelSiswaNama.Location = new Point(78, 68);
+            LabelSiswaNama.Location = new Point(87, 68);
             LabelSiswaNama.Name = "LabelSiswaNama";
-            LabelSiswaNama.Size = new Size(50, 20);
+            LabelSiswaNama.Size = new Size(13, 20);
             LabelSiswaNama.TabIndex = 1;
-            LabelSiswaNama.Text = "Nama";
+            LabelSiswaNama.Text = ".";
             // 
             // LabelSiswaId
             // 
             LabelSiswaId.AutoSize = true;
             LabelSiswaId.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            LabelSiswaId.Location = new Point(78, 21);
+            LabelSiswaId.Location = new Point(87, 21);
             LabelSiswaId.Name = "LabelSiswaId";
-            LabelSiswaId.Size = new Size(22, 20);
+            LabelSiswaId.Size = new Size(13, 20);
             LabelSiswaId.TabIndex = 0;
-            LabelSiswaId.Text = "Id";
+            LabelSiswaId.Text = ".";
             // 
             // panel24
             // 
@@ -482,7 +504,6 @@
             ButtonPilihGambar.TabIndex = 8;
             ButtonPilihGambar.Text = "Pilih Gambar";
             ButtonPilihGambar.UseVisualStyleBackColor = false;
-            ButtonPilihGambar.Click += ButtonPilihGambar_Click_1;
             // 
             // ButtonDeleteGambar
             // 
@@ -2457,6 +2478,7 @@
             TextNoKk.Name = "TextNoKk";
             TextNoKk.Size = new Size(325, 27);
             TextNoKk.TabIndex = 11;
+            TextNoKk.Text = " ";
             // 
             // label69
             // 
@@ -2803,15 +2825,6 @@
             label103.TabIndex = 46;
             label103.Text = "A. Melanjutkan ke Perguruan Tinggi:";
             // 
-            // label50
-            // 
-            label50.AutoSize = true;
-            label50.Location = new Point(14, 21);
-            label50.Name = "label50";
-            label50.Size = new Size(58, 20);
-            label50.TabIndex = 2;
-            label50.Text = "label50";
-            // 
             // DataInduk
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -2822,7 +2835,7 @@
             TabControlSiswa.ResumeLayout(false);
             PageListdata.ResumeLayout(false);
             panel28.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)GridListData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)GridListSiswa).EndInit();
             panel23.ResumeLayout(false);
             panel25.ResumeLayout(false);
             panel27.ResumeLayout(false);
@@ -2903,7 +2916,7 @@
         private TabPage PageKesehatan;
         private TabPage PageWalii;
         private TabPage PageLulus;
-        private DataGridView GridListData;
+        private DataGridView GridListSiswa;
         private Button NewButton;
         private Panel panel2;
         private Panel panel1;
@@ -3149,5 +3162,6 @@
         private Label label49;
         private Panel panel28;
         private Label label50;
+        private Label label51;
     }
 }

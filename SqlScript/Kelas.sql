@@ -1,6 +1,8 @@
 ﻿CREATE TABLE Kelas 
 	(
 	KelasId INT IDENTITY(1,1) PRIMARY KEY,
-	KelasName VARCHAR(30),
-	JurusanId INT
+	KelasName VARCHAR(30) NOT NULL DEFAULT(''),
+	KelasTingkat INT NOT NULL DEFAULT(''),
+	JurusanId INT NOT NULL DEFAULT ('')
 	);
+

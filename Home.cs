@@ -1,4 +1,4 @@
-﻿using Sistem_Informasi_Sekolah.JadwalPelajaran;
+﻿using Sistem_Informasi_Sekolah;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +13,12 @@ namespace Sistem_Informasi_Sekolah
 {
     public partial class Home : Form
     {
+
         public Home()
         {
             InitializeComponent();
             InitialEvent();
+            LoadForm(new DataInduk());
         }
 
 
@@ -52,7 +54,7 @@ namespace Sistem_Informasi_Sekolah
         #endregion
 
 
-        private void LoadForm (Form form)
+        private void LoadForm(Form form)
         {
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
@@ -62,5 +64,7 @@ namespace Sistem_Informasi_Sekolah
             PanelMain.Controls.Add(form);
             form.Show();
         }
+
+        
     }
 }

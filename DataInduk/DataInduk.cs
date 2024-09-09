@@ -68,6 +68,8 @@ namespace Sistem_Informasi_Sekolah
             GridBeasiswa.Columns["AsalBeasiswa"].Width = 120;
         }
 
+        
+
 
         #endregion
 
@@ -78,14 +80,13 @@ namespace Sistem_Informasi_Sekolah
         {
             NewButton.Click += NewButton_Click;
             ButtonRefresh.Click += ButtonRefresh_Click;
-            GridListData.CellDoubleClick += GridListData_CellDoubleClick;
+            GridListSiswa.CellDoubleClick += GridListData_CellDoubleClick;
             ButtonUpdate.Click += ButtonUpdate_Click;
             ButtonDelete.Click += ButtonDelete_Click;
 
             ButtonPilihGambar.Click += ButtonPilihGambar_Click;
             ButtonDeleteGambar.Click += ButtonDeleteGambar_Click;
-            GridListData.CellClick += GridListData_CellClick;
-            GridListData.CellEnter += GridListData_CellEnter;
+            GridListSiswa.CellEnter += GridListData_CellEnter;
             ButtonPilihGambar.Click += ButtonSaveGambar_Click;
 
 
@@ -113,7 +114,7 @@ namespace Sistem_Informasi_Sekolah
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow SelectRow = GridListData.Rows[e.RowIndex];
+                DataGridViewRow SelectRow = GridListSiswa.Rows[e.RowIndex];
 
                 string SiswaId = SelectRow.Cells[0].Value.ToString();
                 string NamaSiswa = SelectRow.Cells[1].Value.ToString();
@@ -133,19 +134,14 @@ namespace Sistem_Informasi_Sekolah
             }
         }
 
-
-        private void GridListData_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-
         private void ButtonDeleteGambar_Click(object? sender, EventArgs e)
         {
-            PictureSiswa.Image = null;
-            _pilihGambar = string.Empty;
+            if (MessageBox.Show("Anda yakin ingin menghapus profil ?","Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)== DialogResult.Yes)
+            {
+                PictureSiswa.Image = null;
+                _pilihGambar = string.Empty;
+            }
         }
-
 
         private void ButtonPilihGambar_Click(object? sender, EventArgs e)
         {
@@ -169,10 +165,10 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonDelete_Click(object? sender, EventArgs e)
         {
-            var namaSiswa = GridListData.CurrentRow.Cells["NamaLengkap"].Value.ToString();
+            var namaSiswa = GridListSiswa.CurrentRow.Cells["NamaLengkap"].Value.ToString();
             if (MessageBox.Show($"Anda yakin ingin menghapus seluruh data dari \"{namaSiswa}\"", "Informasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
-                var siswaStr = GridListData.CurrentRow.Cells["SiswaId"].Value.ToString();
+                var siswaStr = GridListSiswa.CurrentRow.Cells["SiswaId"].Value.ToString();
                 if (siswaStr == null)
                     return;
 
@@ -193,7 +189,7 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonUpdate_Click(object? sender, EventArgs e)
         {
-            var SiswaStr = GridListData.CurrentRow.Cells["SiswaId"].Value.ToString();
+            var SiswaStr = GridListSiswa.CurrentRow.Cells["SiswaId"].Value.ToString();
             if (SiswaStr is null)
                 return;
 
@@ -242,7 +238,7 @@ namespace Sistem_Informasi_Sekolah
 
         private void GridListData_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
         {
-            var SiswaStr = GridListData.CurrentRow.Cells["SiswaId"].Value.ToString();
+            var SiswaStr = GridListSiswa.CurrentRow.Cells["SiswaId"].Value.ToString();
             if (SiswaStr is null)
                 return;
 
@@ -291,7 +287,8 @@ namespace Sistem_Informasi_Sekolah
                 NoTelp = TextNoHp.Text,
                 TngglDengan = ComboTinggal.SelectedItem.ToString() ?? string.Empty,
                 JrkKeSekolah = (int)NumericJarakKeSekolah.Value,
-                TransportSekolah = TextTransportasi.Text
+                TransportSekolah = TextTransportasi.Text,
+                LokasiPhoto = string.Empty,
             };
 
             if (siswa.SiswaId == 0)
@@ -404,8 +401,11 @@ namespace Sistem_Informasi_Sekolah
                 Pekerjaan = TextPekerjaanIbu.Text,
                 Penghasilan = (int)NumericPenghasilanIbu.Value,
                 Alamat = TextAlamatIbu.Text,
+                NoKK = string.Empty,
                 NoTelp = TextNoTlpIbu.Text,
                 StatusHidup = RadioHidupIbu.Checked ? RadioHidupIbu.Text : RadioMeningglIbu.Text,
+                NIK = string.Empty
+
             };
 
             var Wali = new SiswaWaliModel
@@ -421,7 +421,10 @@ namespace Sistem_Informasi_Sekolah
                 Pekerjaan = TextPekerjaanWali.Text,
                 Penghasilan = (int)NumericPenghasilanWali.Value,
                 Alamat = TextAlamatWali.Text,
+                NoKK = string.Empty,
                 NoTelp = TextNoTeleponWali.Text,
+                StatusHidup = string.Empty,
+                NIK = string.Empty
             };
 
             var SiswaWali = new List<SiswaWaliModel>
@@ -781,7 +784,7 @@ namespace Sistem_Informasi_Sekolah
             TextNamaPerusahaan.Clear();
             NumericPenghasilan.Value = 0;
         }
-
+         
         private void RefreshData()
         {
             var listSiswa = _siswaDal.ListData() ?? new List<SiswaModel>();
@@ -789,13 +792,14 @@ namespace Sistem_Informasi_Sekolah
             {
                 SiswaId = x.SiswaId,
                 NamaLengkap = x.NamaLengkap,
-                Tgllahir = x.TglLahir,
+                TglLahir = x.TglLahir,
                 Gender = x.Gender == 1 ? "Laki-laki" : "Perempuan",
                 Alamat = x.Alamat
             }).ToList();
 
-            GridListData.DataSource = DataSiswa;
-            GridListData.Refresh();
+            GridListSiswa.DataSource = DataSiswa;
+            CustomGrid();
+            GridListSiswa.Refresh();
         }
 
         #endregion
@@ -815,12 +819,27 @@ namespace Sistem_Informasi_Sekolah
             _siswaDal.Update(siswaCek);
         }
 
+        private void CustomGrid()
+        {
+            GridListSiswa.Columns["SiswaId"].HeaderText = "Id Siswa";
+            GridListSiswa.Columns["NamaLengkap"].HeaderText = "Nama Lengkap";
+            GridListSiswa.Columns["TglLahir"].HeaderText = "Tanggal lahir";
+            GridListSiswa.Columns["Gender"].HeaderText = "Jenis Kelamin";
+            GridListSiswa.Columns["Alamat"].HeaderText = "Alamat";
+
+            GridListSiswa.Columns["SiswaId"].Width = 100 ;
+            GridListSiswa.Columns["NamaLengkap"].Width = 200;
+            GridListSiswa.Columns["TglLahir"].Width = 100; 
+            GridListSiswa.Columns["Gender"].Width = 100;
+            GridListSiswa.Columns["Alamat"].Width = 200;
+        }
+
 
         public class SiswaDto
         {
             public int SiswaId { get; set; }
             public string NamaLengkap { get; set; }
-            public DateTime Tgllahir { get; set; }
+            public DateTime TglLahir { get; set; }
             public string Gender { get; set; }
             public string Alamat { get; set; }
         }
@@ -834,16 +853,11 @@ namespace Sistem_Informasi_Sekolah
             public string AsalBeasiswa { get; set; }
         }
 
-        private void ButtonPilihGambar_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void GridListData_SelectionChanged(object sender, EventArgs e)
         {
-            if (GridListData.SelectedRows.Count >0)
+            if (GridListSiswa.SelectedRows.Count >0)
             {
-                DataGridViewRow SelectRow = GridListData.SelectedRows[0];
+                DataGridViewRow SelectRow = GridListSiswa.SelectedRows[0];
 
                 string SiswaId = SelectRow.Cells[0].Value.ToString();
                 string NamaSiswa = SelectRow.Cells[1].Value.ToString();

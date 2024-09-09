@@ -1,3 +1,5 @@
+using Sistem_Informasi_Sekolah;
+
 namespace Sistem_Informasi_Sekolah
 {
     internal static class Program
