@@ -83,6 +83,7 @@ namespace Sistem_Informasi_Sekolah
                 if (MessageBox.Show($"Tambahkan data \" {mapelName} \" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     _mataPelajaranDal.Insert(mapelInsert);
             }
+
             else
             {
                 if(MessageBox.Show("Update data ?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)

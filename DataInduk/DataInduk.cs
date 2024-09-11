@@ -203,12 +203,15 @@ namespace Sistem_Informasi_Sekolah
         {
             SaveSiswa();
 
-            if (MessageBox.Show("Data berhasil disimpan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+            //MessageBox
+            string keterangan = "disimpan";
+
+            Message pesan = new Message();
+            if (pesan.MessageBerhasil(keterangan))
             {
                 RefreshData();
                 return;
             }
-
         }
 
 

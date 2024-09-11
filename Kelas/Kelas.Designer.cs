@@ -119,7 +119,7 @@
             // ComboKelasName
             // 
             ComboKelasName.FormattingEnabled = true;
-            ComboKelasName.Location = new Point(17, 149);
+            ComboKelasName.Location = new Point(17, 306);
             ComboKelasName.Name = "ComboKelasName";
             ComboKelasName.Size = new Size(312, 28);
             ComboKelasName.TabIndex = 14;
@@ -127,7 +127,7 @@
             // ComboKelasJurusan
             // 
             ComboKelasJurusan.FormattingEnabled = true;
-            ComboKelasJurusan.Location = new Point(17, 315);
+            ComboKelasJurusan.Location = new Point(17, 227);
             ComboKelasJurusan.Name = "ComboKelasJurusan";
             ComboKelasJurusan.Size = new Size(312, 28);
             ComboKelasJurusan.TabIndex = 13;
@@ -137,7 +137,7 @@
             RadioKelas_12.AutoSize = true;
             RadioKelas_12.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             RadioKelas_12.ForeColor = Color.Black;
-            RadioKelas_12.Location = new Point(282, 244);
+            RadioKelas_12.Location = new Point(282, 156);
             RadioKelas_12.Name = "RadioKelas_12";
             RadioKelas_12.Size = new Size(47, 27);
             RadioKelas_12.TabIndex = 12;
@@ -150,7 +150,7 @@
             RadioKelas_11.AutoSize = true;
             RadioKelas_11.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             RadioKelas_11.ForeColor = Color.Black;
-            RadioKelas_11.Location = new Point(143, 244);
+            RadioKelas_11.Location = new Point(143, 156);
             RadioKelas_11.Name = "RadioKelas_11";
             RadioKelas_11.Size = new Size(45, 27);
             RadioKelas_11.TabIndex = 11;
@@ -163,7 +163,7 @@
             RadioKelas_10.AutoSize = true;
             RadioKelas_10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             RadioKelas_10.ForeColor = Color.Black;
-            RadioKelas_10.Location = new Point(17, 244);
+            RadioKelas_10.Location = new Point(17, 156);
             RadioKelas_10.Name = "RadioKelas_10";
             RadioKelas_10.Size = new Size(47, 27);
             RadioKelas_10.TabIndex = 10;
@@ -177,7 +177,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(14, 284);
+            label4.Location = new Point(14, 196);
             label4.Name = "label4";
             label4.Size = new Size(77, 28);
             label4.TabIndex = 9;
@@ -189,7 +189,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(17, 202);
+            label3.Location = new Point(17, 114);
             label3.Name = "label3";
             label3.Size = new Size(77, 28);
             label3.TabIndex = 8;
@@ -201,7 +201,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(14, 118);
+            label2.Location = new Point(14, 275);
             label2.Name = "label2";
             label2.Size = new Size(114, 28);
             label2.TabIndex = 3;

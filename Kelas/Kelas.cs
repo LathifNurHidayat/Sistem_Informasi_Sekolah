@@ -119,10 +119,11 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonKelasNew_Click(object? sender, EventArgs e)
         {
-            if (MessageBox.Show("Tambahkan data baru ?","Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
-            {
+            string isiMessege = "baru";
+            Message message = new Message();
+
+            if (message.MessageInput(isiMessege)) 
                 ClearData();
-            }
         }
 
         private void ButtonKelasSave_Click(object? sender, EventArgs e)
