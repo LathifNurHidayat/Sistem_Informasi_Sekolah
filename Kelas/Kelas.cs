@@ -41,10 +41,9 @@ namespace Sistem_Informasi_Sekolah
                 jurusanName = ((dynamic)ComboKelasJurusan.SelectedItem).JurusanName;
             }
 
-            List<string> kelas = new List<string> { "","1", "2", "3", "4", "5" };
-            List<string> kelasNama = kelas.Select(k => $"{kelasTingkat} {jurusanName} {k}").ToList();
+            string kelasNama = $"{kelasTingkat} {jurusanName} ";
 
-            ComboKelasName.DataSource = kelasNama;
+            TextKelasName.Text = kelasNama;
         }
 
         private void RefreshComboRadio()
@@ -55,10 +54,10 @@ namespace Sistem_Informasi_Sekolah
                 jurusanName = ((dynamic)ComboKelasJurusan.SelectedItem).JurusanName;
             }
 
-            List<string> kelas = new List<string> { "","1", "2", "3", "4", "5" };
-            List<string> kelasNama = kelas.Select(k => $"{kelasTingkat} {jurusanName} {k}").ToList();
 
-            ComboKelasName.DataSource = kelasNama;
+            
+
+            TextKelasName.Text = GridListKelas.CurrentRow.Cells[1].Value.ToString();
         }
 
         #endregion
@@ -138,12 +137,12 @@ namespace Sistem_Informasi_Sekolah
         {
             var kelasInsert = new KelasModel()
             {
-                KelasName = ComboKelasName.Text,
+                KelasName = TextKelasName.Text,
                 KelasTingkat = kelasTingkat,
                 JurusanId = Convert.ToInt16(ComboKelasJurusan.SelectedValue)
             };
 
-            var kelasName = ComboKelasName.Text;
+            var kelasName = TextKelasName.Text;
 
             if (TextKelasId.Text == string.Empty)
             {
@@ -158,7 +157,7 @@ namespace Sistem_Informasi_Sekolah
                     var kelasUpdate = new KelasModel()
                     {
                         KelasId = Convert.ToInt16(TextKelasId.Text),
-                        KelasName = ComboKelasName.Text,
+                        KelasName = TextKelasName.Text,
                         KelasTingkat = kelasTingkat,
                         JurusanId = Convert.ToInt16(ComboKelasJurusan.SelectedValue)
                     };
@@ -189,7 +188,7 @@ namespace Sistem_Informasi_Sekolah
         private void ClearData()
         {
             TextKelasId.Text = string.Empty;
-            ComboKelasName.Text = "";
+            TextKelasName.Text = string.Empty;
             RadioKelas_10.Checked = false;
             RadioKelas_11.Checked = false;
             RadioKelas_12.Checked = false;

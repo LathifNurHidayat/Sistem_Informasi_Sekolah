@@ -33,7 +33,6 @@
             GridListKelas = new DataGridView();
             panel3 = new Panel();
             panel1 = new Panel();
-            ComboKelasName = new ComboBox();
             ComboKelasJurusan = new ComboBox();
             RadioKelas_12 = new RadioButton();
             RadioKelas_11 = new RadioButton();
@@ -47,6 +46,7 @@
             ButtonKelasSave = new Button();
             ButtonKelasDelete = new Button();
             ButtonKelasNew = new Button();
+            TextKelasName = new TextBox();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListKelas).BeginInit();
@@ -101,7 +101,7 @@
             // 
             panel1.BackColor = Color.LightGray;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(ComboKelasName);
+            panel1.Controls.Add(TextKelasName);
             panel1.Controls.Add(ComboKelasJurusan);
             panel1.Controls.Add(RadioKelas_12);
             panel1.Controls.Add(RadioKelas_11);
@@ -115,14 +115,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(352, 460);
             panel1.TabIndex = 15;
-            // 
-            // ComboKelasName
-            // 
-            ComboKelasName.FormattingEnabled = true;
-            ComboKelasName.Location = new Point(17, 306);
-            ComboKelasName.Name = "ComboKelasName";
-            ComboKelasName.Size = new Size(312, 28);
-            ComboKelasName.TabIndex = 14;
             // 
             // ComboKelasJurusan
             // 
@@ -221,7 +213,7 @@
             // 
             // TextKelasId
             // 
-            TextKelasId.BackColor = SystemColors.ControlLightLight;
+            TextKelasId.BackColor = SystemColors.ActiveBorder;
             TextKelasId.BorderStyle = BorderStyle.FixedSingle;
             TextKelasId.Location = new Point(14, 65);
             TextKelasId.Name = "TextKelasId";
@@ -277,6 +269,15 @@
             ButtonKelasNew.Text = "New";
             ButtonKelasNew.UseVisualStyleBackColor = false;
             // 
+            // TextKelasName
+            // 
+            TextKelasName.BackColor = SystemColors.ButtonHighlight;
+            TextKelasName.BorderStyle = BorderStyle.FixedSingle;
+            TextKelasName.Location = new Point(17, 315);
+            TextKelasName.Name = "TextKelasName";
+            TextKelasName.Size = new Size(315, 27);
+            TextKelasName.TabIndex = 15;
+            // 
             // Kelas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -315,6 +316,6 @@
         private Label label3;
         private Panel panel1;
         private Panel panel5;
-        private ComboBox ComboKelasName;
+        private TextBox TextKelasName;
     }
 }
