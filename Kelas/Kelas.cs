@@ -173,16 +173,24 @@ namespace Sistem_Informasi_Sekolah
         }
 
         private void SetKelasName()
-        { 
-            var  radioTingkat = RadioKelas_10.Checked? 10 : RadioKelas_11.Checked ? 11 : 12;
+{
+    var radioTingkat = RadioKelas_10.Checked ? 10 : RadioKelas_11.Checked ? 11 : 12;
 
-            var jurusanId = Convert.ToInt16(ComboKelasJurusan.SelectedValue);
-            var jurusan = _jurusanDal.GetData(jurusanId)?? new JurusanModel { JurusanKode = "X"};
-            var jurusanKode = jurusan.JurusanKode;
+    int jurusanId = 0;
+    if (ComboKelasJurusan.SelectedValue != null && int.TryParse(ComboKelasJurusan.SelectedValue.ToString(), out jurusanId))
+    {
+        var jurusan = _jurusanDal.GetData(jurusanId) ?? new JurusanModel { JurusanKode = "X" };
+        var jurusanKode = jurusan.JurusanKode;
 
-            var flagKelas = TextFlagKelas.Text;
+        var flagKelas = TextFlagKelas.Text;
 
-            TextKelasName.Text = $"{radioTingkat} {jurusanKode}-{flagKelas}";
-        }
+        TextKelasName.Text = $"{radioTingkat} {jurusanKode}-{flagKelas}";
+    }
+    else
+    {
+        MessageBox.Show("Terjadi kesalahan saat mengambil jurusan. Pastikan data jurusan sudah benar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+}
+
     }
 }
