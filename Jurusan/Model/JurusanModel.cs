@@ -10,5 +10,6 @@ namespace Sistem_Informasi_Sekolah
     {
         public int JurusanId { get; set; }
         public string JurusanName { get; set; }
+        public string JurusanKode { get; set; } 
     }
 }

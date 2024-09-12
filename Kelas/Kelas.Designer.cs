@@ -33,6 +33,7 @@
             GridListKelas = new DataGridView();
             panel3 = new Panel();
             panel1 = new Panel();
+            TextKelasName = new TextBox();
             ComboKelasJurusan = new ComboBox();
             RadioKelas_12 = new RadioButton();
             RadioKelas_11 = new RadioButton();
@@ -46,7 +47,8 @@
             ButtonKelasSave = new Button();
             ButtonKelasDelete = new Button();
             ButtonKelasNew = new Button();
-            TextKelasName = new TextBox();
+            TextFlagKelas = new TextBox();
+            label5 = new Label();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListKelas).BeginInit();
@@ -101,6 +103,8 @@
             // 
             panel1.BackColor = Color.LightGray;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(TextFlagKelas);
             panel1.Controls.Add(TextKelasName);
             panel1.Controls.Add(ComboKelasJurusan);
             panel1.Controls.Add(RadioKelas_12);
@@ -116,12 +120,22 @@
             panel1.Size = new Size(352, 460);
             panel1.TabIndex = 15;
             // 
+            // TextKelasName
+            // 
+            TextKelasName.BackColor = SystemColors.ActiveBorder;
+            TextKelasName.BorderStyle = BorderStyle.FixedSingle;
+            TextKelasName.Location = new Point(13, 142);
+            TextKelasName.Name = "TextKelasName";
+            TextKelasName.ReadOnly = true;
+            TextKelasName.Size = new Size(315, 27);
+            TextKelasName.TabIndex = 15;
+            // 
             // ComboKelasJurusan
             // 
             ComboKelasJurusan.FormattingEnabled = true;
-            ComboKelasJurusan.Location = new Point(17, 227);
+            ComboKelasJurusan.Location = new Point(13, 294);
             ComboKelasJurusan.Name = "ComboKelasJurusan";
-            ComboKelasJurusan.Size = new Size(312, 28);
+            ComboKelasJurusan.Size = new Size(316, 28);
             ComboKelasJurusan.TabIndex = 13;
             // 
             // RadioKelas_12
@@ -129,7 +143,7 @@
             RadioKelas_12.AutoSize = true;
             RadioKelas_12.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             RadioKelas_12.ForeColor = Color.Black;
-            RadioKelas_12.Location = new Point(282, 156);
+            RadioKelas_12.Location = new Point(282, 223);
             RadioKelas_12.Name = "RadioKelas_12";
             RadioKelas_12.Size = new Size(47, 27);
             RadioKelas_12.TabIndex = 12;
@@ -142,7 +156,7 @@
             RadioKelas_11.AutoSize = true;
             RadioKelas_11.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             RadioKelas_11.ForeColor = Color.Black;
-            RadioKelas_11.Location = new Point(143, 156);
+            RadioKelas_11.Location = new Point(150, 223);
             RadioKelas_11.Name = "RadioKelas_11";
             RadioKelas_11.Size = new Size(45, 27);
             RadioKelas_11.TabIndex = 11;
@@ -155,7 +169,7 @@
             RadioKelas_10.AutoSize = true;
             RadioKelas_10.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             RadioKelas_10.ForeColor = Color.Black;
-            RadioKelas_10.Location = new Point(17, 156);
+            RadioKelas_10.Location = new Point(16, 223);
             RadioKelas_10.Name = "RadioKelas_10";
             RadioKelas_10.Size = new Size(47, 27);
             RadioKelas_10.TabIndex = 10;
@@ -169,7 +183,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(14, 196);
+            label4.Location = new Point(16, 263);
             label4.Name = "label4";
             label4.Size = new Size(77, 28);
             label4.TabIndex = 9;
@@ -181,7 +195,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(17, 114);
+            label3.Location = new Point(16, 192);
             label3.Name = "label3";
             label3.Size = new Size(77, 28);
             label3.TabIndex = 8;
@@ -193,7 +207,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(14, 275);
+            label2.Location = new Point(15, 111);
             label2.Name = "label2";
             label2.Size = new Size(114, 28);
             label2.TabIndex = 3;
@@ -269,14 +283,25 @@
             ButtonKelasNew.Text = "New";
             ButtonKelasNew.UseVisualStyleBackColor = false;
             // 
-            // TextKelasName
+            // TextFlagKelas
             // 
-            TextKelasName.BackColor = SystemColors.ButtonHighlight;
-            TextKelasName.BorderStyle = BorderStyle.FixedSingle;
-            TextKelasName.Location = new Point(17, 315);
-            TextKelasName.Name = "TextKelasName";
-            TextKelasName.Size = new Size(315, 27);
-            TextKelasName.TabIndex = 15;
+            TextFlagKelas.BorderStyle = BorderStyle.FixedSingle;
+            TextFlagKelas.Location = new Point(15, 365);
+            TextFlagKelas.Name = "TextFlagKelas";
+            TextFlagKelas.Size = new Size(148, 27);
+            TextFlagKelas.TabIndex = 16;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(16, 334);
+            label5.Name = "label5";
+            label5.Size = new Size(49, 28);
+            label5.TabIndex = 17;
+            label5.Text = "Flag";
             // 
             // Kelas
             // 
@@ -317,5 +342,7 @@
         private Panel panel1;
         private Panel panel5;
         private TextBox TextKelasName;
+        private Label label5;
+        private TextBox TextFlagKelas;
     }
 }

@@ -17,12 +17,14 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                 INSERT INTO Jurusan 
-                    ( JurusanName)
+                    ( JurusanName, JurusanKode)
                 VALUES 
-                    (@JurusanName)";
+                    (@JurusanName, @JurusanKode)";
               
             var Dp = new DynamicParameters();
             Dp.Add("@JurusanName", jurusan.JurusanName, DbType.String);
+            Dp.Add("@JurusanKode", jurusan.JurusanKode, DbType.String);
+
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             Conn.Execute(sql, Dp);
@@ -33,13 +35,15 @@ namespace Sistem_Informasi_Sekolah
             const string sql = @"
                 UPDATE Jurusan
                     SET 
-                    JurusanName = @JurusanName
+                    JurusanName = @JurusanName,
+                    JurusanKode = @JurusanKode
                 WHERE
                     JurusanId = @JurusanId";
 
             var Dp = new DynamicParameters();
             Dp.Add("@JurusanId", jurusan.JurusanId, DbType.Int32);
             Dp.Add("@JurusanName", jurusan.JurusanName, DbType.String);
+            Dp.Add("@JurusanKode", jurusan.JurusanKode, DbType.String);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             Conn.Execute(sql, Dp);
@@ -47,7 +51,7 @@ namespace Sistem_Informasi_Sekolah
              
         public IEnumerable<JurusanModel>ListData()
         {
-            const string Sql = "SELECT JurusanId , JurusanName FROM Jurusan";
+            const string Sql = "SELECT JurusanId , JurusanName, JurusanKode FROM Jurusan";
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             return Conn.Query<JurusanModel>(Sql);
@@ -66,6 +70,23 @@ namespace Sistem_Informasi_Sekolah
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             Conn.Execute(Sql, Dp);
+        }
+
+        public JurusanModel? GetData(int JurusanId)
+        {
+            const string sql = @"
+                SELECT 
+                    JurusanId , JurusanName, JurusanKode
+                FROM 
+                    Jurusan
+                WHERE 
+                    JurusanId = @JurusanId";
+
+            var Dp = new DynamicParameters();
+            Dp.Add("@JurusanId", JurusanId, DbType.Int32);
+
+            using var Conn = new SqlConnection(ConnStringHelper.Get());
+            return Conn.QueryFirstOrDefault<JurusanModel>(sql, Dp);
         }
     }
 }

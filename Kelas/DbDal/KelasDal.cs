@@ -16,14 +16,15 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                 INSERT INTO Kelas
-                    (KelasName, KelasTingkat, JurusanId)
+                    (KelasName, KelasTingkat, JurusanId, Flag)
                 VALUES
-                    (@KelasName, @KelasTingkat, @JurusanId)";
+                    (@KelasName, @KelasTingkat, @JurusanId, @Flag";
 
             var Dp = new DynamicParameters();
             Dp.Add("@KelasName", kelas.KelasName, DbType.String);
             Dp.Add("@KelasTingkat", kelas.KelasTingkat, DbType.Int16);
             Dp.Add("@JurusanId", kelas.JurusanId, DbType.Int32);
+            Dp.Add("@Flag", kelas.Flag, DbType.String);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             Conn.Execute(sql, Dp);
@@ -35,7 +36,8 @@ namespace Sistem_Informasi_Sekolah
                 UPDATE Kelas SET 
                     KelasName = @KelasName,
                     KelasTingkat = @KelasTingkat,
-                    JurusanId = @JurusanId
+                    JurusanId = @JurusanId,
+                    Flag = @Flag
                 WHERE
                     KelasId = @KelasId";
 
@@ -43,6 +45,7 @@ namespace Sistem_Informasi_Sekolah
             Dp.Add("@KelasName", kelas.KelasName, DbType.String);
             Dp.Add("@KelasTingkat", kelas.KelasTingkat, DbType.Int16);
             Dp.Add("@JurusanId", kelas.JurusanId, DbType.Int32);
+            Dp.Add("@Flag", kelas.Flag, DbType.String);
             Dp.Add("@KelasId", kelas.KelasId, DbType.Int32);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
@@ -64,7 +67,7 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                 SELECT 
-                    KelasId, KelasName, KelasTingkat  
+                    KelasId, KelasName, KelasTingkat , Flag 
                 FROM 
                     Kelas";
 
@@ -76,7 +79,7 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                 SELECT 
-                    KelasId, KelasName, KelasTingkat, JurusanId
+                    KelasId, KelasName, KelasTingkat, JurusanId, Flag
                 FROM 
                     Kelas
                 WHERE

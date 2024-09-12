@@ -19,6 +19,8 @@ namespace Sistem_Informasi_Sekolah
         private readonly BindingList<BeasiswaDto> _listBeasiswaBinding;
 
         private string _pilihGambar = string.Empty;
+        private readonly MesBoxHelper _mesBoxHelper;
+
 
 
         public DataInduk()
@@ -34,6 +36,7 @@ namespace Sistem_Informasi_Sekolah
             {
                 DataSource = _listBeasiswaBinding
             };
+            _mesBoxHelper = new MesBoxHelper();
 
             InitializeComponent();
             InitialCombo();
@@ -203,14 +206,9 @@ namespace Sistem_Informasi_Sekolah
         {
             SaveSiswa();
 
-            //MessageBox
-            string keterangan = "disimpan";
-
-            Message pesan = new Message();
-            if (pesan.MessageBerhasil(keterangan))
+            if (_mesBoxHelper.MessageInformasi("Data berhasil disimpan !"))
             {
                 RefreshData();
-                return;
             }
         }
 

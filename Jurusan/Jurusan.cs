@@ -30,6 +30,7 @@ namespace Sistem_Informasi_Sekolah
         {
             TextJurusanId.Text = string.Empty;
             TextJurusanName.Text = string.Empty;
+            TextJurusanKode.Text = string.Empty;
         }
 
         public void LoadData()
@@ -44,9 +45,12 @@ namespace Sistem_Informasi_Sekolah
         {
             GridListJurusan.Columns["JurusanId"].HeaderText = "Id Jurusan";
             GridListJurusan.Columns["JurusanName"].HeaderText = "Nama Jurusan";
+            GridListJurusan.Columns["JurusanKode"].HeaderText = "Kode Jurusan";
 
             GridListJurusan.Columns["JurusanId"].Width = 100;
             GridListJurusan.Columns["JurusanName"].Width = 200;
+            GridListJurusan.Columns["JurusanKode"].Width = 200;
+
         }
 
         #region EVENT
@@ -86,11 +90,13 @@ namespace Sistem_Informasi_Sekolah
             LabelJurusanUpdate.Text = "UPDATE";
             string jurusanId = GridListJurusan.CurrentRow.Cells[0].Value.ToString();
             string jurusanName = GridListJurusan.CurrentRow.Cells[1].Value.ToString();
+            string jurusanKode = GridListJurusan.CurrentRow.Cells[2].Value.ToString();
 
             if (jurusanId != null)
             {
                 TextJurusanId.Text = jurusanId;
                 TextJurusanName.Text = jurusanName;
+                TextJurusanKode.Text = jurusanKode;
             }
             else
             {
@@ -111,16 +117,15 @@ namespace Sistem_Informasi_Sekolah
 
         private void SaveJurusan()
         {
-            var jurusan = TextJurusanName.Text;
-
             var jurusanInsert = new JurusanModel()
             {
-                JurusanName = TextJurusanName.Text
+                JurusanName = TextJurusanName.Text,
+                JurusanKode = TextJurusanKode.Text
             };
 
             if (TextJurusanId.Text == string.Empty)
             {
-                if (MessageBox.Show($"Tambahkan data \" {jurusan} \" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show($"Tambahkan data \" {TextJurusanName.Text} \" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     _jurusanDal.Insert(jurusanInsert);
             }
             else
@@ -131,7 +136,8 @@ namespace Sistem_Informasi_Sekolah
                     var jurusanUpdate = new JurusanModel()
                     {
                         JurusanId = JurusanId,
-                        JurusanName = TextJurusanName.Text
+                        JurusanName = TextJurusanName.Text,
+                        JurusanKode = TextJurusanKode.Text
                     };
                     _jurusanDal.Update(jurusanUpdate);
                 }

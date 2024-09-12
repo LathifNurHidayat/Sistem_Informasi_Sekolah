@@ -12,5 +12,6 @@ namespace Sistem_Informasi_Sekolah
         public string KelasName { get; set; }
         public int KelasTingkat { get; set; }
         public int JurusanId { get; set; }
+        public string Flag {  get; set; }
     }
 }
