@@ -34,7 +34,6 @@ namespace Sistem_Informasi_Sekolah
         {
             var jurusan = _jurusanDal.ListData();
             ComboKelasJurusan.DataSource = jurusan;
-
             ComboKelasJurusan.DisplayMember = "JurusanName";
             ComboKelasJurusan.ValueMember = "JurusanId";
         }
@@ -176,7 +175,7 @@ namespace Sistem_Informasi_Sekolah
         { 
             var  radioTingkat = RadioKelas_10.Checked? 10 : RadioKelas_11.Checked ? 11 : 12;
 
-            var jurusanId = Convert.ToInt16(ComboKelasJurusan.SelectedValue);
+            int jurusanId = Convert.ToInt16(ComboKelasJurusan.SelectedValue);
             var jurusan = _jurusanDal.GetData(jurusanId)?? new JurusanModel { JurusanKode = "X"};
             var jurusanKode = jurusan.JurusanKode;
 

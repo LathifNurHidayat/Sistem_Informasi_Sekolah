@@ -48,7 +48,7 @@ namespace Sistem_Informasi_Sekolah
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             Conn.Execute(sql, Dp);
         }
-             
+                                    
         public IEnumerable<JurusanModel>ListData()
         {
             const string Sql = "SELECT JurusanId , JurusanName, JurusanKode FROM Jurusan";
