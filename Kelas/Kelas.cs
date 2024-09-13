@@ -162,6 +162,7 @@ namespace Sistem_Informasi_Sekolah
                     Flag = TextFlagKelas.Text ?? string.Empty
                 };
                 _kelasDal.Update(kelasUpdate);
+
             }
 
         }
