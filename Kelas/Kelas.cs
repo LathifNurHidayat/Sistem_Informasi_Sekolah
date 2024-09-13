@@ -121,6 +121,7 @@ namespace Sistem_Informasi_Sekolah
         {
             SaveData();
             LoadData();
+            ClearData();
         }
 
         #endregion
