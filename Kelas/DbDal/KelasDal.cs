@@ -18,7 +18,7 @@ namespace Sistem_Informasi_Sekolah
                 INSERT INTO Kelas
                     (KelasName, KelasTingkat, JurusanId, Flag)
                 VALUES
-                    (@KelasName, @KelasTingkat, @JurusanId, @Flag";
+                    (@KelasName, @KelasTingkat, @JurusanId, @Flag)";
 
             var Dp = new DynamicParameters();
             Dp.Add("@KelasName", kelas.KelasName, DbType.String);
@@ -27,7 +27,7 @@ namespace Sistem_Informasi_Sekolah
             Dp.Add("@Flag", kelas.Flag, DbType.String);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-            Conn.Execute(sql, Dp);
+            Conn.Execute(sql, Dp);  
         }
 
         public void Update(KelasModel kelas)

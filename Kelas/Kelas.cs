@@ -9,6 +9,7 @@ using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Sistem_Informasi_Sekolah
 {
@@ -47,7 +48,7 @@ namespace Sistem_Informasi_Sekolah
             ButtonKelasDelete.Click += ButtonKelasDelete_Click;
             GridListKelas.SelectionChanged += GridListKelas_SelectionChanged;
             ComboKelasJurusan.SelectedIndexChanged += ComboKelasJurusan_SelectedIndexChanged;
-            TextFlagKelas.Validated += TextFlagKelas_Validated;
+            TextFlagKelas.TextChanged += TextFlagKelas_TextChanged ;
 
             RadioKelas_10.Click += RadioKelas_Click;
             RadioKelas_11.Click += RadioKelas_Click;
@@ -57,7 +58,7 @@ namespace Sistem_Informasi_Sekolah
 
         }
 
-        private void TextFlagKelas_Validated(object? sender, EventArgs e)
+        private void TextFlagKelas_TextChanged(object? sender, EventArgs e)
         {
             SetKelasName();
         }
@@ -94,15 +95,20 @@ namespace Sistem_Informasi_Sekolah
         private void ButtonKelasDelete_Click(object? sender, EventArgs e)
         {
             var kelasName = ComboKelasJurusan.Text;
-            var kelasClick = Convert.ToInt32(GridListKelas.CurrentRow.Cells["KelasId"].Value);
+            var kelasClick = TextKelasId.Text;
 
-            if (MessageBox.Show($"Apakah anda ingin menghapus data \" {kelasName} \" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            if (kelasClick == string.Empty)
             {
-                _kelasDal.Delete(kelasClick);
+                _mesBoxHelper.MessageInformasi("Data tidak ditemukan");
+                return;
+            }
+            else if (MessageBox.Show($"Apakah anda ingin menghapus data \" {kelasName} \" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+
+                _kelasDal.Delete(Convert.ToInt16(kelasClick));
                 LoadData();
             }
-            else
-                return;
+            return;
         }
 
         private void ButtonKelasNew_Click(object? sender, EventArgs e)
@@ -119,25 +125,43 @@ namespace Sistem_Informasi_Sekolah
 
         #endregion
 
-        private int SaveData()
+        private void SaveData()
         {
-            var kelasId = Convert.ToInt32(TextKelasId.Text);
+            var kelasId = TextKelasId.Text;
+            var isiRadio = RadioKelas_10.Checked ? 10 : RadioKelas_11.Checked ? 11 : 12;
+            var isiCombo = ComboKelasJurusan.SelectedItem;
 
-            var kelas = new KelasModel
+            if (isiRadio == 0 || isiCombo == null)
             {
-                KelasId = kelasId,
+                _mesBoxHelper.MessageInformasi("Masukan data yang valid");
+                return;
+            }
+
+            var kelasInsert = new KelasModel
+            {
                 KelasName = TextKelasName.Text,
                 KelasTingkat = RadioKelas_10.Checked ? 10 : RadioKelas_11.Checked ? 11 : 12,
                 JurusanId = Convert.ToInt32(ComboKelasJurusan.SelectedValue),
-                Flag = TextFlagKelas.Text
+                Flag = TextFlagKelas.Text??string.Empty
             };
 
-            if (kelas.KelasId == 0)
-                _kelasDal.Insert(kelas);
-            else 
-                _kelasDal.Update(kelas);
-            return kelasId;
-
+            if (kelasId == string.Empty)
+            {
+                _kelasDal.Insert(kelasInsert);
+                _mesBoxHelper.MessageInformasi("Data berhasil disimpan");
+            }
+            else if (_mesBoxHelper.MessageKonfirmasi("Update data ?") == true)
+            {
+                var kelasUpdate = new KelasModel
+                {
+                    KelasId = Convert.ToInt16(kelasId),
+                    KelasName = TextKelasName.Text,
+                    KelasTingkat = RadioKelas_10.Checked ? 10 : RadioKelas_11.Checked ? 11 : 12,
+                    JurusanId = Convert.ToInt32(ComboKelasJurusan.SelectedValue),
+                    Flag = TextFlagKelas.Text ?? string.Empty
+                };
+                _kelasDal.Update(kelasUpdate);
+            }
 
         }
 
@@ -175,7 +199,7 @@ namespace Sistem_Informasi_Sekolah
         { 
             var  radioTingkat = RadioKelas_10.Checked? 10 : RadioKelas_11.Checked ? 11 : 12;
 
-            int jurusanId = Convert.ToInt16(ComboKelasJurusan.SelectedValue);
+            int jurusanId = Convert.ToInt32(((JurusanModel)ComboKelasJurusan.SelectedItem).JurusanId);
             var jurusan = _jurusanDal.GetData(jurusanId)?? new JurusanModel { JurusanKode = "X"};
             var jurusanKode = jurusan.JurusanKode;
 
