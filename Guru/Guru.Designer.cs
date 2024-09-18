@@ -198,7 +198,7 @@
             PictureFotoGuru.BorderStyle = BorderStyle.FixedSingle;
             PictureFotoGuru.Location = new Point(4, 4);
             PictureFotoGuru.Name = "PictureFotoGuru";
-            PictureFotoGuru.Size = new Size(236, 251);
+            PictureFotoGuru.Size = new Size(260, 273);
             PictureFotoGuru.TabIndex = 4;
             PictureFotoGuru.TabStop = false;
             // 
@@ -207,9 +207,9 @@
             panel5.BackColor = Color.Silver;
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(PictureFotoGuru);
-            panel5.Location = new Point(387, 40);
+            panel5.Location = new Point(375, 23);
             panel5.Name = "panel5";
-            panel5.Size = new Size(246, 261);
+            panel5.Size = new Size(270, 283);
             panel5.TabIndex = 5;
             // 
             // TextGuruId
