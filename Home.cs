@@ -21,6 +21,17 @@ namespace Sistem_Informasi_Sekolah
             LoadForm(new DataInduk());
         }
 
+        private void LoadForm(Form form)
+        {
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+
+            PanelMain.Controls.Clear();
+            PanelMain.Controls.Add(form);
+            form.Show();
+        }
+
 
         #region EVENT
         private void InitialEvent()
@@ -29,6 +40,12 @@ namespace Sistem_Informasi_Sekolah
             jurusanToolStripMenuItem.Click += JurusanToolStripMenuItem_Click;
             kelasToolStripMenuItem.Click += KelasToolStripMenuItem_Click;
             mataPelajaranToolStripMenuItem.Click += MataPelajaranToolStripMenuItem_Click;
+            guruToolStripMenuItem.Click += GuruToolStripMenuItem_Click;
+        }
+
+        private void GuruToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            LoadForm(new Guru());
         }
 
         private void MataPelajaranToolStripMenuItem_Click(object? sender, EventArgs e)
@@ -54,16 +71,6 @@ namespace Sistem_Informasi_Sekolah
         #endregion
 
 
-        private void LoadForm(Form form)
-        {
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-
-            PanelMain.Controls.Clear();
-            PanelMain.Controls.Add(form);
-            form.Show();
-        }
 
         
     }

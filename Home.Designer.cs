@@ -35,6 +35,7 @@
             mataPelajaranToolStripMenuItem = new ToolStripMenuItem();
             kelasToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1 = new MenuStrip();
+            guruToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             // 
             // dataToolStripMenuItem
             // 
-            dataToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dataIndukSiswaToolStripMenuItem, jurusanToolStripMenuItem, mataPelajaranToolStripMenuItem, kelasToolStripMenuItem });
+            dataToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dataIndukSiswaToolStripMenuItem, jurusanToolStripMenuItem, mataPelajaranToolStripMenuItem, kelasToolStripMenuItem, guruToolStripMenuItem });
             dataToolStripMenuItem.Name = "dataToolStripMenuItem";
             dataToolStripMenuItem.Size = new Size(55, 24);
             dataToolStripMenuItem.Text = "Data";
@@ -56,25 +57,25 @@
             // dataIndukSiswaToolStripMenuItem
             // 
             dataIndukSiswaToolStripMenuItem.Name = "dataIndukSiswaToolStripMenuItem";
-            dataIndukSiswaToolStripMenuItem.Size = new Size(205, 26);
+            dataIndukSiswaToolStripMenuItem.Size = new Size(224, 26);
             dataIndukSiswaToolStripMenuItem.Text = "Data Induk Siswa";
             // 
             // jurusanToolStripMenuItem
             // 
             jurusanToolStripMenuItem.Name = "jurusanToolStripMenuItem";
-            jurusanToolStripMenuItem.Size = new Size(205, 26);
+            jurusanToolStripMenuItem.Size = new Size(224, 26);
             jurusanToolStripMenuItem.Text = "Jurusan";
             // 
             // mataPelajaranToolStripMenuItem
             // 
             mataPelajaranToolStripMenuItem.Name = "mataPelajaranToolStripMenuItem";
-            mataPelajaranToolStripMenuItem.Size = new Size(205, 26);
+            mataPelajaranToolStripMenuItem.Size = new Size(224, 26);
             mataPelajaranToolStripMenuItem.Text = "Mata Pelajaran";
             // 
             // kelasToolStripMenuItem
             // 
             kelasToolStripMenuItem.Name = "kelasToolStripMenuItem";
-            kelasToolStripMenuItem.Size = new Size(205, 26);
+            kelasToolStripMenuItem.Size = new Size(224, 26);
             kelasToolStripMenuItem.Text = "Kelas";
             // 
             // menuStrip1
@@ -87,6 +88,12 @@
             menuStrip1.Size = new Size(1082, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
+            // 
+            // guruToolStripMenuItem
+            // 
+            guruToolStripMenuItem.Name = "guruToolStripMenuItem";
+            guruToolStripMenuItem.Size = new Size(224, 26);
+            guruToolStripMenuItem.Text = "Guru";
             // 
             // Home
             // 
@@ -112,5 +119,6 @@
         private ToolStripMenuItem mataPelajaranToolStripMenuItem;
         private ToolStripMenuItem kelasToolStripMenuItem;
         private MenuStrip menuStrip1;
+        private ToolStripMenuItem guruToolStripMenuItem;
     }
 }
