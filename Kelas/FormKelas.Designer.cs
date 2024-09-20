@@ -1,6 +1,6 @@
 ﻿namespace Sistem_Informasi_Sekolah
 {
-    partial class Kelas
+    partial class FormKelas
     {
         /// <summary>
         /// Required designer variable.

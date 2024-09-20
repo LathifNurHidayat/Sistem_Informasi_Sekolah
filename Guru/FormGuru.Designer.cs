@@ -1,6 +1,6 @@
 ﻿namespace Sistem_Informasi_Sekolah
 {
-    partial class Guru
+    partial class FormGuru
     {
         /// <summary>
         /// Required designer variable.

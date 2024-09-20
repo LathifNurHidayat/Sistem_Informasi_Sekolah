@@ -1,6 +1,6 @@
 ﻿namespace Sistem_Informasi_Sekolah
 {
-    partial class Jurusan
+    partial class FormJurusan
     {
         /// <summary>
         /// Required designer variable.

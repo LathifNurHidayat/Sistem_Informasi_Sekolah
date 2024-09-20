@@ -6,7 +6,7 @@ using System.Drawing.Text;
 
 namespace Sistem_Informasi_Sekolah
 {
-    public partial class DataInduk : Form
+    public partial class FormSiswa : Form
     {
 
         private readonly SiswaDal _siswaDal;
@@ -23,7 +23,7 @@ namespace Sistem_Informasi_Sekolah
 
 
 
-        public DataInduk()
+        public FormSiswa()
         {
             _siswaDal = new SiswaDal();
             _siswaRiwayatDal = new SiswaRiwayatDal();

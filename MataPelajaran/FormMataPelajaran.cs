@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Sistem_Informasi_Sekolah
 {
-    public partial class MataPelajaran : Form
+    public partial class FormMataPelajaran : Form
     {
         private readonly MataPelajaranDal _mataPelajaranDal;
-        public MataPelajaran()
+        public FormMataPelajaran()
         {
             _mataPelajaranDal = new MataPelajaranDal();
 

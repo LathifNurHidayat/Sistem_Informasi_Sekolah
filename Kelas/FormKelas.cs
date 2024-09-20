@@ -13,12 +13,12 @@ using System.Windows.Forms.VisualStyles;
 
 namespace Sistem_Informasi_Sekolah
 {
-    public partial class Kelas : Form
+    public partial class FormKelas : Form
     {
         private readonly JurusanDal _jurusanDal;
         private readonly KelasDal _kelasDal;
         private readonly MesBoxHelper _mesBoxHelper;
-        public Kelas()
+        public FormKelas()
         {
             _jurusanDal = new JurusanDal();
             _kelasDal = new KelasDal();

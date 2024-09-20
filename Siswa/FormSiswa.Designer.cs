@@ -1,6 +1,6 @@
 ﻿namespace Sistem_Informasi_Sekolah
 {
-    partial class DataInduk
+    partial class FormSiswa
     {
         /// <summary>
         ///  Required designer variable.

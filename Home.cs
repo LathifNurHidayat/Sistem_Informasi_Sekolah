@@ -18,7 +18,7 @@ namespace Sistem_Informasi_Sekolah
         {
             InitializeComponent();
             InitialEvent();
-            LoadForm(new DataInduk());
+            LoadForm(new FormSiswa());
         }
 
         private void LoadForm(Form form)
@@ -45,27 +45,27 @@ namespace Sistem_Informasi_Sekolah
 
         private void GuruToolStripMenuItem_Click(object? sender, EventArgs e)
         {
-            LoadForm(new Guru());
+            LoadForm(new FormGuru());
         }
 
         private void MataPelajaranToolStripMenuItem_Click(object? sender, EventArgs e)
         {
-            LoadForm(new MataPelajaran());
+            LoadForm(new FormMataPelajaran());
         }
 
         private void KelasToolStripMenuItem_Click(object? sender, EventArgs e)
         {
-            LoadForm(new Kelas());
+            LoadForm(new FormKelas());
         }
 
         private void JurusanToolStripMenuItem_Click(object? sender, EventArgs e)
         {
-            LoadForm(new Jurusan());
+            LoadForm(new FormJurusan());
         }
 
         private void DataIndukSiswaToolStripMenuItem_Click(object? sender, EventArgs e)
         {
-            LoadForm(new DataInduk());
+            LoadForm(new FormSiswa());
         }
 
         #endregion

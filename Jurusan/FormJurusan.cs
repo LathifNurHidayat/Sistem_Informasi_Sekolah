@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace Sistem_Informasi_Sekolah
 {
-    public partial class Jurusan : Form
+    public partial class FormJurusan : Form
     {
         private JurusanDal _jurusanDal;
-        public Jurusan()
+        public FormJurusan()
         {
             _jurusanDal = new JurusanDal();
             InitializeComponent();
