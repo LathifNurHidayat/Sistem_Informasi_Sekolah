@@ -85,7 +85,7 @@ namespace Sistem_Informasi_Sekolah
             return Conn.Query<GuruModel>(sql);
         }
 
-        public  GuruModel? GetData(int GuruId)
+        public  GuruModel GetData(int GuruId)
         {
             const string sql = @"
                 SELECT * FROM Guru WHERE GuruId = @GuruId";

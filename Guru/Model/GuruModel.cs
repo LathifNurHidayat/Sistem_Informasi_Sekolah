@@ -16,5 +16,7 @@ namespace Sistem_Informasi_Sekolah
 		public string TahunLulus {  get; set; }
 		public string InstansiPendidikan { get; set; }
 		public string KotaPendidikan { get; set; }
+
+		public List<GuruMapelModel> ListMapel { get; set; }
     }
 }
