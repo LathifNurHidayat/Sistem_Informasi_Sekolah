@@ -16,14 +16,27 @@ namespace Sistem_Informasi_Sekolah
         private readonly GuruMapelDal _guruMapelDal;
         private readonly MataPelajaranDal _mataPelajaranDal;
 
+
+        private readonly BindingList<MataPelajaranDto> _mataPelajaranDto;
+        private readonly BindingSource _listMapelBinding;
+
         public FormGuru()
         {
             _guruDal = new GuruDal();
             _guruMapelDal = new GuruMapelDal();
             _mataPelajaranDal = new MataPelajaranDal();
 
+
+            _mataPelajaranDto = new BindingList<MataPelajaranDto>();
+            _listMapelBinding = new BindingSource()
+            {
+                DataSource = _mataPelajaranDto
+            };
+
+
             InitializeComponent();
             InitCombo();
+            RefreshData();
         }
 
         private void InitCombo()
@@ -39,7 +52,10 @@ namespace Sistem_Informasi_Sekolah
             ComboTingkatPendidikan.SelectedIndex = 0;
         }
 
-
+        private void RefreshData()
+        {
+            
+        }
 
 
 
@@ -55,7 +71,7 @@ namespace Sistem_Informasi_Sekolah
             public string Pendidikan { get; set; }
         }
 
-        public class MapelDto
+        public class MataPelajaranDto
         {
             public int Id {  get; set; }
             public string MataPelajaran { get; set; }
