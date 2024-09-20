@@ -62,7 +62,6 @@ namespace Sistem_Informasi_Sekolah
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             return Conn.Query<GuruMapelModel>(sql, Dp).ToList();
         }
-
     }
 }
  

@@ -37,11 +37,7 @@
             GridListGuru = new DataGridView();
             panel3 = new Panel();
             PickerTglLahirGuru = new DateTimePicker();
-            RadioGuru_S3 = new RadioButton();
-            RadioGuru_S2 = new RadioButton();
-            RadioGuru_S1 = new RadioButton();
             label8 = new Label();
-            RadioGuru_D3 = new RadioButton();
             panel6 = new Panel();
             GridListGuruMapel = new DataGridView();
             TextKota = new TextBox();
@@ -59,6 +55,7 @@
             panel5 = new Panel();
             PictureFotoGuru = new PictureBox();
             label1 = new Label();
+            ComboTingkatPendidikan = new ComboBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -153,12 +150,9 @@
             // panel3
             // 
             panel3.BackColor = Color.LightGray;
+            panel3.Controls.Add(ComboTingkatPendidikan);
             panel3.Controls.Add(PickerTglLahirGuru);
-            panel3.Controls.Add(RadioGuru_S3);
-            panel3.Controls.Add(RadioGuru_S2);
-            panel3.Controls.Add(RadioGuru_S1);
             panel3.Controls.Add(label8);
-            panel3.Controls.Add(RadioGuru_D3);
             panel3.Controls.Add(panel6);
             panel3.Controls.Add(TextKota);
             panel3.Controls.Add(label6);
@@ -186,39 +180,6 @@
             PickerTglLahirGuru.Size = new Size(301, 27);
             PickerTglLahirGuru.TabIndex = 29;
             // 
-            // RadioGuru_S3
-            // 
-            RadioGuru_S3.AutoSize = true;
-            RadioGuru_S3.Location = new Point(277, 282);
-            RadioGuru_S3.Name = "RadioGuru_S3";
-            RadioGuru_S3.Size = new Size(46, 24);
-            RadioGuru_S3.TabIndex = 28;
-            RadioGuru_S3.TabStop = true;
-            RadioGuru_S3.Text = "S3";
-            RadioGuru_S3.UseVisualStyleBackColor = true;
-            // 
-            // RadioGuru_S2
-            // 
-            RadioGuru_S2.AutoSize = true;
-            RadioGuru_S2.Location = new Point(193, 282);
-            RadioGuru_S2.Name = "RadioGuru_S2";
-            RadioGuru_S2.Size = new Size(46, 24);
-            RadioGuru_S2.TabIndex = 27;
-            RadioGuru_S2.TabStop = true;
-            RadioGuru_S2.Text = "S2";
-            RadioGuru_S2.UseVisualStyleBackColor = true;
-            // 
-            // RadioGuru_S1
-            // 
-            RadioGuru_S1.AutoSize = true;
-            RadioGuru_S1.Location = new Point(111, 282);
-            RadioGuru_S1.Name = "RadioGuru_S1";
-            RadioGuru_S1.Size = new Size(46, 24);
-            RadioGuru_S1.TabIndex = 26;
-            RadioGuru_S1.TabStop = true;
-            RadioGuru_S1.Text = "S1";
-            RadioGuru_S1.UseVisualStyleBackColor = true;
-            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -230,17 +191,6 @@
             label8.Size = new Size(134, 20);
             label8.TabIndex = 25;
             label8.Text = "Tingkat Pendidikan";
-            // 
-            // RadioGuru_D3
-            // 
-            RadioGuru_D3.AutoSize = true;
-            RadioGuru_D3.Location = new Point(26, 282);
-            RadioGuru_D3.Name = "RadioGuru_D3";
-            RadioGuru_D3.Size = new Size(49, 24);
-            RadioGuru_D3.TabIndex = 7;
-            RadioGuru_D3.TabStop = true;
-            RadioGuru_D3.Text = "D3";
-            RadioGuru_D3.UseVisualStyleBackColor = true;
             // 
             // panel6
             // 
@@ -422,6 +372,14 @@
             label1.TabIndex = 2;
             label1.Text = "GuruId";
             // 
+            // ComboTingkatPendidikan
+            // 
+            ComboTingkatPendidikan.FormattingEnabled = true;
+            ComboTingkatPendidikan.Location = new Point(22, 280);
+            ComboTingkatPendidikan.Name = "ComboTingkatPendidikan";
+            ComboTingkatPendidikan.Size = new Size(301, 28);
+            ComboTingkatPendidikan.TabIndex = 30;
+            // 
             // FormGuru
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -469,12 +427,9 @@
         private TextBox TextGuruNama;
         private Label label2;
         private Panel panel6;
-        private RadioButton RadioGuru_S3;
-        private RadioButton RadioGuru_S2;
-        private RadioButton RadioGuru_S1;
         private Label label8;
-        private RadioButton RadioGuru_D3;
         private DataGridView GridListGuruMapel;
         private DateTimePicker PickerTglLahirGuru;
+        private ComboBox ComboTingkatPendidikan;
     }
 }

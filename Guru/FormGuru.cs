@@ -16,8 +16,6 @@ namespace Sistem_Informasi_Sekolah
         private readonly GuruMapelDal _guruMapelDal;
         private readonly MataPelajaranDal _mataPelajaranDal;
 
-
-
         public FormGuru()
         {
             _guruDal = new GuruDal();
@@ -25,6 +23,42 @@ namespace Sistem_Informasi_Sekolah
             _mataPelajaranDal = new MataPelajaranDal();
 
             InitializeComponent();
+            InitCombo();
+        }
+
+        private void InitCombo()
+        {
+            ComboTingkatPendidikan.Items.Clear();
+            ComboTingkatPendidikan.Items.Add("-");
+            ComboTingkatPendidikan.Items.Add("D3");
+            ComboTingkatPendidikan.Items.Add("S1");
+            ComboTingkatPendidikan.Items.Add("S2");
+            ComboTingkatPendidikan.Items.Add("S3");
+
+            ComboTingkatPendidikan.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboTingkatPendidikan.SelectedIndex = 0;
+        }
+
+
+
+
+
+
+
+
+
+
+        public class GuruDto
+        {
+            public int Id {  get; set; }
+            public string Nama { get; set; }
+            public string Pendidikan { get; set; }
+        }
+
+        public class MapelDto
+        {
+            public int Id {  get; set; }
+            public string MataPelajaran { get; set; }
         }
     }
 }
