@@ -13,7 +13,7 @@ namespace Sistem_Informasi_Sekolah
 {
     public class GuruDal
     {
-        public void Insert(GuruModel  guruModel)
+        public int Insert(GuruModel  guruModel)
         {
             const string sql = @"
                 INSERT INTO Guru
@@ -36,7 +36,7 @@ namespace Sistem_Informasi_Sekolah
             Dp.Add("@KotaPendidikan", guruModel.KotaPendidikan, DbType.String);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-            Conn.Execute(sql, Dp);
+            return Conn.QuerySingle<int>(sql, Dp);
         }
 
         public void Update(GuruModel guruModel)
@@ -44,7 +44,7 @@ namespace Sistem_Informasi_Sekolah
             const string sql = @"
                 UPDATE Guru SET
                     GuruName = @GuruName,
-                    TglLahir = @TglLahir,
+                    TglLahir = @TglLahir, 
                     JurusanPendidikan = @JurusanPendidikan,
                     TingkatPendidikan = @TingkatPendidikan,
                     TahunLulus = @TahunLulus,

@@ -12,11 +12,12 @@ namespace Sistem_Informasi_Sekolah
 {
     public class MataPelajaranDal
     {
-        public void Insert(MataPelajaranModel mapel)
+        public int Insert(MataPelajaranModel mapel)
         {
             const string sql = @"
                 INSERT  INTO MataPelajaran
                     (MapelName)
+                OUTPUT inserted.MapelId
                 VALUES
                     (@Mapelname)";
 
@@ -24,7 +25,7 @@ namespace Sistem_Informasi_Sekolah
             Dp.Add("@MapelName", mapel.MapelName, DbType.String);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-            Conn.Execute(sql, Dp);
+            return Conn.QuerySingle<int>(sql, Dp);
         }
 
         public void Update(MataPelajaranModel model)

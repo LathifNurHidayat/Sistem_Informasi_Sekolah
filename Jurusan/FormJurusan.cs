@@ -115,33 +115,31 @@ namespace Sistem_Informasi_Sekolah
 
         #endregion 
 
-        private void SaveJurusan()
+        private int SaveJurusan()
         {
-            var jurusanInsert = new JurusanModel()
+            int jurusanId = Convert.ToInt32(TextJurusanId.Text);
+
+            var jurusan = new JurusanModel()
             {
+                JurusanId = jurusanId,
                 JurusanName = TextJurusanName.Text,
                 JurusanKode = TextJurusanKode.Text
             };
 
-            if (TextJurusanId.Text == string.Empty)
+            if (jurusanId == 0)
             {
                 if (MessageBox.Show($"Tambahkan data \" {TextJurusanName.Text} \" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    _jurusanDal.Insert(jurusanInsert);
+                    _jurusanDal.Insert(jurusan);
             }
             else
             {
                 if (MessageBox.Show("Update data ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    int JurusanId = Convert.ToInt32(TextJurusanId.Text);
-                    var jurusanUpdate = new JurusanModel()
-                    {
-                        JurusanId = JurusanId,
-                        JurusanName = TextJurusanName.Text,
-                        JurusanKode = TextJurusanKode.Text
-                    };
-                    _jurusanDal.Update(jurusanUpdate);
+                    _jurusanDal.Update(jurusan);
                 }
             }
+
+            return jurusanId;
         }
 
         

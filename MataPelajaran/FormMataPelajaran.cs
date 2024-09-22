@@ -69,16 +69,18 @@ namespace Sistem_Informasi_Sekolah
             }
         }
         
-        private void SaveData()
+        private int SaveData()
         {
+            var mapelId = int.Parse(TextMapelId.Text);
             var mapelName = TextMapelName.Text;
 
             var mapelInsert = new MataPelajaranModel()
             {
+                MapelId = mapelId,
                 MapelName = TextMapelName.Text
             };
 
-            if (TextMapelId.Text == string.Empty)
+            if (mapelId == 0)
             {
                 if (MessageBox.Show($"Tambahkan data \" {mapelName} \" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                     _mataPelajaranDal.Insert(mapelInsert);
@@ -88,15 +90,11 @@ namespace Sistem_Informasi_Sekolah
             {
                 if(MessageBox.Show("Update data ?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
                 {
-                    int MapelId = Convert.ToInt32(TextMapelId.Text);
-                    var mapelUpdate = new MataPelajaranModel()
-                    {
-                        MapelId = MapelId,
-                        MapelName= TextMapelName.Text
-                    };
-                    _mataPelajaranDal.Update(mapelUpdate);
+                    _mataPelajaranDal.Update(mapelInsert);
                 }    
             }
+
+            return mapelId;
         }
         #endregion
 

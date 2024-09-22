@@ -126,44 +126,37 @@ namespace Sistem_Informasi_Sekolah
 
         #endregion
 
-        private void SaveData()
+        private int SaveData()
         {
-            var kelasId = TextKelasId.Text;
+            int kelasId = Convert.ToInt32(TextKelasId.Text);
             var isiRadio = RadioKelas_10.Checked ? 10 : RadioKelas_11.Checked ? 11 : 12;
             var isiCombo = ComboKelasJurusan.SelectedItem;
 
             if (isiRadio == 0 || isiCombo == null)
             {
                 _mesBoxHelper.MessageInformasi("Masukan data yang valid");
-                return;
+                return 0;
             }
 
-            var kelasInsert = new KelasModel
+            var kelas = new KelasModel
             {
+                KelasId = kelasId,
                 KelasName = TextKelasName.Text,
                 KelasTingkat = RadioKelas_10.Checked ? 10 : RadioKelas_11.Checked ? 11 : 12,
                 JurusanId = Convert.ToInt32(ComboKelasJurusan.SelectedValue),
                 Flag = TextFlagKelas.Text??string.Empty
             };
 
-            if (kelasId == string.Empty)
+            if (kelasId == 0)
             {
-                _kelasDal.Insert(kelasInsert);
-                _mesBoxHelper.MessageInformasi("Data berhasil disimpan");
+                _kelasDal.Insert(kelas);
             }
             else if (_mesBoxHelper.MessageKonfirmasi("Update data ?") == true)
             {
-                var kelasUpdate = new KelasModel
-                {
-                    KelasId = Convert.ToInt16(kelasId),
-                    KelasName = TextKelasName.Text,
-                    KelasTingkat = RadioKelas_10.Checked ? 10 : RadioKelas_11.Checked ? 11 : 12,
-                    JurusanId = Convert.ToInt32(ComboKelasJurusan.SelectedValue),
-                    Flag = TextFlagKelas.Text ?? string.Empty
-                };
-                _kelasDal.Update(kelasUpdate);
-
+                _kelasDal.Update(kelas);
             }
+
+            return kelasId;
 
         }
 

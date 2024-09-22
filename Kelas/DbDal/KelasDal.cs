@@ -12,11 +12,12 @@ namespace Sistem_Informasi_Sekolah
 {
     public class KelasDal
     {
-        public void Insert(KelasModel kelas)
+        public int Insert(KelasModel kelas)
         {
             const string sql = @"
                 INSERT INTO Kelas
                     (KelasName, KelasTingkat, JurusanId, Flag)
+                OUTPUT inserted.KelasId
                 VALUES
                     (@KelasName, @KelasTingkat, @JurusanId, @Flag)";
 
@@ -27,7 +28,7 @@ namespace Sistem_Informasi_Sekolah
             Dp.Add("@Flag", kelas.Flag, DbType.String);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-            Conn.Execute(sql, Dp);  
+            return Conn.QuerySingle<int>(sql, Dp);  
         }
 
         public void Update(KelasModel kelas)

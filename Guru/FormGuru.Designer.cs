@@ -36,13 +36,14 @@
             panel4 = new Panel();
             GridListGuru = new DataGridView();
             panel3 = new Panel();
+            ComboTingkatPendidikan = new ComboBox();
             PickerTglLahirGuru = new DateTimePicker();
             label8 = new Label();
             panel6 = new Panel();
             GridListGuruMapel = new DataGridView();
             TextKota = new TextBox();
             label6 = new Label();
-            TextInfoPendidikan = new TextBox();
+            TextInstansiPendidikan = new TextBox();
             label7 = new Label();
             TextTahunLulus = new TextBox();
             label4 = new Label();
@@ -55,7 +56,6 @@
             panel5 = new Panel();
             PictureFotoGuru = new PictureBox();
             label1 = new Label();
-            ComboTingkatPendidikan = new ComboBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -156,7 +156,7 @@
             panel3.Controls.Add(panel6);
             panel3.Controls.Add(TextKota);
             panel3.Controls.Add(label6);
-            panel3.Controls.Add(TextInfoPendidikan);
+            panel3.Controls.Add(TextInstansiPendidikan);
             panel3.Controls.Add(label7);
             panel3.Controls.Add(TextTahunLulus);
             panel3.Controls.Add(label4);
@@ -172,6 +172,14 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(669, 630);
             panel3.TabIndex = 0;
+            // 
+            // ComboTingkatPendidikan
+            // 
+            ComboTingkatPendidikan.FormattingEnabled = true;
+            ComboTingkatPendidikan.Location = new Point(22, 280);
+            ComboTingkatPendidikan.Name = "ComboTingkatPendidikan";
+            ComboTingkatPendidikan.Size = new Size(301, 28);
+            ComboTingkatPendidikan.TabIndex = 30;
             // 
             // PickerTglLahirGuru
             // 
@@ -234,14 +242,14 @@
             label6.TabIndex = 22;
             label6.Text = "Kota";
             // 
-            // TextInfoPendidikan
+            // TextInstansiPendidikan
             // 
-            TextInfoPendidikan.BackColor = SystemColors.ControlLightLight;
-            TextInfoPendidikan.BorderStyle = BorderStyle.FixedSingle;
-            TextInfoPendidikan.Location = new Point(348, 352);
-            TextInfoPendidikan.Name = "TextInfoPendidikan";
-            TextInfoPendidikan.Size = new Size(301, 27);
-            TextInfoPendidikan.TabIndex = 21;
+            TextInstansiPendidikan.BackColor = SystemColors.ControlLightLight;
+            TextInstansiPendidikan.BorderStyle = BorderStyle.FixedSingle;
+            TextInstansiPendidikan.Location = new Point(348, 352);
+            TextInstansiPendidikan.Name = "TextInstansiPendidikan";
+            TextInstansiPendidikan.Size = new Size(301, 27);
+            TextInstansiPendidikan.TabIndex = 21;
             // 
             // label7
             // 
@@ -251,9 +259,9 @@
             label7.ForeColor = Color.Black;
             label7.Location = new Point(348, 329);
             label7.Name = "label7";
-            label7.Size = new Size(147, 20);
+            label7.Size = new Size(134, 20);
             label7.TabIndex = 20;
-            label7.Text = "Informasi Pendidikan";
+            label7.Text = "Instansi Pendidikan";
             // 
             // TextTahunLulus
             // 
@@ -372,14 +380,6 @@
             label1.TabIndex = 2;
             label1.Text = "GuruId";
             // 
-            // ComboTingkatPendidikan
-            // 
-            ComboTingkatPendidikan.FormattingEnabled = true;
-            ComboTingkatPendidikan.Location = new Point(22, 280);
-            ComboTingkatPendidikan.Name = "ComboTingkatPendidikan";
-            ComboTingkatPendidikan.Size = new Size(301, 28);
-            ComboTingkatPendidikan.TabIndex = 30;
-            // 
             // FormGuru
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -417,7 +417,7 @@
         private TextBox TextGuruId;
         private TextBox TextKota;
         private Label label6;
-        private TextBox TextInfoPendidikan;
+        private TextBox TextInstansiPendidikan;
         private Label label7;
         private TextBox TextTahunLulus;
         private Label label4;

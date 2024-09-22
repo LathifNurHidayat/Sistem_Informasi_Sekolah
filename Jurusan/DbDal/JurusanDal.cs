@@ -13,11 +13,12 @@ namespace Sistem_Informasi_Sekolah
 {
     public class JurusanDal
     {
-        public void Insert(JurusanModel jurusan)
+        public int Insert(JurusanModel jurusan)
         {
             const string sql = @"
                 INSERT INTO Jurusan 
                     ( JurusanName, JurusanKode)
+                OUTPUT inserted.JurusanId
                 VALUES 
                     (@JurusanName, @JurusanKode)";
               
@@ -27,7 +28,7 @@ namespace Sistem_Informasi_Sekolah
 
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-            Conn.Execute(sql, Dp);
+            return Conn.QuerySingle<int>(sql, Dp);
         }
 
         public void Update(JurusanModel jurusan)
