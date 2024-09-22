@@ -44,7 +44,7 @@ namespace Sistem_Informasi_Sekolah
             Conn.Execute(sql, Dp);
         }
 
-        public IEnumerable<GuruMapelModel> ListData(int GuruId)
+        public IEnumerable<GuruMapelModel> GetData(int GuruId)
         {
             const string sql = @"
                 SELECT 

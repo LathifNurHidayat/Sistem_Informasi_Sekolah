@@ -52,22 +52,24 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonGuruDelete_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void ButtonGuruSave_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            SaveData();
+            RefreshData();
         }
 
         private void ButtonGuruNew_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+           ClearInput();
         }
 
         private void GridListGuru_SelectionChanged(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var GuruId = Convert.ToInt32(GridListGuru.CurrentRow.Cells[0].Value);
+            GetData(GuruId);
         }
         #endregion
 
@@ -177,6 +179,15 @@ namespace Sistem_Informasi_Sekolah
             TextJurusanPendidikan.Text = guru.JurusanPendidikan;
             TextInstansiPendidikan.Text = guru.InstansiPendidikan;
             TextKota.Text = guru.KotaPendidikan;
+
+            var listMapel = _guruMapelDal.GetData(GuruId)?.ToList() ?? new List<GuruMapelModel>();
+
+            _mataPelajaranDto.Clear();
+            listMapel.ForEach(x => _mataPelajaranDto.Add(new MataPelajaranDto
+            {
+                Id = x.MapelId,
+                MataPelajaran = x.MapelName,
+            }));
 
 
 

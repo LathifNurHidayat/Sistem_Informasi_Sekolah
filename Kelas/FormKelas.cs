@@ -128,7 +128,7 @@ namespace Sistem_Informasi_Sekolah
 
         private int SaveData()
         {
-            int kelasId = Convert.ToInt32(TextKelasId.Text);
+            var kelasId = Convert.ToInt32(TextKelasId.Text);
             var isiRadio = RadioKelas_10.Checked ? 10 : RadioKelas_11.Checked ? 11 : 12;
             var isiCombo = ComboKelasJurusan.SelectedItem;
 

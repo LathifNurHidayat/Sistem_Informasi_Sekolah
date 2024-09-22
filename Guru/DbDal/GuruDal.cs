@@ -18,11 +18,11 @@ namespace Sistem_Informasi_Sekolah
             const string sql = @"
                 INSERT INTO Guru
                     (GuruId, GuruName, TglLahir, JurusanPendidikan, 
-                    TingkatPendidikan, TahunLulus, InstansiPenidikan, 
+                    TingkatPendidikan, TahunLulus, InstansiPendidikan, 
                     KotaPendidikan)
                 VALUES 
                     (@GuruId, @GuruName, @TglLahir, @JurusanPendidikan, 
-                    @TingkatPendidikan, @TahunLulus, @InstansiPenidikan, 
+                    @TingkatPendidikan, @TahunLulus, @InstansiPendidikan, 
                     @KotaPendidikan)";
 
             var Dp = new DynamicParameters();
