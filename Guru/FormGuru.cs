@@ -34,10 +34,43 @@ namespace Sistem_Informasi_Sekolah
 
 
             InitializeComponent();
+
+            ControlEvent();
             InitialGrid();
             InitialCombo();
             RefreshData();
         }
+
+        #region EVENT
+        private void ControlEvent()
+        {
+            GridListGuru.SelectionChanged += GridListGuru_SelectionChanged;
+            ButtonGuruNew.Click += ButtonGuruNew_Click;
+            ButtonGuruSave.Click += ButtonGuruSave_Click;
+            ButtonGuruDelete.Click += ButtonGuruDelete_Click;
+        }
+
+        private void ButtonGuruDelete_Click(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ButtonGuruSave_Click(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ButtonGuruNew_Click(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void GridListGuru_SelectionChanged(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
 
         private void InitialGrid()
         {
@@ -92,9 +125,63 @@ namespace Sistem_Informasi_Sekolah
             _listMapelBinding.Clear();
         }
 
+        private int SaveData()
+        {
+            int guruId = TextGuruId.Text == string.Empty ? 0 : Convert.ToInt32(TextGuruId.Text);
+
+            var guru = new GuruModel
+            {
+                GuruId = guruId,
+                GuruName = TextGuruNama.Text,
+                TglLahir = PickerTglLahirGuru.Value,
+                TingkatPendidikan = ComboTingkatPendidikan.SelectedItem.ToString() ?? string.Empty,
+                JurusanPendidikan = TextJurusanPendidikan.Text,
+                TahunLulus = TextTahunLulus.Text,
+                InstansiPendidikan = TextInstansiPendidikan.Text,
+                KotaPendidikan = TextKota.Text,
+
+                ListMapel = _mataPelajaranDto
+                    .Select(x => new GuruMapelModel 
+                    {
+                        GuruId = guruId, 
+                        MapelId = x.Id, 
+                    }).ToList()
+            };
+
+            if (guru.GuruId == 0)
+                guru.GuruId = _guruDal.Insert(guru);
+            else 
+                _guruDal.Update(guru);
+
+            _guruMapelDal.Delete(guru.GuruId);
+            _guruMapelDal.Insert(guru.ListMapel);
+
+
+            return guruId;
+        }
+
+        private void GetData(int GuruId)
+        {
+            var guru = _guruDal.GetData(GuruId);
+
+            if (guru == null)
+            {
+                ClearInput();
+                return;
+            }
+
+            TextGuruId.Text = guru.GuruId.ToString();
+            TextGuruNama.Text = guru.GuruName;
+            PickerTglLahirGuru.Value = guru.TglLahir;
+            ComboTingkatPendidikan.SelectedItem = guru.TingkatPendidikan;
+            TextJurusanPendidikan.Text = guru.JurusanPendidikan;
+            TextInstansiPendidikan.Text = guru.InstansiPendidikan;
+            TextKota.Text = guru.KotaPendidikan;
 
 
 
+               
+        }
 
 
         public class GuruDto
