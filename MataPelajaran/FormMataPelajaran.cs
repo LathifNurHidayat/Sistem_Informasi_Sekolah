@@ -13,6 +13,8 @@ namespace Sistem_Informasi_Sekolah
     public partial class FormMataPelajaran : Form
     {
         private readonly MataPelajaranDal _mataPelajaranDal;
+        public int MapelId = 0;
+        public string MapelName = "";
         public FormMataPelajaran()
         {
             _mataPelajaranDal = new MataPelajaranDal();
@@ -34,11 +36,10 @@ namespace Sistem_Informasi_Sekolah
         private void GridListMapel_SelectionChanged(object? sender, EventArgs e)
         {
             LabelMapelUpdate.Text = "UPDATE";
-            var mapelId = GridListMapel.CurrentRow.Cells["MapelId"].Value.ToString();
-            var mapelName = GridListMapel.CurrentRow.Cells["MapelName"].Value.ToString();
+            var mapelId = GridListMapel.CurrentRow.Cells["MapelId"].Value;
 
-            TextMapelId.Text = mapelId;
-            TextMapelName.Text = mapelName;
+
+            GetData(Convert.ToInt32(mapelId));
         }
 
         private void ButtonMapelDelete_Click(object? sender, EventArgs e)
@@ -68,34 +69,8 @@ namespace Sistem_Informasi_Sekolah
                 Clear();
             }
         }
-        
-        private int SaveData()
-        {
-            var mapelId = TextMapelId.Text == string.Empty ? 0 : Convert.ToInt32(TextMapelId.Text);
-            var mapelName = TextMapelName.Text;
 
-            var mapelInsert = new MataPelajaranModel()
-            {
-                MapelId = mapelId,
-                MapelName = TextMapelName.Text
-            };
 
-            if (mapelId == 0)
-            {
-                if (MessageBox.Show($"Tambahkan data \" {mapelName} \" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                    _mataPelajaranDal.Insert(mapelInsert);
-            }
-
-            else
-            {
-                if(MessageBox.Show("Update data ?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
-                {
-                    _mataPelajaranDal.Update(mapelInsert);
-                }    
-            }
-
-            return mapelId;
-        }
         #endregion
 
         #region CLEAR & LOAD
@@ -119,6 +94,45 @@ namespace Sistem_Informasi_Sekolah
 
             GridListMapel.Columns["MapelId"].Width = 100;
             GridListMapel.Columns["MapelName"].Width = 200;
+        }
+
+        private int SaveData()
+        {
+            var mapelId = TextMapelId.Text == string.Empty ? 0 : Convert.ToInt32(TextMapelId.Text);
+            var mapelName = TextMapelName.Text;
+
+            var mapelInsert = new MataPelajaranModel()
+            {
+                MapelId = mapelId,
+                MapelName = TextMapelName.Text
+            };
+
+            if (mapelId == 0)
+            {
+                if (MessageBox.Show($"Tambahkan data \" {mapelName} \" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                    _mataPelajaranDal.Insert(mapelInsert);
+            }
+
+            else
+            {
+                if (MessageBox.Show("Update data ?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    _mataPelajaranDal.Update(mapelInsert);
+                }
+            }
+
+            return mapelId;
+        }
+
+        private void GetData(int MapelId)
+        {
+            var mapel = _mataPelajaranDal.GetData(MapelId);
+
+            if (mapel == null)
+                return;
+
+            TextMapelId.Text = mapel.MapelId.ToString();
+            TextMapelName.Text = mapel.MapelName;
         }
     }
 }

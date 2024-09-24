@@ -64,5 +64,20 @@ namespace Sistem_Informasi_Sekolah
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             return Conn.Query<MataPelajaranModel>(sql);
         }
+
+        public MataPelajaranModel? GetData(int MapelId)
+        {
+            const string sql = @"
+                SELECT 
+                    MapelId, MapelName 
+                FROM MataPelajaran 
+                    WHERE MapelId = @MapelId";
+
+            var Dp = new DynamicParameters();
+            Dp.Add("@MapelId", MapelId);
+
+            using var Conn = new SqlConnection(ConnStringHelper.Get());
+            return Conn.QueryFirstOrDefault<MataPelajaranModel>(sql, Dp);
+        }
     }
 }

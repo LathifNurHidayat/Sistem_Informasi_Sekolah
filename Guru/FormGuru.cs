@@ -17,7 +17,7 @@ namespace Sistem_Informasi_Sekolah
         private readonly MataPelajaranDal _mataPelajaranDal;
 
         private readonly BindingSource _listMapelBinding;
-        private readonly BindingList<MataPelajaranDto> _mataPelajaranDto;
+        private readonly BindingList<MataPelajaranDto> _listMataPelajaran;
 
         public FormGuru()
         {
@@ -26,10 +26,10 @@ namespace Sistem_Informasi_Sekolah
             _mataPelajaranDal = new MataPelajaranDal();
             
 
-            _mataPelajaranDto = new BindingList<MataPelajaranDto>();
+            _listMataPelajaran = new BindingList<MataPelajaranDto>(); 
             _listMapelBinding = new BindingSource()
             {
-                DataSource = _mataPelajaranDto
+                DataSource = _listMataPelajaran
             };
 
 
@@ -45,10 +45,74 @@ namespace Sistem_Informasi_Sekolah
         private void ControlEvent()
         {
             GridListGuru.SelectionChanged += GridListGuru_SelectionChanged;
+            GridListGuruMapel.Validated += GridListGuruMapel_Validated;
+            GridListGuruMapel.KeyDown += GridListGuruMapel_KeyDown;
+
+
             ButtonGuruNew.Click += ButtonGuruNew_Click;
             ButtonGuruSave.Click += ButtonGuruSave_Click;
             ButtonGuruDelete.Click += ButtonGuruDelete_Click;
+
         }
+
+        private void GridListGuruMapel_KeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                DataGridViewRow currenRow = GridListGuruMapel.CurrentRow;
+
+                using var formMapel = new FormMataPelajaran();
+                if (formMapel.ShowDialog() == DialogResult.OK)
+                {
+                    var mapelId = formMapel.MapelId;
+                    var mapelName = formMapel.MapelName;
+
+
+                    GridListGuruMapel.BeginEdit(true);
+                    currenRow.Cells[0].Value = mapelId;
+                    currenRow.Cells[1].Value = mapelName;
+                    GridListGuruMapel.EndEdit(DataGridViewDataErrorContexts.Commit);
+                }
+
+            }
+        }
+
+        private void GridListGuruMapel_Validated(object? sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) 
+                return;
+
+            var dataGrid = (DataGridView)sender;
+            var getIdMapel = dataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+
+            switch (dataGrid.CurrentCell.OwningColumn.Name)
+            {
+                case "Id":
+                    var mapel = _mataPelajaranDal.GetData(Convert.ToInt32(getIdMapel));
+                    if (mapel == null)
+                    {
+                        _listMataPelajaran[e.RowIndex].MataPelajaran = " ";
+                        return;
+                    }
+
+                    _listMataPelajaran[e.RowIndex].Id = mapel.MapelId;
+                    _listMataPelajaran[e.RowIndex].MataPelajaran = mapel.MapelName;
+
+                    break;
+            }
+        }
+
+        private void GridListGuru_SelectionChanged(object? sender, EventArgs e)
+        {
+            if (GridListGuru.Rows.Count > 0)
+            {
+                var GuruId = Convert.ToInt32(GridListGuru.CurrentRow.Cells[0].Value);
+                GetData(GuruId);
+            }
+        }
+
+
+
 
         private void ButtonGuruDelete_Click(object? sender, EventArgs e)
         {
@@ -77,14 +141,6 @@ namespace Sistem_Informasi_Sekolah
            ClearInput();
         }
 
-        private void GridListGuru_SelectionChanged(object? sender, EventArgs e)
-        {
-            if (GridListGuru.Rows.Count > 0)
-            {
-                var GuruId = Convert.ToInt32(GridListGuru.CurrentRow.Cells[0].Value);
-                GetData(GuruId);
-            }
-        }
         #endregion
 
 
@@ -156,7 +212,7 @@ namespace Sistem_Informasi_Sekolah
                 InstansiPendidikan = TextInstansiPendidikan.Text,
                 KotaPendidikan = TextKota.Text,
 
-                ListMapel = _mataPelajaranDto
+                ListMapel = _listMataPelajaran
                     .Select(x => new GuruMapelModel 
                     {
                         GuruId = guruId, 
@@ -196,8 +252,8 @@ namespace Sistem_Informasi_Sekolah
 
             var listMapel = _guruMapelDal.GetData(GuruId)?.ToList() ?? new List<GuruMapelModel>();
 
-            _mataPelajaranDto.Clear();
-            listMapel.ForEach(x => _mataPelajaranDto.Add(new MataPelajaranDto
+            _listMataPelajaran.Clear();
+            listMapel.ForEach(x => _listMataPelajaran.Add(new MataPelajaranDto
             {
                 Id = x.MapelId,
                 MataPelajaran = x.MapelName,
