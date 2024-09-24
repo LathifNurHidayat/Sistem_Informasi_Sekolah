@@ -74,9 +74,7 @@ namespace Sistem_Informasi_Sekolah
 
                     GridListGuruMapel.EndEdit(DataGridViewDataErrorContexts.Commit);
 
-
-
-                    _listMapelBinding.ResetBindings(true);
+                    _listMapelBinding.ResetBindings(false);
                     GridListGuruMapel.CurrentCell = GridListGuruMapel.Rows[GridListGuruMapel.Rows.Count - 1 ].Cells[0];
                 }
             }
@@ -118,7 +116,7 @@ namespace Sistem_Informasi_Sekolah
 
 
 
-
+           
         private void ButtonGuruDelete_Click(object? sender, EventArgs e)
         {
             var IdGuru = Convert.ToInt32(GridListGuru.CurrentRow.Cells[0].Value);

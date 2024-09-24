@@ -34,8 +34,8 @@
             jurusanToolStripMenuItem = new ToolStripMenuItem();
             mataPelajaranToolStripMenuItem = new ToolStripMenuItem();
             kelasToolStripMenuItem = new ToolStripMenuItem();
-            menuStrip1 = new MenuStrip();
             guruToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1 = new MenuStrip();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -78,6 +78,12 @@
             kelasToolStripMenuItem.Size = new Size(224, 26);
             kelasToolStripMenuItem.Text = "Kelas";
             // 
+            // guruToolStripMenuItem
+            // 
+            guruToolStripMenuItem.Name = "guruToolStripMenuItem";
+            guruToolStripMenuItem.Size = new Size(224, 26);
+            guruToolStripMenuItem.Text = "Guru";
+            // 
             // menuStrip1
             // 
             menuStrip1.BackColor = Color.Gainsboro;
@@ -88,12 +94,6 @@
             menuStrip1.Size = new Size(1082, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
-            // 
-            // guruToolStripMenuItem
-            // 
-            guruToolStripMenuItem.Name = "guruToolStripMenuItem";
-            guruToolStripMenuItem.Size = new Size(224, 26);
-            guruToolStripMenuItem.Text = "Guru";
             // 
             // Home
             // 

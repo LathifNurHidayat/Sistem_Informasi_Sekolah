@@ -33,6 +33,8 @@
             GridListKelas = new DataGridView();
             panel3 = new Panel();
             panel1 = new Panel();
+            label5 = new Label();
+            TextFlagKelas = new TextBox();
             TextKelasName = new TextBox();
             ComboKelasJurusan = new ComboBox();
             RadioKelas_12 = new RadioButton();
@@ -47,8 +49,6 @@
             ButtonKelasSave = new Button();
             ButtonKelasDelete = new Button();
             ButtonKelasNew = new Button();
-            TextFlagKelas = new TextBox();
-            label5 = new Label();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListKelas).BeginInit();
@@ -70,6 +70,7 @@
             // 
             // panel4
             // 
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.Silver;
             panel4.Controls.Add(GridListKelas);
             panel4.Location = new Point(3, 3);
@@ -79,6 +80,7 @@
             // 
             // GridListKelas
             // 
+            GridListKelas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GridListKelas.BackgroundColor = SystemColors.ButtonHighlight;
             GridListKelas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GridListKelas.Location = new Point(9, 9);
@@ -90,6 +92,7 @@
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel3.BackColor = Color.Silver;
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(panel1);
@@ -101,6 +104,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.LightGray;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label5);
@@ -120,6 +124,26 @@
             panel1.Size = new Size(352, 460);
             panel1.TabIndex = 15;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(16, 334);
+            label5.Name = "label5";
+            label5.Size = new Size(49, 28);
+            label5.TabIndex = 17;
+            label5.Text = "Flag";
+            // 
+            // TextFlagKelas
+            // 
+            TextFlagKelas.BorderStyle = BorderStyle.FixedSingle;
+            TextFlagKelas.Location = new Point(15, 365);
+            TextFlagKelas.Name = "TextFlagKelas";
+            TextFlagKelas.Size = new Size(148, 27);
+            TextFlagKelas.TabIndex = 5;
+            // 
             // TextKelasName
             // 
             TextKelasName.BackColor = SystemColors.ActiveBorder;
@@ -136,7 +160,7 @@
             ComboKelasJurusan.Location = new Point(13, 294);
             ComboKelasJurusan.Name = "ComboKelasJurusan";
             ComboKelasJurusan.Size = new Size(316, 28);
-            ComboKelasJurusan.TabIndex = 13;
+            ComboKelasJurusan.TabIndex = 4;
             // 
             // RadioKelas_12
             // 
@@ -145,10 +169,10 @@
             RadioKelas_12.ForeColor = Color.Black;
             RadioKelas_12.Location = new Point(282, 223);
             RadioKelas_12.Name = "RadioKelas_12";
-            RadioKelas_12.Size = new Size(47, 27);
+            RadioKelas_12.Size = new Size(40, 27);
             RadioKelas_12.TabIndex = 12;
             RadioKelas_12.TabStop = true;
-            RadioKelas_12.Text = "12";
+            RadioKelas_12.Text = "3";
             RadioKelas_12.UseVisualStyleBackColor = true;
             // 
             // RadioKelas_11
@@ -158,10 +182,10 @@
             RadioKelas_11.ForeColor = Color.Black;
             RadioKelas_11.Location = new Point(150, 223);
             RadioKelas_11.Name = "RadioKelas_11";
-            RadioKelas_11.Size = new Size(45, 27);
+            RadioKelas_11.Size = new Size(40, 27);
             RadioKelas_11.TabIndex = 11;
             RadioKelas_11.TabStop = true;
-            RadioKelas_11.Text = "11";
+            RadioKelas_11.Text = "2";
             RadioKelas_11.UseVisualStyleBackColor = true;
             // 
             // RadioKelas_10
@@ -171,10 +195,10 @@
             RadioKelas_10.ForeColor = Color.Black;
             RadioKelas_10.Location = new Point(16, 223);
             RadioKelas_10.Name = "RadioKelas_10";
-            RadioKelas_10.Size = new Size(47, 27);
+            RadioKelas_10.Size = new Size(38, 27);
             RadioKelas_10.TabIndex = 10;
             RadioKelas_10.TabStop = true;
-            RadioKelas_10.Text = "10";
+            RadioKelas_10.Text = "1";
             RadioKelas_10.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -237,6 +261,7 @@
             // 
             // panel5
             // 
+            panel5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel5.BackColor = Color.LightGray;
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(ButtonKelasSave);
@@ -255,7 +280,7 @@
             ButtonKelasSave.Location = new Point(131, 20);
             ButtonKelasSave.Name = "ButtonKelasSave";
             ButtonKelasSave.Size = new Size(95, 35);
-            ButtonKelasSave.TabIndex = 7;
+            ButtonKelasSave.TabIndex = 6;
             ButtonKelasSave.Text = "Save";
             ButtonKelasSave.UseVisualStyleBackColor = false;
             // 
@@ -267,7 +292,7 @@
             ButtonKelasDelete.Location = new Point(244, 20);
             ButtonKelasDelete.Name = "ButtonKelasDelete";
             ButtonKelasDelete.Size = new Size(95, 35);
-            ButtonKelasDelete.TabIndex = 6;
+            ButtonKelasDelete.TabIndex = 7;
             ButtonKelasDelete.Text = "Delete";
             ButtonKelasDelete.UseVisualStyleBackColor = false;
             // 
@@ -279,37 +304,17 @@
             ButtonKelasNew.Location = new Point(15, 20);
             ButtonKelasNew.Name = "ButtonKelasNew";
             ButtonKelasNew.Size = new Size(95, 35);
-            ButtonKelasNew.TabIndex = 14;
+            ButtonKelasNew.TabIndex = 8;
             ButtonKelasNew.Text = "New";
             ButtonKelasNew.UseVisualStyleBackColor = false;
             // 
-            // TextFlagKelas
-            // 
-            TextFlagKelas.BorderStyle = BorderStyle.FixedSingle;
-            TextFlagKelas.Location = new Point(15, 365);
-            TextFlagKelas.Name = "TextFlagKelas";
-            TextFlagKelas.Size = new Size(148, 27);
-            TextFlagKelas.TabIndex = 16;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.ForeColor = Color.Black;
-            label5.Location = new Point(16, 334);
-            label5.Name = "label5";
-            label5.Size = new Size(49, 28);
-            label5.TabIndex = 17;
-            label5.Text = "Flag";
-            // 
-            // Kelas
+            // FormKelas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(862, 601);
             Controls.Add(panel2);
-            Name = "Kelas";
+            Name = "FormKelas";
             Text = "Kelas";
             panel2.ResumeLayout(false);
             panel4.ResumeLayout(false);

@@ -54,6 +54,7 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.DarkGray;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(panel4);
@@ -65,6 +66,7 @@
             // 
             // panel4
             // 
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.Silver;
             panel4.Controls.Add(panel1);
             panel4.Controls.Add(GridListMapel);
@@ -75,6 +77,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.LightGray;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(ButtonMapelNew);
@@ -91,12 +94,13 @@
             ButtonMapelNew.Location = new Point(325, 14);
             ButtonMapelNew.Name = "ButtonMapelNew";
             ButtonMapelNew.Size = new Size(120, 35);
-            ButtonMapelNew.TabIndex = 8;
+            ButtonMapelNew.TabIndex = 4;
             ButtonMapelNew.Text = "New Data";
             ButtonMapelNew.UseVisualStyleBackColor = false;
             // 
             // GridListMapel
             // 
+            GridListMapel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GridListMapel.BackgroundColor = SystemColors.ButtonHighlight;
             GridListMapel.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GridListMapel.Location = new Point(11, 10);
@@ -108,6 +112,7 @@
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel3.BackColor = Color.Silver;
             panel3.Controls.Add(TextMapelId);
             panel3.Controls.Add(panel6);
@@ -151,6 +156,7 @@
             // 
             // panel5
             // 
+            panel5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel5.BackColor = Color.LightGray;
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(label2);
@@ -177,13 +183,14 @@
             // 
             // ButtonMapelDelete
             // 
+            ButtonMapelDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ButtonMapelDelete.BackColor = Color.Crimson;
             ButtonMapelDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonMapelDelete.ForeColor = SystemColors.ControlLightLight;
             ButtonMapelDelete.Location = new Point(182, 426);
             ButtonMapelDelete.Name = "ButtonMapelDelete";
             ButtonMapelDelete.Size = new Size(120, 35);
-            ButtonMapelDelete.TabIndex = 6;
+            ButtonMapelDelete.TabIndex = 3;
             ButtonMapelDelete.Text = "Delete";
             ButtonMapelDelete.UseVisualStyleBackColor = false;
             // 
@@ -201,13 +208,14 @@
             // 
             // ButtonMapelSave
             // 
+            ButtonMapelSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ButtonMapelSave.BackColor = Color.ForestGreen;
             ButtonMapelSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonMapelSave.ForeColor = SystemColors.ControlLightLight;
             ButtonMapelSave.Location = new Point(14, 426);
             ButtonMapelSave.Name = "ButtonMapelSave";
             ButtonMapelSave.Size = new Size(120, 35);
-            ButtonMapelSave.TabIndex = 7;
+            ButtonMapelSave.TabIndex = 2;
             ButtonMapelSave.Text = "Save";
             ButtonMapelSave.UseVisualStyleBackColor = false;
             // 
@@ -220,13 +228,13 @@
             TextMapelName.Size = new Size(288, 27);
             TextMapelName.TabIndex = 1;
             // 
-            // MataPelajaran
+            // FormMataPelajaran
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(862, 601);
             Controls.Add(panel2);
-            Name = "MataPelajaran";
+            Name = "FormMataPelajaran";
             Text = "MataPelajaran";
             panel2.ResumeLayout(false);
             panel4.ResumeLayout(false);

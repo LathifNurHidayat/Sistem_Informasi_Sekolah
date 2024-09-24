@@ -69,9 +69,5 @@ namespace Sistem_Informasi_Sekolah
         }
 
         #endregion
-
-
-
-        
     }
 }

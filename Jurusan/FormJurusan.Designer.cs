@@ -38,13 +38,13 @@
             panel6 = new Panel();
             LabelJurusanUpdate = new Label();
             panel5 = new Panel();
+            label3 = new Label();
+            TextJurusanKode = new TextBox();
             label2 = new Label();
             ButtonJurusanDelete = new Button();
             label1 = new Label();
             ButtonJurusanSave = new Button();
             TextJurusanName = new TextBox();
-            label3 = new Label();
-            TextJurusanKode = new TextBox();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
@@ -56,6 +56,7 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.DarkGray;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(panel4);
@@ -67,6 +68,7 @@
             // 
             // panel4
             // 
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.Silver;
             panel4.Controls.Add(panel1);
             panel4.Controls.Add(GridListJurusan);
@@ -77,6 +79,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.LightGray;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(ButtonJurusanNew);
@@ -87,18 +90,20 @@
             // 
             // ButtonJurusanNew
             // 
+            ButtonJurusanNew.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ButtonJurusanNew.BackColor = Color.RoyalBlue;
             ButtonJurusanNew.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonJurusanNew.ForeColor = SystemColors.ControlLightLight;
             ButtonJurusanNew.Location = new Point(325, 14);
             ButtonJurusanNew.Name = "ButtonJurusanNew";
             ButtonJurusanNew.Size = new Size(120, 35);
-            ButtonJurusanNew.TabIndex = 8;
+            ButtonJurusanNew.TabIndex = 5;
             ButtonJurusanNew.Text = "New Data";
             ButtonJurusanNew.UseVisualStyleBackColor = false;
             // 
             // GridListJurusan
             // 
+            GridListJurusan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GridListJurusan.BackgroundColor = SystemColors.ButtonHighlight;
             GridListJurusan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GridListJurusan.Location = new Point(11, 10);
@@ -110,6 +115,7 @@
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel3.BackColor = Color.Silver;
             panel3.Controls.Add(TextJurusanId);
             panel3.Controls.Add(panel6);
@@ -153,6 +159,7 @@
             // 
             // panel5
             // 
+            panel5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
             panel5.BackColor = Color.LightGray;
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(label3);
@@ -166,63 +173,6 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(317, 477);
             panel5.TabIndex = 9;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.LightGray;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = Color.Black;
-            label2.Location = new Point(14, 113);
-            label2.Name = "label2";
-            label2.Size = new Size(134, 28);
-            label2.TabIndex = 3;
-            label2.Text = "Jurusan Name";
-            // 
-            // ButtonJurusanDelete
-            // 
-            ButtonJurusanDelete.BackColor = Color.Crimson;
-            ButtonJurusanDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonJurusanDelete.ForeColor = SystemColors.ControlLightLight;
-            ButtonJurusanDelete.Location = new Point(182, 426);
-            ButtonJurusanDelete.Name = "ButtonJurusanDelete";
-            ButtonJurusanDelete.Size = new Size(120, 35);
-            ButtonJurusanDelete.TabIndex = 6;
-            ButtonJurusanDelete.Text = "Delete";
-            ButtonJurusanDelete.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.LightGray;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(14, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(99, 28);
-            label1.TabIndex = 2;
-            label1.Text = "Jurusan Id";
-            // 
-            // ButtonJurusanSave
-            // 
-            ButtonJurusanSave.BackColor = Color.ForestGreen;
-            ButtonJurusanSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonJurusanSave.ForeColor = SystemColors.ControlLightLight;
-            ButtonJurusanSave.Location = new Point(14, 426);
-            ButtonJurusanSave.Name = "ButtonJurusanSave";
-            ButtonJurusanSave.Size = new Size(120, 35);
-            ButtonJurusanSave.TabIndex = 7;
-            ButtonJurusanSave.Text = "Save";
-            ButtonJurusanSave.UseVisualStyleBackColor = false;
-            // 
-            // TextJurusanName
-            // 
-            TextJurusanName.BackColor = SystemColors.ControlLightLight;
-            TextJurusanName.BorderStyle = BorderStyle.FixedSingle;
-            TextJurusanName.Location = new Point(14, 144);
-            TextJurusanName.Name = "TextJurusanName";
-            TextJurusanName.Size = new Size(288, 27);
-            TextJurusanName.TabIndex = 1;
             // 
             // label3
             // 
@@ -243,16 +193,75 @@
             TextJurusanKode.Location = new Point(13, 239);
             TextJurusanKode.Name = "TextJurusanKode";
             TextJurusanKode.Size = new Size(149, 27);
-            TextJurusanKode.TabIndex = 8;
+            TextJurusanKode.TabIndex = 2;
             // 
-            // Jurusan
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.LightGray;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(14, 113);
+            label2.Name = "label2";
+            label2.Size = new Size(134, 28);
+            label2.TabIndex = 3;
+            label2.Text = "Jurusan Name";
+            // 
+            // ButtonJurusanDelete
+            // 
+            ButtonJurusanDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ButtonJurusanDelete.BackColor = Color.Crimson;
+            ButtonJurusanDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonJurusanDelete.ForeColor = SystemColors.ControlLightLight;
+            ButtonJurusanDelete.Location = new Point(182, 426);
+            ButtonJurusanDelete.Name = "ButtonJurusanDelete";
+            ButtonJurusanDelete.Size = new Size(120, 35);
+            ButtonJurusanDelete.TabIndex = 4;
+            ButtonJurusanDelete.Text = "Delete";
+            ButtonJurusanDelete.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.LightGray;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(14, 18);
+            label1.Name = "label1";
+            label1.Size = new Size(99, 28);
+            label1.TabIndex = 2;
+            label1.Text = "Jurusan Id";
+            // 
+            // ButtonJurusanSave
+            // 
+            ButtonJurusanSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ButtonJurusanSave.BackColor = Color.ForestGreen;
+            ButtonJurusanSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonJurusanSave.ForeColor = SystemColors.ControlLightLight;
+            ButtonJurusanSave.Location = new Point(14, 426);
+            ButtonJurusanSave.Name = "ButtonJurusanSave";
+            ButtonJurusanSave.Size = new Size(120, 35);
+            ButtonJurusanSave.TabIndex = 3;
+            ButtonJurusanSave.Text = "Save";
+            ButtonJurusanSave.UseVisualStyleBackColor = false;
+            // 
+            // TextJurusanName
+            // 
+            TextJurusanName.BackColor = SystemColors.ControlLightLight;
+            TextJurusanName.BorderStyle = BorderStyle.FixedSingle;
+            TextJurusanName.Location = new Point(14, 144);
+            TextJurusanName.Name = "TextJurusanName";
+            TextJurusanName.Size = new Size(288, 27);
+            TextJurusanName.TabIndex = 1;
+            // 
+            // FormJurusan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(862, 601);
             Controls.Add(panel2);
-            Name = "Jurusan";
+            Name = "FormJurusan";
             Text = "Jurusan";
             panel2.ResumeLayout(false);
             panel4.ResumeLayout(false);

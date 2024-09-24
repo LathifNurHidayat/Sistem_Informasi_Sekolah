@@ -56,7 +56,6 @@
             panel5 = new Panel();
             PictureFotoGuru = new PictureBox();
             label1 = new Label();
-            button1 = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -70,6 +69,7 @@
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.DarkGray;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(panel1);
@@ -82,9 +82,9 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.LightGray;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(button1);
             panel1.Controls.Add(ButtonGuruNew);
             panel1.Controls.Add(ButtonGuruDelete);
             panel1.Controls.Add(ButtonGuruSave);
@@ -101,7 +101,7 @@
             ButtonGuruNew.Location = new Point(627, 29);
             ButtonGuruNew.Name = "ButtonGuruNew";
             ButtonGuruNew.Size = new Size(118, 35);
-            ButtonGuruNew.TabIndex = 8;
+            ButtonGuruNew.TabIndex = 11;
             ButtonGuruNew.Text = "New Data";
             ButtonGuruNew.UseVisualStyleBackColor = false;
             // 
@@ -113,7 +113,7 @@
             ButtonGuruDelete.Location = new Point(907, 29);
             ButtonGuruDelete.Name = "ButtonGuruDelete";
             ButtonGuruDelete.Size = new Size(118, 35);
-            ButtonGuruDelete.TabIndex = 6;
+            ButtonGuruDelete.TabIndex = 10;
             ButtonGuruDelete.Text = "Delete";
             ButtonGuruDelete.UseVisualStyleBackColor = false;
             // 
@@ -125,12 +125,13 @@
             ButtonGuruSave.Location = new Point(767, 29);
             ButtonGuruSave.Name = "ButtonGuruSave";
             ButtonGuruSave.Size = new Size(118, 35);
-            ButtonGuruSave.TabIndex = 7;
+            ButtonGuruSave.TabIndex = 9;
             ButtonGuruSave.Text = "Save";
             ButtonGuruSave.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.LightGray;
             panel4.Controls.Add(GridListGuru);
             panel4.Location = new Point(3, 3);
@@ -151,6 +152,7 @@
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel3.BackColor = Color.LightGray;
             panel3.Controls.Add(ComboTingkatPendidikan);
             panel3.Controls.Add(PickerTglLahirGuru);
@@ -173,7 +175,7 @@
             panel3.Location = new Point(384, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(669, 630);
-            panel3.TabIndex = 0;
+            panel3.TabIndex = 23;
             // 
             // ComboTingkatPendidikan
             // 
@@ -181,14 +183,14 @@
             ComboTingkatPendidikan.Location = new Point(22, 280);
             ComboTingkatPendidikan.Name = "ComboTingkatPendidikan";
             ComboTingkatPendidikan.Size = new Size(301, 28);
-            ComboTingkatPendidikan.TabIndex = 30;
+            ComboTingkatPendidikan.TabIndex = 3;
             // 
             // PickerTglLahirGuru
             // 
             PickerTglLahirGuru.Location = new Point(22, 202);
             PickerTglLahirGuru.Name = "PickerTglLahirGuru";
             PickerTglLahirGuru.Size = new Size(301, 27);
-            PickerTglLahirGuru.TabIndex = 29;
+            PickerTglLahirGuru.TabIndex = 2;
             // 
             // label8
             // 
@@ -221,7 +223,7 @@
             GridListGuruMapel.RowHeadersWidth = 51;
             GridListGuruMapel.RowTemplate.Height = 29;
             GridListGuruMapel.Size = new Size(619, 117);
-            GridListGuruMapel.TabIndex = 1;
+            GridListGuruMapel.TabIndex = 8;
             // 
             // TextKota
             // 
@@ -230,7 +232,7 @@
             TextKota.Location = new Point(348, 429);
             TextKota.Name = "TextKota";
             TextKota.Size = new Size(301, 27);
-            TextKota.TabIndex = 23;
+            TextKota.TabIndex = 7;
             // 
             // label6
             // 
@@ -251,7 +253,7 @@
             TextInstansiPendidikan.Location = new Point(348, 352);
             TextInstansiPendidikan.Name = "TextInstansiPendidikan";
             TextInstansiPendidikan.Size = new Size(301, 27);
-            TextInstansiPendidikan.TabIndex = 21;
+            TextInstansiPendidikan.TabIndex = 5;
             // 
             // label7
             // 
@@ -272,7 +274,7 @@
             TextTahunLulus.Location = new Point(22, 429);
             TextTahunLulus.Name = "TextTahunLulus";
             TextTahunLulus.Size = new Size(301, 27);
-            TextTahunLulus.TabIndex = 19;
+            TextTahunLulus.TabIndex = 6;
             // 
             // label4
             // 
@@ -293,7 +295,7 @@
             TextJurusanPendidikan.Location = new Point(22, 352);
             TextJurusanPendidikan.Name = "TextJurusanPendidikan";
             TextJurusanPendidikan.Size = new Size(301, 27);
-            TextJurusanPendidikan.TabIndex = 17;
+            TextJurusanPendidikan.TabIndex = 4;
             // 
             // label5
             // 
@@ -326,7 +328,7 @@
             TextGuruNama.Location = new Point(22, 125);
             TextGuruNama.Name = "TextGuruNama";
             TextGuruNama.Size = new Size(301, 27);
-            TextGuruNama.TabIndex = 13;
+            TextGuruNama.TabIndex = 1;
             // 
             // label2
             // 
@@ -383,18 +385,6 @@
             label1.TabIndex = 2;
             label1.Text = "GuruId";
             // 
-            // button1
-            // 
-            button1.BackColor = Color.ForestGreen;
-            button1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(381, 29);
-            button1.Name = "button1";
-            button1.Size = new Size(118, 35);
-            button1.TabIndex = 9;
-            button1.Text = "oi";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // FormGuru
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -446,6 +436,5 @@
         private DataGridView GridListGuruMapel;
         private DateTimePicker PickerTglLahirGuru;
         private ComboBox ComboTingkatPendidikan;
-        private Button button1;
     }
 }
