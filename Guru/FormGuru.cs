@@ -24,9 +24,9 @@ namespace Sistem_Informasi_Sekolah
             _guruDal = new GuruDal();
             _guruMapelDal = new GuruMapelDal();
             _mataPelajaranDal = new MataPelajaranDal();
-            
 
-            _listMataPelajaran = new BindingList<MataPelajaranDto>(); 
+
+            _listMataPelajaran = new BindingList<MataPelajaranDto>();
             _listMapelBinding = new BindingSource()
             {
                 DataSource = _listMataPelajaran
@@ -68,17 +68,13 @@ namespace Sistem_Informasi_Sekolah
 
 
                     GridListGuruMapel.BeginEdit(true);
-                    currenRow.Cells[0].Value = mapelId;
+
+                    currenRow.Cells[0].Value = mapelId; 
                     currenRow.Cells[1].Value = mapelName;
 
-                   
-                    GridListGuruMapel.EndEdit(/*DataGridViewDataErrorContexts.Commit*/);
+                    GridListGuruMapel.EndEdit(DataGridViewDataErrorContexts.Commit);
 
-                    _listMataPelajaran.Add(new MataPelajaranDto
-                    {
-                        Id = 0,
-                        MataPelajaran = " "
-                    });
+                    
 
 
                 }
@@ -87,7 +83,7 @@ namespace Sistem_Informasi_Sekolah
 
         private void GridListGuruMapel_CellValidated(object? sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) 
+            if (e.RowIndex < 0)
                 return;
 
             var dataGrid = (DataGridView)sender;
@@ -127,7 +123,7 @@ namespace Sistem_Informasi_Sekolah
             var IdGuru = Convert.ToInt32(GridListGuru.CurrentRow.Cells[0].Value);
             var namaGuru = GridListGuru.CurrentRow.Cells[1].Value.ToString();
 
-            if (MessageBox.Show($"Delete data \"{namaGuru}\" ?", "Konfirmasi", MessageBoxButtons.YesNo  , MessageBoxIcon.Question)== DialogResult.Yes)
+            if (MessageBox.Show($"Delete data \"{namaGuru}\" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 _guruDal.Delete(IdGuru);
                 _guruMapelDal.Delete(IdGuru);
@@ -146,7 +142,7 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonGuruNew_Click(object? sender, EventArgs e)
         {
-           ClearInput();
+            ClearInput();
         }
 
         #endregion
@@ -190,7 +186,7 @@ namespace Sistem_Informasi_Sekolah
             GridListGuru.Refresh();
         }
 
-        private void  ClearInput()
+        private void ClearInput()
         {
             TextGuruId.Clear();
             TextGuruNama.Clear();
@@ -207,8 +203,9 @@ namespace Sistem_Informasi_Sekolah
 
         private int SaveData()
         {
-            int guruId = TextGuruId.Text == string.Empty ? 0 : Convert.ToInt32(TextGuruId.Text);
+            var textGuruId = TextGuruId.Text == string.Empty ? 0 : Convert.ToInt32(TextGuruId.Text);
 
+            int guruId = 0;
             var guru = new GuruModel
             {
                 GuruId = guruId,
@@ -221,22 +218,23 @@ namespace Sistem_Informasi_Sekolah
                 KotaPendidikan = TextKota.Text,
 
                 ListMapel = _listMataPelajaran
-                    .Select(x => new GuruMapelModel 
+                    .Select(x => new GuruMapelModel
                     {
-                        GuruId = guruId, 
-                        MapelId = x.Id, 
+                        GuruId = guruId,
+                        MapelId = x.Id,
                     }).ToList()
             };
 
+
+            int getIdGuru = 0;
+
             if (guruId == 0)
-                _guruDal.Insert(guru);
+                getIdGuru = _guruDal.Insert(guru);
             else
                 _guruDal.Update(guru);
 
-
-            _guruMapelDal.Delete(guru.GuruId);
-            _guruMapelDal.Insert(guru.ListMapel);
-
+            _guruMapelDal.Delete(guruId);
+            _guruMapelDal.Insert(guru.ListMapel, getIdGuru);
 
             return guruId;
         }
@@ -267,21 +265,34 @@ namespace Sistem_Informasi_Sekolah
             {
                 Id = x.MapelId,
                 MataPelajaran = x.MapelName,
-            }));               
+            }));
         }
+
+
 
 
         public class GuruDto
         {
-            public int Id {  get; set; }
+            public int Id { get; set; }
             public string Nama { get; set; }
             public string Pendidikan { get; set; }
         }
 
         public class MataPelajaranDto
         {
-            public int Id {  get; set; }
-            public string MataPelajaran { get; set; }
+            public int Id { get; set; }
+            public string MataPelajaran { get; set; } 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var newEmptyRow = new MataPelajaranDto()
+            {
+                Id = 0, // atau null sesuai kebutuhan
+                MataPelajaran = string.Empty
+            };
+
+            _listMataPelajaran.Add(newEmptyRow); // Menambahkan objek baru ke BindingList
         }
     }
 }

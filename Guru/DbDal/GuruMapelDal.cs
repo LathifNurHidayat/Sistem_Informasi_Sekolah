@@ -11,7 +11,7 @@ namespace Sistem_Informasi_Sekolah
 {
     public class GuruMapelDal
     {
-        public void Insert(IEnumerable<GuruMapelModel> listMapel)
+        public void Insert(IEnumerable<GuruMapelModel> listMapel, int getGuruId)
         {
             const string sql = @"
                 INSERT INTO GuruMapel
@@ -24,7 +24,7 @@ namespace Sistem_Informasi_Sekolah
             foreach (var item in listMapel)
             {
                 var Dp  = new DynamicParameters();
-                Dp.Add("@GuruId", item.GuruId);
+                Dp.Add("@GuruId", getGuruId);
                 Dp.Add("@MapelId", item.MapelId);
 
                 Conn.Execute(sql, Dp);
@@ -34,7 +34,7 @@ namespace Sistem_Informasi_Sekolah
         public void Delete(int GuruId)
         {
             const string sql = @"
-                DELETE FROM Guru 
+                DELETE FROM GuruMapel
                 WHERE GuruId = @GuruId";
 
             var Dp = new DynamicParameters();

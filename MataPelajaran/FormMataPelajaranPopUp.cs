@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Sistem_Informasi_Sekolah.FormGuru;
 
 namespace Sistem_Informasi_Sekolah
 {
@@ -16,14 +17,16 @@ namespace Sistem_Informasi_Sekolah
         private readonly MataPelajaranDal _mataPelajaranDal;
         public int MapelId { get; set; } = 0;
         public string MapelName { get; set; } = "";
-        
-        
+
+
+
         public FormMataPelajaranPopUp()
         {
             InitializeComponent();
 
             KeyPreview = true;
             _mataPelajaranDal = new MataPelajaranDal();
+
 
             ListMapel();
             ControlEvent();
@@ -61,6 +64,7 @@ namespace Sistem_Informasi_Sekolah
                 MapelName = selectedRow ?.Cells[1].Value.ToString() ?? string.Empty;
 
                 DialogResult = DialogResult.OK;
+
                 this.Close();
             }
         }
@@ -73,6 +77,7 @@ namespace Sistem_Informasi_Sekolah
             MapelName = selectedRow?.Cells[1].Value.ToString() ?? string.Empty;
 
             DialogResult = DialogResult.OK;
+
             this.Close();
         }
 

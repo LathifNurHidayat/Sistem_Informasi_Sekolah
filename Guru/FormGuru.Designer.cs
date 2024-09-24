@@ -56,6 +56,7 @@
             panel5 = new Panel();
             PictureFotoGuru = new PictureBox();
             label1 = new Label();
+            button1 = new Button();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
@@ -83,6 +84,7 @@
             // 
             panel1.BackColor = Color.LightGray;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(ButtonGuruNew);
             panel1.Controls.Add(ButtonGuruDelete);
             panel1.Controls.Add(ButtonGuruSave);
@@ -381,6 +383,19 @@
             label1.TabIndex = 2;
             label1.Text = "GuruId";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.ForestGreen;
+            button1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.ControlLightLight;
+            button1.Location = new Point(381, 29);
+            button1.Name = "button1";
+            button1.Size = new Size(118, 35);
+            button1.TabIndex = 9;
+            button1.Text = "oi";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // FormGuru
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -432,5 +447,6 @@
         private DataGridView GridListGuruMapel;
         private DateTimePicker PickerTglLahirGuru;
         private ComboBox ComboTingkatPendidikan;
+        private Button button1;
     }
 }

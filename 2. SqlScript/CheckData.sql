@@ -4,3 +4,4 @@ SELECT * FROM SiswaRiwayat;
 SELECT * FROM Siswa;
 SELECT * FROM SiswaLulus;
 SELECT * FROM Guru;
+SELECT * FROM GuruMapel;
