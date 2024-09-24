@@ -70,13 +70,14 @@ namespace Sistem_Informasi_Sekolah
                     GridListGuruMapel.BeginEdit(true);
 
                     currenRow.Cells[0].Value = mapelId; 
-                    currenRow.Cells[1].Value = mapelName;
+                    currenRow.Cells[1].Value = mapelName; 
 
                     GridListGuruMapel.EndEdit(DataGridViewDataErrorContexts.Commit);
 
-                    
 
 
+                    _listMapelBinding.ResetBindings(true);
+                    GridListGuruMapel.CurrentCell = GridListGuruMapel.Rows[GridListGuruMapel.Rows.Count - 1 ].Cells[0];
                 }
             }
         }
@@ -203,9 +204,8 @@ namespace Sistem_Informasi_Sekolah
 
         private int SaveData()
         {
-            var textGuruId = TextGuruId.Text == string.Empty ? 0 : Convert.ToInt32(TextGuruId.Text);
+            var guruId = TextGuruId.Text == string.Empty ? 0 : Convert.ToInt32(TextGuruId.Text);
 
-            int guruId = 0;
             var guru = new GuruModel
             {
                 GuruId = guruId,
@@ -225,16 +225,13 @@ namespace Sistem_Informasi_Sekolah
                     }).ToList()
             };
 
-
-            int getIdGuru = 0;
-
-            if (guruId == 0)
-                getIdGuru = _guruDal.Insert(guru);
+            if (guru.GuruId == 0)
+                guru.GuruId = _guruDal.Insert(guru);
             else
                 _guruDal.Update(guru);
 
-            _guruMapelDal.Delete(guruId);
-            _guruMapelDal.Insert(guru.ListMapel, getIdGuru);
+            _guruMapelDal.Delete(guru.GuruId);
+            _guruMapelDal.Insert(guru.ListMapel,guru.GuruId);
 
             return guruId;
         }
@@ -284,15 +281,5 @@ namespace Sistem_Informasi_Sekolah
             public string MataPelajaran { get; set; } 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var newEmptyRow = new MataPelajaranDto()
-            {
-                Id = 0, // atau null sesuai kebutuhan
-                MataPelajaran = string.Empty
-            };
-
-            _listMataPelajaran.Add(newEmptyRow); // Menambahkan objek baru ke BindingList
-        }
     }
 }
