@@ -117,7 +117,7 @@ namespace Sistem_Informasi_Sekolah
 
         private int SaveJurusan()
         {
-            int jurusanId = Convert.ToInt32(TextJurusanId.Text);
+            var jurusanId = TextJurusanId.Text == string.Empty ? 0 : Convert.ToInt32(TextJurusanId.Text);
 
             var jurusan = new JurusanModel()
             {

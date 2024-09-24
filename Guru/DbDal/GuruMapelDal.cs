@@ -51,7 +51,7 @@ namespace Sistem_Informasi_Sekolah
                     aa.GuruId,  aa.MapelId,
                     ISNULL(bb.MapelName, '') AS MapelName
                 FROM
-                    GuruMapel aa    LEFT JOIN    Mapel bb
+                    GuruMapel aa    LEFT JOIN    MataPelajaran bb
                     ON aa.MapelId = bb.MapelId
                 WHERE 
                     GuruId = @GuruId";

@@ -52,13 +52,24 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonGuruDelete_Click(object? sender, EventArgs e)
         {
-            
+            var IdGuru = Convert.ToInt32(GridListGuru.CurrentRow.Cells[0].Value);
+            var namaGuru = GridListGuru.CurrentRow.Cells[1].Value.ToString();
+
+            if (MessageBox.Show($"Delete data \"{namaGuru}\" ?", "Konfirmasi", MessageBoxButtons.YesNo  , MessageBoxIcon.Question)== DialogResult.Yes)
+            {
+                _guruDal.Delete(IdGuru);
+                _guruMapelDal.Delete(IdGuru);
+
+                RefreshData();
+                ClearInput();
+            }
         }
 
         private void ButtonGuruSave_Click(object? sender, EventArgs e)
         {
             SaveData();
             RefreshData();
+            ClearInput();
         }
 
         private void ButtonGuruNew_Click(object? sender, EventArgs e)
@@ -68,8 +79,11 @@ namespace Sistem_Informasi_Sekolah
 
         private void GridListGuru_SelectionChanged(object? sender, EventArgs e)
         {
-            var GuruId = Convert.ToInt32(GridListGuru.CurrentRow.Cells[0].Value);
-            GetData(GuruId);
+            if (GridListGuru.Rows.Count > 0)
+            {
+                var GuruId = Convert.ToInt32(GridListGuru.CurrentRow.Cells[0].Value);
+                GetData(GuruId);
+            }
         }
         #endregion
 
@@ -187,11 +201,7 @@ namespace Sistem_Informasi_Sekolah
             {
                 Id = x.MapelId,
                 MataPelajaran = x.MapelName,
-            }));
-
-
-
-               
+            }));               
         }
 
 

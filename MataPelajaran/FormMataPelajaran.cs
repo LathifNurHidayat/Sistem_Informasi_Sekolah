@@ -71,7 +71,7 @@ namespace Sistem_Informasi_Sekolah
         
         private int SaveData()
         {
-            var mapelId = int.Parse(TextMapelId.Text);
+            var mapelId = TextMapelId.Text == string.Empty ? 0 : Convert.ToInt32(TextMapelId.Text);
             var mapelName = TextMapelName.Text;
 
             var mapelInsert = new MataPelajaranModel()

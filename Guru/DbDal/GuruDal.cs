@@ -17,16 +17,16 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                 INSERT INTO Guru
-                    (GuruId, GuruName, TglLahir, JurusanPendidikan, 
+                    (GuruName, TglLahir, JurusanPendidikan, 
                     TingkatPendidikan, TahunLulus, InstansiPendidikan, 
                     KotaPendidikan)
+                OUTPUT inserted.GuruId
                 VALUES 
-                    (@GuruId, @GuruName, @TglLahir, @JurusanPendidikan, 
+                    (@GuruName, @TglLahir, @JurusanPendidikan, 
                     @TingkatPendidikan, @TahunLulus, @InstansiPendidikan, 
                     @KotaPendidikan)";
 
             var Dp = new DynamicParameters();
-            Dp.Add("@GuruId", guruModel.GuruId, DbType.Int32);
             Dp.Add("@GuruName", guruModel.GuruName, DbType.String);
             Dp.Add("@TglLahir", guruModel.TglLahir, DbType.DateTime);
             Dp.Add("@JurusanPendidikan", guruModel.JurusanPendidikan, DbType.String);
@@ -59,6 +59,7 @@ namespace Sistem_Informasi_Sekolah
             Dp.Add("@TglLahir", guruModel.TglLahir, DbType.DateTime);
             Dp.Add("@JurusanPendidikan", guruModel.JurusanPendidikan, DbType.String);
             Dp.Add("@TingkatPendidikan", guruModel.TingkatPendidikan, DbType.String);
+            Dp.Add("@TahunLulus", guruModel.TahunLulus, DbType.String);
             Dp.Add("@InstansiPendidikan", guruModel.InstansiPendidikan, DbType.String);
             Dp.Add("@KotaPendidikan", guruModel.KotaPendidikan, DbType.String);
 
@@ -85,7 +86,7 @@ namespace Sistem_Informasi_Sekolah
             return Conn.Query<GuruModel>(sql);
         }
 
-        public  GuruModel GetData(int GuruId)
+        public  GuruModel? GetData(int GuruId)
         {
             const string sql = @"
                 SELECT * FROM Guru WHERE GuruId = @GuruId";
@@ -94,7 +95,7 @@ namespace Sistem_Informasi_Sekolah
             Dp.Add("@GuruId", GuruId, DbType.Int32);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-            return Conn.QuerySingle<GuruModel>(sql);
+            return Conn.QuerySingle<GuruModel>(sql, Dp);
         }
     }
 }
