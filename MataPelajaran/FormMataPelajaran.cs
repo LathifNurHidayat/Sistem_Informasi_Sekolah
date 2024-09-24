@@ -13,8 +13,7 @@ namespace Sistem_Informasi_Sekolah
     public partial class FormMataPelajaran : Form
     {
         private readonly MataPelajaranDal _mataPelajaranDal;
-        public int MapelId = 0;
-        public string MapelName = "";
+
         public FormMataPelajaran()
         {
             _mataPelajaranDal = new MataPelajaranDal();

@@ -95,7 +95,7 @@ namespace Sistem_Informasi_Sekolah
             Dp.Add("@GuruId", GuruId, DbType.Int32);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-            return Conn.QuerySingle<GuruModel>(sql, Dp);
+            return Conn.QueryFirstOrDefault<GuruModel>(sql, Dp);
         }
     }
 }

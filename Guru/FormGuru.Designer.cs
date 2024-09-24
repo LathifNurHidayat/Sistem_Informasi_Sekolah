@@ -340,10 +340,11 @@
             // 
             // TextGuruId
             // 
-            TextGuruId.BackColor = SystemColors.ControlLightLight;
+            TextGuruId.BackColor = SystemColors.ControlLight;
             TextGuruId.BorderStyle = BorderStyle.FixedSingle;
             TextGuruId.Location = new Point(22, 48);
             TextGuruId.Name = "TextGuruId";
+            TextGuruId.ReadOnly = true;
             TextGuruId.Size = new Size(301, 27);
             TextGuruId.TabIndex = 11;
             // 

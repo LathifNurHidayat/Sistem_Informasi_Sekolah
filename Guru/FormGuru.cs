@@ -45,14 +45,13 @@ namespace Sistem_Informasi_Sekolah
         private void ControlEvent()
         {
             GridListGuru.SelectionChanged += GridListGuru_SelectionChanged;
-            GridListGuruMapel.Validated += GridListGuruMapel_Validated;
+            GridListGuruMapel.CellValidated += GridListGuruMapel_CellValidated;
             GridListGuruMapel.KeyDown += GridListGuruMapel_KeyDown;
 
 
             ButtonGuruNew.Click += ButtonGuruNew_Click;
             ButtonGuruSave.Click += ButtonGuruSave_Click;
             ButtonGuruDelete.Click += ButtonGuruDelete_Click;
-
         }
 
         private void GridListGuruMapel_KeyDown(object? sender, KeyEventArgs e)
@@ -61,7 +60,7 @@ namespace Sistem_Informasi_Sekolah
             {
                 DataGridViewRow currenRow = GridListGuruMapel.CurrentRow;
 
-                using var formMapel = new FormMataPelajaran();
+                using var formMapel = new FormMataPelajaranPopUp();
                 if (formMapel.ShowDialog() == DialogResult.OK)
                 {
                     var mapelId = formMapel.MapelId;
@@ -71,13 +70,22 @@ namespace Sistem_Informasi_Sekolah
                     GridListGuruMapel.BeginEdit(true);
                     currenRow.Cells[0].Value = mapelId;
                     currenRow.Cells[1].Value = mapelName;
-                    GridListGuruMapel.EndEdit(DataGridViewDataErrorContexts.Commit);
-                }
 
+                   
+                    GridListGuruMapel.EndEdit(/*DataGridViewDataErrorContexts.Commit*/);
+
+                    _listMataPelajaran.Add(new MataPelajaranDto
+                    {
+                        Id = 0,
+                        MataPelajaran = " "
+                    });
+
+
+                }
             }
         }
 
-        private void GridListGuruMapel_Validated(object? sender, DataGridViewCellEventArgs e)
+        private void GridListGuruMapel_CellValidated(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) 
                 return;
@@ -186,7 +194,7 @@ namespace Sistem_Informasi_Sekolah
         {
             TextGuruId.Clear();
             TextGuruNama.Clear();
-            PickerTglLahirGuru.Value = new DateTime(2000-01-01);
+            PickerTglLahirGuru.Value = new DateTime(2000, 01, 01);
             ComboTingkatPendidikan.SelectedIndex = 0;
             TextInstansiPendidikan.Clear();
             TextJurusanPendidikan.Clear();
@@ -220,10 +228,11 @@ namespace Sistem_Informasi_Sekolah
                     }).ToList()
             };
 
-            if (guru.GuruId == 0)
-                guru.GuruId = _guruDal.Insert(guru);
-            else 
+            if (guruId == 0)
+                _guruDal.Insert(guru);
+            else
                 _guruDal.Update(guru);
+
 
             _guruMapelDal.Delete(guru.GuruId);
             _guruMapelDal.Insert(guru.ListMapel);
@@ -248,6 +257,7 @@ namespace Sistem_Informasi_Sekolah
             ComboTingkatPendidikan.SelectedItem = guru.TingkatPendidikan;
             TextJurusanPendidikan.Text = guru.JurusanPendidikan;
             TextInstansiPendidikan.Text = guru.InstansiPendidikan;
+            TextTahunLulus.Text = guru.TahunLulus;
             TextKota.Text = guru.KotaPendidikan;
 
             var listMapel = _guruMapelDal.GetData(GuruId)?.ToList() ?? new List<GuruMapelModel>();
