@@ -19,6 +19,8 @@ namespace Sistem_Informasi_Sekolah
             InitializeComponent();
             InitialEvent();
             LoadForm(new FormSiswa());
+
+            this.MinimumSize = new Size(1000, 800);
         }
 
         private void LoadForm(Form form)

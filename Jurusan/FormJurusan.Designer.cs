@@ -261,6 +261,7 @@
             // 
             // panel27
             // 
+            panel27.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel27.BackColor = Color.DarkGray;
             panel27.BorderStyle = BorderStyle.FixedSingle;
             panel27.Controls.Add(panel7);

@@ -77,7 +77,6 @@ namespace Sistem_Informasi_Sekolah
                     _listMapelBinding.ResetBindings(false);
                     GridListGuruMapel.CurrentCell = GridListGuruMapel.Rows[GridListGuruMapel.Rows.Count - 1 ].Cells[0];
 
-                    _listMataPelajaran.Clear();
                 }
             }
         }
