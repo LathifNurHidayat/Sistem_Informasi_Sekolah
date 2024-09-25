@@ -41,6 +41,7 @@
             // 
             // PanelMain
             // 
+            PanelMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             PanelMain.BackColor = Color.LightGray;
             PanelMain.Location = new Point(0, 31);
             PanelMain.Name = "PanelMain";
@@ -57,31 +58,31 @@
             // dataIndukSiswaToolStripMenuItem
             // 
             dataIndukSiswaToolStripMenuItem.Name = "dataIndukSiswaToolStripMenuItem";
-            dataIndukSiswaToolStripMenuItem.Size = new Size(224, 26);
+            dataIndukSiswaToolStripMenuItem.Size = new Size(205, 26);
             dataIndukSiswaToolStripMenuItem.Text = "Data Induk Siswa";
             // 
             // jurusanToolStripMenuItem
             // 
             jurusanToolStripMenuItem.Name = "jurusanToolStripMenuItem";
-            jurusanToolStripMenuItem.Size = new Size(224, 26);
+            jurusanToolStripMenuItem.Size = new Size(205, 26);
             jurusanToolStripMenuItem.Text = "Jurusan";
             // 
             // mataPelajaranToolStripMenuItem
             // 
             mataPelajaranToolStripMenuItem.Name = "mataPelajaranToolStripMenuItem";
-            mataPelajaranToolStripMenuItem.Size = new Size(224, 26);
+            mataPelajaranToolStripMenuItem.Size = new Size(205, 26);
             mataPelajaranToolStripMenuItem.Text = "Mata Pelajaran";
             // 
             // kelasToolStripMenuItem
             // 
             kelasToolStripMenuItem.Name = "kelasToolStripMenuItem";
-            kelasToolStripMenuItem.Size = new Size(224, 26);
+            kelasToolStripMenuItem.Size = new Size(205, 26);
             kelasToolStripMenuItem.Text = "Kelas";
             // 
             // guruToolStripMenuItem
             // 
             guruToolStripMenuItem.Name = "guruToolStripMenuItem";
-            guruToolStripMenuItem.Size = new Size(224, 26);
+            guruToolStripMenuItem.Size = new Size(205, 26);
             guruToolStripMenuItem.Text = "Guru";
             // 
             // menuStrip1
@@ -105,6 +106,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Home";
             ShowInTaskbar = false;
+            StartPosition = FormStartPosition.CenterScreen;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

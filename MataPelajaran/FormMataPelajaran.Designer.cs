@@ -43,6 +43,9 @@
             label1 = new Label();
             ButtonMapelSave = new Button();
             TextMapelName = new TextBox();
+            panel27 = new Panel();
+            panel7 = new Panel();
+            label49 = new Label();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
@@ -50,6 +53,8 @@
             panel3.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
+            panel27.SuspendLayout();
+            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -59,9 +64,9 @@
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
-            panel2.Location = new Point(12, 12);
+            panel2.Location = new Point(12, 101);
             panel2.Name = "panel2";
-            panel2.Size = new Size(838, 577);
+            panel2.Size = new Size(838, 558);
             panel2.TabIndex = 5;
             // 
             // panel4
@@ -72,7 +77,7 @@
             panel4.Controls.Add(GridListMapel);
             panel4.Location = new Point(3, 3);
             panel4.Name = "panel4";
-            panel4.Size = new Size(485, 569);
+            panel4.Size = new Size(485, 550);
             panel4.TabIndex = 1;
             // 
             // panel1
@@ -81,13 +86,14 @@
             panel1.BackColor = Color.LightGray;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(ButtonMapelNew);
-            panel1.Location = new Point(11, 490);
+            panel1.Location = new Point(11, 471);
             panel1.Name = "panel1";
             panel1.Size = new Size(460, 64);
             panel1.TabIndex = 8;
             // 
             // ButtonMapelNew
             // 
+            ButtonMapelNew.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ButtonMapelNew.BackColor = Color.RoyalBlue;
             ButtonMapelNew.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonMapelNew.ForeColor = SystemColors.ControlLightLight;
@@ -107,7 +113,7 @@
             GridListMapel.Name = "GridListMapel";
             GridListMapel.RowHeadersWidth = 51;
             GridListMapel.RowTemplate.Height = 29;
-            GridListMapel.Size = new Size(460, 474);
+            GridListMapel.Size = new Size(460, 455);
             GridListMapel.TabIndex = 0;
             // 
             // panel3
@@ -119,7 +125,7 @@
             panel3.Controls.Add(panel5);
             panel3.Location = new Point(494, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(339, 569);
+            panel3.Size = new Size(339, 550);
             panel3.TabIndex = 0;
             // 
             // TextMapelId
@@ -166,7 +172,7 @@
             panel5.Controls.Add(TextMapelName);
             panel5.Location = new Point(11, 78);
             panel5.Name = "panel5";
-            panel5.Size = new Size(317, 477);
+            panel5.Size = new Size(317, 458);
             panel5.TabIndex = 9;
             // 
             // label2
@@ -187,7 +193,7 @@
             ButtonMapelDelete.BackColor = Color.Crimson;
             ButtonMapelDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonMapelDelete.ForeColor = SystemColors.ControlLightLight;
-            ButtonMapelDelete.Location = new Point(182, 426);
+            ButtonMapelDelete.Location = new Point(182, 407);
             ButtonMapelDelete.Name = "ButtonMapelDelete";
             ButtonMapelDelete.Size = new Size(120, 35);
             ButtonMapelDelete.TabIndex = 3;
@@ -212,7 +218,7 @@
             ButtonMapelSave.BackColor = Color.ForestGreen;
             ButtonMapelSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonMapelSave.ForeColor = SystemColors.ControlLightLight;
-            ButtonMapelSave.Location = new Point(14, 426);
+            ButtonMapelSave.Location = new Point(14, 407);
             ButtonMapelSave.Name = "ButtonMapelSave";
             ButtonMapelSave.Size = new Size(120, 35);
             ButtonMapelSave.TabIndex = 2;
@@ -228,11 +234,45 @@
             TextMapelName.Size = new Size(288, 27);
             TextMapelName.TabIndex = 1;
             // 
+            // panel27
+            // 
+            panel27.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel27.BackColor = Color.DarkGray;
+            panel27.BorderStyle = BorderStyle.FixedSingle;
+            panel27.Controls.Add(panel7);
+            panel27.Location = new Point(12, 7);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(838, 88);
+            panel27.TabIndex = 9;
+            // 
+            // panel7
+            // 
+            panel7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel7.BackColor = Color.LightGray;
+            panel7.BorderStyle = BorderStyle.FixedSingle;
+            panel7.Controls.Add(label49);
+            panel7.Location = new Point(3, 3);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(830, 80);
+            panel7.TabIndex = 8;
+            // 
+            // label49
+            // 
+            label49.Anchor = AnchorStyles.None;
+            label49.AutoSize = true;
+            label49.Font = new Font("Franklin Gothic Medium Cond", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label49.Location = new Point(319, 21);
+            label49.Name = "label49";
+            label49.Size = new Size(186, 38);
+            label49.TabIndex = 8;
+            label49.Text = "Mata Pelajaran";
+            // 
             // FormMataPelajaran
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(862, 601);
+            ClientSize = new Size(862, 671);
+            Controls.Add(panel27);
             Controls.Add(panel2);
             Name = "FormMataPelajaran";
             Text = "MataPelajaran";
@@ -246,6 +286,9 @@
             panel6.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            panel27.ResumeLayout(false);
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -266,5 +309,8 @@
         private Label label1;
         private Button ButtonMapelSave;
         private TextBox TextMapelName;
+        private Panel panel27;
+        private Panel panel7;
+        private Label label49;
     }
 }

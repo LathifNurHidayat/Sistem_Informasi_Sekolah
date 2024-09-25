@@ -16,8 +16,8 @@ namespace Sistem_Informasi_Sekolah
         private readonly GuruMapelDal _guruMapelDal;
         private readonly MataPelajaranDal _mataPelajaranDal;
 
-        private readonly BindingSource _listMapelBinding;
         private readonly BindingList<MataPelajaranDto> _listMataPelajaran;
+        private readonly BindingSource _listMapelBinding;
 
         public FormGuru()
         {
@@ -76,6 +76,8 @@ namespace Sistem_Informasi_Sekolah
 
                     _listMapelBinding.ResetBindings(false);
                     GridListGuruMapel.CurrentCell = GridListGuruMapel.Rows[GridListGuruMapel.Rows.Count - 1 ].Cells[0];
+
+                    _listMataPelajaran.Clear();
                 }
             }
         }

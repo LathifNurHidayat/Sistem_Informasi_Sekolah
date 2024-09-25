@@ -28,13 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel2 = new Panel();
-            panel1 = new Panel();
-            ButtonGuruNew = new Button();
-            ButtonGuruDelete = new Button();
-            ButtonGuruSave = new Button();
-            panel4 = new Panel();
-            GridListGuru = new DataGridView();
             panel3 = new Panel();
             ComboTingkatPendidikan = new ComboBox();
             PickerTglLahirGuru = new DateTimePicker();
@@ -56,99 +49,28 @@
             panel5 = new Panel();
             PictureFotoGuru = new PictureBox();
             label1 = new Label();
-            panel2.SuspendLayout();
-            panel1.SuspendLayout();
-            panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)GridListGuru).BeginInit();
+            panel4 = new Panel();
+            GridListGuru = new DataGridView();
+            panel1 = new Panel();
+            ButtonGuruNew = new Button();
+            ButtonGuruDelete = new Button();
+            ButtonGuruSave = new Button();
+            panel2 = new Panel();
+            panel7 = new Panel();
+            label49 = new Label();
+            panel27 = new Panel();
             panel3.SuspendLayout();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListGuruMapel).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PictureFotoGuru).BeginInit();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)GridListGuru).BeginInit();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            panel7.SuspendLayout();
+            panel27.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.BackColor = Color.DarkGray;
-            panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(panel1);
-            panel2.Controls.Add(panel4);
-            panel2.Controls.Add(panel3);
-            panel2.Location = new Point(12, 12);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1058, 739);
-            panel2.TabIndex = 6;
-            // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.LightGray;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(ButtonGuruNew);
-            panel1.Controls.Add(ButtonGuruDelete);
-            panel1.Controls.Add(ButtonGuruSave);
-            panel1.Location = new Point(3, 639);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1050, 95);
-            panel1.TabIndex = 8;
-            // 
-            // ButtonGuruNew
-            // 
-            ButtonGuruNew.BackColor = Color.RoyalBlue;
-            ButtonGuruNew.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonGuruNew.ForeColor = SystemColors.ControlLightLight;
-            ButtonGuruNew.Location = new Point(627, 29);
-            ButtonGuruNew.Name = "ButtonGuruNew";
-            ButtonGuruNew.Size = new Size(118, 35);
-            ButtonGuruNew.TabIndex = 11;
-            ButtonGuruNew.Text = "New Data";
-            ButtonGuruNew.UseVisualStyleBackColor = false;
-            // 
-            // ButtonGuruDelete
-            // 
-            ButtonGuruDelete.BackColor = Color.Crimson;
-            ButtonGuruDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonGuruDelete.ForeColor = SystemColors.ControlLightLight;
-            ButtonGuruDelete.Location = new Point(907, 29);
-            ButtonGuruDelete.Name = "ButtonGuruDelete";
-            ButtonGuruDelete.Size = new Size(118, 35);
-            ButtonGuruDelete.TabIndex = 10;
-            ButtonGuruDelete.Text = "Delete";
-            ButtonGuruDelete.UseVisualStyleBackColor = false;
-            // 
-            // ButtonGuruSave
-            // 
-            ButtonGuruSave.BackColor = Color.ForestGreen;
-            ButtonGuruSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonGuruSave.ForeColor = SystemColors.ControlLightLight;
-            ButtonGuruSave.Location = new Point(767, 29);
-            ButtonGuruSave.Name = "ButtonGuruSave";
-            ButtonGuruSave.Size = new Size(118, 35);
-            ButtonGuruSave.TabIndex = 9;
-            ButtonGuruSave.Text = "Save";
-            ButtonGuruSave.UseVisualStyleBackColor = false;
-            // 
-            // panel4
-            // 
-            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel4.BackColor = Color.LightGray;
-            panel4.Controls.Add(GridListGuru);
-            panel4.Location = new Point(3, 3);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(375, 630);
-            panel4.TabIndex = 1;
-            // 
-            // GridListGuru
-            // 
-            GridListGuru.BackgroundColor = SystemColors.ButtonHighlight;
-            GridListGuru.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridListGuru.Location = new Point(10, 10);
-            GridListGuru.Name = "GridListGuru";
-            GridListGuru.RowHeadersWidth = 51;
-            GridListGuru.RowTemplate.Height = 29;
-            GridListGuru.Size = new Size(355, 610);
-            GridListGuru.TabIndex = 0;
             // 
             // panel3
             // 
@@ -172,9 +94,9 @@
             panel3.Controls.Add(TextGuruId);
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(384, 3);
+            panel3.Location = new Point(387, 5);
             panel3.Name = "panel3";
-            panel3.Size = new Size(669, 630);
+            panel3.Size = new Size(669, 621);
             panel3.TabIndex = 23;
             // 
             // ComboTingkatPendidikan
@@ -385,41 +307,159 @@
             label1.TabIndex = 2;
             label1.Text = "GuruId";
             // 
+            // panel4
+            // 
+            panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel4.BackColor = Color.LightGray;
+            panel4.Controls.Add(GridListGuru);
+            panel4.Location = new Point(3, 5);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(378, 621);
+            panel4.TabIndex = 1;
+            // 
+            // GridListGuru
+            // 
+            GridListGuru.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            GridListGuru.BackgroundColor = SystemColors.ButtonHighlight;
+            GridListGuru.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GridListGuru.Location = new Point(10, 10);
+            GridListGuru.Name = "GridListGuru";
+            GridListGuru.RowHeadersWidth = 51;
+            GridListGuru.RowTemplate.Height = 29;
+            GridListGuru.Size = new Size(358, 601);
+            GridListGuru.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = Color.LightGray;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(ButtonGuruNew);
+            panel1.Controls.Add(ButtonGuruDelete);
+            panel1.Controls.Add(ButtonGuruSave);
+            panel1.Location = new Point(3, 632);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1053, 85);
+            panel1.TabIndex = 8;
+            // 
+            // ButtonGuruNew
+            // 
+            ButtonGuruNew.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonGuruNew.BackColor = Color.RoyalBlue;
+            ButtonGuruNew.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonGuruNew.ForeColor = SystemColors.ControlLightLight;
+            ButtonGuruNew.Location = new Point(628, 24);
+            ButtonGuruNew.Name = "ButtonGuruNew";
+            ButtonGuruNew.Size = new Size(118, 35);
+            ButtonGuruNew.TabIndex = 11;
+            ButtonGuruNew.Text = "New Data";
+            ButtonGuruNew.UseVisualStyleBackColor = false;
+            // 
+            // ButtonGuruDelete
+            // 
+            ButtonGuruDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonGuruDelete.BackColor = Color.Crimson;
+            ButtonGuruDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonGuruDelete.ForeColor = SystemColors.ControlLightLight;
+            ButtonGuruDelete.Location = new Point(914, 24);
+            ButtonGuruDelete.Name = "ButtonGuruDelete";
+            ButtonGuruDelete.Size = new Size(118, 35);
+            ButtonGuruDelete.TabIndex = 10;
+            ButtonGuruDelete.Text = "Delete";
+            ButtonGuruDelete.UseVisualStyleBackColor = false;
+            // 
+            // ButtonGuruSave
+            // 
+            ButtonGuruSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonGuruSave.BackColor = Color.ForestGreen;
+            ButtonGuruSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonGuruSave.ForeColor = SystemColors.ControlLightLight;
+            ButtonGuruSave.Location = new Point(772, 24);
+            ButtonGuruSave.Name = "ButtonGuruSave";
+            ButtonGuruSave.Size = new Size(118, 35);
+            ButtonGuruSave.TabIndex = 9;
+            ButtonGuruSave.Text = "Save";
+            ButtonGuruSave.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel2.BackColor = Color.DarkGray;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(panel1);
+            panel2.Controls.Add(panel4);
+            panel2.Controls.Add(panel3);
+            panel2.Location = new Point(10, 106);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1061, 722);
+            panel2.TabIndex = 6;
+            // 
+            // panel7
+            // 
+            panel7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel7.BackColor = Color.LightGray;
+            panel7.BorderStyle = BorderStyle.FixedSingle;
+            panel7.Controls.Add(label49);
+            panel7.Location = new Point(3, 3);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(1050, 80);
+            panel7.TabIndex = 8;
+            // 
+            // label49
+            // 
+            label49.Anchor = AnchorStyles.None;
+            label49.AutoSize = true;
+            label49.Font = new Font("Franklin Gothic Medium Cond", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label49.Location = new Point(487, 17);
+            label49.Name = "label49";
+            label49.Size = new Size(70, 38);
+            label49.TabIndex = 8;
+            label49.Text = "Guru";
+            // 
+            // panel27
+            // 
+            panel27.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel27.BackColor = Color.DarkGray;
+            panel27.BorderStyle = BorderStyle.FixedSingle;
+            panel27.Controls.Add(panel7);
+            panel27.Location = new Point(10, 11);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(1058, 88);
+            panel27.TabIndex = 7;
+            // 
             // FormGuru
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1076, 763);
+            ClientSize = new Size(1079, 833);
+            Controls.Add(panel27);
             Controls.Add(panel2);
             Name = "FormGuru";
             Text = "Guru";
-            panel2.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)GridListGuru).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)GridListGuruMapel).EndInit();
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PictureFotoGuru).EndInit();
+            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)GridListGuru).EndInit();
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            panel27.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel2;
-        private Panel panel4;
-        private Panel panel1;
-        private Button ButtonGuruNew;
-        private DataGridView GridListGuru;
         private Panel panel3;
-        private Button ButtonGuruDelete;
-        private Label label1;
-        private Button ButtonGuruSave;
-        private PictureBox PictureFotoGuru;
-        private Panel panel5;
-        private TextBox TextGuruId;
+        private ComboBox ComboTingkatPendidikan;
+        private DateTimePicker PickerTglLahirGuru;
+        private Label label8;
+        private Panel panel6;
+        private DataGridView GridListGuruMapel;
         private TextBox TextKota;
         private Label label6;
         private TextBox TextInstansiPendidikan;
@@ -431,10 +471,19 @@
         private Label label3;
         private TextBox TextGuruNama;
         private Label label2;
-        private Panel panel6;
-        private Label label8;
-        private DataGridView GridListGuruMapel;
-        private DateTimePicker PickerTglLahirGuru;
-        private ComboBox ComboTingkatPendidikan;
+        private TextBox TextGuruId;
+        private Panel panel5;
+        private PictureBox PictureFotoGuru;
+        private Label label1;
+        private Panel panel4;
+        private DataGridView GridListGuru;
+        private Panel panel1;
+        private Button ButtonGuruNew;
+        private Button ButtonGuruDelete;
+        private Button ButtonGuruSave;
+        private Panel panel2;
+        private Panel panel7;
+        private Label label49;
+        private Panel panel27;
     }
 }

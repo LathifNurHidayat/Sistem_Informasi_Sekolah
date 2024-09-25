@@ -49,23 +49,29 @@
             ButtonKelasSave = new Button();
             ButtonKelasDelete = new Button();
             ButtonKelasNew = new Button();
+            panel27 = new Panel();
+            panel7 = new Panel();
+            label49 = new Label();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListKelas).BeginInit();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
+            panel27.SuspendLayout();
+            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel2.BackColor = Color.DarkGray;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
-            panel2.Location = new Point(12, 12);
+            panel2.Location = new Point(12, 106);
             panel2.Name = "panel2";
-            panel2.Size = new Size(838, 577);
+            panel2.Size = new Size(838, 585);
             panel2.TabIndex = 3;
             // 
             // panel4
@@ -75,7 +81,7 @@
             panel4.Controls.Add(GridListKelas);
             panel4.Location = new Point(3, 3);
             panel4.Name = "panel4";
-            panel4.Size = new Size(446, 569);
+            panel4.Size = new Size(446, 577);
             panel4.TabIndex = 1;
             // 
             // GridListKelas
@@ -87,7 +93,7 @@
             GridListKelas.Name = "GridListKelas";
             GridListKelas.RowHeadersWidth = 51;
             GridListKelas.RowTemplate.Height = 29;
-            GridListKelas.Size = new Size(425, 548);
+            GridListKelas.Size = new Size(425, 556);
             GridListKelas.TabIndex = 0;
             // 
             // panel3
@@ -99,7 +105,7 @@
             panel3.Controls.Add(panel5);
             panel3.Location = new Point(455, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(378, 569);
+            panel3.Size = new Size(378, 577);
             panel3.TabIndex = 0;
             // 
             // panel1
@@ -121,7 +127,7 @@
             panel1.Controls.Add(TextKelasId);
             panel1.Location = new Point(12, 9);
             panel1.Name = "panel1";
-            panel1.Size = new Size(352, 460);
+            panel1.Size = new Size(352, 468);
             panel1.TabIndex = 15;
             // 
             // label5
@@ -267,7 +273,7 @@
             panel5.Controls.Add(ButtonKelasSave);
             panel5.Controls.Add(ButtonKelasDelete);
             panel5.Controls.Add(ButtonKelasNew);
-            panel5.Location = new Point(12, 482);
+            panel5.Location = new Point(12, 490);
             panel5.Name = "panel5";
             panel5.Size = new Size(352, 74);
             panel5.TabIndex = 16;
@@ -308,11 +314,45 @@
             ButtonKelasNew.Text = "New";
             ButtonKelasNew.UseVisualStyleBackColor = false;
             // 
+            // panel27
+            // 
+            panel27.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel27.BackColor = Color.DarkGray;
+            panel27.BorderStyle = BorderStyle.FixedSingle;
+            panel27.Controls.Add(panel7);
+            panel27.Location = new Point(12, 12);
+            panel27.Name = "panel27";
+            panel27.Size = new Size(838, 88);
+            panel27.TabIndex = 9;
+            // 
+            // panel7
+            // 
+            panel7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel7.BackColor = Color.LightGray;
+            panel7.BorderStyle = BorderStyle.FixedSingle;
+            panel7.Controls.Add(label49);
+            panel7.Location = new Point(3, 3);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(830, 80);
+            panel7.TabIndex = 8;
+            // 
+            // label49
+            // 
+            label49.Anchor = AnchorStyles.None;
+            label49.AutoSize = true;
+            label49.Font = new Font("Franklin Gothic Medium Cond", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label49.Location = new Point(378, 20);
+            label49.Name = "label49";
+            label49.Size = new Size(78, 38);
+            label49.TabIndex = 8;
+            label49.Text = "Kelas";
+            // 
             // FormKelas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(862, 601);
+            ClientSize = new Size(862, 703);
+            Controls.Add(panel27);
             Controls.Add(panel2);
             Name = "FormKelas";
             Text = "Kelas";
@@ -323,6 +363,9 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel5.ResumeLayout(false);
+            panel27.ResumeLayout(false);
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -349,5 +392,8 @@
         private TextBox TextKelasName;
         private Label label5;
         private TextBox TextFlagKelas;
+        private Panel panel27;
+        private Panel panel7;
+        private Label label49;
     }
 }

@@ -339,15 +339,16 @@
             // 
             // TabControlSiswa
             // 
+            TabControlSiswa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             TabControlSiswa.Controls.Add(PageListdata);
             TabControlSiswa.Controls.Add(PagePersonal);
             TabControlSiswa.Controls.Add(PageKesehatan);
             TabControlSiswa.Controls.Add(PageWalii);
             TabControlSiswa.Controls.Add(PageLulus);
-            TabControlSiswa.Location = new Point(0, 0);
+            TabControlSiswa.Location = new Point(0, 2);
             TabControlSiswa.Name = "TabControlSiswa";
             TabControlSiswa.SelectedIndex = 0;
-            TabControlSiswa.Size = new Size(1083, 765);
+            TabControlSiswa.Size = new Size(1083, 760);
             TabControlSiswa.TabIndex = 0;
             // 
             // PageListdata
@@ -361,43 +362,47 @@
             PageListdata.Location = new Point(4, 29);
             PageListdata.Name = "PageListdata";
             PageListdata.Padding = new Padding(3);
-            PageListdata.Size = new Size(1075, 732);
+            PageListdata.Size = new Size(1075, 727);
             PageListdata.TabIndex = 0;
             PageListdata.Text = "List Data";
             PageListdata.UseVisualStyleBackColor = true;
             // 
             // panel28
             // 
+            panel28.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel28.BackColor = Color.DarkGray;
             panel28.Controls.Add(GridListSiswa);
             panel28.Location = new Point(7, 6);
             panel28.Name = "panel28";
-            panel28.Size = new Size(704, 670);
+            panel28.Size = new Size(704, 665);
             panel28.TabIndex = 7;
             // 
             // GridListSiswa
             // 
+            GridListSiswa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GridListSiswa.BackgroundColor = Color.LightGray;
             GridListSiswa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GridListSiswa.Location = new Point(4, 5);
             GridListSiswa.Name = "GridListSiswa";
             GridListSiswa.RowHeadersWidth = 51;
             GridListSiswa.RowTemplate.Height = 29;
-            GridListSiswa.Size = new Size(696, 659);
+            GridListSiswa.Size = new Size(696, 654);
             GridListSiswa.TabIndex = 0;
             GridListSiswa.SelectionChanged += GridListData_SelectionChanged;
             // 
             // panel23
             // 
+            panel23.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel23.BackColor = Color.DarkGray;
             panel23.Controls.Add(panel25);
             panel23.Location = new Point(716, 6);
             panel23.Name = "panel23";
-            panel23.Size = new Size(355, 670);
+            panel23.Size = new Size(355, 665);
             panel23.TabIndex = 6;
             // 
             // panel25
             // 
+            panel25.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel25.BackColor = Color.Silver;
             panel25.BorderStyle = BorderStyle.FixedSingle;
             panel25.Controls.Add(panel27);
@@ -406,7 +411,7 @@
             panel25.Controls.Add(PictureSiswa);
             panel25.Location = new Point(6, 5);
             panel25.Name = "panel25";
-            panel25.Size = new Size(342, 659);
+            panel25.Size = new Size(342, 654);
             panel25.TabIndex = 7;
             // 
             // panel27
@@ -484,11 +489,12 @@
             // 
             // panel24
             // 
+            panel24.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel24.BackColor = Color.Gainsboro;
             panel24.BorderStyle = BorderStyle.FixedSingle;
             panel24.Controls.Add(ButtonPilihGambar);
             panel24.Controls.Add(ButtonDeleteGambar);
-            panel24.Location = new Point(3, 565);
+            panel24.Location = new Point(3, 560);
             panel24.Name = "panel24";
             panel24.Size = new Size(333, 89);
             panel24.TabIndex = 3;
@@ -529,10 +535,11 @@
             // 
             // ButtonDelete
             // 
+            ButtonDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ButtonDelete.BackColor = Color.Crimson;
             ButtonDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonDelete.ForeColor = SystemColors.ControlLightLight;
-            ButtonDelete.Location = new Point(716, 687);
+            ButtonDelete.Location = new Point(716, 682);
             ButtonDelete.Name = "ButtonDelete";
             ButtonDelete.Size = new Size(112, 35);
             ButtonDelete.TabIndex = 5;
@@ -541,10 +548,11 @@
             // 
             // ButtonUpdate
             // 
+            ButtonUpdate.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ButtonUpdate.BackColor = Color.DodgerBlue;
             ButtonUpdate.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonUpdate.ForeColor = SystemColors.ControlLightLight;
-            ButtonUpdate.Location = new Point(836, 687);
+            ButtonUpdate.Location = new Point(836, 682);
             ButtonUpdate.Name = "ButtonUpdate";
             ButtonUpdate.Size = new Size(112, 35);
             ButtonUpdate.TabIndex = 4;
@@ -553,10 +561,11 @@
             // 
             // ButtonRefresh
             // 
+            ButtonRefresh.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             ButtonRefresh.BackColor = Color.RoyalBlue;
             ButtonRefresh.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonRefresh.ForeColor = SystemColors.ControlLightLight;
-            ButtonRefresh.Location = new Point(8, 687);
+            ButtonRefresh.Location = new Point(8, 682);
             ButtonRefresh.Name = "ButtonRefresh";
             ButtonRefresh.Size = new Size(112, 35);
             ButtonRefresh.TabIndex = 2;
@@ -565,10 +574,11 @@
             // 
             // NewButton
             // 
+            NewButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             NewButton.BackColor = Color.ForestGreen;
             NewButton.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             NewButton.ForeColor = SystemColors.ControlLightLight;
-            NewButton.Location = new Point(954, 687);
+            NewButton.Location = new Point(954, 682);
             NewButton.Name = "NewButton";
             NewButton.Size = new Size(112, 35);
             NewButton.TabIndex = 1;
@@ -583,7 +593,7 @@
             PagePersonal.Location = new Point(4, 29);
             PagePersonal.Name = "PagePersonal";
             PagePersonal.Padding = new Padding(3);
-            PagePersonal.Size = new Size(1075, 732);
+            PagePersonal.Size = new Size(1075, 646);
             PagePersonal.TabIndex = 1;
             PagePersonal.Text = "Data Personal";
             PagePersonal.UseVisualStyleBackColor = true;
@@ -1144,7 +1154,7 @@
             PageKesehatan.Location = new Point(4, 29);
             PageKesehatan.Name = "PageKesehatan";
             PageKesehatan.Padding = new Padding(3);
-            PageKesehatan.Size = new Size(1075, 732);
+            PageKesehatan.Size = new Size(1075, 646);
             PageKesehatan.TabIndex = 2;
             PageKesehatan.Text = "Kesehatan & Pendidikan";
             PageKesehatan.UseVisualStyleBackColor = true;
@@ -1829,7 +1839,7 @@
             PageWalii.Location = new Point(4, 29);
             PageWalii.Name = "PageWalii";
             PageWalii.Padding = new Padding(3);
-            PageWalii.Size = new Size(1075, 732);
+            PageWalii.Size = new Size(1075, 646);
             PageWalii.TabIndex = 3;
             PageWalii.Text = "Keterangan Orang Tua/Wali";
             PageWalii.UseVisualStyleBackColor = true;
@@ -2654,7 +2664,7 @@
             PageLulus.Location = new Point(4, 29);
             PageLulus.Name = "PageLulus";
             PageLulus.Padding = new Padding(3);
-            PageLulus.Size = new Size(1075, 732);
+            PageLulus.Size = new Size(1075, 646);
             PageLulus.TabIndex = 4;
             PageLulus.Text = "Keterangan Setelah Lulus";
             PageLulus.UseVisualStyleBackColor = true;
@@ -2825,13 +2835,13 @@
             label103.TabIndex = 46;
             label103.Text = "A. Melanjutkan ke Perguruan Tinggi:";
             // 
-            // DataInduk
+            // FormSiswa
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1082, 763);
             Controls.Add(TabControlSiswa);
-            Name = "DataInduk";
+            Name = "FormSiswa";
             TabControlSiswa.ResumeLayout(false);
             PageListdata.ResumeLayout(false);
             panel28.ResumeLayout(false);
