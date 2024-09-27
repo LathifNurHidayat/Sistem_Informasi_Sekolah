@@ -225,7 +225,7 @@ namespace Sistem_Informasi_Sekolah
             };
 
             if (guru.GuruId == 0)
-                guru.GuruId = _guruDal.Insert(guru);
+                guru.GuruId = _guruDal.Insert(guru);    
             else
                 _guruDal.Update(guru);
 

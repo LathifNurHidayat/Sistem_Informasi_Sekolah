@@ -46,7 +46,7 @@ namespace Sistem_Informasi_Sekolah
             int MapelId = Convert.ToInt32(GridListMapel.CurrentRow.Cells["MapelId"].Value);
             string MapelName = GridListMapel.CurrentRow.Cells["MapelName"].Value.ToString();
 
-            if (MessageBox.Show($"Anda yakin akan menghapus data \"{MapelName}\" ?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+            if (MessageBox.Show($"Anda yakin akan menghapus data \"{MapelName}\" ?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 _mataPelajaranDal.Delete(MapelId);
                 LoadData();
@@ -133,5 +133,8 @@ namespace Sistem_Informasi_Sekolah
             TextMapelId.Text = mapel.MapelId.ToString();
             TextMapelName.Text = mapel.MapelName;
         }
+
+      
+    
     }
 }
