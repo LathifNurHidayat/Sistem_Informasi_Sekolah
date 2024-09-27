@@ -30,13 +30,9 @@
         {
             panel1 = new Panel();
             panel4 = new Panel();
-            panel5 = new Panel();
-            RadioUmum = new RadioButton();
-            label3 = new Label();
             GridListJadwalPelajaran = new DataGridView();
             panel3 = new Panel();
             panel2 = new Panel();
-            RadioKhusus = new RadioButton();
             TextKelasId = new TextBox();
             TextKelasName = new TextBox();
             label1 = new Label();
@@ -56,9 +52,11 @@
             ComboJenisJadwal = new ComboBox();
             PickerJamMulai = new DateTimePicker();
             PickerJamSelesai = new DateTimePicker();
+            RadioKhusus = new RadioButton();
+            RadioUmum = new RadioButton();
+            label3 = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
-            panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListJadwalPelajaran).BeginInit();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -81,48 +79,14 @@
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.Gainsboro;
             panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(panel5);
+            panel4.Controls.Add(RadioKhusus);
             panel4.Controls.Add(GridListJadwalPelajaran);
+            panel4.Controls.Add(RadioUmum);
+            panel4.Controls.Add(label3);
             panel4.Location = new Point(9, 9);
             panel4.Name = "panel4";
             panel4.Size = new Size(870, 699);
             panel4.TabIndex = 2;
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.Gainsboro;
-            panel5.BorderStyle = BorderStyle.FixedSingle;
-            panel5.Controls.Add(RadioKhusus);
-            panel5.Controls.Add(RadioUmum);
-            panel5.Controls.Add(label3);
-            panel5.Dock = DockStyle.Top;
-            panel5.Location = new Point(0, 0);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(868, 55);
-            panel5.TabIndex = 2;
-            // 
-            // RadioUmum
-            // 
-            RadioUmum.AutoSize = true;
-            RadioUmum.Location = new Point(137, 15);
-            RadioUmum.Name = "RadioUmum";
-            RadioUmum.Size = new Size(74, 24);
-            RadioUmum.TabIndex = 16;
-            RadioUmum.TabStop = true;
-            RadioUmum.Text = "Umum";
-            RadioUmum.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Gainsboro;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(20, 17);
-            label3.Name = "label3";
-            label3.Size = new Size(100, 20);
-            label3.TabIndex = 15;
-            label3.Text = "Jenis Jadwal  :";
             // 
             // GridListJadwalPelajaran
             // 
@@ -175,17 +139,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(538, 182);
             panel2.TabIndex = 0;
-            // 
-            // RadioKhusus
-            // 
-            RadioKhusus.AutoSize = true;
-            RadioKhusus.Location = new Point(267, 15);
-            RadioKhusus.Name = "RadioKhusus";
-            RadioKhusus.Size = new Size(75, 24);
-            RadioKhusus.TabIndex = 17;
-            RadioKhusus.TabStop = true;
-            RadioKhusus.Text = "Khusus";
-            RadioKhusus.UseVisualStyleBackColor = true;
             // 
             // TextKelasId
             // 
@@ -359,7 +312,7 @@
             // ComboHari
             // 
             ComboHari.FormattingEnabled = true;
-            ComboHari.Location = new Point(186, 88);
+            ComboHari.Location = new Point(186, 87);
             ComboHari.Name = "ComboHari";
             ComboHari.Size = new Size(301, 28);
             ComboHari.TabIndex = 38;
@@ -386,11 +339,45 @@
             // 
             PickerJamSelesai.CustomFormat = "HH:MM";
             PickerJamSelesai.Format = DateTimePickerFormat.Custom;
-            PickerJamSelesai.Location = new Point(186, 199);
+            PickerJamSelesai.Location = new Point(186, 198);
             PickerJamSelesai.Name = "PickerJamSelesai";
             PickerJamSelesai.ShowUpDown = true;
             PickerJamSelesai.Size = new Size(301, 27);
             PickerJamSelesai.TabIndex = 41;
+            // 
+            // RadioKhusus
+            // 
+            RadioKhusus.AutoSize = true;
+            RadioKhusus.Location = new Point(283, 18);
+            RadioKhusus.Name = "RadioKhusus";
+            RadioKhusus.Size = new Size(75, 24);
+            RadioKhusus.TabIndex = 23;
+            RadioKhusus.TabStop = true;
+            RadioKhusus.Text = "Khusus";
+            RadioKhusus.UseVisualStyleBackColor = true;
+            // 
+            // RadioUmum
+            // 
+            RadioUmum.AutoSize = true;
+            RadioUmum.Location = new Point(153, 18);
+            RadioUmum.Name = "RadioUmum";
+            RadioUmum.Size = new Size(74, 24);
+            RadioUmum.TabIndex = 22;
+            RadioUmum.TabStop = true;
+            RadioUmum.Text = "Umum";
+            RadioUmum.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Gainsboro;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(36, 20);
+            label3.Name = "label3";
+            label3.Size = new Size(100, 20);
+            label3.TabIndex = 21;
+            label3.Text = "Jenis Jadwal  :";
             // 
             // FormJadwalPelajaran
             // 
@@ -402,8 +389,7 @@
             Text = "FormJadwalPelajaran";
             panel1.ResumeLayout(false);
             panel4.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
+            panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)GridListJadwalPelajaran).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -417,12 +403,8 @@
         private Panel panel1;
         private Panel panel2;
         private Panel panel4;
-        private Panel panel5;
         private DataGridView GridListJadwalPelajaran;
         private Panel panel3;
-        private Label label3;
-        private RadioButton RadioUmum;
-        private RadioButton RadioKhusus;
         private Label label8;
         private Label label9;
         private Label label6;
@@ -442,5 +424,8 @@
         private ComboBox ComboGuru;
         private ComboBox ComboMataPelajaran;
         private DateTimePicker PickerJamSelesai;
+        private RadioButton RadioKhusus;
+        private RadioButton RadioUmum;
+        private Label label3;
     }
 }
