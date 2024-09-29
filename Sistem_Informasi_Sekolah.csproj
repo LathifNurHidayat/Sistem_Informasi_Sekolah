@@ -28,9 +28,4 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="JadwalPelajaran\DbDal\" />
-    <Folder Include="JadwalPelajaran\Model\" />
-  </ItemGroup>
-
 </Project>
