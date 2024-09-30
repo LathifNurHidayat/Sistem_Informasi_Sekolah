@@ -110,7 +110,7 @@
             GridListJadwalPelajaran.BackgroundColor = Color.WhiteSmoke;
             GridListJadwalPelajaran.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GridListJadwalPelajaran.GridColor = SystemColors.Control;
-            GridListJadwalPelajaran.Location = new Point(12, 80);
+            GridListJadwalPelajaran.Location = new Point(-8, 69);
             GridListJadwalPelajaran.Margin = new Padding(4);
             GridListJadwalPelajaran.Name = "GridListJadwalPelajaran";
             GridListJadwalPelajaran.RowHeadersWidth = 51;
@@ -393,7 +393,7 @@
             // 
             // TextKelasName
             // 
-            TextKelasName.BackColor = SystemColors.ControlLightLight;
+            TextKelasName.BackColor = SystemColors.Control;
             TextKelasName.BorderStyle = BorderStyle.FixedSingle;
             TextKelasName.Location = new Point(232, 130);
             TextKelasName.Margin = new Padding(4);
@@ -417,7 +417,7 @@
             // 
             // TextKelasId
             // 
-            TextKelasId.BackColor = SystemColors.ControlLightLight;
+            TextKelasId.BackColor = SystemColors.Control;
             TextKelasId.BorderStyle = BorderStyle.FixedSingle;
             TextKelasId.Location = new Point(232, 62);
             TextKelasId.Margin = new Padding(4);

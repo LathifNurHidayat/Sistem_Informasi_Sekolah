@@ -34,21 +34,21 @@
             // 
             // GridListKelasDialog
             // 
+            GridListKelasDialog.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GridListKelasDialog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridListKelasDialog.Dock = DockStyle.Fill;
             GridListKelasDialog.Location = new Point(0, 0);
             GridListKelasDialog.Margin = new Padding(4);
             GridListKelasDialog.Name = "GridListKelasDialog";
             GridListKelasDialog.RowHeadersWidth = 51;
             GridListKelasDialog.RowTemplate.Height = 29;
-            GridListKelasDialog.Size = new Size(528, 644);
+            GridListKelasDialog.Size = new Size(428, 495);
             GridListKelasDialog.TabIndex = 1;
             // 
             // FormKelasDialog
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(528, 644);
+            ClientSize = new Size(428, 495);
             Controls.Add(GridListKelasDialog);
             Name = "FormKelasDialog";
             StartPosition = FormStartPosition.CenterScreen;

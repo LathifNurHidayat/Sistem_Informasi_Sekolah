@@ -23,6 +23,7 @@ namespace Sistem_Informasi_Sekolah
             _jadwalPelajaranDal = new JadwalPelajaranDal();
             InitializeComponent();
             InitialCombo();
+            LoadData();
             ControlEvent();
         }
 
@@ -55,6 +56,11 @@ namespace Sistem_Informasi_Sekolah
 
         }
 
+        private void LoadData()
+        {
+
+        }
+
         private void ControlEvent()
         {
             ButtonDialogKelas.Click += ButtonDialogKelas_Click;
@@ -65,12 +71,12 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonJadwalDelete_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void ButtonJadwalNew_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void ButtonJadwalSave_Click(object? sender, EventArgs e)
@@ -92,7 +98,32 @@ namespace Sistem_Informasi_Sekolah
 
         private void SaveData()
         {
+            var kelasId = TextKelasId.Text == string.Empty ? 0 : Convert.ToInt32(TextKelasId.Text);
 
+            if (kelasId == 0)
+            {
+                MessageBox.Show("Masukan kelas terlebih dahulu", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int jenis = 0;
+            if (RadioInputKhusus.Checked) jenis = 1;
+            if (RadioInputUmum.Checked) jenis = 2;
+            {
+                
+            }
+
+            var jadwal = new JadwalPelajaranModel()
+            {
+                JadwalId = kelasId,
+                KelasId = kelasId,
+                JenisJadwal = jenis,
+                Hari = ComboHari.SelectedItem.ToString(),
+                JamMulai = PickerJamMulai.Value,
+                JamSelesai = PickerJamSelesai.Value,
+                MapelId = Convert.ToInt32(ComboMataPelajaran.SelectedValue),
+                GuruId = Convert.ToInt32(ComboGuru.SelectedValue)
+            };
         }
 
 

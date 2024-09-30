@@ -28,7 +28,15 @@ namespace Sistem_Informasi_Sekolah
 
         private void ListData()
         {
-            GridListKelasDialog.DataSource = _kelasDal.ListData();
+            var data = _kelasDal.ListData()
+                .Select (x => new
+                {
+                    Id = x.KelasId,
+                    NamaKelas = x.KelasName
+                }).ToList();
+
+            GridListKelasDialog.DataSource = data;
+            GridListKelasDialog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void ControlEvent()
