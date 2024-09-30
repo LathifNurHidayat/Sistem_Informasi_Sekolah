@@ -32,25 +32,26 @@ namespace Sistem_Informasi_Sekolah
             ComboHari.DataSource = Hari;
 
             var dataMapel = _mataPelajaranDal.ListData()
-                .Select(x => new MataPelajaranModel
+                .Select(x => new
                 {
-                    MapelName = x.MapelName
+                    Nama = x.MapelName,
+                    Id = x.MapelId,
                 }).ToList();
 
             ComboMataPelajaran.DataSource = dataMapel;
-            ComboMataPelajaran.DisplayMember = "MapelName";
-            ComboMataPelajaran.ValueMember = "MapelId";
+            ComboMataPelajaran.DisplayMember = "Nama";
+            ComboMataPelajaran.ValueMember = "Id";
 
 
             var dataGuru = _guruDal.ListData()
-                .Select(x => new GuruModel
+                .Select(x => new
                 {
-                    GuruName = x.GuruName
+                    Nama = x.GuruName,
+                    Id = x.GuruId,
                 }).ToList();
-
             ComboGuru.DataSource = dataGuru;
-            ComboGuru.DisplayMember = "GuruName";
-            ComboGuru.ValueMember = "GuruId";
+            ComboGuru.DisplayMember = "Nama";
+            ComboGuru.ValueMember = "Id";
 
         }
 
