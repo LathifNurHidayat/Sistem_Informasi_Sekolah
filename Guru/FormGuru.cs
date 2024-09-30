@@ -60,7 +60,7 @@ namespace Sistem_Informasi_Sekolah
             {
                 DataGridViewRow currenRow = GridListGuruMapel.CurrentRow;
 
-                using var formMapel = new FormMataPelajaranPopUp();
+                using var formMapel = new FormMataPelajaranDialog();
                 if (formMapel.ShowDialog() == DialogResult.OK)
                 {
                     var mapelId = formMapel.MapelId;

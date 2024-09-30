@@ -92,5 +92,13 @@ namespace Sistem_Informasi_Sekolah
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             return Conn.QueryFirstOrDefault<KelasModel>(sql, Dp);
         }
+
+        public IEnumerable<KelasModel> ListIdName()
+        {
+            const string sql = "SELECT KelasId, KelasName FROM Kelas";
+
+            using var Conn = new SqlConnection(ConnStringHelper.Get());
+            return Conn.Query<KelasModel>(sql);
+        }
     }
 }

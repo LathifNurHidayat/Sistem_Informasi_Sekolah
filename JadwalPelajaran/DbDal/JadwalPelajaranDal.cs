@@ -91,6 +91,17 @@ namespace Sistem_Informasi_Sekolah
             Conn.Execute(sql, Dp);
         }
 
+        public void Delete(int KelasId)
+        {
+            const string sql = "DELETE FROM JadwalPelajaran WHERE KelasId = @KelasId";
+
+            var Dp = new DynamicParameters();
+            Dp.Add("@KelasId", KelasId, DbType.Int32);
+
+            using var Conn = new SqlConnection(ConnStringHelper.Get());
+            Conn.Execute(sql, Dp);
+        }
+
          
     }
 }

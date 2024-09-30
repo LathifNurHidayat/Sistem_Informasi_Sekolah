@@ -1,5 +1,5 @@
 ﻿CREATE TABLE JadwalPelajaran 
-	(JadwalId INT IDENTITY(1,1),
+	(JadwalId INT NOT NULL DEFAULT(0),
 	 KelasId INT NOT NULL DEFAULT(0),
 	 JenisJadwal	INT NOT NULL DEFAULT(0),
 	 Hari VARCHAR(10) NOT NULL DEFAULT (''),
@@ -8,3 +8,5 @@
 	 MapelId INT NOT NULL  DEFAULT(0),
 	 GuruId INT NOT NULL DEFAULT(0)
 	 )
+
+	 DROP TABLE JadwalPelajaran	

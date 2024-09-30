@@ -11,7 +11,7 @@ using static Sistem_Informasi_Sekolah.FormGuru;
 
 namespace Sistem_Informasi_Sekolah
 {
-    public partial class FormMataPelajaranPopUp : Form
+    public partial class FormMataPelajaranDialog : Form
     {
 
         private readonly MataPelajaranDal _mataPelajaranDal;
@@ -20,7 +20,7 @@ namespace Sistem_Informasi_Sekolah
 
 
 
-        public FormMataPelajaranPopUp()
+        public FormMataPelajaranDialog()
         {
             InitializeComponent();
 
@@ -36,7 +36,7 @@ namespace Sistem_Informasi_Sekolah
         private void ListMapel()
         {
             var listMapel = _mataPelajaranDal.ListData()?.ToList() ?? new List<MataPelajaranModel>();
-            GridListMapelPopUp.DataSource = listMapel
+            GridListMapelDialog.DataSource = listMapel
                 .Select(x => new
                 {
                     Id = x.MapelId,
@@ -48,17 +48,17 @@ namespace Sistem_Informasi_Sekolah
         private void ControlEvent()
         {
             this.KeyDown += FormMataPelajaranPopUp_KeyDown;
-            GridListMapelPopUp.CellDoubleClick += GridListMapelPopUp_CellDoubleClick;
-            GridListMapelPopUp.KeyDown += GridListMapelPopUp_KeyDown;
+            GridListMapelDialog.CellDoubleClick += GridListMapelPopUp_CellDoubleClick;
+            GridListMapelDialog.KeyDown += GridListMapelPopUp_KeyDown;
         }
 
         private void GridListMapelPopUp_KeyDown(object? sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && GridListMapelPopUp != null)
+            if (e.KeyCode == Keys.Enter && GridListMapelDialog != null)
             {
                 e.Handled = true;
 
-                DataGridViewRow selectedRow = GridListMapelPopUp.CurrentRow;
+                DataGridViewRow selectedRow = GridListMapelDialog.CurrentRow;
 
                 MapelId = Convert.ToInt32(selectedRow.Cells[0].Value);
                 MapelName = selectedRow ?.Cells[1].Value.ToString() ?? string.Empty;
@@ -71,7 +71,7 @@ namespace Sistem_Informasi_Sekolah
 
         private void GridListMapelPopUp_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow selectedRow = GridListMapelPopUp.Rows[e.RowIndex];
+            DataGridViewRow selectedRow = GridListMapelDialog.Rows[e.RowIndex];
 
             MapelId = Convert.ToInt32(selectedRow.Cells[0].Value);
             MapelName = selectedRow?.Cells[1].Value.ToString() ?? string.Empty;

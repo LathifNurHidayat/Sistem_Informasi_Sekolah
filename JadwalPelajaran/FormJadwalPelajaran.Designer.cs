@@ -42,9 +42,9 @@
             ComboHari = new ComboBox();
             ComboGuru = new ComboBox();
             ComboMataPelajaran = new ComboBox();
-            ButtonMapelDelete = new Button();
-            ButtonMapelSave = new Button();
-            ButtonMapelNew = new Button();
+            ButtonJadwalDelete = new Button();
+            ButtonJadwalSave = new Button();
+            ButtonJadwalNew = new Button();
             label8 = new Label();
             label9 = new Label();
             label6 = new Label();
@@ -52,11 +52,11 @@
             label2 = new Label();
             label4 = new Label();
             panel2 = new Panel();
+            ButtonDialogKelas = new Button();
             TextKelasName = new TextBox();
             label1 = new Label();
             TextKelasId = new TextBox();
             label5 = new Label();
-            button1 = new Button();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListJadwalPelajaran).BeginInit();
@@ -72,7 +72,7 @@
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(15, 16);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(1790, 900);
             panel1.TabIndex = 0;
@@ -87,7 +87,7 @@
             panel4.Controls.Add(RadioUmum);
             panel4.Controls.Add(label3);
             panel4.Location = new Point(11, 11);
-            panel4.Margin = new Padding(4, 4, 4, 4);
+            panel4.Margin = new Padding(4);
             panel4.Name = "panel4";
             panel4.Size = new Size(1087, 873);
             panel4.TabIndex = 2;
@@ -96,7 +96,7 @@
             // 
             RadioKhusus.AutoSize = true;
             RadioKhusus.Location = new Point(354, 22);
-            RadioKhusus.Margin = new Padding(4, 4, 4, 4);
+            RadioKhusus.Margin = new Padding(4);
             RadioKhusus.Name = "RadioKhusus";
             RadioKhusus.Size = new Size(93, 29);
             RadioKhusus.TabIndex = 23;
@@ -111,7 +111,7 @@
             GridListJadwalPelajaran.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GridListJadwalPelajaran.GridColor = SystemColors.Control;
             GridListJadwalPelajaran.Location = new Point(12, 80);
-            GridListJadwalPelajaran.Margin = new Padding(4, 4, 4, 4);
+            GridListJadwalPelajaran.Margin = new Padding(4);
             GridListJadwalPelajaran.Name = "GridListJadwalPelajaran";
             GridListJadwalPelajaran.RowHeadersWidth = 51;
             GridListJadwalPelajaran.RowTemplate.Height = 29;
@@ -122,7 +122,7 @@
             // 
             RadioUmum.AutoSize = true;
             RadioUmum.Location = new Point(191, 22);
-            RadioUmum.Margin = new Padding(4, 4, 4, 4);
+            RadioUmum.Margin = new Padding(4);
             RadioUmum.Name = "RadioUmum";
             RadioUmum.Size = new Size(91, 29);
             RadioUmum.TabIndex = 22;
@@ -155,9 +155,9 @@
             panel3.Controls.Add(ComboHari);
             panel3.Controls.Add(ComboGuru);
             panel3.Controls.Add(ComboMataPelajaran);
-            panel3.Controls.Add(ButtonMapelDelete);
-            panel3.Controls.Add(ButtonMapelSave);
-            panel3.Controls.Add(ButtonMapelNew);
+            panel3.Controls.Add(ButtonJadwalDelete);
+            panel3.Controls.Add(ButtonJadwalSave);
+            panel3.Controls.Add(ButtonJadwalNew);
             panel3.Controls.Add(label8);
             panel3.Controls.Add(label9);
             panel3.Controls.Add(label6);
@@ -165,7 +165,7 @@
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label4);
             panel3.Location = new Point(1106, 248);
-            panel3.Margin = new Padding(4, 4, 4, 4);
+            panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
             panel3.Size = new Size(672, 637);
             panel3.TabIndex = 1;
@@ -174,7 +174,7 @@
             // 
             RadioInputKhusus.AutoSize = true;
             RadioInputKhusus.Location = new Point(489, 44);
-            RadioInputKhusus.Margin = new Padding(4, 4, 4, 4);
+            RadioInputKhusus.Margin = new Padding(4);
             RadioInputKhusus.Name = "RadioInputKhusus";
             RadioInputKhusus.Size = new Size(93, 29);
             RadioInputKhusus.TabIndex = 43;
@@ -186,7 +186,7 @@
             // 
             RadioInputUmum.AutoSize = true;
             RadioInputUmum.Location = new Point(259, 44);
-            RadioInputUmum.Margin = new Padding(4, 4, 4, 4);
+            RadioInputUmum.Margin = new Padding(4);
             RadioInputUmum.Name = "RadioInputUmum";
             RadioInputUmum.Size = new Size(91, 29);
             RadioInputUmum.TabIndex = 42;
@@ -199,7 +199,7 @@
             PickerJamSelesai.CustomFormat = "HH:MM";
             PickerJamSelesai.Format = DateTimePickerFormat.Custom;
             PickerJamSelesai.Location = new Point(232, 248);
-            PickerJamSelesai.Margin = new Padding(4, 4, 4, 4);
+            PickerJamSelesai.Margin = new Padding(4);
             PickerJamSelesai.Name = "PickerJamSelesai";
             PickerJamSelesai.ShowUpDown = true;
             PickerJamSelesai.Size = new Size(375, 31);
@@ -210,7 +210,7 @@
             PickerJamMulai.CustomFormat = "HH:MM";
             PickerJamMulai.Format = DateTimePickerFormat.Custom;
             PickerJamMulai.Location = new Point(232, 179);
-            PickerJamMulai.Margin = new Padding(4, 4, 4, 4);
+            PickerJamMulai.Margin = new Padding(4);
             PickerJamMulai.Name = "PickerJamMulai";
             PickerJamMulai.ShowUpDown = true;
             PickerJamMulai.Size = new Size(375, 31);
@@ -220,7 +220,7 @@
             // 
             ComboHari.FormattingEnabled = true;
             ComboHari.Location = new Point(232, 109);
-            ComboHari.Margin = new Padding(4, 4, 4, 4);
+            ComboHari.Margin = new Padding(4);
             ComboHari.Name = "ComboHari";
             ComboHari.Size = new Size(375, 33);
             ComboHari.TabIndex = 38;
@@ -229,7 +229,7 @@
             // 
             ComboGuru.FormattingEnabled = true;
             ComboGuru.Location = new Point(232, 460);
-            ComboGuru.Margin = new Padding(4, 4, 4, 4);
+            ComboGuru.Margin = new Padding(4);
             ComboGuru.Name = "ComboGuru";
             ComboGuru.Size = new Size(375, 33);
             ComboGuru.TabIndex = 37;
@@ -238,52 +238,52 @@
             // 
             ComboMataPelajaran.FormattingEnabled = true;
             ComboMataPelajaran.Location = new Point(232, 395);
-            ComboMataPelajaran.Margin = new Padding(4, 4, 4, 4);
+            ComboMataPelajaran.Margin = new Padding(4);
             ComboMataPelajaran.Name = "ComboMataPelajaran";
             ComboMataPelajaran.Size = new Size(375, 33);
             ComboMataPelajaran.TabIndex = 36;
             // 
-            // ButtonMapelDelete
+            // ButtonJadwalDelete
             // 
-            ButtonMapelDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonMapelDelete.BackColor = Color.Crimson;
-            ButtonMapelDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonMapelDelete.ForeColor = SystemColors.ControlLightLight;
-            ButtonMapelDelete.Location = new Point(332, 548);
-            ButtonMapelDelete.Margin = new Padding(4, 4, 4, 4);
-            ButtonMapelDelete.Name = "ButtonMapelDelete";
-            ButtonMapelDelete.Size = new Size(120, 44);
-            ButtonMapelDelete.TabIndex = 34;
-            ButtonMapelDelete.Text = "Delete";
-            ButtonMapelDelete.UseVisualStyleBackColor = false;
+            ButtonJadwalDelete.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonJadwalDelete.BackColor = Color.Crimson;
+            ButtonJadwalDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonJadwalDelete.ForeColor = SystemColors.ControlLightLight;
+            ButtonJadwalDelete.Location = new Point(332, 548);
+            ButtonJadwalDelete.Margin = new Padding(4);
+            ButtonJadwalDelete.Name = "ButtonJadwalDelete";
+            ButtonJadwalDelete.Size = new Size(120, 44);
+            ButtonJadwalDelete.TabIndex = 34;
+            ButtonJadwalDelete.Text = "Delete";
+            ButtonJadwalDelete.UseVisualStyleBackColor = false;
             // 
-            // ButtonMapelSave
+            // ButtonJadwalSave
             // 
-            ButtonMapelSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonMapelSave.BackColor = Color.ForestGreen;
-            ButtonMapelSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonMapelSave.ForeColor = SystemColors.ControlLightLight;
-            ButtonMapelSave.Location = new Point(489, 548);
-            ButtonMapelSave.Margin = new Padding(4, 4, 4, 4);
-            ButtonMapelSave.Name = "ButtonMapelSave";
-            ButtonMapelSave.Size = new Size(120, 44);
-            ButtonMapelSave.TabIndex = 33;
-            ButtonMapelSave.Text = "Save";
-            ButtonMapelSave.UseVisualStyleBackColor = false;
+            ButtonJadwalSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonJadwalSave.BackColor = Color.ForestGreen;
+            ButtonJadwalSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonJadwalSave.ForeColor = SystemColors.ControlLightLight;
+            ButtonJadwalSave.Location = new Point(489, 548);
+            ButtonJadwalSave.Margin = new Padding(4);
+            ButtonJadwalSave.Name = "ButtonJadwalSave";
+            ButtonJadwalSave.Size = new Size(120, 44);
+            ButtonJadwalSave.TabIndex = 33;
+            ButtonJadwalSave.Text = "Save";
+            ButtonJadwalSave.UseVisualStyleBackColor = false;
             // 
-            // ButtonMapelNew
+            // ButtonJadwalNew
             // 
-            ButtonMapelNew.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonMapelNew.BackColor = Color.RoyalBlue;
-            ButtonMapelNew.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonMapelNew.ForeColor = SystemColors.ControlLightLight;
-            ButtonMapelNew.Location = new Point(176, 548);
-            ButtonMapelNew.Margin = new Padding(4, 4, 4, 4);
-            ButtonMapelNew.Name = "ButtonMapelNew";
-            ButtonMapelNew.Size = new Size(120, 44);
-            ButtonMapelNew.TabIndex = 35;
-            ButtonMapelNew.Text = "New Data";
-            ButtonMapelNew.UseVisualStyleBackColor = false;
+            ButtonJadwalNew.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonJadwalNew.BackColor = Color.RoyalBlue;
+            ButtonJadwalNew.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonJadwalNew.ForeColor = SystemColors.ControlLightLight;
+            ButtonJadwalNew.Location = new Point(176, 548);
+            ButtonJadwalNew.Margin = new Padding(4);
+            ButtonJadwalNew.Name = "ButtonJadwalNew";
+            ButtonJadwalNew.Size = new Size(120, 44);
+            ButtonJadwalNew.TabIndex = 35;
+            ButtonJadwalNew.Text = "New Data";
+            ButtonJadwalNew.UseVisualStyleBackColor = false;
             // 
             // label8
             // 
@@ -368,23 +368,35 @@
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel2.BackColor = Color.Gainsboro;
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(button1);
+            panel2.Controls.Add(ButtonDialogKelas);
             panel2.Controls.Add(TextKelasName);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(TextKelasId);
             panel2.Controls.Add(label5);
             panel2.Location = new Point(1106, 12);
-            panel2.Margin = new Padding(4, 4, 4, 4);
+            panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
             panel2.Size = new Size(672, 227);
             panel2.TabIndex = 0;
+            // 
+            // ButtonDialogKelas
+            // 
+            ButtonDialogKelas.BackColor = Color.WhiteSmoke;
+            ButtonDialogKelas.FlatStyle = FlatStyle.Flat;
+            ButtonDialogKelas.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonDialogKelas.Location = new Point(557, 62);
+            ButtonDialogKelas.Name = "ButtonDialogKelas";
+            ButtonDialogKelas.Size = new Size(50, 31);
+            ButtonDialogKelas.TabIndex = 21;
+            ButtonDialogKelas.Text = "...";
+            ButtonDialogKelas.UseVisualStyleBackColor = false;
             // 
             // TextKelasName
             // 
             TextKelasName.BackColor = SystemColors.ControlLightLight;
             TextKelasName.BorderStyle = BorderStyle.FixedSingle;
             TextKelasName.Location = new Point(232, 130);
-            TextKelasName.Margin = new Padding(4, 4, 4, 4);
+            TextKelasName.Margin = new Padding(4);
             TextKelasName.Name = "TextKelasName";
             TextKelasName.ReadOnly = true;
             TextKelasName.Size = new Size(376, 31);
@@ -408,7 +420,7 @@
             TextKelasId.BackColor = SystemColors.ControlLightLight;
             TextKelasId.BorderStyle = BorderStyle.FixedSingle;
             TextKelasId.Location = new Point(232, 62);
-            TextKelasId.Margin = new Padding(4, 4, 4, 4);
+            TextKelasId.Margin = new Padding(4);
             TextKelasId.Name = "TextKelasId";
             TextKelasId.ReadOnly = true;
             TextKelasId.Size = new Size(313, 31);
@@ -427,25 +439,13 @@
             label5.TabIndex = 18;
             label5.Text = "Kelas Id";
             // 
-            // button1
-            // 
-            button1.BackColor = Color.WhiteSmoke;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(557, 62);
-            button1.Name = "button1";
-            button1.Size = new Size(50, 31);
-            button1.TabIndex = 21;
-            button1.Text = "...";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // FormJadwalPelajaran
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1820, 930);
             Controls.Add(panel1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "FormJadwalPelajaran";
             Text = "FormJadwalPelajaran";
             panel1.ResumeLayout(false);
@@ -475,9 +475,9 @@
         private TextBox TextKelasName;
         private Label label1;
         private TextBox TextKelasId;
-        private Button ButtonMapelDelete;
-        private Button ButtonMapelSave;
-        private Button ButtonMapelNew;
+        private Button ButtonJadwalDelete;
+        private Button ButtonJadwalSave;
+        private Button ButtonJadwalNew;
         private Label label5;
         private DateTimePicker PickerJamMulai;
         private ComboBox ComboHari;
@@ -489,6 +489,6 @@
         private Label label3;
         private RadioButton RadioInputKhusus;
         private RadioButton RadioInputUmum;
-        private Button button1;
+        private Button ButtonDialogKelas;
     }
 }
