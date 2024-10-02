@@ -106,26 +106,17 @@ namespace Sistem_Informasi_Sekolah
                 return;
             }
 
-            int jenis = 0;
-            if (RadioInputKhusus.Checked) jenis = 1;
-            if (RadioInputUmum.Checked) jenis = 2;
-            {
-                
-            }
-
             var jadwal = new JadwalPelajaranModel()
             {
                 JadwalId = kelasId,
                 KelasId = kelasId,
-                JenisJadwal = jenis,
-                Hari = ComboHari.SelectedItem.ToString(),
-                JamMulai = PickerJamMulai.Value,
-                JamSelesai = PickerJamSelesai.Value,
+                JenisJadwal = ComboJenisJadwal.SelectedItem?.ToString() ?? string.Empty,
+                Hari = ComboHari.SelectedItem?.ToString() ?? string.Empty,
+                JamMulai = MaskedJamMulai.Text,
+                JamSelesai = MaskedJamMulai.Text,
                 MapelId = Convert.ToInt32(ComboMataPelajaran.SelectedValue),
                 GuruId = Convert.ToInt32(ComboGuru.SelectedValue)
             };
         }
-
-
     }
 }
