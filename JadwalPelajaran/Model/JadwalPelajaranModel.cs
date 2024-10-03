@@ -11,12 +11,17 @@ namespace Sistem_Informasi_Sekolah
     {
         public int JadwalId { get; set; }
         public int KelasId { get; set; }
+
         public string Hari { get; set; }
         public string JenisJadwal { get; set; }
         public string JamMulai { get; set; }      
         public string JamSelesai { get; set; }
+
         public int MapelId { get; set; }
+        public string MapelName { get; set; }
         public int GuruId { get; set; }
+        public string GuruName { get; set; }
+
         public string Keterangan { get; set; }
     }
 }

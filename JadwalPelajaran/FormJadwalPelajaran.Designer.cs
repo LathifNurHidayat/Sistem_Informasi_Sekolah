@@ -34,14 +34,15 @@
             ButtonJadwalDelete = new Button();
             ButtonJadwalNew = new Button();
             panel4 = new Panel();
-            RadioKhusus = new RadioButton();
+            RadioListKhusus = new RadioButton();
             GridListJadwalPelajaran = new DataGridView();
-            RadioUmum = new RadioButton();
+            RadioListUmum = new RadioButton();
             label3 = new Label();
             panel3 = new Panel();
+            RadioKhusus = new RadioButton();
+            RadioUmum = new RadioButton();
             MaskedSelesai = new MaskedTextBox();
             MaskedJamMulai = new MaskedTextBox();
-            ComboJenisJadwal = new ComboBox();
             ComboHari = new ComboBox();
             ComboGuru = new ComboBox();
             ComboMataPelajaran = new ComboBox();
@@ -57,6 +58,8 @@
             label5 = new Label();
             TextKelasName = new TextBox();
             label1 = new Label();
+            TextKeterangan = new TextBox();
+            label = new Label();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
@@ -86,9 +89,9 @@
             panel5.Controls.Add(ButtonJadwalSave);
             panel5.Controls.Add(ButtonJadwalDelete);
             panel5.Controls.Add(ButtonJadwalNew);
-            panel5.Location = new Point(972, 609);
+            panel5.Location = new Point(972, 630);
             panel5.Name = "panel5";
-            panel5.Size = new Size(451, 100);
+            panel5.Size = new Size(451, 79);
             panel5.TabIndex = 2;
             // 
             // ButtonJadwalSave
@@ -97,7 +100,7 @@
             ButtonJadwalSave.BackColor = Color.LimeGreen;
             ButtonJadwalSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonJadwalSave.ForeColor = SystemColors.ControlLightLight;
-            ButtonJadwalSave.Location = new Point(321, 32);
+            ButtonJadwalSave.Location = new Point(321, 22);
             ButtonJadwalSave.Name = "ButtonJadwalSave";
             ButtonJadwalSave.Size = new Size(96, 35);
             ButtonJadwalSave.TabIndex = 3;
@@ -110,7 +113,7 @@
             ButtonJadwalDelete.BackColor = Color.Crimson;
             ButtonJadwalDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonJadwalDelete.ForeColor = SystemColors.ControlLightLight;
-            ButtonJadwalDelete.Location = new Point(179, 32);
+            ButtonJadwalDelete.Location = new Point(179, 22);
             ButtonJadwalDelete.Name = "ButtonJadwalDelete";
             ButtonJadwalDelete.Size = new Size(96, 35);
             ButtonJadwalDelete.TabIndex = 2;
@@ -123,7 +126,7 @@
             ButtonJadwalNew.BackColor = Color.RoyalBlue;
             ButtonJadwalNew.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonJadwalNew.ForeColor = SystemColors.ControlLightLight;
-            ButtonJadwalNew.Location = new Point(37, 32);
+            ButtonJadwalNew.Location = new Point(37, 22);
             ButtonJadwalNew.Name = "ButtonJadwalNew";
             ButtonJadwalNew.Size = new Size(96, 35);
             ButtonJadwalNew.TabIndex = 1;
@@ -135,25 +138,25 @@
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.Gainsboro;
             panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(RadioKhusus);
+            panel4.Controls.Add(RadioListKhusus);
             panel4.Controls.Add(GridListJadwalPelajaran);
-            panel4.Controls.Add(RadioUmum);
+            panel4.Controls.Add(RadioListUmum);
             panel4.Controls.Add(label3);
             panel4.Location = new Point(9, 10);
             panel4.Name = "panel4";
             panel4.Size = new Size(957, 699);
             panel4.TabIndex = 3;
             // 
-            // RadioKhusus
+            // RadioListKhusus
             // 
-            RadioKhusus.AutoSize = true;
-            RadioKhusus.Location = new Point(283, 18);
-            RadioKhusus.Name = "RadioKhusus";
-            RadioKhusus.Size = new Size(75, 24);
-            RadioKhusus.TabIndex = 2;
-            RadioKhusus.TabStop = true;
-            RadioKhusus.Text = "Khusus";
-            RadioKhusus.UseVisualStyleBackColor = true;
+            RadioListKhusus.AutoSize = true;
+            RadioListKhusus.Location = new Point(283, 18);
+            RadioListKhusus.Name = "RadioListKhusus";
+            RadioListKhusus.Size = new Size(75, 24);
+            RadioListKhusus.TabIndex = 2;
+            RadioListKhusus.TabStop = true;
+            RadioListKhusus.Text = "Khusus";
+            RadioListKhusus.UseVisualStyleBackColor = true;
             // 
             // GridListJadwalPelajaran
             // 
@@ -168,16 +171,16 @@
             GridListJadwalPelajaran.Size = new Size(935, 623);
             GridListJadwalPelajaran.TabIndex = 3;
             // 
-            // RadioUmum
+            // RadioListUmum
             // 
-            RadioUmum.AutoSize = true;
-            RadioUmum.Location = new Point(153, 18);
-            RadioUmum.Name = "RadioUmum";
-            RadioUmum.Size = new Size(74, 24);
-            RadioUmum.TabIndex = 1;
-            RadioUmum.TabStop = true;
-            RadioUmum.Text = "Umum";
-            RadioUmum.UseVisualStyleBackColor = true;
+            RadioListUmum.AutoSize = true;
+            RadioListUmum.Location = new Point(153, 18);
+            RadioListUmum.Name = "RadioListUmum";
+            RadioListUmum.Size = new Size(74, 24);
+            RadioListUmum.TabIndex = 1;
+            RadioListUmum.TabStop = true;
+            RadioListUmum.Text = "Umum";
+            RadioListUmum.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -196,9 +199,12 @@
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel3.BackColor = Color.Gainsboro;
             panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(TextKeterangan);
+            panel3.Controls.Add(label);
+            panel3.Controls.Add(RadioKhusus);
+            panel3.Controls.Add(RadioUmum);
             panel3.Controls.Add(MaskedSelesai);
             panel3.Controls.Add(MaskedJamMulai);
-            panel3.Controls.Add(ComboJenisJadwal);
             panel3.Controls.Add(ComboHari);
             panel3.Controls.Add(ComboGuru);
             panel3.Controls.Add(ComboMataPelajaran);
@@ -208,15 +214,37 @@
             panel3.Controls.Add(label7);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label4);
-            panel3.Location = new Point(972, 198);
+            panel3.Location = new Point(972, 187);
             panel3.Name = "panel3";
-            panel3.Size = new Size(451, 404);
+            panel3.Size = new Size(451, 437);
             panel3.TabIndex = 1;
+            // 
+            // RadioKhusus
+            // 
+            RadioKhusus.AutoSize = true;
+            RadioKhusus.Location = new Point(296, 49);
+            RadioKhusus.Name = "RadioKhusus";
+            RadioKhusus.Size = new Size(75, 24);
+            RadioKhusus.TabIndex = 34;
+            RadioKhusus.TabStop = true;
+            RadioKhusus.Text = "Khusus";
+            RadioKhusus.UseVisualStyleBackColor = true;
+            // 
+            // RadioUmum
+            // 
+            RadioUmum.AutoSize = true;
+            RadioUmum.Location = new Point(60, 49);
+            RadioUmum.Name = "RadioUmum";
+            RadioUmum.Size = new Size(74, 24);
+            RadioUmum.TabIndex = 33;
+            RadioUmum.TabStop = true;
+            RadioUmum.Text = "Umum";
+            RadioUmum.UseVisualStyleBackColor = true;
             // 
             // MaskedSelesai
             // 
             MaskedSelesai.BorderStyle = BorderStyle.FixedSingle;
-            MaskedSelesai.Location = new Point(292, 186);
+            MaskedSelesai.Location = new Point(292, 173);
             MaskedSelesai.Name = "MaskedSelesai";
             MaskedSelesai.Size = new Size(125, 27);
             MaskedSelesai.TabIndex = 4;
@@ -224,23 +252,15 @@
             // MaskedJamMulai
             // 
             MaskedJamMulai.BorderStyle = BorderStyle.FixedSingle;
-            MaskedJamMulai.Location = new Point(37, 186);
+            MaskedJamMulai.Location = new Point(37, 173);
             MaskedJamMulai.Name = "MaskedJamMulai";
             MaskedJamMulai.Size = new Size(125, 27);
             MaskedJamMulai.TabIndex = 3;
             // 
-            // ComboJenisJadwal
-            // 
-            ComboJenisJadwal.FormattingEnabled = true;
-            ComboJenisJadwal.Location = new Point(37, 51);
-            ComboJenisJadwal.Name = "ComboJenisJadwal";
-            ComboJenisJadwal.Size = new Size(380, 28);
-            ComboJenisJadwal.TabIndex = 1;
-            // 
             // ComboHari
             // 
             ComboHari.FormattingEnabled = true;
-            ComboHari.Location = new Point(37, 118);
+            ComboHari.Location = new Point(37, 108);
             ComboHari.Name = "ComboHari";
             ComboHari.Size = new Size(380, 28);
             ComboHari.TabIndex = 2;
@@ -248,7 +268,7 @@
             // ComboGuru
             // 
             ComboGuru.FormattingEnabled = true;
-            ComboGuru.Location = new Point(37, 349);
+            ComboGuru.Location = new Point(37, 331);
             ComboGuru.Name = "ComboGuru";
             ComboGuru.Size = new Size(380, 28);
             ComboGuru.TabIndex = 6;
@@ -256,7 +276,7 @@
             // ComboMataPelajaran
             // 
             ComboMataPelajaran.FormattingEnabled = true;
-            ComboMataPelajaran.Location = new Point(37, 283);
+            ComboMataPelajaran.Location = new Point(37, 271);
             ComboMataPelajaran.Name = "ComboMataPelajaran";
             ComboMataPelajaran.Size = new Size(380, 28);
             ComboMataPelajaran.TabIndex = 5;
@@ -267,7 +287,7 @@
             label8.BackColor = Color.Gainsboro;
             label8.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(37, 326);
+            label8.Location = new Point(37, 308);
             label8.Name = "label8";
             label8.Size = new Size(40, 20);
             label8.TabIndex = 32;
@@ -279,7 +299,7 @@
             label9.BackColor = Color.Gainsboro;
             label9.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label9.ForeColor = Color.Black;
-            label9.Location = new Point(37, 260);
+            label9.Location = new Point(37, 248);
             label9.Name = "label9";
             label9.Size = new Size(107, 20);
             label9.TabIndex = 30;
@@ -291,7 +311,7 @@
             label6.BackColor = Color.Gainsboro;
             label6.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(292, 163);
+            label6.Location = new Point(292, 150);
             label6.Name = "label6";
             label6.Size = new Size(55, 20);
             label6.TabIndex = 28;
@@ -303,7 +323,7 @@
             label7.BackColor = Color.Gainsboro;
             label7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(37, 163);
+            label7.Location = new Point(37, 150);
             label7.Name = "label7";
             label7.Size = new Size(76, 20);
             label7.TabIndex = 26;
@@ -315,7 +335,7 @@
             label2.BackColor = Color.Gainsboro;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(37, 95);
+            label2.Location = new Point(37, 85);
             label2.Name = "label2";
             label2.Size = new Size(37, 20);
             label2.TabIndex = 24;
@@ -327,7 +347,7 @@
             label4.BackColor = Color.Gainsboro;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(37, 28);
+            label4.Location = new Point(37, 18);
             label4.Name = "label4";
             label4.Size = new Size(89, 20);
             label4.TabIndex = 22;
@@ -345,7 +365,7 @@
             panel2.Controls.Add(label1);
             panel2.Location = new Point(972, 10);
             panel2.Name = "panel2";
-            panel2.Size = new Size(451, 182);
+            panel2.Size = new Size(451, 171);
             panel2.TabIndex = 0;
             // 
             // ButtonDialogKelas
@@ -353,7 +373,7 @@
             ButtonDialogKelas.BackColor = Color.WhiteSmoke;
             ButtonDialogKelas.FlatStyle = FlatStyle.Flat;
             ButtonDialogKelas.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonDialogKelas.Location = new Point(376, 58);
+            ButtonDialogKelas.Location = new Point(376, 51);
             ButtonDialogKelas.Margin = new Padding(2);
             ButtonDialogKelas.Name = "ButtonDialogKelas";
             ButtonDialogKelas.Size = new Size(40, 25);
@@ -365,7 +385,7 @@
             // 
             TextKelasId.BackColor = SystemColors.Control;
             TextKelasId.BorderStyle = BorderStyle.FixedSingle;
-            TextKelasId.Location = new Point(37, 58);
+            TextKelasId.Location = new Point(37, 51);
             TextKelasId.Name = "TextKelasId";
             TextKelasId.ReadOnly = true;
             TextKelasId.Size = new Size(334, 27);
@@ -377,7 +397,7 @@
             label5.BackColor = Color.Gainsboro;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(37, 29);
+            label5.Location = new Point(37, 22);
             label5.Name = "label5";
             label5.Size = new Size(61, 20);
             label5.TabIndex = 18;
@@ -387,7 +407,7 @@
             // 
             TextKelasName.BackColor = SystemColors.Control;
             TextKelasName.BorderStyle = BorderStyle.FixedSingle;
-            TextKelasName.Location = new Point(37, 124);
+            TextKelasName.Location = new Point(37, 117);
             TextKelasName.Name = "TextKelasName";
             TextKelasName.ReadOnly = true;
             TextKelasName.Size = new Size(379, 27);
@@ -399,11 +419,32 @@
             label1.BackColor = Color.Gainsboro;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(37, 100);
+            label1.Location = new Point(37, 93);
             label1.Name = "label1";
             label1.Size = new Size(88, 20);
             label1.TabIndex = 20;
             label1.Text = "Kelas Name";
+            // 
+            // TextKeterangan
+            // 
+            TextKeterangan.BackColor = SystemColors.Window;
+            TextKeterangan.BorderStyle = BorderStyle.FixedSingle;
+            TextKeterangan.Location = new Point(38, 392);
+            TextKeterangan.Name = "TextKeterangan";
+            TextKeterangan.Size = new Size(379, 27);
+            TextKeterangan.TabIndex = 21;
+            // 
+            // label
+            // 
+            label.AutoSize = true;
+            label.BackColor = Color.Gainsboro;
+            label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label.ForeColor = Color.Black;
+            label.Location = new Point(38, 368);
+            label.Name = "label";
+            label.Size = new Size(88, 20);
+            label.TabIndex = 22;
+            label.Text = "Kelas Name";
             // 
             // FormJadwalPelajaran
             // 
@@ -448,13 +489,16 @@
         private ComboBox ComboHari;
         private ComboBox ComboGuru;
         private ComboBox ComboMataPelajaran;
-        private RadioButton RadioKhusus;
-        private RadioButton RadioUmum;
+        private RadioButton RadioListKhusus;
+        private RadioButton RadioListUmum;
         private Label label3;
         private Button ButtonDialogKelas;
         private Panel panel5;
         private MaskedTextBox MaskedSelesai;
         private MaskedTextBox MaskedJamMulai;
-        private ComboBox ComboJenisJadwal;
+        private RadioButton RadioKhusus;
+        private RadioButton RadioUmum;
+        private TextBox TextKeterangan;
+        private Label label;
     }
 }

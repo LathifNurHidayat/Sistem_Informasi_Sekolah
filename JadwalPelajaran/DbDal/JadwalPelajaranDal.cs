@@ -16,27 +16,15 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                 SELECT 
-                    aa.Hari , aa.JamMulai, aa.JamSelesai, bb.MapelName, cc.GuruName 
-                FROM
+                    aa.JadwalId, aa.Hari, aa.JamMulai, aa.JamSelesai,
+                    ISNULL ( bb.MapelName , '') AS MapelName,
+                    ISNULL ( cc.GuruName , '') AS GuruMapel
+                FROM 
                     JadwalPelajaran aa
-                INNER JOIN 
-                    MataPelajaran bb ON aa.MapelId = bb.MapelId
-                INNER JOIN
-                    Guru cc ON  aa.GuruId = cc.GuruId
-                WHERE 
-                    KelasId = @KelasId
-                
-                ORDER BY
-                    CASE 
-                        WHEN aa.Hari = 'Senin' THEN 1
-                        WHEN aa.Hari = 'Selasa' THEN 2
-                        WHEN aa.Hari = 'Rabu' THEN 3
-                        WHEN aa.Hari = 'Kamis' THEN 4
-                        WHEN aa.Hari = 'Jumat' THEN 5
-                        WHEN aa.Hari = 'Sabtu' THEN 6
-                    ELSE 8
-                END,
-                    aa.JamMulai ";
+                    LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
+                    LEFT JOIN Guru cc ON aa.GuruId = aa.GuruId
+                WHERE
+                    KelasId = @KelasId";
 
             var Dp = new DynamicParameters();
             Dp.Add("@KelasId", KelasId, DbType.Int32);
@@ -50,11 +38,20 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                 INSERT INTO JadwalPelajaran
-                    (JadwalId, KelasId, JenisJadwal,
+                    (KelasId, JenisJadwal,
                     Hari, JamMulai, JamSelesai, MapelId, GuruId)
                 VALUES 
-                    (@JadwalId, @KelasId, @JenisJadwal,
+                    (@KelasId, @JenisJadwal,
                     @Hari, @JamMulai, @JamSelesai, @MapelId, @GuruId) ";
+
+            var Dp = new DynamicParameters();
+            Dp.Add("@KelasId", jadwal.KelasId , DbType.Int32);
+            Dp.Add("@JenisJadwal", jadwal.JenisJadwal, DbType.String);
+            Dp.Add("@Hari", jadwal.Hari, DbType.String);
+            Dp.Add("@JamMulai", jadwal.JamMulai, DbType.String);
+            Dp.Add("@JamSelesai", jadwal.JamSelesai, DbType.String);
+            Dp.Add("@MapelId", jadwal.MapelId, DbType.Int32);
+            Dp.Add("@GuruId", jadwal.GuruId, DbType.Int32);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             Conn.Execute(sql);
@@ -75,7 +72,7 @@ namespace Sistem_Informasi_Sekolah
                     MapelId = @MapelId,
                     GuruId = @GuruId 
                 WHERE 
-                    KelasId = @KelasId";
+                    JadwalId = @JadwalId";
 
             var Dp = new DynamicParameters();
             Dp.Add("@JadwalId", jadwal.JadwalId, DbType.Int32);
@@ -91,17 +88,37 @@ namespace Sistem_Informasi_Sekolah
             Conn.Execute(sql, Dp);
         }
 
-        public void Delete(int KelasId)
+        public void Delete(int JadwalId)
         {
-            const string sql = "DELETE FROM JadwalPelajaran WHERE KelasId = @KelasId";
+            const string sql = "DELETE FROM JadwalPelajaran WHERE JadwalId = @JadwalId";
 
             var Dp = new DynamicParameters();
-            Dp.Add("@KelasId", KelasId, DbType.Int32);
+            Dp.Add("@JadwalId", JadwalId, DbType.Int32);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             Conn.Execute(sql, Dp);
         }
 
          
+        public JadwalPelajaranModel? GetData(int JadwalId)
+        {
+            const string sql = @"
+                SELECT 
+                    aa.JadwalId, aa.Hari, aa.JamMulai, aa.JamSelesai,
+                    ISNULL ( bb.MapelName , '') AS MapelName,
+                    ISNULL ( cc.GuruName , '') AS GuruMapel
+                FROM
+                    JadwalPelajaran aa
+                    LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
+                    LEFT JOIN Guru cc ON aa.GuruId = aa.GuruId
+                WHERE
+                    JadwalId = @JadwalId";
+
+            var Dp = new DynamicParameters();
+            Dp.Add("@JadwalId", JadwalId, DbType.Int32);
+
+            using var Conn = new SqlConnection(ConnStringHelper.Get());
+            return Conn.QueryFirstOrDefault<JadwalPelajaranModel>(sql, Dp);
+        }
     }
 }

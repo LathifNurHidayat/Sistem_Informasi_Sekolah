@@ -15,58 +15,121 @@ namespace Sistem_Informasi_Sekolah
         private readonly MataPelajaranDal _mataPelajaranDal;
         private readonly GuruDal _guruDal;
         private readonly JadwalPelajaranDal _jadwalPelajaranDal;
+        private int _jadwalId = 0;
 
         public FormJadwalPelajaran()
         {
             _mataPelajaranDal = new MataPelajaranDal();
             _guruDal = new GuruDal();
             _jadwalPelajaranDal = new JadwalPelajaranDal();
+
             InitializeComponent();
             InitialCombo();
-            LoadData();
+            InitialMaskText();
+
             ControlEvent();
+
+
         }
 
         private void InitialCombo()
-        {
-            List<string> Hari = new List<string> { "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu" };
+        {   
+            List<string> Hari = new () { "--Pilih Hari--","Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu" };
             ComboHari.DataSource = Hari;
+            ComboHari.SelectedIndex = 0;
 
-            var dataMapel = _mataPelajaranDal.ListData()
-                .Select(x => new
-                {
-                    Nama = x.MapelName,
-                    Id = x.MapelId,
-                }).ToList();
 
+            var dataMapel = new List<MataPelajaranModel>
+            {
+                new MataPelajaranModel {MapelId = -1, MapelName = "--Pilih Mata Pelajaran--"}
+            };
+            dataMapel.AddRange(_mataPelajaranDal.ListData()?.ToList() ?? new List<MataPelajaranModel>() );
+            ComboMataPelajaran.Items.Clear();
             ComboMataPelajaran.DataSource = dataMapel;
-            ComboMataPelajaran.DisplayMember = "Nama";
-            ComboMataPelajaran.ValueMember = "Id";
+            ComboMataPelajaran.SelectedIndex = 0;
+            ComboMataPelajaran.DisplayMember = "MapelName";
+            ComboMataPelajaran.ValueMember = "MapelId";
 
 
-            var dataGuru = _guruDal.ListData()
-                .Select(x => new
-                {
-                    Nama = x.GuruName,
-                    Id = x.GuruId,
-                }).ToList();
+            var dataGuru = new List<GuruModel>
+            {
+                new GuruModel {GuruId = -1 , GuruName = "--Pilih Guru--"}
+            };
+            dataGuru.AddRange(_guruDal.ListData()?.ToList() ?? new List<GuruModel>());
+            ComboGuru.Items.Clear();
             ComboGuru.DataSource = dataGuru;
+            ComboGuru.SelectedIndex = 0;
             ComboGuru.DisplayMember = "Nama";
             ComboGuru.ValueMember = "Id";
-
         }
 
-        private void LoadData()
+        private void InitialMaskText()
         {
+            MaskedJamMulai.Mask = "00:00";
+            MaskedJamMulai.Font = new Font("Segoe UI", 9);
 
+            MaskedSelesai.Mask = "00:00";
+            MaskedSelesai.Font = new Font("Segoe UI", 9);
         }
 
+        private void LoadDataUmum()
+        {
+            int KelasId = Convert.ToInt32(TextKelasId.Text);
+            var listData = _jadwalPelajaranDal.ListData(KelasId) ?? new List<JadwalPelajaranModel>();
+
+            var listUmum = listData
+                .Where(x => x.JenisJadwal == "Umum")
+                .OrderBy(x => x.Hari)
+                .ThenBy(x => x.JamMulai)
+                .Select(x => new JadwalDto
+                {
+                    Hari = x.Hari,
+                    Waktu = $"{x.JamMulai} - {x.JamSelesai}",
+                    MataPelajaran = $"{x.MapelName} {x.Keterangan}",
+                    Guru = x.GuruName
+                }).ToList();
+
+            GridListJadwalPelajaran.DataSource = listUmum;
+        }
+
+        private void LoadDataKhusus()
+        {
+            int KelasId = Convert.ToInt32(TextKelasId.Text);
+            var listData = _jadwalPelajaranDal.ListData(KelasId) ?? new List<JadwalPelajaranModel>();
+
+            var listKhusus = listData
+                .Where(x => x.JenisJadwal == "Khusus")
+                .OrderBy(x => x.Hari)
+                .ThenBy(x => x.JamMulai)
+                .Select(x => new JadwalDto
+                {
+                    Hari = x.Hari,
+                    Waktu = $"{x.JamMulai} - {x.JamSelesai}",
+                    MataPelajaran = $"{x.MapelName} {x.Keterangan}",
+                    Guru = x.GuruName
+                }).ToList();
+
+            GridListJadwalPelajaran.DataSource = listKhusus;
+        }
+
+
+        #region EVENT
         private void ControlEvent()
         {
             ButtonDialogKelas.Click += ButtonDialogKelas_Click;
             ButtonJadwalSave.Click += ButtonJadwalSave_Click;
             ButtonJadwalNew.Click += ButtonJadwalNew_Click;
             ButtonJadwalDelete.Click += ButtonJadwalDelete_Click;
+
+            GridListJadwalPelajaran.RowEnter += GridListJadwalPelajaran_RowEnter;
+        }
+
+        private void GridListJadwalPelajaran_RowEnter(object? sender, DataGridViewCellEventArgs e)
+        {
+            var getJadwalId = (JadwalPelajaranModel)GridListJadwalPelajaran.CurrentRow.DataBoundItem;
+            int jadwalId = Convert.ToInt32(getJadwalId.JadwalId);
+
+            GetData(jadwalId);
         }
 
         private void ButtonJadwalDelete_Click(object? sender, EventArgs e)
@@ -81,7 +144,7 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonJadwalSave_Click(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+
         }
 
         private void ButtonDialogKelas_Click(object? sender, EventArgs e)
@@ -96,9 +159,13 @@ namespace Sistem_Informasi_Sekolah
         }
 
 
+        #endregion 
+
+
         private void SaveData()
         {
             var kelasId = TextKelasId.Text == string.Empty ? 0 : Convert.ToInt32(TextKelasId.Text);
+            
 
             if (kelasId == 0)
             {
@@ -106,17 +173,69 @@ namespace Sistem_Informasi_Sekolah
                 return;
             }
 
-            var jadwal = new JadwalPelajaranModel()
+            var jenisJadwal = string.Empty;
+            if (RadioUmum.Checked) jenisJadwal = RadioUmum.Text;
+            if (RadioKhusus.Checked) jenisJadwal = RadioKhusus.Text;
+
+            var jadwal = new JadwalPelajaranModel
             {
-                JadwalId = kelasId,
+                JadwalId = _jadwalId,
                 KelasId = kelasId,
-                JenisJadwal = ComboJenisJadwal.SelectedItem?.ToString() ?? string.Empty,
-                Hari = ComboHari.SelectedItem?.ToString() ?? string.Empty,
+                JenisJadwal = jenisJadwal,
+                Hari = ComboHari.Text,
                 JamMulai = MaskedJamMulai.Text,
-                JamSelesai = MaskedJamMulai.Text,
+                JamSelesai = MaskedSelesai.Text,
                 MapelId = Convert.ToInt32(ComboMataPelajaran.SelectedValue),
-                GuruId = Convert.ToInt32(ComboGuru.SelectedValue)
+                GuruId = Convert.ToInt32(ComboGuru.SelectedValue),
+                Keterangan = TextKeterangan.Text,
             };
+
+            if (_jadwalId == 0)
+            {
+                _jadwalPelajaranDal.Insert(jadwal);
+            }
+            else
+                _jadwalPelajaranDal.Update(jadwal);
+
         }
+
+        private void ClearAfterSave()
+        {
+            MaskedJamMulai.Mask = "00:00";
+            MaskedSelesai.Mask = "00:00";
+
+            ComboMataPelajaran.SelectedIndex = 0;
+            ComboGuru.SelectedIndex = 0;
+
+            TextKeterangan.Clear();
+        }
+
+        private void GetData(int JadwalId)
+        {
+            if (JadwalId == 0)
+                return;
+
+            var jadwal = _jadwalPelajaranDal.GetData(JadwalId);
+
+            if (jadwal.JenisJadwal == "Umum") RadioUmum.Checked = true;
+            if (jadwal.JenisJadwal == "Khusus") RadioKhusus.Checked = true;
+            ComboHari.Text = jadwal.Hari;
+            MaskedJamMulai.Text = jadwal.JamMulai;
+            MaskedSelesai.Text = jadwal.JamSelesai;
+            ComboMataPelajaran.SelectedValue = jadwal.MapelId;
+            ComboGuru.SelectedValue = jadwal.GuruId;
+            TextKeterangan.Text = jadwal.Keterangan;
+        }
+
+
+        private class JadwalDto
+        {
+            public string Hari { get; set; }
+            public string Waktu { get; set; }
+            public string MataPelajaran { get; set; }
+            public string Guru { get; set; }
+        }
+
+
     }
 }

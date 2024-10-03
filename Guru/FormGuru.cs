@@ -123,6 +123,9 @@ namespace Sistem_Informasi_Sekolah
             var IdGuru = Convert.ToInt32(GridListGuru.CurrentRow.Cells[0].Value);
             var namaGuru = GridListGuru.CurrentRow.Cells[1].Value.ToString();
 
+            if (IdGuru == 0) 
+                return;
+
             if (MessageBox.Show($"Delete data \"{namaGuru}\" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 _guruDal.Delete(IdGuru);
