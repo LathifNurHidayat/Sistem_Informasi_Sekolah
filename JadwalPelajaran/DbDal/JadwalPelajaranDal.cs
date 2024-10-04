@@ -70,7 +70,8 @@ namespace Sistem_Informasi_Sekolah
                     JamMulai = @JamMulai,
                     JamSelesai = @JamSelesai,
                     MapelId = @MapelId,
-                    GuruId = @GuruId 
+                    GuruId = @GuruId,
+                    Keterangan = @Keterangan
                 WHERE 
                     JadwalId = @JadwalId";
 
@@ -83,6 +84,7 @@ namespace Sistem_Informasi_Sekolah
             Dp.Add("@JamSelesai", jadwal.JamSelesai, DbType.DateTime);
             Dp.Add("@MapelId", jadwal.MapelId, DbType.Int32);
             Dp.Add("@GuruId", jadwal.GuruId, DbType.Int32);
+            Dp.Add("@Keterangan", jadwal.Keterangan, DbType.String);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             Conn.Execute(sql, Dp);

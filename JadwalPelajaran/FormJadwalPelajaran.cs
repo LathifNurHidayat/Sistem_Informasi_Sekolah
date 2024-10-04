@@ -171,6 +171,11 @@ namespace Sistem_Informasi_Sekolah
         private void ButtonJadwalDelete_Click(object? sender, EventArgs e)
         {
             _jadwalPelajaranDal.Delete(_jadwalId);
+
+            if (RadioListKhusus.Checked)
+                LoadDataKhusus();
+            else if (RadioListUmum.Checked)
+                LoadDataUmum();
         }
 
         private void ButtonJadwalNew_Click(object? sender, EventArgs e)
@@ -219,7 +224,7 @@ namespace Sistem_Informasi_Sekolah
             Mapel = ComboMataPelajaran.SelectedIndex;
             Guru = ComboGuru.SelectedIndex;
 
-            if (Jenis == 0 || Hari == 0 || JamMulai == "00:00" || JamSelesai == "00:00" ||  Mapel == 0 || Guru == 0 || )
+            if (Jenis == 0 || Hari == 0 || JamMulai == "00:00" || JamSelesai == "00:00" ||  Mapel == 0 || Guru == 0 )
             {
                 MessageBox.Show("Mohon lengkapi data!", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -262,6 +267,7 @@ namespace Sistem_Informasi_Sekolah
             ComboGuru.SelectedIndex = 0;
 
             TextKeterangan.Clear();
+            _jadwalId = 0;
         }
 
         private void GetData(int JadwalId)
@@ -271,17 +277,26 @@ namespace Sistem_Informasi_Sekolah
 
             var jadwal = _jadwalPelajaranDal.GetData(JadwalId);
 
-            if (jadwal.JenisJadwal == "Umum") 
-                RadioUmum.Checked = true;
-            if (jadwal.JenisJadwal == "Khusus") 
-                RadioKhusus.Checked = true;
+            if (jadwal != null)
+            {
+                if (jadwal.JenisJadwal == "Umum")
+                    RadioUmum.Checked = true;
+                if (jadwal.JenisJadwal == "Khusus")
+                    RadioKhusus.Checked = true;
 
-            ComboHari.Text = jadwal.Hari;
-            MaskedJamMulai.Text = jadwal.JamMulai;
-            MaskedSelesai.Text = jadwal.JamSelesai;
-            ComboMataPelajaran.SelectedValue = jadwal.MapelId;
-            ComboGuru.SelectedValue = jadwal.GuruId;
-            TextKeterangan.Text = jadwal.Keterangan;
+
+                ComboHari.Text = jadwal.Hari;
+                MaskedJamMulai.Text = jadwal.JamMulai;
+                MaskedSelesai.Text = jadwal.JamSelesai;
+                ComboMataPelajaran.SelectedValue = jadwal.MapelId;
+                ComboGuru.SelectedValue = jadwal.GuruId;
+                TextKeterangan.Text = jadwal.Keterangan;
+            }
+            else
+            {
+                RadioKhusus.Checked = false;
+                RadioUmum.Checked = false;
+            }
         }
 
 
