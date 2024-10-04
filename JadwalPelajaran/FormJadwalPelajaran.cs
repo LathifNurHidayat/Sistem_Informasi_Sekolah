@@ -32,6 +32,7 @@ namespace Sistem_Informasi_Sekolah
 
         }
 
+        #region INITIAL FORM
         private void InitialCombo()
         {   
             List<string> Hari = new () { "--Pilih Hari--","Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu" };
@@ -59,22 +60,27 @@ namespace Sistem_Informasi_Sekolah
             ComboGuru.Items.Clear();
             ComboGuru.DataSource = dataGuru;
             ComboGuru.SelectedIndex = 0;
-            ComboGuru.DisplayMember = "Nama";
-            ComboGuru.ValueMember = "Id";
+            ComboGuru.DisplayMember = "GuruName";
+            ComboGuru.ValueMember = "GuruId";
         }
 
         private void InitialMaskText()
         {
             MaskedJamMulai.Mask = "00:00";
-            MaskedJamMulai.Font = new Font("Segoe UI", 9);
+            MaskedJamMulai.Font = new Font("Segoe UI", 11);
+            MaskedJamMulai.TextAlign = HorizontalAlignment.Center;
 
             MaskedSelesai.Mask = "00:00";
-            MaskedSelesai.Font = new Font("Segoe UI", 9);
+            MaskedSelesai.Font = new Font("Segoe UI", 11);
+            MaskedSelesai.TextAlign = HorizontalAlignment.Center;
         }
 
         private void LoadDataUmum()
         {
-            int KelasId = Convert.ToInt32(TextKelasId.Text);
+            int KelasId = TextKelasId.Text == string.Empty ? 0 : Convert.ToInt32(TextKelasId.Text);
+            if (KelasId == 0)
+                return;
+
             var listData = _jadwalPelajaranDal.ListData(KelasId) ?? new List<JadwalPelajaranModel>();
 
             var listUmum = listData
@@ -83,6 +89,7 @@ namespace Sistem_Informasi_Sekolah
                 .ThenBy(x => x.JamMulai)
                 .Select(x => new JadwalDto
                 {
+                    JadwalId = x.JadwalId,
                     Hari = x.Hari,
                     Waktu = $"{x.JamMulai} - {x.JamSelesai}",
                     MataPelajaran = $"{x.MapelName} {x.Keterangan}",
@@ -90,11 +97,15 @@ namespace Sistem_Informasi_Sekolah
                 }).ToList();
 
             GridListJadwalPelajaran.DataSource = listUmum;
+            GridListJadwalPelajaran.Columns["JadwalId"].Visible = false;
         }
 
         private void LoadDataKhusus()
         {
-            int KelasId = Convert.ToInt32(TextKelasId.Text);
+            int KelasId = TextKelasId.Text == string.Empty ? 0 : Convert.ToInt32(TextKelasId.Text);
+            if (KelasId == 0)
+                return;
+
             var listData = _jadwalPelajaranDal.ListData(KelasId) ?? new List<JadwalPelajaranModel>();
 
             var listKhusus = listData
@@ -103,6 +114,7 @@ namespace Sistem_Informasi_Sekolah
                 .ThenBy(x => x.JamMulai)
                 .Select(x => new JadwalDto
                 {
+                    JadwalId = x.JadwalId,
                     Hari = x.Hari,
                     Waktu = $"{x.JamMulai} - {x.JamSelesai}",
                     MataPelajaran = $"{x.MapelName} {x.Keterangan}",
@@ -110,7 +122,9 @@ namespace Sistem_Informasi_Sekolah
                 }).ToList();
 
             GridListJadwalPelajaran.DataSource = listKhusus;
+            GridListJadwalPelajaran.Columns["JadwalId"].Visible = false;
         }
+        #endregion
 
 
         #region EVENT
@@ -121,30 +135,53 @@ namespace Sistem_Informasi_Sekolah
             ButtonJadwalNew.Click += ButtonJadwalNew_Click;
             ButtonJadwalDelete.Click += ButtonJadwalDelete_Click;
 
-            GridListJadwalPelajaran.RowEnter += GridListJadwalPelajaran_RowEnter;
+            GridListJadwalPelajaran.SelectionChanged += GridListJadwalPelajaran_SelectionChanged;
+            TextKelasId.TextChanged += TextKelasId_TextChanged;
+            RadioListUmum.CheckedChanged += RadioListUmum_CheckedChanged;
+            RadioListKhusus.CheckedChanged += RadioListKhusus_CheckedChanged;
         }
 
-        private void GridListJadwalPelajaran_RowEnter(object? sender, DataGridViewCellEventArgs e)
+        private void GridListJadwalPelajaran_SelectionChanged(object? sender, EventArgs e)
         {
-            var getJadwalId = (JadwalPelajaranModel)GridListJadwalPelajaran.CurrentRow.DataBoundItem;
-            int jadwalId = Convert.ToInt32(getJadwalId.JadwalId);
+            if (GridListJadwalPelajaran.CurrentRow != null)
+            {
+                var jadwalId = Convert.ToInt32(GridListJadwalPelajaran.CurrentRow.Cells["JadwalId"].Value);
+                _jadwalId = jadwalId;
 
-            GetData(jadwalId);
+                GetData(_jadwalId);
+            }
+        }
+
+        private void RadioListKhusus_CheckedChanged(object? sender, EventArgs e)
+        {
+            LoadDataKhusus();
+        }
+
+        private void RadioListUmum_CheckedChanged(object? sender, EventArgs e)
+        {
+            LoadDataUmum();
+        }
+
+        private void TextKelasId_TextChanged(object? sender, EventArgs e)
+        {
+            LoadDataUmum();
+            RadioListUmum.Checked = true;
         }
 
         private void ButtonJadwalDelete_Click(object? sender, EventArgs e)
         {
-            
+            _jadwalPelajaranDal.Delete(_jadwalId);
         }
 
         private void ButtonJadwalNew_Click(object? sender, EventArgs e)
         {
-            
+            ClearForm();   
         }
 
         private void ButtonJadwalSave_Click(object? sender, EventArgs e)
         {
-
+            SaveData();
+            ClearForm();
         }
 
         private void ButtonDialogKelas_Click(object? sender, EventArgs e)
@@ -165,13 +202,30 @@ namespace Sistem_Informasi_Sekolah
         private void SaveData()
         {
             var kelasId = TextKelasId.Text == string.Empty ? 0 : Convert.ToInt32(TextKelasId.Text);
-            
-
             if (kelasId == 0)
             {
                 MessageBox.Show("Masukan kelas terlebih dahulu", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+
+            string JamMulai, JamSelesai;
+            int Jenis, Hari, Mapel, Guru;
+
+            Jenis = RadioKhusus.Checked ? 1 : RadioUmum.Checked ? 1 : 0;
+            Hari = ComboHari.SelectedIndex;
+            JamMulai = MaskedJamMulai.Text;
+            JamSelesai = MaskedSelesai.Text;
+            Mapel = ComboMataPelajaran.SelectedIndex;
+            Guru = ComboGuru.SelectedIndex;
+
+            if (Jenis == 0 || Hari == 0 || JamMulai == "00:00" || JamSelesai == "00:00" ||  Mapel == 0 || Guru == 0 || )
+            {
+                MessageBox.Show("Mohon lengkapi data!", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
 
             var jenisJadwal = string.Empty;
             if (RadioUmum.Checked) jenisJadwal = RadioUmum.Text;
@@ -199,7 +253,7 @@ namespace Sistem_Informasi_Sekolah
 
         }
 
-        private void ClearAfterSave()
+        private void ClearForm()
         {
             MaskedJamMulai.Mask = "00:00";
             MaskedSelesai.Mask = "00:00";
@@ -217,8 +271,11 @@ namespace Sistem_Informasi_Sekolah
 
             var jadwal = _jadwalPelajaranDal.GetData(JadwalId);
 
-            if (jadwal.JenisJadwal == "Umum") RadioUmum.Checked = true;
-            if (jadwal.JenisJadwal == "Khusus") RadioKhusus.Checked = true;
+            if (jadwal.JenisJadwal == "Umum") 
+                RadioUmum.Checked = true;
+            if (jadwal.JenisJadwal == "Khusus") 
+                RadioKhusus.Checked = true;
+
             ComboHari.Text = jadwal.Hari;
             MaskedJamMulai.Text = jadwal.JamMulai;
             MaskedSelesai.Text = jadwal.JamSelesai;
@@ -230,6 +287,7 @@ namespace Sistem_Informasi_Sekolah
 
         private class JadwalDto
         {
+            public int JadwalId {  get; set; }
             public string Hari { get; set; }
             public string Waktu { get; set; }
             public string MataPelajaran { get; set; }

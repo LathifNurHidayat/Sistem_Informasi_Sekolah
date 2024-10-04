@@ -80,7 +80,7 @@ namespace Sistem_Informasi_Sekolah
 
         public IEnumerable<GuruModel> ListData()
         {
-            const string sql = "SELECT * FROM Guru";
+            const string sql = "SELECT GuruId, GuruName FROM Guru";
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             return Conn.Query<GuruModel>(sql);

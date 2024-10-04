@@ -16,9 +16,9 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                 SELECT 
-                    aa.JadwalId, aa.Hari, aa.JamMulai, aa.JamSelesai,
+                    aa.JadwalId, aa.JenisJadwal, aa.Hari, aa.JamMulai, aa.JamSelesai,
                     ISNULL ( bb.MapelName , '') AS MapelName,
-                    ISNULL ( cc.GuruName , '') AS GuruMapel
+                    ISNULL ( cc.GuruName , '') AS GuruName
                 FROM 
                     JadwalPelajaran aa
                     LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
@@ -54,7 +54,7 @@ namespace Sistem_Informasi_Sekolah
             Dp.Add("@GuruId", jadwal.GuruId, DbType.Int32);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-            Conn.Execute(sql);
+            Conn.Execute(sql, Dp);
         }
 
         public void Update(JadwalPelajaranModel jadwal)
@@ -77,7 +77,7 @@ namespace Sistem_Informasi_Sekolah
             var Dp = new DynamicParameters();
             Dp.Add("@JadwalId", jadwal.JadwalId, DbType.Int32);
             Dp.Add("@KelasId", jadwal.KelasId, DbType.Int32);
-            Dp.Add("@JenisJadwal", jadwal.JenisJadwal, DbType.Int16);
+            Dp.Add("@JenisJadwal", jadwal.JenisJadwal, DbType.String);
             Dp.Add("@Hari", jadwal.Hari, DbType.String);
             Dp.Add("@JamMulai", jadwal.JamMulai, DbType.DateTime);
             Dp.Add("@JamSelesai", jadwal.JamSelesai, DbType.DateTime);
@@ -104,13 +104,10 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                 SELECT 
-                    aa.JadwalId, aa.Hari, aa.JamMulai, aa.JamSelesai,
-                    ISNULL ( bb.MapelName , '') AS MapelName,
-                    ISNULL ( cc.GuruName , '') AS GuruMapel
+                    JadwalId, JenisJadwal, Hari, JamMulai, JamSelesai,
+                    MapelId, GuruId
                 FROM
-                    JadwalPelajaran aa
-                    LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
-                    LEFT JOIN Guru cc ON aa.GuruId = aa.GuruId
+                    JadwalPelajaran
                 WHERE
                     JadwalId = @JadwalId";
 

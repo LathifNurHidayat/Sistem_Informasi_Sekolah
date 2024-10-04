@@ -39,6 +39,8 @@
             RadioListUmum = new RadioButton();
             label3 = new Label();
             panel3 = new Panel();
+            TextKeterangan = new TextBox();
+            label = new Label();
             RadioKhusus = new RadioButton();
             RadioUmum = new RadioButton();
             MaskedSelesai = new MaskedTextBox();
@@ -58,8 +60,6 @@
             label5 = new Label();
             TextKelasName = new TextBox();
             label1 = new Label();
-            TextKeterangan = new TextBox();
-            label = new Label();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
@@ -218,6 +218,27 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(451, 437);
             panel3.TabIndex = 1;
+            // 
+            // TextKeterangan
+            // 
+            TextKeterangan.BackColor = SystemColors.Window;
+            TextKeterangan.BorderStyle = BorderStyle.FixedSingle;
+            TextKeterangan.Location = new Point(38, 392);
+            TextKeterangan.Name = "TextKeterangan";
+            TextKeterangan.Size = new Size(379, 27);
+            TextKeterangan.TabIndex = 21;
+            // 
+            // label
+            // 
+            label.AutoSize = true;
+            label.BackColor = Color.Gainsboro;
+            label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            label.ForeColor = Color.Black;
+            label.Location = new Point(38, 368);
+            label.Name = "label";
+            label.Size = new Size(165, 20);
+            label.TabIndex = 22;
+            label.Text = "Keterangan   (Optional)";
             // 
             // RadioKhusus
             // 
@@ -424,27 +445,6 @@
             label1.Size = new Size(88, 20);
             label1.TabIndex = 20;
             label1.Text = "Kelas Name";
-            // 
-            // TextKeterangan
-            // 
-            TextKeterangan.BackColor = SystemColors.Window;
-            TextKeterangan.BorderStyle = BorderStyle.FixedSingle;
-            TextKeterangan.Location = new Point(38, 392);
-            TextKeterangan.Name = "TextKeterangan";
-            TextKeterangan.Size = new Size(379, 27);
-            TextKeterangan.TabIndex = 21;
-            // 
-            // label
-            // 
-            label.AutoSize = true;
-            label.BackColor = Color.Gainsboro;
-            label.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label.ForeColor = Color.Black;
-            label.Location = new Point(38, 368);
-            label.Name = "label";
-            label.Size = new Size(88, 20);
-            label.TabIndex = 22;
-            label.Text = "Kelas Name";
             // 
             // FormJadwalPelajaran
             // 
