@@ -24,7 +24,8 @@ namespace Sistem_Informasi_Sekolah
                     LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
                     LEFT JOIN Guru cc ON aa.GuruId = aa.GuruId
                 WHERE
-                    KelasId = @KelasId";
+                    KelasId = @KelasId
+              ";
 
             var Dp = new DynamicParameters();
             Dp.Add("@KelasId", KelasId, DbType.Int32);
@@ -63,7 +64,6 @@ namespace Sistem_Informasi_Sekolah
                 UPDATE 
                     JadwalPelajaran
                 SET
-                    JadwalId = @JadwalId,
                     KelasId = @KelasId,
                     JenisJadwal = @JenisJadwal,
                     Hari = @Hari,
@@ -80,8 +80,8 @@ namespace Sistem_Informasi_Sekolah
             Dp.Add("@KelasId", jadwal.KelasId, DbType.Int32);
             Dp.Add("@JenisJadwal", jadwal.JenisJadwal, DbType.String);
             Dp.Add("@Hari", jadwal.Hari, DbType.String);
-            Dp.Add("@JamMulai", jadwal.JamMulai, DbType.DateTime);
-            Dp.Add("@JamSelesai", jadwal.JamSelesai, DbType.DateTime);
+            Dp.Add("@JamMulai", jadwal.JamMulai, DbType.String);
+            Dp.Add("@JamSelesai", jadwal.JamSelesai, DbType.String);
             Dp.Add("@MapelId", jadwal.MapelId, DbType.Int32);
             Dp.Add("@GuruId", jadwal.GuruId, DbType.Int32);
             Dp.Add("@Keterangan", jadwal.Keterangan, DbType.String);

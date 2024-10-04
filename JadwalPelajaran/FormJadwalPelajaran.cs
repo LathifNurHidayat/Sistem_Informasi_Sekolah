@@ -28,8 +28,6 @@ namespace Sistem_Informasi_Sekolah
             InitialMaskText();
 
             ControlEvent();
-
-
         }
 
         #region INITIAL FORM
@@ -155,11 +153,13 @@ namespace Sistem_Informasi_Sekolah
         private void RadioListKhusus_CheckedChanged(object? sender, EventArgs e)
         {
             LoadDataKhusus();
+            ClearForm();
         }
 
         private void RadioListUmum_CheckedChanged(object? sender, EventArgs e)
         {
             LoadDataUmum();
+            ClearForm();
         }
 
         private void TextKelasId_TextChanged(object? sender, EventArgs e)
@@ -170,12 +170,16 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonJadwalDelete_Click(object? sender, EventArgs e)
         {
-            _jadwalPelajaranDal.Delete(_jadwalId);
+            if (MessageBox.Show("Anda yakin ingin menghapus data ?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)== DialogResult.OK)
+            {
+                _jadwalPelajaranDal.Delete(_jadwalId);
 
-            if (RadioListKhusus.Checked)
-                LoadDataKhusus();
-            else if (RadioListUmum.Checked)
-                LoadDataUmum();
+                if (RadioListKhusus.Checked)
+                    LoadDataKhusus();
+                else if (RadioListUmum.Checked)
+                    LoadDataUmum();
+            }
+           
         }
 
         private void ButtonJadwalNew_Click(object? sender, EventArgs e)
@@ -185,7 +189,19 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonJadwalSave_Click(object? sender, EventArgs e)
         {
-            SaveData();
+            if (RadioUmum.Checked)
+            {
+                SaveData();
+                LoadDataUmum();
+                RadioListUmum.Checked = true;
+            }
+            else
+            {
+                SaveData();
+                LoadDataKhusus();
+                RadioListKhusus.Checked = true;
+            }
+
             ClearForm();
         }
 
@@ -255,7 +271,6 @@ namespace Sistem_Informasi_Sekolah
             }
             else
                 _jadwalPelajaranDal.Update(jadwal);
-
         }
 
         private void ClearForm()
@@ -308,7 +323,5 @@ namespace Sistem_Informasi_Sekolah
             public string MataPelajaran { get; set; }
             public string Guru { get; set; }
         }
-
-
     }
 }
