@@ -7,33 +7,27 @@ SELECT * FROM Guru;
 SELECT * FROM GuruMapel;
 SELECT * FROM JadwalPelajaran;
 
-SELECT 
-                    aa.JadwalId, aa.Hari, aa.JamMulai, aa.JamSelesai,
-                    ISNULL ( bb.MapelName , '') AS MapelName,
-                    ISNULL ( cc.GuruName , '') AS GuruMapel
-                FROM 
-                    JadwalPelajaran aa
-                    LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
-                    LEFT JOIN Guru cc ON aa.GuruId = aa.GuruId
 
 
 
 
 
-                      SELECT 
-                    aa.JadwalId,aa.JenisJadwal,  aa.KelasId, aa.GuruId, aa.Hari, aa.JamMulai, aa.JamSelesai,
-                    ISNULL ( bb.MapelName , '') AS MapelName,
-                    ISNULL ( cc.GuruName , '') AS GuruMapel,
-                    ISNULL (dd.KelasName , '') AS KelasName
-                FROM 
-                    JadwalPelajaran aa
-                    LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
-                    LEFT JOIN Guru cc ON aa.GuruId = aa.GuruId
-LEFT JOIN Kelas dd    ON aa.KelasId  = dd.KelasId 
+  INSERT INTO JadwalPelajaran
+                    (KelasId, JenisJadwal,
+                    Hari, JamMulai, JamSelesai, MapelId, GuruId)
+                VALUES 
+                    (2, 'Umum',
+                    'Jumat', '09:09', '09:90', 3, 29)
                 
 
 
-                Delete from JadwalPelajaran Where JadwalId = 5
+
+
+
+
+
+                Delete from JadwalPelaj
+                aran Where JadwalId = 5
 
 
 
@@ -178,40 +172,52 @@ ORDER BY
 
 
 
-
-
-                WITH RankHari  AS  (
-    SELECT 
-    aa.JadwalId , aa.JenisJadwal, aa.Hari, aa.JamMulai, aa.JamSelesai,
-    ISNULL (bb.MapelName , '') AS MapelName,
-    ISNULL (cc.GuruName , '') AS GuruName,
-    ROW_NUMBER () OVER (PARTITION BY aa.Hari ORDER BY aa.JamMulai) AS SetHari
-
-    FROM JadwalPelajaran aa
-    LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
-    LEFT JOIN Guru cc ON aa.GuruId = cc.GuruId
-
-    WHERE 
-    KelasId = 2
-
-    )
-
-   SELECT 
-   JadwalId ,
-   CASE 
-        WHEN SetHari = 1 THEN Hari
-        ELSE ''
-    END AS Hari,
-    JamMulai, JamSelesai, MapelName, GuruName
-    FROM RankHari
-
-        ORDER BY 
-                CASE 
-                    WHEN Hari = 'Senin' THEN 1
-                    WHEN Hari = 'Selasa' THEN 2
-                    WHEN Hari = 'Rabu' THEN 3
-                    WHEN Hari = 'Kamis' THEN 4
-                    WHEN Hari = 'Jumat' THEN 5
-                    WHEN Hari = 'Sabtu' THEN 6
+SELECT 
+                    aa.JadwalId, aa.JenisJadwal, aa.Hari, aa.JamMulai, aa.JamSelesai,
+                    ISNULL ( bb.MapelName , '') AS MapelName,
+                    ISNULL ( cc.GuruName , '') AS GuruName
+                FROM 
+                    JadwalPelajaran aa
+                    LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
+                    LEFT JOIN Guru cc ON aa.GuruId = aa.GuruId
+                WHERE
+                    KelasId = 2                ORDER BY 
+                    CASE 
+                        WHEN Hari = 'Senin' THEN 1
+                        WHEN Hari = 'Selasa' THEN 2
+                        WHEN Hari = 'Rabu' THEN 3
+                        WHEN Hari = 'Kamis' THEN 4
+                        WHEN Hari = 'Jumat' THEN 5
+                        WHEN Hari = 'Sabtu' THEN 6
                     ELSE 7
                 END , JamMulai
+
+
+
+
+
+
+
+
+
+
+   SELECT 
+                    aa.JadwalId, aa.JenisJadwal, aa.Hari, aa.JamMulai, aa.JamSelesai,
+                    ISNULL ( bb.MapelName , '') AS MapelName,
+                    ISNULL ( cc.GuruName , '') AS GuruName
+                FROM 
+                    JadwalPelajaran aa
+                    LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
+                    LEFT JOIN Guru cc ON aa.GuruId = aa.GuruId
+                WHERE
+                    KelasId = 2
+                ORDER BY 
+                    CASE 
+                        WHEN Hari = 'Senin' THEN 1
+                        WHEN Hari = 'Selasa' THEN 2
+                        WHEN Hari = 'Rabu' THEN 3
+                        WHEN Hari = 'Kamis' THEN 4
+                        WHEN Hari = 'Jumat' THEN 5
+                        WHEN Hari = 'Sabtu' THEN 6
+                    ELSE 7
+                END ASC , JamMulai

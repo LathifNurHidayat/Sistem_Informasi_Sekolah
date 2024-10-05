@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -83,8 +85,6 @@ namespace Sistem_Informasi_Sekolah
 
             var listUmum = listData
                 .Where(x => x.JenisJadwal == "Umum")
-                .OrderBy(x => x.Hari)
-                .ThenBy(x => x.JamMulai)
                 .Select(x => new JadwalDto
                 {
                     JadwalId = x.JadwalId,
@@ -107,9 +107,7 @@ namespace Sistem_Informasi_Sekolah
             var listData = _jadwalPelajaranDal.ListData(KelasId) ?? new List<JadwalPelajaranModel>();
 
             var listKhusus = listData
-                .Where(x => x.JenisJadwal == "Khusus")
-                .OrderBy(x => x.Hari)
-                .ThenBy(x => x.JamMulai)
+                .Where(x => x.JenisJadwal == "Khusus")                
                 .Select(x => new JadwalDto
                 {
                     JadwalId = x.JadwalId,
@@ -202,7 +200,7 @@ namespace Sistem_Informasi_Sekolah
                 RadioListKhusus.Checked = true;
             }
 
-            ClearForm();
+            ClearForm(); 
         }
 
         private void ButtonDialogKelas_Click(object? sender, EventArgs e)
@@ -240,13 +238,11 @@ namespace Sistem_Informasi_Sekolah
             Mapel = ComboMataPelajaran.SelectedIndex;
             Guru = ComboGuru.SelectedIndex;
 
-            if (Jenis == 0 || Hari == 0 || JamMulai == "00:00" || JamSelesai == "00:00" ||  Mapel == 0 || Guru == 0 )
+            if (Jenis == 0 || Hari == 0 || JamMulai == string.Empty || JamSelesai == string.Empty||  Mapel == 0 || Guru == 0 )
             {
                 MessageBox.Show("Mohon lengkapi data!", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-
 
             var jenisJadwal = string.Empty;
             if (RadioUmum.Checked) jenisJadwal = RadioUmum.Text;
@@ -271,6 +267,7 @@ namespace Sistem_Informasi_Sekolah
             }
             else
                 _jadwalPelajaranDal.Update(jadwal);
+            return;
         }
 
         private void ClearForm()
