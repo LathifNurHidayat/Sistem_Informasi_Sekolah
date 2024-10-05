@@ -35,8 +35,8 @@
             mataPelajaranToolStripMenuItem = new ToolStripMenuItem();
             kelasToolStripMenuItem = new ToolStripMenuItem();
             guruToolStripMenuItem = new ToolStripMenuItem();
-            menuStrip1 = new MenuStrip();
             jadwalPelajaranToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1 = new MenuStrip();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -86,6 +86,12 @@
             guruToolStripMenuItem.Size = new Size(224, 26);
             guruToolStripMenuItem.Text = "Guru";
             // 
+            // jadwalPelajaranToolStripMenuItem
+            // 
+            jadwalPelajaranToolStripMenuItem.Name = "jadwalPelajaranToolStripMenuItem";
+            jadwalPelajaranToolStripMenuItem.Size = new Size(224, 26);
+            jadwalPelajaranToolStripMenuItem.Text = "Jadwal Pelajaran";
+            // 
             // menuStrip1
             // 
             menuStrip1.BackColor = Color.Gainsboro;
@@ -96,12 +102,6 @@
             menuStrip1.Size = new Size(1082, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
-            // 
-            // jadwalPelajaranToolStripMenuItem
-            // 
-            jadwalPelajaranToolStripMenuItem.Name = "jadwalPelajaranToolStripMenuItem";
-            jadwalPelajaranToolStripMenuItem.Size = new Size(224, 26);
-            jadwalPelajaranToolStripMenuItem.Text = "Jadwal Pelajaran";
             // 
             // Home
             // 

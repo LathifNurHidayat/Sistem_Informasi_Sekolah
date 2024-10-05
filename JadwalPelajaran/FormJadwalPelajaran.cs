@@ -275,9 +275,13 @@ namespace Sistem_Informasi_Sekolah
 
         private void ClearForm()
         {
-            MaskedJamMulai.Mask = "00:00";
-            MaskedSelesai.Mask = "00:00";
+            RadioKhusus.Checked = false;
+            RadioUmum.Checked = false;
 
+            MaskedJamMulai.Clear();
+            MaskedSelesai.Clear();
+
+            ComboHari.SelectedIndex = 0; 
             ComboMataPelajaran.SelectedIndex = 0;
             ComboGuru.SelectedIndex = 0;
 

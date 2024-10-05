@@ -81,6 +81,7 @@ SELECT
         WHEN rn = 1 THEN Hari 
         ELSE '' 
     END AS Hari,
+    JadwalId,
     JamMulai,
     MapelName,
     GuruName,
@@ -97,3 +98,120 @@ ORDER BY
         WHEN Hari = 'Sabtu' THEN 6
         ELSE 7
     END, JamMulai;
+
+
+
+    WITH RankHari AS (
+    SELECT aa.JadwalId, aa.JenisJadwal, aa.Hari, aa.JamMulai, aa.JamSelesai, 
+    ISNULL ( bb.MapelName , '') AS MapelName,
+    ISNULL (cc.GuruName , '') AS GuruName, 
+    ROW_NUMBER() OVER (PARTITION BY aa.Hari ORDER BY aa.JamMulai) AS SetHari
+    FROM JadwalPelajaran aa
+    LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
+    LEFT JOIN Guru cc ON aa.GuruId = cc.GuruId
+    )
+
+
+
+ SELECT 
+ JadwalId,
+    CASE 
+        WHEN SetHari = 1 THEN Hari
+        ELSE ''
+    END AS Hari,
+    JamMulai,
+    JamSelesai,
+    MapelName,
+    GuruName,
+    SetHari
+FROM RankHari
+
+ORDER BY 
+    CASE 
+        WHEN Hari = 'Senin' THEN 1
+        WHEN Hari = 'Selasa' THEN 2
+        WHEN Hari = 'Rabu' THEN 3
+        WHEN Hari = 'Kamis' THEN 4
+        WHEN Hari = 'Jumat' THEN 5 
+        WHEN Hari = 'Sabtu' THEN 6
+    ELSE 7
+    END , JamMulai
+
+
+
+    WITH RankHari  AS  (
+    SELECT 
+    aa.JadwalId , aa.JenisJadwal, aa.Hari, aa.JamMulai, aa.JamSelesai,
+    ISNULL (bb.MapelName , '') AS MapelName,
+    ISNULL (cc.GuruName , '') AS GuruName,
+    ROW_NUMBER () OVER (PARTITION BY aa.Hari ORDER BY aa.JamMulai) AS SetHari
+
+    FROM JadwalPelajaran aa
+    LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
+    LEFT JOIN Guru cc ON aa.GuruId = cc.GuruId
+
+    )
+
+   SELECT 
+   JadwalId ,
+   CASE 
+        WHEN SetHari = 1 THEN Hari
+        ELSE ''
+    END AS Hari,
+    JamMulai, JamSelesai, MapelName, GuruName
+    FROM RankHari
+
+        ORDER BY 
+                CASE 
+                    WHEN Hari = 'Senin' THEN 1
+                    WHEN Hari = 'Selasa' THEN 2
+                    WHEN Hari = 'Rabu' THEN 3
+                    WHEN Hari = 'Kamis' THEN 4
+                    WHEN Hari = 'Jumat' THEN 5
+                    WHEN Hari = 'Sabtu' THEN 6
+                    ELSE 7
+                END , JamMulai
+
+
+
+
+
+
+
+
+
+                WITH RankHari  AS  (
+    SELECT 
+    aa.JadwalId , aa.JenisJadwal, aa.Hari, aa.JamMulai, aa.JamSelesai,
+    ISNULL (bb.MapelName , '') AS MapelName,
+    ISNULL (cc.GuruName , '') AS GuruName,
+    ROW_NUMBER () OVER (PARTITION BY aa.Hari ORDER BY aa.JamMulai) AS SetHari
+
+    FROM JadwalPelajaran aa
+    LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
+    LEFT JOIN Guru cc ON aa.GuruId = cc.GuruId
+
+    WHERE 
+    KelasId = 2
+
+    )
+
+   SELECT 
+   JadwalId ,
+   CASE 
+        WHEN SetHari = 1 THEN Hari
+        ELSE ''
+    END AS Hari,
+    JamMulai, JamSelesai, MapelName, GuruName
+    FROM RankHari
+
+        ORDER BY 
+                CASE 
+                    WHEN Hari = 'Senin' THEN 1
+                    WHEN Hari = 'Selasa' THEN 2
+                    WHEN Hari = 'Rabu' THEN 3
+                    WHEN Hari = 'Kamis' THEN 4
+                    WHEN Hari = 'Jumat' THEN 5
+                    WHEN Hari = 'Sabtu' THEN 6
+                    ELSE 7
+                END , JamMulai
