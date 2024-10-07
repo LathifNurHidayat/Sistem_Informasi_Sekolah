@@ -96,6 +96,7 @@ namespace Sistem_Informasi_Sekolah
 
             GridListJadwalPelajaran.DataSource = listUmum;
             GridListJadwalPelajaran.Columns["JadwalId"].Visible = false;
+            GridListJadwalPelajaran.ReadOnly = true;
         }
 
         private void LoadDataKhusus()
@@ -119,6 +120,7 @@ namespace Sistem_Informasi_Sekolah
 
             GridListJadwalPelajaran.DataSource = listKhusus;
             GridListJadwalPelajaran.Columns["JadwalId"].Visible = false;
+            GridListJadwalPelajaran.ReadOnly = true;
         }
         #endregion
 
@@ -168,7 +170,7 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonJadwalDelete_Click(object? sender, EventArgs e)
         {
-            if (MessageBox.Show("Anda yakin ingin menghapus data ?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)== DialogResult.OK)
+            if (MessageBox.Show("Anda yakin ingin menghapus data ?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)== DialogResult.Yes)
             {
                 _jadwalPelajaranDal.Delete(_jadwalId);
 
@@ -200,7 +202,7 @@ namespace Sistem_Informasi_Sekolah
                 RadioListKhusus.Checked = true;
             }
 
-            ClearForm(); 
+            ClearForm();
         }
 
         private void ButtonDialogKelas_Click(object? sender, EventArgs e)
