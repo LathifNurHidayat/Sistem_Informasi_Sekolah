@@ -233,13 +233,13 @@ SELECT
 
 
 
-                
+                 
 
 
 
     WITH Rank AS (
                     SELECT 
-                        aa.JadwalId, aa.JenisJadwal, aa.Hari, aa.JamMulai, aa.JamSelesai, aa.Keterangan,
+                        aa.JadwalId, aa.JenisJadwal,aa.KelasId, aa.Hari, aa.JamMulai, aa.JamSelesai, aa.Keterangan,
                         ISNULL (bb.MapelName , '') AS MapelName,
                         ISNULL (cc.GuruName , '') AS GuruName,
                         ROW_NUMBER() OVER (PARTITION BY aa.Hari ORDER BY aa.JamMulai) AS RK
@@ -247,8 +247,7 @@ SELECT
                         JadwalPelajaran aa 
                         LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
                         LEFT JOIN Guru cc ON aa.GuruId = cc.GuruId
-                    WHERE 
-                        KelasId = 2)
+                                            where JenisJadwal = 'Khusus')
 
                 SELECT 
                     JadwalId, JenisJadwal,Hari,
@@ -256,11 +255,13 @@ SELECT
                         CASE 
                             WHEN RK = 1 THEN Hari
                         ELSE ''
-                    END,
+                    END AS Hari,
                     
-                    JamMulai, JamSelesai, MapelName, GuruName, Keterangan
+                    JamMulai, JamSelesai, MapelName, GuruName, Keterangan, RK
                 FROM 
                     Rank
+
+                      Where KelasId = 2
                 ORDER BY 
                     CASE 
                         WHEN Hari = 'Senin' THEN 1
@@ -271,3 +272,62 @@ SELECT
                         WHEN Hari = 'Sabtu' THEN 6
                     ELSE 7
                     END, JamMulai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    WITH Rank AS (
+    SELECT 
+        aa.JadwalId, aa.JenisJadwal, aa.KelasId, aa.Hari, aa.JamMulai, aa.JamSelesai, aa.Keterangan,
+        ISNULL(bb.MapelName, '') AS MapelName,
+        ISNULL(cc.GuruName, '') AS GuruName,
+        ROW_NUMBER() OVER (PARTITION BY aa.Hari ORDER BY aa.JamMulai) AS RK
+    FROM 
+        JadwalPelajaran aa 
+        LEFT JOIN MataPelajaran bb ON aa.MapelId = bb.MapelId
+        LEFT JOIN Guru cc ON aa.GuruId = cc.GuruId
+    WHERE 
+        JenisJadwal = 'Khusus'
+)
+
+SELECT 
+    JadwalId, JenisJadwal,  
+    CASE 
+        WHEN RK = 1 THEN Hari
+        ELSE ''
+    END AS TampilHari, -- Kolom ini yang akan ditampilkan di grid
+    JamMulai, JamSelesai, MapelName, GuruName, Keterangan, RK
+FROM 
+    Rank
+WHERE 
+    KelasId = 2
+ORDER BY 
+    CASE 
+        WHEN Hari = 'Senin' THEN 1
+        WHEN Hari = 'Selasa' THEN 2
+        WHEN Hari = 'Rabu' THEN 3
+        WHEN Hari = 'Kamis' THEN 4
+        WHEN Hari = 'Jumat' THEN 5
+        WHEN Hari = 'Sabtu' THEN 6
+    ELSE 7
+    END, JamMulai;

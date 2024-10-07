@@ -37,19 +37,19 @@
             GridListKelasDialog.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GridListKelasDialog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GridListKelasDialog.Location = new Point(0, 0);
-            GridListKelasDialog.Margin = new Padding(4);
             GridListKelasDialog.Name = "GridListKelasDialog";
             GridListKelasDialog.RowHeadersWidth = 51;
             GridListKelasDialog.RowTemplate.Height = 29;
-            GridListKelasDialog.Size = new Size(428, 495);
+            GridListKelasDialog.Size = new Size(332, 403);
             GridListKelasDialog.TabIndex = 1;
             // 
             // FormKelasDialog
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(428, 495);
+            ClientSize = new Size(332, 403);
             Controls.Add(GridListKelasDialog);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "FormKelasDialog";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormKelasDialog";

@@ -75,53 +75,101 @@ namespace Sistem_Informasi_Sekolah
             MaskedSelesai.TextAlign = HorizontalAlignment.Center;
         }
 
-        private void LoadDataUmum()
+        private void LoadData()
         {
             int KelasId = TextKelasId.Text == string.Empty ? 0 : Convert.ToInt32(TextKelasId.Text);
             if (KelasId == 0)
                 return;
 
+            var jenisJadwal = RadioListKhusus.Checked ? "Khusus" : RadioListUmum.Checked ? "Umum" : " ";
             var listData = _jadwalPelajaranDal.ListData(KelasId) ?? new List<JadwalPelajaranModel>();
 
-            var listUmum = listData
-                .Where(x => x.JenisJadwal == "Umum")
+            var listJadwal = listData
+                .Where(x => x.JenisJadwal == jenisJadwal)
                 .Select(x => new JadwalDto
                 {
-                    JadwalId = x.JadwalId,
                     Hari = x.Hari,
                     Waktu = $"{x.JamMulai} - {x.JamSelesai}",
                     MataPelajaran = $"{x.MapelName} {x.Keterangan}",
-                    Guru = x.GuruName
+                    Guru = x.GuruName,
+                    JadwalId = x.JadwalId,
                 }).ToList();
 
-            GridListJadwalPelajaran.DataSource = listUmum;
+            GridListJadwalPelajaran.DataSource = listJadwal;
             GridListJadwalPelajaran.Columns["JadwalId"].Visible = false;
             GridListJadwalPelajaran.ReadOnly = true;
+
+            GridListJadwalPelajaran.Paint += GridListJadwalPelajaran_Paint;
+            GridListJadwalPelajaran.CellPainting += GridListJadwalPelajaran_CellPainting;
         }
 
-        private void LoadDataKhusus()
+        private void GridListJadwalPelajaran_CellPainting(object? sender, DataGridViewCellPaintingEventArgs e)
         {
-            int KelasId = TextKelasId.Text == string.Empty ? 0 : Convert.ToInt32(TextKelasId.Text);
-            if (KelasId == 0)
-                return;
-
-            var listData = _jadwalPelajaranDal.ListData(KelasId) ?? new List<JadwalPelajaranModel>();
-
-            var listKhusus = listData
-                .Where(x => x.JenisJadwal == "Khusus")                
-                .Select(x => new JadwalDto
+            {
+                if (e.ColumnIndex == 0 && e.RowIndex >= 0)
                 {
-                    JadwalId = x.JadwalId,
-                    Hari = x.Hari,
-                    Waktu = $"{x.JamMulai} - {x.JamSelesai}",
-                    MataPelajaran = $"{x.MapelName} {x.Keterangan}",
-                    Guru = x.GuruName
-                }).ToList();
+                    e.PaintBackground(e.ClipBounds, true);  
 
-            GridListJadwalPelajaran.DataSource = listKhusus;
-            GridListJadwalPelajaran.Columns["JadwalId"].Visible = false;
-            GridListJadwalPelajaran.ReadOnly = true;
+                    var cellValue = e.Value?.ToString();
+                    if (cellValue != null)
+                    {
+                        e.Graphics.DrawString(cellValue, e.CellStyle.Font, Brushes.Black, e.CellBounds);
+                    }
+
+                    e.Handled = true;  
+                }
+            }
         }
+
+        private void GridListJadwalPelajaran_Paint(object? sender, PaintEventArgs e)
+        {
+
+            {
+                int rowIndex = 0;
+
+                while (rowIndex < GridListJadwalPelajaran.Rows.Count)
+                {
+                    var currentHariValue = GridListJadwalPelajaran.Rows[rowIndex].Cells[0].Value?.ToString();
+
+                    int rowSpan = 1;
+
+                    for (int i = rowIndex + 1; i < GridListJadwalPelajaran.Rows.Count && i < rowIndex + 6; i++)  // Cek hingga 6 baris ke depan
+                    {
+                        var nextHariValue = GridListJadwalPelajaran.Rows[i].Cells[0].Value?.ToString();
+                        if (nextHariValue == currentHariValue)
+                        {
+                            rowSpan++;
+                        }
+                        else
+                        {
+                            break;  // Jika ada nilai yang berbeda, hentikan loop
+                        }
+                    }
+
+                    if (rowSpan > 1)
+                    {
+                        // Menggambar teks untuk sel yang digabungkan
+                        var cellHeight = GridListJadwalPelajaran.GetRowDisplayRectangle(rowIndex, true).Height * rowSpan;
+                        var cellBounds = new Rectangle(GridListJadwalPelajaran.GetCellDisplayRectangle(0, rowIndex, true).Location, new Size(GridListJadwalPelajaran.GetCellDisplayRectangle(0, rowIndex, true).Width, cellHeight));
+
+                        // Menggambar cell yang digabungkan
+                        e.Graphics.FillRectangle(new SolidBrush(GridListJadwalPelajaran.DefaultCellStyle.BackColor), cellBounds);
+                        e.Graphics.DrawRectangle(Pens.Gainsboro, cellBounds);
+                        e.Graphics.DrawString(currentHariValue, GridListJadwalPelajaran.DefaultCellStyle.Font, Brushes.Black, cellBounds);
+
+                        // Lewati baris yang telah digabungkan
+                        rowIndex += rowSpan;
+                    }
+                    else
+                    {
+                        // Tidak ada penggabungan, lanjut ke baris berikutnya
+                        rowIndex++;
+                    } 
+                }
+            }
+        }
+        
+        
         #endregion
 
 
@@ -152,20 +200,18 @@ namespace Sistem_Informasi_Sekolah
 
         private void RadioListKhusus_CheckedChanged(object? sender, EventArgs e)
         {
-            LoadDataKhusus();
-            ClearForm();
+            LoadData();
         }
 
         private void RadioListUmum_CheckedChanged(object? sender, EventArgs e)
         {
-            LoadDataUmum();
-            ClearForm();
+            LoadData();
         }
 
         private void TextKelasId_TextChanged(object? sender, EventArgs e)
         {
-            LoadDataUmum();
             RadioListUmum.Checked = true;
+            LoadData();
         }
 
         private void ButtonJadwalDelete_Click(object? sender, EventArgs e)
@@ -173,13 +219,8 @@ namespace Sistem_Informasi_Sekolah
             if (MessageBox.Show("Anda yakin ingin menghapus data ?", "Pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)== DialogResult.Yes)
             {
                 _jadwalPelajaranDal.Delete(_jadwalId);
-
-                if (RadioListKhusus.Checked)
-                    LoadDataKhusus();
-                else if (RadioListUmum.Checked)
-                    LoadDataUmum();
+                LoadData();
             }
-           
         }
 
         private void ButtonJadwalNew_Click(object? sender, EventArgs e)
@@ -189,19 +230,8 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonJadwalSave_Click(object? sender, EventArgs e)
         {
-            if (RadioUmum.Checked)
-            {
-                SaveData();
-                LoadDataUmum();
-                RadioListUmum.Checked = true;
-            }
-            else
-            {
-                SaveData();
-                LoadDataKhusus();
-                RadioListKhusus.Checked = true;
-            }
-
+            SaveData();
+            LoadData();
             ClearForm();
         }
 
@@ -320,11 +350,11 @@ namespace Sistem_Informasi_Sekolah
 
         private class JadwalDto
         {
-            public int JadwalId {  get; set; }
             public string Hari { get; set; }
             public string Waktu { get; set; }
             public string MataPelajaran { get; set; }
             public string Guru { get; set; }
+            public int JadwalId { get; set; }
         }
     }
 }

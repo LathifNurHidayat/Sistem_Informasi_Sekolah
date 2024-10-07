@@ -37,20 +37,18 @@
             GridListMapelDialog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GridListMapelDialog.Dock = DockStyle.Fill;
             GridListMapelDialog.Location = new Point(0, 0);
-            GridListMapelDialog.Margin = new Padding(4, 4, 4, 4);
             GridListMapelDialog.Name = "GridListMapelDialog";
             GridListMapelDialog.RowHeadersWidth = 51;
             GridListMapelDialog.RowTemplate.Height = 29;
-            GridListMapelDialog.Size = new Size(528, 644);
+            GridListMapelDialog.Size = new Size(332, 403);
             GridListMapelDialog.TabIndex = 0;
             // 
             // FormMataPelajaranDialog
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(528, 644);
+            ClientSize = new Size(332, 403);
             Controls.Add(GridListMapelDialog);
-            Margin = new Padding(4, 4, 4, 4);
             Name = "FormMataPelajaranDialog";
             Text = "List MataPelajaran";
             ((System.ComponentModel.ISupportInitialize)GridListMapelDialog).EndInit();
