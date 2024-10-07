@@ -81,7 +81,7 @@ namespace Sistem_Informasi_Sekolah
             if (KelasId == 0)
                 return;
 
-            var jenisJadwal = RadioListKhusus.Checked ? "Khusus" : RadioListUmum.Checked ? "Umum" : " ";
+            var jenisJadwal = RadioListKhusus.Checked ? "Khusus" : "Umum" ;
             var listData = _jadwalPelajaranDal.ListData(KelasId) ?? new List<JadwalPelajaranModel>();
 
             var listJadwal = listData
@@ -142,7 +142,7 @@ namespace Sistem_Informasi_Sekolah
                         }
                         else
                         {
-                            break;  // Jika ada nilai yang berbeda, hentikan loop
+                            break;  
                         }
                     }
 
