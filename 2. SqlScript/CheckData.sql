@@ -5,9 +5,7 @@ SELECT * FROM Siswa;
 SELECT * FROM SiswaLulus;
 SELECT * FROM Guru;
 SELECT * FROM GuruMapel;
-SELECT * FROM JadwalPelajaran;
-
-
+ 
 
 
 
@@ -315,7 +313,7 @@ SELECT
     CASE 
         WHEN RK = 1 THEN Hari
         ELSE ''
-    END AS TampilHari, -- Kolom ini yang akan ditampilkan di grid
+    END AS TampilHari, 
     JamMulai, JamSelesai, MapelName, GuruName, Keterangan, RK
 FROM 
     Rank

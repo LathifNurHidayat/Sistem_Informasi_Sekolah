@@ -148,21 +148,17 @@ namespace Sistem_Informasi_Sekolah
 
                     if (rowSpan > 1)
                     {
-                        // Menggambar teks untuk sel yang digabungkan
                         var cellHeight = GridListJadwalPelajaran.GetRowDisplayRectangle(rowIndex, true).Height * rowSpan;
                         var cellBounds = new Rectangle(GridListJadwalPelajaran.GetCellDisplayRectangle(0, rowIndex, true).Location, new Size(GridListJadwalPelajaran.GetCellDisplayRectangle(0, rowIndex, true).Width, cellHeight));
 
-                        // Menggambar cell yang digabungkan
                         e.Graphics.FillRectangle(new SolidBrush(GridListJadwalPelajaran.DefaultCellStyle.BackColor), cellBounds);
                         e.Graphics.DrawRectangle(Pens.Gainsboro, cellBounds);
                         e.Graphics.DrawString(currentHariValue, GridListJadwalPelajaran.DefaultCellStyle.Font, Brushes.Black, cellBounds);
 
-                        // Lewati baris yang telah digabungkan
                         rowIndex += rowSpan;
                     }
                     else
                     {
-                        // Tidak ada penggabungan, lanjut ke baris berikutnya
                         rowIndex++;
                     } 
                 }
@@ -181,21 +177,20 @@ namespace Sistem_Informasi_Sekolah
             ButtonJadwalNew.Click += ButtonJadwalNew_Click;
             ButtonJadwalDelete.Click += ButtonJadwalDelete_Click;
 
-            GridListJadwalPelajaran.SelectionChanged += GridListJadwalPelajaran_SelectionChanged;
+            GridListJadwalPelajaran.RowEnter += GridListJadwalPelajaran_RowEnter;
             TextKelasId.TextChanged += TextKelasId_TextChanged;
             RadioListUmum.CheckedChanged += RadioListUmum_CheckedChanged;
             RadioListKhusus.CheckedChanged += RadioListKhusus_CheckedChanged;
         }
 
-        private void GridListJadwalPelajaran_SelectionChanged(object? sender, EventArgs e)
+        private void GridListJadwalPelajaran_RowEnter(object? sender, DataGridViewCellEventArgs e)
         {
-            if (GridListJadwalPelajaran.CurrentRow != null)
+            if (e.RowIndex != null)
             {
-                var jadwalId = Convert.ToInt32(GridListJadwalPelajaran.CurrentRow.Cells["JadwalId"].Value);
+                int jadwalId = Convert.ToInt32(GridListJadwalPelajaran.Rows[e.RowIndex].Cells["JadwalId"].Value);
                 _jadwalId = jadwalId;
 
-                GetData(_jadwalId);
-            }
+            }GetData(_jadwalId);
         }
 
         private void RadioListKhusus_CheckedChanged(object? sender, EventArgs e)
@@ -230,6 +225,24 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonJadwalSave_Click(object? sender, EventArgs e)
         {
+
+            string JamMulai, JamSelesai;
+            int Jenis, Hari, Mapel, Guru;
+
+            Jenis = RadioKhusus.Checked ? 1 : RadioUmum.Checked ? 1 : 0;
+            Hari = ComboHari.SelectedIndex;
+            JamMulai = MaskedJamMulai.Text;
+            JamSelesai = MaskedSelesai.Text;
+            Mapel = ComboMataPelajaran.SelectedIndex;
+            Guru = ComboGuru.SelectedIndex;
+
+            if (Jenis == 0 || Hari == 0 || JamMulai == string.Empty || JamSelesai == string.Empty || Mapel == 0 || Guru == 0)
+            {
+                MessageBox.Show("Mohon lengkapi data!", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             SaveData();
             LoadData();
             ClearForm();
@@ -256,23 +269,6 @@ namespace Sistem_Informasi_Sekolah
             if (kelasId == 0)
             {
                 MessageBox.Show("Masukan kelas terlebih dahulu", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-
-            string JamMulai, JamSelesai;
-            int Jenis, Hari, Mapel, Guru;
-
-            Jenis = RadioKhusus.Checked ? 1 : RadioUmum.Checked ? 1 : 0;
-            Hari = ComboHari.SelectedIndex;
-            JamMulai = MaskedJamMulai.Text;
-            JamSelesai = MaskedSelesai.Text;
-            Mapel = ComboMataPelajaran.SelectedIndex;
-            Guru = ComboGuru.SelectedIndex;
-
-            if (Jenis == 0 || Hari == 0 || JamMulai == string.Empty || JamSelesai == string.Empty||  Mapel == 0 || Guru == 0 )
-            {
-                MessageBox.Show("Mohon lengkapi data!", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -331,7 +327,6 @@ namespace Sistem_Informasi_Sekolah
                     RadioUmum.Checked = true;
                 if (jadwal.JenisJadwal == "Khusus")
                     RadioKhusus.Checked = true;
-
 
                 ComboHari.Text = jadwal.Hari;
                 MaskedJamMulai.Text = jadwal.JamMulai;
