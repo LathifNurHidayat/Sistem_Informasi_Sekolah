@@ -78,7 +78,7 @@
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(12, 13);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1432, 720);
+            panel1.Size = new Size(1158, 729);
             panel1.TabIndex = 0;
             // 
             // panel5
@@ -89,7 +89,7 @@
             panel5.Controls.Add(ButtonJadwalSave);
             panel5.Controls.Add(ButtonJadwalDelete);
             panel5.Controls.Add(ButtonJadwalNew);
-            panel5.Location = new Point(972, 630);
+            panel5.Location = new Point(698, 639);
             panel5.Name = "panel5";
             panel5.Size = new Size(451, 79);
             panel5.TabIndex = 2;
@@ -144,7 +144,7 @@
             panel4.Controls.Add(label3);
             panel4.Location = new Point(9, 10);
             panel4.Name = "panel4";
-            panel4.Size = new Size(957, 699);
+            panel4.Size = new Size(683, 708);
             panel4.TabIndex = 3;
             // 
             // RadioListKhusus
@@ -168,7 +168,7 @@
             GridListJadwalPelajaran.Name = "GridListJadwalPelajaran";
             GridListJadwalPelajaran.RowHeadersWidth = 51;
             GridListJadwalPelajaran.RowTemplate.Height = 29;
-            GridListJadwalPelajaran.Size = new Size(935, 623);
+            GridListJadwalPelajaran.Size = new Size(661, 632);
             GridListJadwalPelajaran.TabIndex = 3;
             // 
             // RadioListUmum
@@ -214,9 +214,9 @@
             panel3.Controls.Add(label7);
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label4);
-            panel3.Location = new Point(972, 187);
+            panel3.Location = new Point(698, 187);
             panel3.Name = "panel3";
-            panel3.Size = new Size(451, 437);
+            panel3.Size = new Size(451, 446);
             panel3.TabIndex = 1;
             // 
             // TextKeterangan
@@ -384,7 +384,7 @@
             panel2.Controls.Add(label5);
             panel2.Controls.Add(TextKelasName);
             panel2.Controls.Add(label1);
-            panel2.Location = new Point(972, 10);
+            panel2.Location = new Point(698, 10);
             panel2.Name = "panel2";
             panel2.Size = new Size(451, 171);
             panel2.TabIndex = 0;
@@ -450,7 +450,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1456, 744);
+            ClientSize = new Size(1182, 753);
             Controls.Add(panel1);
             Name = "FormJadwalPelajaran";
             Text = "FormJadwalPelajaran";

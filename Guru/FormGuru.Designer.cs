@@ -56,9 +56,6 @@
             ButtonGuruDelete = new Button();
             ButtonGuruSave = new Button();
             panel2 = new Panel();
-            panel7 = new Panel();
-            label49 = new Label();
-            panel27 = new Panel();
             panel3.SuspendLayout();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListGuruMapel).BeginInit();
@@ -68,8 +65,6 @@
             ((System.ComponentModel.ISupportInitialize)GridListGuru).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            panel7.SuspendLayout();
-            panel27.SuspendLayout();
             SuspendLayout();
             // 
             // panel3
@@ -96,7 +91,7 @@
             panel3.Controls.Add(label1);
             panel3.Location = new Point(387, 5);
             panel3.Name = "panel3";
-            panel3.Size = new Size(669, 621);
+            panel3.Size = new Size(669, 715);
             panel3.TabIndex = 23;
             // 
             // ComboTingkatPendidikan
@@ -314,7 +309,7 @@
             panel4.Controls.Add(GridListGuru);
             panel4.Location = new Point(3, 5);
             panel4.Name = "panel4";
-            panel4.Size = new Size(378, 621);
+            panel4.Size = new Size(378, 715);
             panel4.TabIndex = 1;
             // 
             // GridListGuru
@@ -326,7 +321,7 @@
             GridListGuru.Name = "GridListGuru";
             GridListGuru.RowHeadersWidth = 51;
             GridListGuru.RowTemplate.Height = 29;
-            GridListGuru.Size = new Size(358, 601);
+            GridListGuru.Size = new Size(358, 695);
             GridListGuru.TabIndex = 0;
             // 
             // panel1
@@ -337,7 +332,7 @@
             panel1.Controls.Add(ButtonGuruNew);
             panel1.Controls.Add(ButtonGuruDelete);
             panel1.Controls.Add(ButtonGuruSave);
-            panel1.Location = new Point(3, 632);
+            panel1.Location = new Point(3, 726);
             panel1.Name = "panel1";
             panel1.Size = new Size(1053, 85);
             panel1.TabIndex = 8;
@@ -389,50 +384,16 @@
             panel2.Controls.Add(panel1);
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
-            panel2.Location = new Point(10, 106);
+            panel2.Location = new Point(10, 12);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1061, 722);
+            panel2.Size = new Size(1061, 816);
             panel2.TabIndex = 6;
-            // 
-            // panel7
-            // 
-            panel7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel7.BackColor = Color.LightGray;
-            panel7.BorderStyle = BorderStyle.FixedSingle;
-            panel7.Controls.Add(label49);
-            panel7.Location = new Point(3, 3);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(1050, 80);
-            panel7.TabIndex = 8;
-            // 
-            // label49
-            // 
-            label49.Anchor = AnchorStyles.None;
-            label49.AutoSize = true;
-            label49.Font = new Font("Franklin Gothic Medium Cond", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label49.Location = new Point(487, 17);
-            label49.Name = "label49";
-            label49.Size = new Size(70, 38);
-            label49.TabIndex = 8;
-            label49.Text = "Guru";
-            // 
-            // panel27
-            // 
-            panel27.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel27.BackColor = Color.DarkGray;
-            panel27.BorderStyle = BorderStyle.FixedSingle;
-            panel27.Controls.Add(panel7);
-            panel27.Location = new Point(10, 11);
-            panel27.Name = "panel27";
-            panel27.Size = new Size(1058, 88);
-            panel27.TabIndex = 7;
             // 
             // FormGuru
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1079, 833);
-            Controls.Add(panel27);
             Controls.Add(panel2);
             Name = "FormGuru";
             Text = "Guru";
@@ -446,9 +407,6 @@
             ((System.ComponentModel.ISupportInitialize)GridListGuru).EndInit();
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            panel27.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -482,8 +440,5 @@
         private Button ButtonGuruDelete;
         private Button ButtonGuruSave;
         private Panel panel2;
-        private Panel panel7;
-        private Label label49;
-        private Panel panel27;
     }
 }

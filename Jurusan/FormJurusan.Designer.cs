@@ -45,9 +45,6 @@
             label1 = new Label();
             ButtonJurusanSave = new Button();
             TextJurusanName = new TextBox();
-            panel27 = new Panel();
-            panel7 = new Panel();
-            label49 = new Label();
             panel2.SuspendLayout();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
@@ -55,8 +52,6 @@
             panel3.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
-            panel27.SuspendLayout();
-            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // panel2
@@ -66,9 +61,9 @@
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
-            panel2.Location = new Point(12, 108);
+            panel2.Location = new Point(12, 12);
             panel2.Name = "panel2";
-            panel2.Size = new Size(838, 594);
+            panel2.Size = new Size(838, 690);
             panel2.TabIndex = 4;
             // 
             // panel4
@@ -79,7 +74,7 @@
             panel4.Controls.Add(GridListJurusan);
             panel4.Location = new Point(3, 3);
             panel4.Name = "panel4";
-            panel4.Size = new Size(485, 586);
+            panel4.Size = new Size(485, 682);
             panel4.TabIndex = 1;
             // 
             // panel1
@@ -88,7 +83,7 @@
             panel1.BackColor = Color.LightGray;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(ButtonJurusanNew);
-            panel1.Location = new Point(11, 507);
+            panel1.Location = new Point(11, 603);
             panel1.Name = "panel1";
             panel1.Size = new Size(460, 64);
             panel1.TabIndex = 8;
@@ -115,7 +110,7 @@
             GridListJurusan.Name = "GridListJurusan";
             GridListJurusan.RowHeadersWidth = 51;
             GridListJurusan.RowTemplate.Height = 29;
-            GridListJurusan.Size = new Size(460, 491);
+            GridListJurusan.Size = new Size(460, 587);
             GridListJurusan.TabIndex = 0;
             // 
             // panel3
@@ -127,7 +122,7 @@
             panel3.Controls.Add(panel5);
             panel3.Location = new Point(494, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(339, 586);
+            panel3.Size = new Size(339, 682);
             panel3.TabIndex = 0;
             // 
             // TextJurusanId
@@ -176,7 +171,7 @@
             panel5.Controls.Add(TextJurusanName);
             panel5.Location = new Point(11, 78);
             panel5.Name = "panel5";
-            panel5.Size = new Size(317, 494);
+            panel5.Size = new Size(317, 590);
             panel5.TabIndex = 9;
             // 
             // label3
@@ -218,7 +213,7 @@
             ButtonJurusanDelete.BackColor = Color.Crimson;
             ButtonJurusanDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonJurusanDelete.ForeColor = SystemColors.ControlLightLight;
-            ButtonJurusanDelete.Location = new Point(182, 443);
+            ButtonJurusanDelete.Location = new Point(182, 539);
             ButtonJurusanDelete.Name = "ButtonJurusanDelete";
             ButtonJurusanDelete.Size = new Size(120, 35);
             ButtonJurusanDelete.TabIndex = 4;
@@ -243,7 +238,7 @@
             ButtonJurusanSave.BackColor = Color.ForestGreen;
             ButtonJurusanSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonJurusanSave.ForeColor = SystemColors.ControlLightLight;
-            ButtonJurusanSave.Location = new Point(14, 443);
+            ButtonJurusanSave.Location = new Point(14, 539);
             ButtonJurusanSave.Name = "ButtonJurusanSave";
             ButtonJurusanSave.Size = new Size(120, 35);
             ButtonJurusanSave.TabIndex = 3;
@@ -259,45 +254,12 @@
             TextJurusanName.Size = new Size(288, 27);
             TextJurusanName.TabIndex = 1;
             // 
-            // panel27
-            // 
-            panel27.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            panel27.BackColor = Color.DarkGray;
-            panel27.BorderStyle = BorderStyle.FixedSingle;
-            panel27.Controls.Add(panel7);
-            panel27.Location = new Point(12, 12);
-            panel27.Name = "panel27";
-            panel27.Size = new Size(838, 88);
-            panel27.TabIndex = 8;
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.LightGray;
-            panel7.BorderStyle = BorderStyle.FixedSingle;
-            panel7.Controls.Add(label49);
-            panel7.Location = new Point(3, 3);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(830, 80);
-            panel7.TabIndex = 8;
-            // 
-            // label49
-            // 
-            label49.Anchor = AnchorStyles.None;
-            label49.AutoSize = true;
-            label49.Font = new Font("Franklin Gothic Medium Cond", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            label49.Location = new Point(368, 20);
-            label49.Name = "label49";
-            label49.Size = new Size(102, 38);
-            label49.TabIndex = 8;
-            label49.Text = "Jurusan";
-            // 
             // FormJurusan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(862, 714);
-            Controls.Add(panel27);
             Controls.Add(panel2);
             Name = "FormJurusan";
             Text = "Jurusan";
@@ -311,9 +273,6 @@
             panel6.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            panel27.ResumeLayout(false);
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -336,8 +295,5 @@
         private Label LabelJurusanUpdate;
         private Label label3;
         private TextBox TextJurusanKode;
-        private Panel panel27;
-        private Panel panel7;
-        private Label label49;
     }
 }

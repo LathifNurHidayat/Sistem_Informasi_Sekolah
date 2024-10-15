@@ -52,8 +52,9 @@ namespace Sistem_Informasi_Sekolah
             ButtonGuruNew.Click += ButtonGuruNew_Click;
             ButtonGuruSave.Click += ButtonGuruSave_Click;
             ButtonGuruDelete.Click += ButtonGuruDelete_Click;
-        }
 
+        }
+         
         private void GridListGuruMapel_KeyDown(object? sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F1)
