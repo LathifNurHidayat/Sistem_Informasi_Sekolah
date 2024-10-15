@@ -16,5 +16,10 @@ namespace Sistem_Informasi_Sekolah
         {
             InitializeComponent();
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
