@@ -236,7 +236,7 @@ SELECT
 
 
     WITH Rank AS (
-                    SELECT 
+                    SELECT
                         aa.JadwalId, aa.JenisJadwal,aa.KelasId, aa.Hari, aa.JamMulai, aa.JamSelesai, aa.Keterangan,
                         ISNULL (bb.MapelName , '') AS MapelName,
                         ISNULL (cc.GuruName , '') AS GuruName,
