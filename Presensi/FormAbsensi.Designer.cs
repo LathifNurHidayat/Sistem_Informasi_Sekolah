@@ -1,6 +1,6 @@
 ﻿namespace Sistem_Informasi_Sekolah
 {
-    partial class FormPresensi
+    partial class FormAbsensi
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             panel4 = new Panel();
+            ButtonSave = new Button();
             GridListPresensi = new DataGridView();
             panel1 = new Panel();
-            ButtonListSiswa = new Button();
-            ButtonNew = new Button();
-            ButtonSave = new Button();
-            label7 = new Label();
+            PickerTanggal = new DateTimePicker();
             MaskedJam = new MaskedTextBox();
             ComboKelas = new ComboBox();
             ComboGuru = new ComboBox();
@@ -43,7 +41,14 @@
             label9 = new Label();
             label6 = new Label();
             label2 = new Label();
-            PickerTanggal = new DateTimePicker();
+            ButtonListSiswa = new Button();
+            ButtonNew = new Button();
+            label7 = new Label();
+            maskedTextBox1 = new MaskedTextBox();
+            maskedTextBox2 = new MaskedTextBox();
+            maskedTextBox3 = new MaskedTextBox();
+            maskedTextBox4 = new MaskedTextBox();
+            label1 = new Label();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListPresensi).BeginInit();
             panel1.SuspendLayout();
@@ -54,12 +59,30 @@
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.Gainsboro;
             panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(label1);
+            panel4.Controls.Add(maskedTextBox4);
+            panel4.Controls.Add(maskedTextBox3);
+            panel4.Controls.Add(maskedTextBox2);
+            panel4.Controls.Add(maskedTextBox1);
             panel4.Controls.Add(ButtonSave);
             panel4.Controls.Add(GridListPresensi);
             panel4.Location = new Point(457, 12);
             panel4.Name = "panel4";
             panel4.Size = new Size(713, 729);
             panel4.TabIndex = 1;
+            // 
+            // ButtonSave
+            // 
+            ButtonSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonSave.BackColor = Color.LimeGreen;
+            ButtonSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonSave.ForeColor = SystemColors.ControlLightLight;
+            ButtonSave.Location = new Point(538, 641);
+            ButtonSave.Name = "ButtonSave";
+            ButtonSave.Size = new Size(137, 45);
+            ButtonSave.TabIndex = 4;
+            ButtonSave.Text = "Save";
+            ButtonSave.UseVisualStyleBackColor = false;
             // 
             // GridListPresensi
             // 
@@ -96,56 +119,14 @@
             panel1.Size = new Size(427, 729);
             panel1.TabIndex = 0;
             // 
-            // ButtonListSiswa
+            // PickerTanggal
             // 
-            ButtonListSiswa.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonListSiswa.BackColor = Color.DarkGray;
-            ButtonListSiswa.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonListSiswa.ForeColor = SystemColors.ControlLightLight;
-            ButtonListSiswa.Location = new Point(248, 561);
-            ButtonListSiswa.Name = "ButtonListSiswa";
-            ButtonListSiswa.Size = new Size(137, 45);
-            ButtonListSiswa.TabIndex = 3;
-            ButtonListSiswa.Text = "List Siswa";
-            ButtonListSiswa.UseVisualStyleBackColor = false;
-            // 
-            // ButtonNew
-            // 
-            ButtonNew.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonNew.BackColor = Color.RoyalBlue;
-            ButtonNew.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonNew.ForeColor = SystemColors.ControlLightLight;
-            ButtonNew.Location = new Point(39, 561);
-            ButtonNew.Name = "ButtonNew";
-            ButtonNew.Size = new Size(137, 45);
-            ButtonNew.TabIndex = 1;
-            ButtonNew.Text = "New";
-            ButtonNew.UseVisualStyleBackColor = false;
-            // 
-            // ButtonSave
-            // 
-            ButtonSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ButtonSave.BackColor = Color.LimeGreen;
-            ButtonSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ButtonSave.ForeColor = SystemColors.ControlLightLight;
-            ButtonSave.Location = new Point(538, 641);
-            ButtonSave.Name = "ButtonSave";
-            ButtonSave.Size = new Size(137, 45);
-            ButtonSave.TabIndex = 4;
-            ButtonSave.Text = "Save";
-            ButtonSave.UseVisualStyleBackColor = false;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Gainsboro;
-            label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.ForeColor = Color.Black;
-            label7.Location = new Point(39, 50);
-            label7.Name = "label7";
-            label7.Size = new Size(69, 23);
-            label7.TabIndex = 26;
-            label7.Text = "Tanggal";
+            PickerTanggal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            PickerTanggal.Format = DateTimePickerFormat.Short;
+            PickerTanggal.Location = new Point(39, 76);
+            PickerTanggal.Name = "PickerTanggal";
+            PickerTanggal.Size = new Size(146, 30);
+            PickerTanggal.TabIndex = 41;
             // 
             // MaskedJam
             // 
@@ -173,7 +154,6 @@
             ComboGuru.Name = "ComboGuru";
             ComboGuru.Size = new Size(346, 31);
             ComboGuru.TabIndex = 36;
-            ComboGuru.SelectedIndexChanged += this.ComboGuru_SelectedIndexChanged;
             // 
             // ComboMataPelajaran
             // 
@@ -233,14 +213,91 @@
             label2.TabIndex = 37;
             label2.Text = "Kelas";
             // 
-            // PickerTanggal
+            // ButtonListSiswa
             // 
-            PickerTanggal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            PickerTanggal.Format = DateTimePickerFormat.Short;
-            PickerTanggal.Location = new Point(39, 76);
-            PickerTanggal.Name = "PickerTanggal";
-            PickerTanggal.Size = new Size(146, 30);
-            PickerTanggal.TabIndex = 41;
+            ButtonListSiswa.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonListSiswa.BackColor = Color.DarkGray;
+            ButtonListSiswa.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonListSiswa.ForeColor = SystemColors.ControlLightLight;
+            ButtonListSiswa.Location = new Point(248, 636);
+            ButtonListSiswa.Name = "ButtonListSiswa";
+            ButtonListSiswa.Size = new Size(137, 45);
+            ButtonListSiswa.TabIndex = 3;
+            ButtonListSiswa.Text = "List Siswa";
+            ButtonListSiswa.UseVisualStyleBackColor = false;
+            // 
+            // ButtonNew
+            // 
+            ButtonNew.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ButtonNew.BackColor = Color.RoyalBlue;
+            ButtonNew.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonNew.ForeColor = SystemColors.ControlLightLight;
+            ButtonNew.Location = new Point(39, 636);
+            ButtonNew.Name = "ButtonNew";
+            ButtonNew.Size = new Size(137, 45);
+            ButtonNew.TabIndex = 1;
+            ButtonNew.Text = "New";
+            ButtonNew.UseVisualStyleBackColor = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Gainsboro;
+            label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(39, 50);
+            label7.Name = "label7";
+            label7.Size = new Size(69, 23);
+            label7.TabIndex = 26;
+            label7.Text = "Tanggal";
+            // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.BorderStyle = BorderStyle.FixedSingle;
+            maskedTextBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            maskedTextBox1.Location = new Point(453, 641);
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(42, 30);
+            maskedTextBox1.TabIndex = 42;
+            // 
+            // maskedTextBox2
+            // 
+            maskedTextBox2.BorderStyle = BorderStyle.FixedSingle;
+            maskedTextBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            maskedTextBox2.Location = new Point(309, 641);
+            maskedTextBox2.Name = "maskedTextBox2";
+            maskedTextBox2.Size = new Size(42, 30);
+            maskedTextBox2.TabIndex = 43;
+            // 
+            // maskedTextBox3
+            // 
+            maskedTextBox3.BorderStyle = BorderStyle.FixedSingle;
+            maskedTextBox3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            maskedTextBox3.Location = new Point(357, 641);
+            maskedTextBox3.Name = "maskedTextBox3";
+            maskedTextBox3.Size = new Size(42, 30);
+            maskedTextBox3.TabIndex = 44;
+            // 
+            // maskedTextBox4
+            // 
+            maskedTextBox4.BorderStyle = BorderStyle.FixedSingle;
+            maskedTextBox4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            maskedTextBox4.Location = new Point(405, 641);
+            maskedTextBox4.Name = "maskedTextBox4";
+            maskedTextBox4.Size = new Size(42, 30);
+            maskedTextBox4.TabIndex = 45;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Gainsboro;
+            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(257, 643);
+            label1.Name = "label1";
+            label1.Size = new Size(46, 23);
+            label1.TabIndex = 42;
+            label1.Text = "Total";
             // 
             // FormPresensi
             // 
@@ -252,6 +309,7 @@
             Name = "FormPresensi";
             Text = "Presensi";
             panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)GridListPresensi).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -276,5 +334,10 @@
         private Label label2;
         private Label label7;
         private DateTimePicker PickerTanggal;
+        private Label label1;
+        private MaskedTextBox maskedTextBox4;
+        private MaskedTextBox maskedTextBox3;
+        private MaskedTextBox maskedTextBox2;
+        private MaskedTextBox maskedTextBox1;
     }
 }

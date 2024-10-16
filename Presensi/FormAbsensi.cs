@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sistem_Informasi_Sekolah
 {
-    public partial class FormPresensi : Form
+    public partial class FormAbsensi : Form
     {
-        public FormPresensi()
+        public FormAbsensi()
         {
             InitializeComponent();
         }

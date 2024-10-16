@@ -1,0 +1,4 @@
+﻿CREATE TABLE KelasSiswaDetil
+	(KelasId INT NOT NULL DEFAULT(0),
+	SiswaId INT NOT NULL DEFAULT(0)
+	);
