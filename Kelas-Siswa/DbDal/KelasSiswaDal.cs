@@ -34,6 +34,9 @@ namespace Sistem_Informasi_Sekolah
             const string sql = @"
                     INSERT INTO KelasSiswa
                         (KelasId, TahunAjaran, WaliKelasId)
+                            
+                    OUTPUT INSERTED.KelasId                        
+
                     VALUES 
                         (@KelasId, @TahunAjaran, @WaliKelasId)";
 
@@ -44,7 +47,7 @@ namespace Sistem_Informasi_Sekolah
             Dp.Add("@WaliKelasId", siswa.WaliKelasId, DbType.Int32);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-            Conn.Execute(sql, Dp);  
+            Conn.QuerySingle<int>(sql, Dp);  
         }
 
         public void Update (KelasSiswaModel siswa)
