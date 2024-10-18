@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace Sistem_Informasi_Sekolah
 {
@@ -28,7 +29,44 @@ namespace Sistem_Informasi_Sekolah
         }
 
 
-        public
+        public void Insert (KelasSiswaModel siswa)
+        {
+            const string sql = @"
+                    INSERT INTO KelasSiswa
+                        (KelasId, TahunAjaran, WaliKelasId)
+                    VALUES 
+                        (@KelasId, @TahunAjaran, @WaliKelasId)";
+
+
+            var Dp = new DynamicParameters();
+            Dp.Add("@KelasId", siswa.KelasId, DbType.Int32);
+            Dp.Add("@TahunAjaran", siswa.TahunAjaran, DbType.String);
+            Dp.Add("@WaliKelasId", siswa.WaliKelasId, DbType.Int32);
+
+            using var Conn = new SqlConnection(ConnStringHelper.Get());
+            Conn.Execute(sql, Dp);  
+        }
+
+        public void Update (KelasSiswaModel siswa)
+        {
+            const string sql = @"
+                    UPDATE 
+                        KelasSiswa
+                    SET 
+                        KelasId = @KelasId,
+                        TahunAjaran = @TahunAjaran,
+                        WaliKelasId = @WaliKelasId
+                    WHERE 
+                        KelasId = @KelasId";
+
+            var Dp = new DynamicParameters();
+            Dp.Add("@KelasId", siswa.KelasId, DbType.Int32);
+            Dp.Add("@TahunAjaran", siswa.TahunAjaran, DbType.String);
+            Dp.Add("@WaliKelasId", siswa.WaliKelasId, DbType.Int32);
+
+            using var Conn = new SqlConnection(ConnStringHelper.Get());
+            Conn.Execute(sql, Dp);
+        }
 
     }
 }

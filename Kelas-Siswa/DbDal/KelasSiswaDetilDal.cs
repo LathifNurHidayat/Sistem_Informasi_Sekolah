@@ -15,14 +15,9 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                     SELECT 
-                        aa.KelasId, aa.NoUrut, aa.SiswaId, 
-                        bb.NamaLengkap, aa.StatusAbsen, aa.Keterangan
-                    FROM 
-                        KelasSiswaDetil aa
-                    LEFT JOIN Siswa bb ON aa.SiswaId = bb.SiswaId";
+                        ";
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-
             return Conn.Query<KelasSiswaDetilModel>(sql);
         }
     }
