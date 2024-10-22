@@ -12,11 +12,11 @@ namespace Sistem_Informasi_Sekolah
 {
     public class AbsensiDetilDal
     {
-        public IEnumerable<AbsensiDetilModel> ListData ()
+        public IEnumerable<AbsensiDetilModel> ListData()
         {
             const string sql = @"
                     SELECT 
-                        aa.AbsensiId, aa.NoUrut, aa.SiswaId
+                        aa.AbsensiId, aa.NoUrut, aa.SiswaId,
                         bb.NamaLengkap AS SiswaName, aa.StatusAbsensi, aa.Keterangan
                     FROM 
                         AbsensiDetil aa
@@ -25,7 +25,7 @@ namespace Sistem_Informasi_Sekolah
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
 
-            Conn.Query<AbsensiDetilModel>(sql);
+            return Conn.Query<AbsensiDetilModel>(sql);
         }
 
         public void Insert (AbsensiDetilModel absen)

@@ -18,7 +18,7 @@ namespace Sistem_Informasi_Sekolah
             const string sql = @"
                     SELECT 
                         aa.AbsensiId, aa.Tanggal, aa.Jam, aa.KelasId
-                        bb.KelasName, aa.MapelId, cc.MapelName, aa.GuruId, dd.GuruName
+                        ISNULL (bb.KelasName, ''), aa.MapelId, ISNULL (cc.MapelName, ''), aa.GuruId,ISNULL (dd.GuruName, '')
                     FROM Absensi";
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());

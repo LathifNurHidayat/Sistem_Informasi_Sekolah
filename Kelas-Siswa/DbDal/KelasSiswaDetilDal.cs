@@ -16,7 +16,7 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                     SELECT 
-                        aa.KelasId, aa.SiswaId, bb.NamaLengkap AS SiswaName
+                        aa.KelasId, aa.SiswaId, ISNULL ( bb.NamaLengkap , '')AS SiswaName
                     FROM KelasSiswaDetil aa
                     LEFT JOIN Siswa bb ON aa.SiswaId = bb.SiswaId";
 

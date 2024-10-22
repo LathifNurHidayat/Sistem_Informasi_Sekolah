@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             panel4 = new Panel();
+            label1 = new Label();
+            maskedTextBox4 = new MaskedTextBox();
+            maskedTextBox3 = new MaskedTextBox();
+            maskedTextBox2 = new MaskedTextBox();
+            maskedTextBox1 = new MaskedTextBox();
             ButtonSave = new Button();
             GridListPresensi = new DataGridView();
             panel1 = new Panel();
@@ -44,11 +49,6 @@
             ButtonListSiswa = new Button();
             ButtonNew = new Button();
             label7 = new Label();
-            maskedTextBox1 = new MaskedTextBox();
-            maskedTextBox2 = new MaskedTextBox();
-            maskedTextBox3 = new MaskedTextBox();
-            maskedTextBox4 = new MaskedTextBox();
-            label1 = new Label();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListPresensi).BeginInit();
             panel1.SuspendLayout();
@@ -71,6 +71,54 @@
             panel4.Size = new Size(713, 729);
             panel4.TabIndex = 1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Gainsboro;
+            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(257, 643);
+            label1.Name = "label1";
+            label1.Size = new Size(46, 23);
+            label1.TabIndex = 42;
+            label1.Text = "Total";
+            // 
+            // maskedTextBox4
+            // 
+            maskedTextBox4.BorderStyle = BorderStyle.FixedSingle;
+            maskedTextBox4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            maskedTextBox4.Location = new Point(405, 641);
+            maskedTextBox4.Name = "maskedTextBox4";
+            maskedTextBox4.Size = new Size(42, 30);
+            maskedTextBox4.TabIndex = 45;
+            // 
+            // maskedTextBox3
+            // 
+            maskedTextBox3.BorderStyle = BorderStyle.FixedSingle;
+            maskedTextBox3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            maskedTextBox3.Location = new Point(357, 641);
+            maskedTextBox3.Name = "maskedTextBox3";
+            maskedTextBox3.Size = new Size(42, 30);
+            maskedTextBox3.TabIndex = 44;
+            // 
+            // maskedTextBox2
+            // 
+            maskedTextBox2.BorderStyle = BorderStyle.FixedSingle;
+            maskedTextBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            maskedTextBox2.Location = new Point(309, 641);
+            maskedTextBox2.Name = "maskedTextBox2";
+            maskedTextBox2.Size = new Size(42, 30);
+            maskedTextBox2.TabIndex = 43;
+            // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.BorderStyle = BorderStyle.FixedSingle;
+            maskedTextBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            maskedTextBox1.Location = new Point(453, 641);
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(42, 30);
+            maskedTextBox1.TabIndex = 42;
+            // 
             // ButtonSave
             // 
             ButtonSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -79,7 +127,7 @@
             ButtonSave.ForeColor = SystemColors.ControlLightLight;
             ButtonSave.Location = new Point(538, 641);
             ButtonSave.Name = "ButtonSave";
-            ButtonSave.Size = new Size(137, 45);
+            ButtonSave.Size = new Size(120, 35);
             ButtonSave.TabIndex = 4;
             ButtonSave.Text = "Save";
             ButtonSave.UseVisualStyleBackColor = false;
@@ -219,9 +267,9 @@
             ButtonListSiswa.BackColor = Color.DarkGray;
             ButtonListSiswa.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonListSiswa.ForeColor = SystemColors.ControlLightLight;
-            ButtonListSiswa.Location = new Point(248, 636);
+            ButtonListSiswa.Location = new Point(265, 636);
             ButtonListSiswa.Name = "ButtonListSiswa";
-            ButtonListSiswa.Size = new Size(137, 45);
+            ButtonListSiswa.Size = new Size(120, 35);
             ButtonListSiswa.TabIndex = 3;
             ButtonListSiswa.Text = "List Siswa";
             ButtonListSiswa.UseVisualStyleBackColor = false;
@@ -234,7 +282,7 @@
             ButtonNew.ForeColor = SystemColors.ControlLightLight;
             ButtonNew.Location = new Point(39, 636);
             ButtonNew.Name = "ButtonNew";
-            ButtonNew.Size = new Size(137, 45);
+            ButtonNew.Size = new Size(120, 35);
             ButtonNew.TabIndex = 1;
             ButtonNew.Text = "New";
             ButtonNew.UseVisualStyleBackColor = false;
@@ -251,62 +299,14 @@
             label7.TabIndex = 26;
             label7.Text = "Tanggal";
             // 
-            // maskedTextBox1
-            // 
-            maskedTextBox1.BorderStyle = BorderStyle.FixedSingle;
-            maskedTextBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            maskedTextBox1.Location = new Point(453, 641);
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(42, 30);
-            maskedTextBox1.TabIndex = 42;
-            // 
-            // maskedTextBox2
-            // 
-            maskedTextBox2.BorderStyle = BorderStyle.FixedSingle;
-            maskedTextBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            maskedTextBox2.Location = new Point(309, 641);
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(42, 30);
-            maskedTextBox2.TabIndex = 43;
-            // 
-            // maskedTextBox3
-            // 
-            maskedTextBox3.BorderStyle = BorderStyle.FixedSingle;
-            maskedTextBox3.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            maskedTextBox3.Location = new Point(357, 641);
-            maskedTextBox3.Name = "maskedTextBox3";
-            maskedTextBox3.Size = new Size(42, 30);
-            maskedTextBox3.TabIndex = 44;
-            // 
-            // maskedTextBox4
-            // 
-            maskedTextBox4.BorderStyle = BorderStyle.FixedSingle;
-            maskedTextBox4.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            maskedTextBox4.Location = new Point(405, 641);
-            maskedTextBox4.Name = "maskedTextBox4";
-            maskedTextBox4.Size = new Size(42, 30);
-            maskedTextBox4.TabIndex = 45;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Gainsboro;
-            label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(257, 643);
-            label1.Name = "label1";
-            label1.Size = new Size(46, 23);
-            label1.TabIndex = 42;
-            label1.Text = "Total";
-            // 
-            // FormPresensi
+            // FormAbsensi
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1182, 753);
             Controls.Add(panel1);
             Controls.Add(panel4);
-            Name = "FormPresensi";
+            Name = "FormAbsensi";
             Text = "Presensi";
             panel4.ResumeLayout(false);
             panel4.PerformLayout();

@@ -38,6 +38,7 @@
             menuStrip1 = new MenuStrip();
             kesiswaanToolStripMenuItem = new ToolStripMenuItem();
             dataIndukSiswaToolStripMenuItem = new ToolStripMenuItem();
+            kelasSiswaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             // 
             // dataToolStripMenuItem
             // 
-            dataToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { jurusanToolStripMenuItem, mataPelajaranToolStripMenuItem, kelasToolStripMenuItem, guruToolStripMenuItem, jadwalPelajaranToolStripMenuItem });
+            dataToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { jurusanToolStripMenuItem, mataPelajaranToolStripMenuItem, kelasToolStripMenuItem, guruToolStripMenuItem, jadwalPelajaranToolStripMenuItem, kelasSiswaToolStripMenuItem });
             dataToolStripMenuItem.Name = "dataToolStripMenuItem";
             dataToolStripMenuItem.Size = new Size(55, 24);
             dataToolStripMenuItem.Text = "Data";
@@ -108,8 +109,14 @@
             // dataIndukSiswaToolStripMenuItem
             // 
             dataIndukSiswaToolStripMenuItem.Name = "dataIndukSiswaToolStripMenuItem";
-            dataIndukSiswaToolStripMenuItem.Size = new Size(224, 26);
+            dataIndukSiswaToolStripMenuItem.Size = new Size(205, 26);
             dataIndukSiswaToolStripMenuItem.Text = "Data Induk Siswa";
+            // 
+            // kelasSiswaToolStripMenuItem
+            // 
+            kelasSiswaToolStripMenuItem.Name = "kelasSiswaToolStripMenuItem";
+            kelasSiswaToolStripMenuItem.Size = new Size(224, 26);
+            kelasSiswaToolStripMenuItem.Text = "Kelas-Siswa";
             // 
             // Home
             // 
@@ -139,5 +146,6 @@
         private ToolStripMenuItem jadwalPelajaranToolStripMenuItem;
         private ToolStripMenuItem kesiswaanToolStripMenuItem;
         private ToolStripMenuItem dataIndukSiswaToolStripMenuItem;
+        private ToolStripMenuItem kelasSiswaToolStripMenuItem;
     }
 }

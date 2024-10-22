@@ -16,8 +16,8 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                     SELECT
-                        aa.KelasId, bb.KelasName, aa.TahunAjaran, 
-                        aa.GuruId AS WaliKelasId , cc.GuruName AS WaliKelasName
+                        aa.KelasId, ISNULL( bb.KelasName, '') , aa.TahunAjaran, 
+                        aa.GuruId AS WaliKelasId , ISNULL(cc.GuruName , '')AS WaliKelasName
                     FROM 
                         KelasSiswa aa 
                     LEFT JOIN Kelas bb ON aa.KelasId = bb.KelasId
