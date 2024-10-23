@@ -18,13 +18,36 @@ namespace Sistem_Informasi_Sekolah
     public partial class FormDataSiswa : Form
     {
         private readonly SiswaDal _siswaDal;
+        public List<string> DataSiswaCheck { get; private set; } = new List<string>();
 
         public FormDataSiswa()
         {
             _siswaDal = new SiswaDal();
             InitializeComponent();
+            
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
+
+            InitialCekListBox();
+
+            ButtonAdd.Click += ButtonAdd_Click;
+        }
+
+        private void ButtonAdd_Click(object? sender, EventArgs e)
+        {
+            foreach (var item in CekLIstBoxSiswa.CheckedItems)
+            {
+                DataSiswaCheck.Add((string)item);
+            }
+            MessageBox.Show(string.Join(", ", DataSiswaCheck));
+        }
+
+        private void InitialCekListBox()
+        {
             CekLIstBoxSiswa.Items.AddRange(_siswaDal.ListData()
                 .Select(x => x.NamaLengkap).ToArray());
         }
+
+
     }
 }

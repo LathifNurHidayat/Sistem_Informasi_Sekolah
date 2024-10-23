@@ -15,11 +15,20 @@ namespace Sistem_Informasi_Sekolah
         public FormKelasSiswa()
         {
             InitializeComponent();
+            ControlEvent();
         }
 
         private void ControlEvent()
         {
             GridListKelasSiswa.KeyDown += GridListKelasSiswa_KeyDown;
+            ButtonAddData.Click += ButtonAddData_Click;
+        }
+
+        private void ButtonAddData_Click(object? sender, EventArgs e)
+        {
+            if (new FormDataSiswa().ShowDialog() != DialogResult.OK) return;
+
+
         }
 
         private void GridListKelasSiswa_KeyDown(object? sender, KeyEventArgs e)
@@ -29,9 +38,5 @@ namespace Sistem_Informasi_Sekolah
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            new FormDataSiswa().Show();
-        }
     }
 }

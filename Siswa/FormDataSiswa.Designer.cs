@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDataSiswa));
             panel1 = new Panel();
-            CekLIstBoxSiswa = new CheckedListBox();
             ButtonAdd = new Button();
+            CekLIstBoxSiswa = new CheckedListBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -45,15 +46,6 @@
             panel1.Size = new Size(533, 594);
             panel1.TabIndex = 0;
             // 
-            // CekLIstBoxSiswa
-            // 
-            CekLIstBoxSiswa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            CekLIstBoxSiswa.FormattingEnabled = true;
-            CekLIstBoxSiswa.Location = new Point(3, 3);
-            CekLIstBoxSiswa.Name = "CekLIstBoxSiswa";
-            CekLIstBoxSiswa.Size = new Size(527, 510);
-            CekLIstBoxSiswa.TabIndex = 1;
-            // 
             // ButtonAdd
             // 
             ButtonAdd.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -67,14 +59,24 @@
             ButtonAdd.Text = "Add";
             ButtonAdd.UseVisualStyleBackColor = false;
             // 
+            // CekLIstBoxSiswa
+            // 
+            CekLIstBoxSiswa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            CekLIstBoxSiswa.FormattingEnabled = true;
+            CekLIstBoxSiswa.Location = new Point(3, 3);
+            CekLIstBoxSiswa.Name = "CekLIstBoxSiswa";
+            CekLIstBoxSiswa.Size = new Size(527, 510);
+            CekLIstBoxSiswa.TabIndex = 1;
+            // 
             // FormDataSiswa
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(553, 614);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormDataSiswa";
-            Text = "FormDataSiswa";
+            StartPosition = FormStartPosition.CenterParent;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }

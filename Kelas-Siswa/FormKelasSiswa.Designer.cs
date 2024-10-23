@@ -38,7 +38,7 @@
             label3 = new Label();
             label2 = new Label();
             TextTahunAjaran = new TextBox();
-            button1 = new Button();
+            ButtonAddData = new Button();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListKelasSiswa).BeginInit();
             panel5.SuspendLayout();
@@ -49,6 +49,7 @@
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.Gainsboro;
             panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(ButtonAddData);
             panel4.Controls.Add(ButtonSaveData);
             panel4.Controls.Add(GridListKelasSiswa);
             panel4.Location = new Point(12, 12);
@@ -87,7 +88,6 @@
             panel5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel5.BackColor = Color.Gainsboro;
             panel5.BorderStyle = BorderStyle.FixedSingle;
-            panel5.Controls.Add(button1);
             panel5.Controls.Add(label1);
             panel5.Controls.Add(ComboWaliKelas);
             panel5.Controls.Add(ComboKelas);
@@ -160,15 +160,18 @@
             TextTahunAjaran.Size = new Size(288, 27);
             TextTahunAjaran.TabIndex = 1;
             // 
-            // button1
+            // ButtonAddData
             // 
-            button1.Location = new Point(69, 384);
-            button1.Name = "button1";
-            button1.Size = new Size(85, 40);
-            button1.TabIndex = 13;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            ButtonAddData.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ButtonAddData.BackColor = Color.Gray;
+            ButtonAddData.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ButtonAddData.ForeColor = SystemColors.ControlLightLight;
+            ButtonAddData.Location = new Point(12, 588);
+            ButtonAddData.Name = "ButtonAddData";
+            ButtonAddData.Size = new Size(120, 35);
+            ButtonAddData.TabIndex = 11;
+            ButtonAddData.Text = "Add  Data";
+            ButtonAddData.UseVisualStyleBackColor = false;
             // 
             // FormKelasSiswa
             // 
@@ -198,6 +201,6 @@
         private Button ButtonSaveData;
         private Label label1;
         private ComboBox ComboWaliKelas;
-        private Button button1;
+        private Button ButtonAddData;
     }
 }
