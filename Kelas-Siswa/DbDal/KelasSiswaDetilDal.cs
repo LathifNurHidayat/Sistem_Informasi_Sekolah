@@ -18,13 +18,28 @@ namespace Sistem_Informasi_Sekolah
                     SELECT 
                         aa.KelasId, aa.SiswaId, ISNULL ( bb.NamaLengkap , '')AS SiswaName
                     FROM KelasSiswaDetil aa
-                    LEFT JOIN Siswa bb ON aa.SiswaId = bb.SiswaId";
+                        LEFT JOIN Siswa bb ON aa.SiswaId = bb.SiswaId";
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             return Conn.Query<KelasSiswaDetilModel>(sql);
         }
 
-        public void Insert (KelasSiswaDetilModel kelas)
+        public IEnumerable<KelasSiswaDetilModel> ListData(int kelasId)
+        {
+            const string sql = @"
+                    SELECT 
+                        aa.KelasId, aa.SiswaId, ISNULL ( bb.NamaLengkap , '')AS SiswaName
+                    FROM 
+                        KelasSiswaDetil aa
+                        LEFT JOIN Siswa bb ON aa.SiswaId = bb.SiswaId
+                    WHERE 
+                        aa.KelasId = @KelasId";
+
+            using var Conn = new SqlConnection(ConnStringHelper.Get());
+            return Conn.Query<KelasSiswaDetilModel>(sql, new { KelasId = kelasId });
+        }
+
+        public void Insert(KelasSiswaDetilModel kelas)
         {
             const string sql = @"
                     INSERT INTO KelasSiswaDetil 
@@ -40,17 +55,17 @@ namespace Sistem_Informasi_Sekolah
             Conn.Execute(sql, Dp);
         }
 
-      /*  public void Update (KelasSiswaDetilModel kelas)
+
+        public void Delete(int kelasId)
         {
             const string sql = @"
-                    UPDATE 
-                        KelasSiswaDetil
-                    SET 
-                        KelasId = @KelasId,
-                        SiswaId = @SiswaId
-                  ";
+                    DELETE FROM 
+                        KelasSiswaDetil 
+                    WHERE 
+                        KelasId = @KelasId";
 
-          
-        }*/
+            using var Conn = new SqlConnection(ConnStringHelper.Get());
+            Conn.Execute(sql, new { kelasId = kelasId });
+        }
     }
 }

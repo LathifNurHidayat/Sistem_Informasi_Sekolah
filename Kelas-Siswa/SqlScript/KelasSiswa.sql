@@ -3,3 +3,5 @@
 	TahunAjaran VARCHAR(15) NOT NULL DEFAULT(' '),
 	WaliKelasId INT NOT NULL DEFAULT(0),
 	)
+
+

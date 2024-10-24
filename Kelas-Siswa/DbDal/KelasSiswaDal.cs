@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Configuration;
 
 namespace Sistem_Informasi_Sekolah
 {
@@ -16,12 +17,14 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                     SELECT
-                        aa.KelasId, ISNULL( bb.KelasName, '') , aa.TahunAjaran, 
-                        aa.GuruId AS WaliKelasId , ISNULL(cc.GuruName , '')AS WaliKelasName
+                        aa.KelasId, aa.TahunAjaran, 
+                        aa.WaliKelasId,
+                        ISNULL( bb.KelasName, ''),
+                        ISNULL( cc.GuruName, '') AS WaliKelasName
                     FROM 
                         KelasSiswa aa 
                     LEFT JOIN Kelas bb ON aa.KelasId = bb.KelasId
-                    LEFT JOIN Guru cc ON aa.GuruId = cc.GuruId";
+                    LEFT JOIN Guru cc ON aa.WaliKelasId = cc.GuruId";
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
 
@@ -50,25 +53,28 @@ namespace Sistem_Informasi_Sekolah
             Conn.QuerySingle<int>(sql, Dp);  
         }
 
-        public void Update (KelasSiswaModel siswa)
+
+        public KelasSiswaModel GetData(int kelasId)
         {
             const string sql = @"
-                    UPDATE 
-                        KelasSiswa
-                    SET 
-                        KelasId = @KelasId,
-                        TahunAjaran = @TahunAjaran,
-                        WaliKelasId = @WaliKelasId
+                    SELECT
+                        aa.KelasId, aa.TahunAjaran, 
+                        aa.WaliKelasId ,
+                        ISNULL( bb.KelasName, ''),
+                        ISNULL( cc.GuruName, '') WaliKelasName
+                    FROM 
+                        KelasSiswa aa 
+                        LEFT JOIN Kelas bb ON aa.KelasId = bb.KelasId
+                        LEFT JOIN Guru cc ON aa.WaliKelasId = cc.GuruId
                     WHERE 
-                        KelasId = @KelasId";
+                        aa.KelasId = @KelasId";
 
-            var Dp = new DynamicParameters();
-            Dp.Add("@KelasId", siswa.KelasId, DbType.Int32);
-            Dp.Add("@TahunAjaran", siswa.TahunAjaran, DbType.String);
-            Dp.Add("@WaliKelasId", siswa.WaliKelasId, DbType.Int32);
+            var dp = new DynamicParameters();
+            dp.Add("@KelasId", kelasId, DbType.Int32);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-            Conn.Execute(sql, Dp);
+            var result = Conn.Query<KelasSiswaModel>(sql, dp).FirstOrDefault();
+            return result;
         }
 
     }

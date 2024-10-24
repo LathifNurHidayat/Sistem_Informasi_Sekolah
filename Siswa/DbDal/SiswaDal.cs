@@ -170,5 +170,20 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             return Conn.Query<SiswaModel>(Sql, Dp);
         }
+
+        public IEnumerable<SiswaModel> Filter(string Filter)
+        {
+            const string sql = @"
+            SELECT 
+                SiswaId , NamaLengkap
+            FROM 
+                Siswa
+            WHERE
+                NamaLengkap LIKE '%@NamaLengkap%'";
+
+            var Dp = new DynamicParameters();
+            using var Conn = new SqlConnection(ConnStringHelper.Get());
+            return Conn.Query<SiswaModel>(sql, Dp);
+        }
     }
 }
