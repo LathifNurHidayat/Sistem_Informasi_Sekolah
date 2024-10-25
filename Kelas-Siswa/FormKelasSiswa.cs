@@ -73,6 +73,7 @@ namespace Sistem_Informasi_Sekolah
             ComboWaliKelas.ValueMember = "GuruId";
         }
 
+        #region EVENT 
         private void ControlEvent()
         {
             ComboKelas.SelectedIndexChanged += ComboKelas_SelectedIndexChanged;
@@ -84,15 +85,11 @@ namespace Sistem_Informasi_Sekolah
 
         private void TextSearch_TextChanged(object? sender, EventArgs e)
         {
-            var data = _siswaDal.Filter(TextSearch.Text);
-            _listAllSiswa.Clear();
-            if (data != null) return;
-
-            foreach (var item in data)
-            {
-                _listAllSiswa.Add((SiswaDto)data);
-            }
+            if ((int)ComboKelas.SelectedValue == -1) return;
+            MessageBox.Show("mmdnc");
+            string search = TextSearch.Text;
         }
+
 
         private void ButtonSaveData_Click(object? sender, EventArgs e)
         {
@@ -155,6 +152,10 @@ namespace Sistem_Informasi_Sekolah
             _isChange = false;
             _kelasId = (int)ComboKelas.SelectedValue;
         }
+
+        #endregion
+
+
 
         private void SaveData(int kelasId)
         {
