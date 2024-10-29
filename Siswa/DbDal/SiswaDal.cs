@@ -171,19 +171,20 @@ namespace Sistem_Informasi_Sekolah.DataIndukSiswa.DbDal
             return Conn.Query<SiswaModel>(Sql, Dp);
         }
 
-        public IEnumerable<SiswaModel> Filter(string Filter)
+  
+
+        public IEnumerable<SiswaModel> ListDataFilter(string nama)
         {
-            const string sql = @"
+            const string Sql = @"
             SELECT 
-                SiswaId , NamaLengkap
-            FROM 
+                SiswaId, NamaLengkap
+            FROM
                 Siswa
             WHERE
-                NamaLengkap LIKE '%@NamaLengkap%'";
+                NamaLengkap LIKE CONCAT ('%',@nama,'%') ";
 
-            var Dp = new DynamicParameters();
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-            return Conn.Query<SiswaModel>(sql, Dp);
+            return Conn.Query<SiswaModel>(Sql, new { nama = nama });
         }
     }
 }

@@ -86,8 +86,7 @@ namespace Sistem_Informasi_Sekolah
         private void TextSearch_TextChanged(object? sender, EventArgs e)
         {
             if ((int)ComboKelas.SelectedValue == -1) return;
-            MessageBox.Show("mmdnc");
-            string search = TextSearch.Text;
+            LoadData(TextSearch.Text);
         }
 
 
@@ -148,7 +147,7 @@ namespace Sistem_Informasi_Sekolah
                 }
             }
             ClearForm();
-            LoadData();
+            LoadData(TextSearch.Text);
             _isChange = false;
             _kelasId = (int)ComboKelas.SelectedValue;
         }
@@ -187,7 +186,7 @@ namespace Sistem_Informasi_Sekolah
 
         }
 
-        private void LoadData()
+        private void LoadData(string nama)
         {   
             var kelasId = (int)ComboKelas.SelectedValue;
             if (kelasId == -1)
@@ -204,7 +203,7 @@ namespace Sistem_Informasi_Sekolah
             _listAllSiswa.Clear();
             _listKelasSiswaDetil.Clear();
 
-            var dataAllSiswa = _siswaDal.ListData().Select(x => new SiswaDto(x.SiswaId, x.NamaLengkap))?.ToList() ?? new ();
+            var dataAllSiswa = _siswaDal.ListDataFilter(nama).Select(x => new SiswaDto(x.SiswaId, x.NamaLengkap))?.ToList() ?? new ();
             var dataKelasSiswaDetil = _kelasSiswaDetilDal.ListData().Select( x => new SiswaDto(x.SiswaId, x.SiswaName))?.ToList() ?? new ();
             var dataPerKelas = _kelasSiswaDetilDal.ListData(kelasId).Select(x => new SiswaDto(x.SiswaId, x.SiswaName))?.ToList() ?? new();
             

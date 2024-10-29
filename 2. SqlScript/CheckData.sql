@@ -10,3 +10,11 @@ SELECT * FROM KelasSiswaDetil;
 
 
 delete from KelasSiswaDetil
+
+
+ SELECT 
+                SiswaId, NamaLengkap
+            FROM
+                Siswa
+            WHERE
+                NamaLengkap LIKE '%L%'
