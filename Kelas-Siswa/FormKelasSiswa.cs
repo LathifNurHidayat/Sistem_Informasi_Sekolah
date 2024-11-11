@@ -205,7 +205,7 @@ namespace Sistem_Informasi_Sekolah
 
             var dataAllSiswa = _siswaDal.ListDataFilter(nama).Select(x => new SiswaDto(x.SiswaId, x.NamaLengkap))?.ToList() ?? new ();
             var dataKelasSiswaDetil = _kelasSiswaDetilDal.ListData().Select( x => new SiswaDto(x.SiswaId, x.SiswaName))?.ToList() ?? new ();
-            var dataPerKelas = _kelasSiswaDetilDal.ListData(kelasId).Select(x => new SiswaDto(x.SiswaId, x.SiswaName))?.ToList() ?? new();
+            var dataPerKelas = _kelasSiswaDetilDal.ListDataPerKelas(kelasId).Select(x => new SiswaDto(x.SiswaId, x.SiswaName))?.ToList() ?? new();
             
             var IdKelasSiswa = dataKelasSiswaDetil.Select(x => x.SiswaId).ToList();
             dataAllSiswa.RemoveAll(x => IdKelasSiswa.Contains(x.SiswaId));

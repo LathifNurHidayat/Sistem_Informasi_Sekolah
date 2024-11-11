@@ -24,7 +24,6 @@ namespace Sistem_Informasi_Sekolah
                         Siswa bb ON aa.SiswaId = bb.SiswaId";
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-
             return Conn.Query<AbsensiDetilModel>(sql);
         }
 

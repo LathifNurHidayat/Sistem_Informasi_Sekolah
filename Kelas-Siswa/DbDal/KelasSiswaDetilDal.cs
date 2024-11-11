@@ -24,7 +24,7 @@ namespace Sistem_Informasi_Sekolah
             return Conn.Query<KelasSiswaDetilModel>(sql);
         }
 
-        public IEnumerable<KelasSiswaDetilModel> ListData(int kelasId)
+        public IEnumerable<KelasSiswaDetilModel> ListDataPerKelas(int kelasId)
         {
             const string sql = @"
                     SELECT 
