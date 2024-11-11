@@ -46,10 +46,10 @@
             ButtonListSiswa = new Button();
             ButtonNew = new Button();
             PickerTanggal = new DateTimePicker();
-            MaskedJam = new MaskedTextBox();
             label6 = new Label();
             label7 = new Label();
             panel2 = new Panel();
+            TextJamKe = new TextBox();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridListPresensi).BeginInit();
             panel1.SuspendLayout();
@@ -259,15 +259,6 @@
             PickerTanggal.Size = new Size(146, 30);
             PickerTanggal.TabIndex = 41;
             // 
-            // MaskedJam
-            // 
-            MaskedJam.BorderStyle = BorderStyle.FixedSingle;
-            MaskedJam.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            MaskedJam.Location = new Point(240, 58);
-            MaskedJam.Name = "MaskedJam";
-            MaskedJam.Size = new Size(146, 30);
-            MaskedJam.TabIndex = 34;
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -276,9 +267,9 @@
             label6.ForeColor = Color.Black;
             label6.Location = new Point(240, 32);
             label6.Name = "label6";
-            label6.Size = new Size(40, 23);
+            label6.Size = new Size(69, 23);
             label6.TabIndex = 38;
-            label6.Text = "Jam";
+            label6.Text = "Jam ke-";
             // 
             // label7
             // 
@@ -295,14 +286,23 @@
             // panel2
             // 
             panel2.BackColor = Color.Gainsboro;
+            panel2.Controls.Add(TextJamKe);
             panel2.Controls.Add(PickerTanggal);
-            panel2.Controls.Add(MaskedJam);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label6);
             panel2.Location = new Point(12, 12);
             panel2.Name = "panel2";
             panel2.Size = new Size(427, 133);
             panel2.TabIndex = 42;
+            // 
+            // TextJamKe
+            // 
+            TextJamKe.BorderStyle = BorderStyle.FixedSingle;
+            TextJamKe.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            TextJamKe.Location = new Point(240, 58);
+            TextJamKe.Name = "TextJamKe";
+            TextJamKe.Size = new Size(146, 30);
+            TextJamKe.TabIndex = 47;
             // 
             // FormAbsensi
             // 
@@ -332,7 +332,6 @@
         private Button ButtonListSiswa;
         private Button ButtonNew;
         private Button ButtonSave;
-        private MaskedTextBox MaskedJam;
         private ComboBox ComboKelas;
         private ComboBox ComboGuru;
         private ComboBox ComboMataPelajaran;
@@ -348,5 +347,6 @@
         private TextBox textBox2;
         private TextBox textBox1;
         private Panel panel2;
+        private TextBox TextJamKe;
     }
 }

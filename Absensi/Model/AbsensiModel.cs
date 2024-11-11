@@ -13,7 +13,7 @@ namespace Sistem_Informasi_Sekolah
     {
         public int AbsensiId { get; set; }
         public DateTime Tanggal { get; set; }
-        public TimeSpan Jam { get; set; }
+        public string Jam { get; set; }
         public int KelasId { get; set; }
         public string KelasName { get; set; }
         public int MapelId { get; set; }

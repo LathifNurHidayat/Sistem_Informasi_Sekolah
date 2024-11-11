@@ -13,18 +13,29 @@ namespace Sistem_Informasi_Sekolah
 {
     public class AbsensiDal
     {
-        public IEnumerable<AbsensiModel> ListData ()
+        public int GetAbsensiId(AbsensiModel absen)
         {
             const string sql = @"
-                    SELECT 
-                        aa.AbsensiId, aa.Tanggal, aa.Jam, aa.KelasId
-                        ISNULL (bb.KelasName, ''), aa.MapelId, ISNULL (cc.MapelName, ''), aa.GuruId,ISNULL (dd.GuruName, '')
-                    FROM Absensi";
+        SELECT 
+            AbsensiId
+        FROM 
+            Absensi
+        WHERE 
+            KelasId = @KelasId AND Tanggal = @Tanggal AND
+            Jam = @Jam AND MapelId = @MapelId AND GuruId = @GuruId";
+
+            var Dp = new DynamicParameters();
+            Dp.Add("@KelasId", absen.KelasId, DbType.Int32);
+            Dp.Add("@Tanggal", absen.Tanggal, DbType.DateTime);
+            Dp.Add("@Jam", absen.Jam, DbType.String);  
+            Dp.Add("@MapelId", absen.MapelId, DbType.Int32);
+            Dp.Add("@GuruId", absen.GuruId, DbType.Int32);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
-            return Conn.Query<AbsensiModel>(sql);
+            return Conn.QueryFirstOrDefault<int>(sql, Dp); 
         }
-        
+
+
 
         public int Insert (AbsensiModel absen)
         {
@@ -49,9 +60,6 @@ namespace Sistem_Informasi_Sekolah
 
             using var Conn = new SqlConnection (ConnStringHelper.Get());
             return Conn.QuerySingle<int>(sql, Dp);
-
-
-
         }
     }
 }

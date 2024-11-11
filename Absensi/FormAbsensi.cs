@@ -18,6 +18,7 @@ namespace Sistem_Informasi_Sekolah
         private readonly GuruDal _guruDal;
         private readonly KelasSiswaDetilDal _kelasSiswaDetilDal;
         private readonly AbsensiDetilDal _absensiDetilDal;
+        private readonly AbsensiDal _absensiDal;
 
         private readonly BindingList<SiswaDto> _siswaList = new BindingList<SiswaDto>();
         public FormAbsensi()
@@ -28,23 +29,31 @@ namespace Sistem_Informasi_Sekolah
             _guruDal = new GuruDal();   
             _kelasSiswaDetilDal = new KelasSiswaDetilDal();
             _absensiDetilDal = new AbsensiDetilDal();
+            _absensiDal = new AbsensiDal();
 
             GridListPresensi.DataSource = _siswaList;
 
             InitCombo();
             ControlEvent();
-            MaskedJam.Text = DateTime.Now.ToString("HH:mm");
         }
 
-        private void LoadData(int kelasId)
+        private void LoadData(int kelasId, int AbsensiId)
         {
-            var data = _kelasSiswaDetilDal.ListDataPerKelas(kelasId).Select(x => new SiswaDto(x.SiswaId, x.SiswaName))? .ToList() ?? new ();
+            if (kelasId != 0)
+            {
+                var data = _kelasSiswaDetilDal.ListDataPerKelas(kelasId).Select(x => new SiswaDto( x.SiswaId, x.SiswaName))?.ToList() ?? new();
 
-            _siswaList.Clear();
-            foreach (var item in data)
-                _siswaList.Add(item);
+                _siswaList.Clear();
+                foreach (var item in data)
+                    _siswaList.Add(item);
 
-            GridListPresensi.Refresh();
+                GridListPresensi.Refresh();
+            }
+            if (AbsensiId != 0)
+            {
+                var data = _absensiDetilDal.ListData(AbsensiId).Select(x => new SiswaDto(x.NoUrut, x.SiswaId, x.SiswaName, x.Keterangan))? .ToList() ?? new List<SiswaDto>();
+            }
+         
             InitDataGrid();  
         }
 
@@ -105,7 +114,7 @@ namespace Sistem_Informasi_Sekolah
         private void ClearData()
         {
             PickerTanggal.Value = DateTime.Today;
-            MaskedJam.Text = DateTime.Now.TimeOfDay.ToString();
+            TextJamKe.Clear();
             ComboKelas.SelectedIndex = 0;
             ComboMataPelajaran.SelectedIndex = 0;
             ComboGuru.SelectedIndex = 0;
@@ -125,8 +134,22 @@ namespace Sistem_Informasi_Sekolah
 
         private void ButtonListSiswa_Click(object? sender, EventArgs e)
         {
+            var absen = new AbsensiModel
+            {
+                KelasId = (int)ComboKelas.SelectedValue,
+                Tanggal = PickerTanggal.Value,
+                Jam = TextJamKe.Text,
+                MapelId = (int)ComboMataPelajaran.SelectedValue,
+                GuruId = (int)ComboGuru.SelectedValue
+            };
+            var absensiId = _absensiDal.GetAbsensiId(absen);
+            MessageBox.Show(PickerTanggal.Value.ToString());
+            if (absensiId != null)
+            {
+                LoadData(0, Convert.ToInt32(absensiId));
+            }
             var kelasId = (int)ComboKelas.SelectedValue;
-            LoadData(kelasId);
+            LoadData(kelasId, 0);
         }
 
         private void ButtonNew_Click(object? sender, EventArgs e)
@@ -135,8 +158,9 @@ namespace Sistem_Informasi_Sekolah
         }
 
         public class SiswaDto
-        { 
-            public SiswaDto(int id, string nama) => (SiswaId, SiswaName) = (id, nama);
+        {
+            public SiswaDto(int id, string nama) => (SiswaId, SiswaName ) = (id, nama);
+            public SiswaDto(int Urut, int id, string nama, string Ket ) => (NoUrut, SiswaId, SiswaName, Keterangan) = (Urut, id, nama, Ket);
             public int NoUrut { get; set; }
             public int SiswaId { get; set; }
             public string SiswaName { get; set; }
