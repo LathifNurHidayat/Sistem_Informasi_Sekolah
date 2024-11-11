@@ -252,8 +252,9 @@
             // 
             // PickerTanggal
             // 
+            PickerTanggal.CustomFormat = "dd-MM-yyyy";
             PickerTanggal.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            PickerTanggal.Format = DateTimePickerFormat.Short;
+            PickerTanggal.Format = DateTimePickerFormat.Custom;
             PickerTanggal.Location = new Point(40, 58);
             PickerTanggal.Name = "PickerTanggal";
             PickerTanggal.Size = new Size(146, 30);

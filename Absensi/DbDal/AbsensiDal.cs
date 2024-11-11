@@ -26,7 +26,7 @@ namespace Sistem_Informasi_Sekolah
 
             var Dp = new DynamicParameters();
             Dp.Add("@KelasId", absen.KelasId, DbType.Int32);
-            Dp.Add("@Tanggal", absen.Tanggal, DbType.DateTime);
+            Dp.Add("@Tanggal", absen.Tanggal.Date.ToString("dd-MM-yyyy"), DbType.DateTime);
             Dp.Add("@Jam", absen.Jam, DbType.String);  
             Dp.Add("@MapelId", absen.MapelId, DbType.Int32);
             Dp.Add("@GuruId", absen.GuruId, DbType.Int32);
@@ -41,19 +41,17 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                     INSERT INTO Absensi
-                        (AbsensiId, Tanggal, Jam, 
+                        (Tanggal, Jam, 
                         KelasId, MapelId, GuruId)
 
-                    OUTPUT INSERTED.AbsensiId
-
+                        OUTPUT INSERTED.AbsensiId
                     VALUES
-                        (@AbsensiId, @Tanggal, @Jam, 
+                        (@Tanggal, @Jam, 
                         @KelasId, @MapelId, @GuruId)";
 
             var Dp = new DynamicParameters();
-            Dp.Add("@AbsensiId", absen.AbsensiId, DbType.Int32);
-            Dp.Add("@Tanggal", absen.Tanggal, DbType.DateTime);
-            Dp.Add("@Jam", absen.Jam, DbType.Time);
+            Dp.Add("@Tanggal", absen.Tanggal.Date.ToString("dd-MM-yyyy"), DbType.DateTime);
+            Dp.Add("@Jam", absen.Jam, DbType.String);
             Dp.Add("@KelasId", absen.KelasId, DbType.Int32);
             Dp.Add("@MapelId", absen.MapelId, DbType.Int32);
             Dp.Add("@GuruId", absen.GuruId, DbType.Int32);

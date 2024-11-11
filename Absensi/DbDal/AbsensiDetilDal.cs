@@ -17,7 +17,7 @@ namespace Sistem_Informasi_Sekolah
             const string sql = @"
                     SELECT 
                         aa.AbsensiId, aa.NoUrut, aa.SiswaId,
-                        bb.NamaLengkap AS SiswaName, aa.StatusAbsensi, aa.Keterangan
+                        bb.NamaLengkap AS SiswaName, aa.StatusAbsen, aa.Keterangan
                     FROM 
                         AbsensiDetil aa
                         LEFT JOIN Siswa bb ON aa.SiswaId = bb.SiswaId
@@ -31,15 +31,15 @@ namespace Sistem_Informasi_Sekolah
         {
             const string sql = @"
                     INSERT INTO AbsensiDetil
-                        (AbsensiId, NoUrut, SiswaId, StatusAbsensi, Keterangan)
+                        (AbsensiId, NoUrut, SiswaId, StatusAbsen, Keterangan)
                     VALUES 
-                        (@AbsensiId, @NoUrut, @SiswaId, @StatusAbsensi, @Keterangan)";
+                        (@AbsensiId, @NoUrut, @SiswaId, @StatusAbsen, @Keterangan)";
 
             var Dp = new DynamicParameters();
             Dp.Add("@AbsensiId", absen.AbsensiId, DbType.Int32);
             Dp.Add("@NoUrut", absen.NoUrut, DbType.Int32);
             Dp.Add("@SiswaId", absen.SiswaId, DbType.Int32);
-            Dp.Add("@StatusAbsensi", absen.StatusAbsen, DbType.Int32);
+            Dp.Add("@StatusAbsen", absen.StatusAbsen, DbType.Int32);
             Dp.Add("@Keterangan", absen.Keterangan, DbType.String);
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
