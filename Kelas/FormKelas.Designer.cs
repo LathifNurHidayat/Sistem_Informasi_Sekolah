@@ -170,10 +170,10 @@
             RadioKelas_12.ForeColor = Color.Black;
             RadioKelas_12.Location = new Point(282, 223);
             RadioKelas_12.Name = "RadioKelas_12";
-            RadioKelas_12.Size = new Size(40, 27);
-            RadioKelas_12.TabIndex = 12;
+            RadioKelas_12.Size = new Size(47, 27);
+            RadioKelas_12.TabIndex = 3;
             RadioKelas_12.TabStop = true;
-            RadioKelas_12.Text = "3";
+            RadioKelas_12.Text = "12";
             RadioKelas_12.UseVisualStyleBackColor = true;
             // 
             // RadioKelas_11
@@ -183,10 +183,10 @@
             RadioKelas_11.ForeColor = Color.Black;
             RadioKelas_11.Location = new Point(150, 223);
             RadioKelas_11.Name = "RadioKelas_11";
-            RadioKelas_11.Size = new Size(40, 27);
-            RadioKelas_11.TabIndex = 11;
+            RadioKelas_11.Size = new Size(45, 27);
+            RadioKelas_11.TabIndex = 2;
             RadioKelas_11.TabStop = true;
-            RadioKelas_11.Text = "2";
+            RadioKelas_11.Text = "11";
             RadioKelas_11.UseVisualStyleBackColor = true;
             // 
             // RadioKelas_10
@@ -196,10 +196,10 @@
             RadioKelas_10.ForeColor = Color.Black;
             RadioKelas_10.Location = new Point(16, 223);
             RadioKelas_10.Name = "RadioKelas_10";
-            RadioKelas_10.Size = new Size(38, 27);
-            RadioKelas_10.TabIndex = 10;
+            RadioKelas_10.Size = new Size(47, 27);
+            RadioKelas_10.TabIndex = 1;
             RadioKelas_10.TabStop = true;
-            RadioKelas_10.Text = "1";
+            RadioKelas_10.Text = "10";
             RadioKelas_10.UseVisualStyleBackColor = true;
             // 
             // label4

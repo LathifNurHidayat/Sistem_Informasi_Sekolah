@@ -45,6 +45,12 @@ namespace Sistem_Informasi_Sekolah
             guruToolStripMenuItem.Click += GuruToolStripMenuItem_Click;
             jadwalPelajaranToolStripMenuItem.Click += JadwalPelajaranToolStripMenuItem_Click;
             kelasSiswaToolStripMenuItem.Click += KelasSiswaToolStripMenuItem_Click;
+            absensiToolStripMenuItem.Click += AbsensiToolStripMenuItem_Click;
+        }
+
+        private void AbsensiToolStripMenuItem_Click(object? sender, EventArgs e)
+        {
+            LoadForm(new FormAbsensi());
         }
 
         private void KelasSiswaToolStripMenuItem_Click(object? sender, EventArgs e)

@@ -39,6 +39,7 @@
             kesiswaanToolStripMenuItem = new ToolStripMenuItem();
             dataIndukSiswaToolStripMenuItem = new ToolStripMenuItem();
             kelasSiswaToolStripMenuItem = new ToolStripMenuItem();
+            absensiToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -101,7 +102,7 @@
             // 
             // kesiswaanToolStripMenuItem
             // 
-            kesiswaanToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dataIndukSiswaToolStripMenuItem, kelasSiswaToolStripMenuItem });
+            kesiswaanToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { dataIndukSiswaToolStripMenuItem, kelasSiswaToolStripMenuItem, absensiToolStripMenuItem });
             kesiswaanToolStripMenuItem.Name = "kesiswaanToolStripMenuItem";
             kesiswaanToolStripMenuItem.Size = new Size(91, 24);
             kesiswaanToolStripMenuItem.Text = "Kesiswaan";
@@ -117,6 +118,12 @@
             kelasSiswaToolStripMenuItem.Name = "kelasSiswaToolStripMenuItem";
             kelasSiswaToolStripMenuItem.Size = new Size(224, 26);
             kelasSiswaToolStripMenuItem.Text = "Kelas-Siswa";
+            // 
+            // absensiToolStripMenuItem
+            // 
+            absensiToolStripMenuItem.Name = "absensiToolStripMenuItem";
+            absensiToolStripMenuItem.Size = new Size(224, 26);
+            absensiToolStripMenuItem.Text = "Absensi";
             // 
             // Home
             // 
@@ -147,5 +154,6 @@
         private ToolStripMenuItem kesiswaanToolStripMenuItem;
         private ToolStripMenuItem dataIndukSiswaToolStripMenuItem;
         private ToolStripMenuItem kelasSiswaToolStripMenuItem;
+        private ToolStripMenuItem absensiToolStripMenuItem;
     }
 }

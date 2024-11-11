@@ -147,7 +147,7 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel1.BackColor = Color.Gainsboro;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(PickerTanggal);
