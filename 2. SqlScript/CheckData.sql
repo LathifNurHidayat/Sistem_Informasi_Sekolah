@@ -8,13 +8,4 @@ SELECT * FROM GuruMapel;
 SELECT * FROM KelasSiswa;
 SELECT * FROM KelasSiswaDetil;
 
-
-delete from KelasSiswaDetil
-
-
- SELECT 
-                SiswaId, NamaLengkap
-            FROM
-                Siswa
-            WHERE
-                NamaLengkap LIKE '%L%'
+Select * from AbsensiDetil

@@ -33,8 +33,6 @@ namespace Sistem_Informasi_Sekolah
             PanelMain.Controls.Add(form);
             form.Show();
         }
-
-
         #region EVENT
         private void InitialEvent()
         {

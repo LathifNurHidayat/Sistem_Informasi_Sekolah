@@ -75,6 +75,7 @@
             // 
             // textBox4
             // 
+            textBox4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             textBox4.BorderStyle = BorderStyle.FixedSingle;
             textBox4.Location = new Point(438, 641);
             textBox4.Name = "textBox4";
@@ -83,6 +84,7 @@
             // 
             // textBox3
             // 
+            textBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             textBox3.BorderStyle = BorderStyle.FixedSingle;
             textBox3.Location = new Point(395, 641);
             textBox3.Name = "textBox3";
@@ -91,6 +93,7 @@
             // 
             // textBox2
             // 
+            textBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             textBox2.BorderStyle = BorderStyle.FixedSingle;
             textBox2.Location = new Point(352, 641);
             textBox2.Name = "textBox2";
@@ -99,6 +102,7 @@
             // 
             // textBox1
             // 
+            textBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             textBox1.BorderStyle = BorderStyle.FixedSingle;
             textBox1.Location = new Point(309, 641);
             textBox1.Name = "textBox1";
@@ -107,6 +111,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.BackColor = Color.Gainsboro;
             label1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);

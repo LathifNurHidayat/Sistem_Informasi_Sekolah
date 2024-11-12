@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Sistem_Informasi_Sekolah
 {
@@ -20,9 +21,11 @@ namespace Sistem_Informasi_Sekolah
         private readonly KelasSiswaDetilDal _kelasSiswaDetilDal;
         private readonly AbsensiDetilDal _absensiDetilDal;
         private readonly AbsensiDal _absensiDal;
-        private int _absensiId = 0;
         private readonly BindingList<SiswaDto> _siswaList = new();
-        private readonly BindingSource bindingSource = new BindingSource();
+       // private readonly BindingSource bindingSource = new BindingSource();
+
+        private int _absensiId = 0;
+        private int[] _valueAbsen = {};
 
         public FormAbsensi()
         {
@@ -33,7 +36,8 @@ namespace Sistem_Informasi_Sekolah
             _kelasSiswaDetilDal = new KelasSiswaDetilDal();
             _absensiDetilDal = new AbsensiDetilDal();
             _absensiDal = new AbsensiDal();
-            bindingSource.DataSource = _siswaList;
+
+           // bindingSource.DataSource = _siswaList;
 
             InitCombo();
             ControlEvent();
@@ -56,11 +60,29 @@ namespace Sistem_Informasi_Sekolah
             GridListPresensi.Columns["SiswaId"].ReadOnly = true;
             GridListPresensi.Columns["SiswaName"].HeaderText = "Nama Siswa";
             GridListPresensi.Columns["SiswaName"].ReadOnly = true;
+            GridListPresensi.Columns["NoUrut"].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            GridListPresensi.Columns["Keterangan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            GridListPresensi.Columns["SiswaName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            AddCheckBoxColumn("Hadir", "CekHadir", DataGridViewAutoSizeColumnMode.ColumnHeader, 3);
-            AddCheckBoxColumn("S", "CekSakit", DataGridViewAutoSizeColumnMode.AllCells, 4);
-            AddCheckBoxColumn("I", "CekIzin", DataGridViewAutoSizeColumnMode.AllCells, 5);
-            AddCheckBoxColumn("A", "CekAlpha", DataGridViewAutoSizeColumnMode.AllCells, 6);
+            GridListPresensi.CellContentClick += GridListPresensi_CellContentClick;
+        }
+
+        private void GridListPresensi_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && (GridListPresensi.Columns[e.ColumnIndex].Name == "Hadir" ||
+                                   GridListPresensi.Columns[e.ColumnIndex].Name == "S" ||
+                                   GridListPresensi.Columns[e.ColumnIndex].Name == "I" ||
+                                   GridListPresensi.Columns[e.ColumnIndex].Name == "A"))
+            {
+                string[] columnName = {"Hadir", "S", "I", "A"};
+                foreach (var namaColumn in  columnName)
+                {
+                    if (namaColumn != GridListPresensi.Columns[e.ColumnIndex].Name)
+                    {
+                        GridListPresensi.Rows[e.RowIndex].Cells[namaColumn].Value = false;
+                    }
+                }
+            }
         }
 
         private void InitCombo()
@@ -132,8 +154,17 @@ namespace Sistem_Informasi_Sekolah
             if (kelasId != 0)
             {
                 var data = _kelasSiswaDetilDal.ListDataPerKelas(kelasId)
-                    .Select(x => new SiswaDto(x.SiswaId, x.SiswaName))
-                    .ToList();
+                    .Select((x, index) => new SiswaDto
+                    {
+                        NoUrut = index + 1,
+                        SiswaId = x.SiswaId,
+                        SiswaName = x.SiswaName,
+                        Hadir = false,
+                        S = false,
+                        I = false,
+                        A = false,
+                        Keterangan = ""
+                    }).ToList();
 
                 data.ForEach(item => _siswaList.Add(item));
                 GridListPresensi.Refresh();
@@ -142,18 +173,33 @@ namespace Sistem_Informasi_Sekolah
             if (absensiId != 0)
             {
                 var data = _absensiDetilDal.ListData(absensiId)
-                    .Select((x, index) => new SiswaDto(index + 1, x.SiswaId, x.SiswaName, ""))
-                    .ToList();
+                    .Select(x => new SiswaDto
+                    {
+                        NoUrut = x.NoUrut,
+                        SiswaId = x.SiswaId,
+                        SiswaName = x.SiswaName,
+                        Hadir = x.StatusAbsen == 1,
+                        S = x.StatusAbsen == 2,
+                        I = x.StatusAbsen == 3,
+                        A = x.StatusAbsen == 4,
+                        Keterangan = x.Keterangan
+                    }).ToList();
 
                 data.ForEach(item => _siswaList.Add(item));
-                GridListPresensi.Refresh();
+                GridListPresensi.Refresh(); 
             }
-            GridListPresensi.DataSource = bindingSource;
+            GridListPresensi.AllowUserToAddRows = false;
+            GridListPresensi.DataSource = _siswaList;
             InitDataGrid();
         }
 
         private void SaveData()
         {
+            if (_absensiId == 0 && TextJamKe.Text == "")
+            {
+                MessageBox.Show("Jam wajib diisi !!", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (_absensiId == 0)
             {
                 var data = new AbsensiModel
@@ -167,8 +213,7 @@ namespace Sistem_Informasi_Sekolah
                 _absensiId = _absensiDal.Insert(data);
             }
 
-            int statusAbsen = 0;
-
+            _absensiDetilDal.Delete(_absensiId);
 
             foreach (var item in _siswaList)
             {
@@ -180,22 +225,28 @@ namespace Sistem_Informasi_Sekolah
                         NoUrut = item.NoUrut,
                         SiswaId = item.SiswaId,
                         SiswaName = item.SiswaName,
-                        StatusAbsen = 1,
-                        Keterangan = item.Keterangan,
+                        StatusAbsen = item.Hadir == true ? 1 
+                                    : item.S == true ? 2 
+                                    : item.I == true ? 3 
+                                    : item.A == true ? 4 
+                                    : 0,
+                        Keterangan = item.Keterangan ?? "",
                     };
                     _absensiDetilDal.Insert(data);
                 }
             }
+            LoadData(0, _absensiId);
         }
 
         public class SiswaDto
         {
-            public SiswaDto(int id, string nama) => (SiswaId, SiswaName) = (id, nama);
-            public SiswaDto(int urut, int id, string nama, string ket) => (NoUrut, SiswaId, SiswaName, Keterangan) = (urut, id, nama, ket);
-
             public int NoUrut { get; set; }
             public int SiswaId { get; set; }
             public string SiswaName { get; set; }
+            public bool Hadir { get; set; } = false;
+            public bool S { get; set; } = false;
+            public bool I { get; set; } = false;
+            public bool A { get; set; } = false;
             public string Keterangan { get; set; }
         }
     }

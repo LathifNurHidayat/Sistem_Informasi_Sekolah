@@ -44,7 +44,14 @@ namespace Sistem_Informasi_Sekolah
 
             using var Conn = new SqlConnection(ConnStringHelper.Get());
             Conn.Execute(sql, Dp);
+        }
 
+        public void Delete(int AbsensiId)
+        {
+            const string sql = "DELETE FROM AbsensiDetil WHERE AbsensiId = @AbsensiId";
+
+            using var Conn = new SqlConnection(ConnStringHelper.Get());
+            Conn.Execute(sql, new { AbsensiId = AbsensiId });
         }
     }
 }
