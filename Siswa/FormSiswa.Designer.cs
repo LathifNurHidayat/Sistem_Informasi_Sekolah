@@ -370,7 +370,7 @@
             // panel28
             // 
             panel28.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel28.BackColor = Color.DarkGray;
+            panel28.BackColor = Color.Gainsboro;
             panel28.Controls.Add(GridListSiswa);
             panel28.Location = new Point(7, 6);
             panel28.Name = "panel28";
@@ -393,7 +393,7 @@
             // panel23
             // 
             panel23.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            panel23.BackColor = Color.DarkGray;
+            panel23.BackColor = Color.Gainsboro;
             panel23.Controls.Add(panel25);
             panel23.Location = new Point(716, 6);
             panel23.Name = "panel23";
@@ -593,7 +593,7 @@
             PagePersonal.Location = new Point(4, 29);
             PagePersonal.Name = "PagePersonal";
             PagePersonal.Padding = new Padding(3);
-            PagePersonal.Size = new Size(1075, 646);
+            PagePersonal.Size = new Size(1075, 727);
             PagePersonal.TabIndex = 1;
             PagePersonal.Text = "Data Personal";
             PagePersonal.UseVisualStyleBackColor = true;
@@ -1154,7 +1154,7 @@
             PageKesehatan.Location = new Point(4, 29);
             PageKesehatan.Name = "PageKesehatan";
             PageKesehatan.Padding = new Padding(3);
-            PageKesehatan.Size = new Size(1075, 646);
+            PageKesehatan.Size = new Size(1075, 727);
             PageKesehatan.TabIndex = 2;
             PageKesehatan.Text = "Kesehatan & Pendidikan";
             PageKesehatan.UseVisualStyleBackColor = true;
@@ -1839,7 +1839,7 @@
             PageWalii.Location = new Point(4, 29);
             PageWalii.Name = "PageWalii";
             PageWalii.Padding = new Padding(3);
-            PageWalii.Size = new Size(1075, 646);
+            PageWalii.Size = new Size(1075, 727);
             PageWalii.TabIndex = 3;
             PageWalii.Text = "Keterangan Orang Tua/Wali";
             PageWalii.UseVisualStyleBackColor = true;
@@ -2664,7 +2664,7 @@
             PageLulus.Location = new Point(4, 29);
             PageLulus.Name = "PageLulus";
             PageLulus.Padding = new Padding(3);
-            PageLulus.Size = new Size(1075, 646);
+            PageLulus.Size = new Size(1075, 727);
             PageLulus.TabIndex = 4;
             PageLulus.Text = "Keterangan Setelah Lulus";
             PageLulus.UseVisualStyleBackColor = true;

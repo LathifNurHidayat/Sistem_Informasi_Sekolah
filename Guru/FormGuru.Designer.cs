@@ -71,6 +71,7 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel3.BackColor = Color.LightGray;
+            panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(ComboTingkatPendidikan);
             panel3.Controls.Add(PickerTglLahirGuru);
             panel3.Controls.Add(label8);
@@ -89,9 +90,9 @@
             panel3.Controls.Add(TextGuruId);
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(387, 5);
+            panel3.Location = new Point(405, 11);
             panel3.Name = "panel3";
-            panel3.Size = new Size(669, 715);
+            panel3.Size = new Size(661, 717);
             panel3.TabIndex = 23;
             // 
             // ComboTingkatPendidikan
@@ -123,7 +124,7 @@
             // 
             // panel6
             // 
-            panel6.BackColor = Color.Silver;
+            panel6.BackColor = Color.Gainsboro;
             panel6.BorderStyle = BorderStyle.FixedSingle;
             panel6.Controls.Add(GridListGuruMapel);
             panel6.Location = new Point(22, 487);
@@ -271,7 +272,7 @@
             // 
             // panel5
             // 
-            panel5.BackColor = Color.Silver;
+            panel5.BackColor = Color.Gainsboro;
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(PictureFotoGuru);
             panel5.Location = new Point(375, 23);
@@ -306,10 +307,11 @@
             // 
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.LightGray;
+            panel4.BorderStyle = BorderStyle.FixedSingle;
             panel4.Controls.Add(GridListGuru);
-            panel4.Location = new Point(3, 5);
+            panel4.Location = new Point(11, 11);
             panel4.Name = "panel4";
-            panel4.Size = new Size(378, 715);
+            panel4.Size = new Size(380, 717);
             panel4.TabIndex = 1;
             // 
             // GridListGuru
@@ -332,9 +334,9 @@
             panel1.Controls.Add(ButtonGuruNew);
             panel1.Controls.Add(ButtonGuruDelete);
             panel1.Controls.Add(ButtonGuruSave);
-            panel1.Location = new Point(3, 726);
+            panel1.Location = new Point(11, 743);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1053, 85);
+            panel1.Size = new Size(1055, 77);
             panel1.TabIndex = 8;
             // 
             // ButtonGuruNew
@@ -343,7 +345,7 @@
             ButtonGuruNew.BackColor = Color.RoyalBlue;
             ButtonGuruNew.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonGuruNew.ForeColor = SystemColors.ControlLightLight;
-            ButtonGuruNew.Location = new Point(628, 24);
+            ButtonGuruNew.Location = new Point(630, 16);
             ButtonGuruNew.Name = "ButtonGuruNew";
             ButtonGuruNew.Size = new Size(118, 35);
             ButtonGuruNew.TabIndex = 11;
@@ -356,7 +358,7 @@
             ButtonGuruDelete.BackColor = Color.Crimson;
             ButtonGuruDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonGuruDelete.ForeColor = SystemColors.ControlLightLight;
-            ButtonGuruDelete.Location = new Point(914, 24);
+            ButtonGuruDelete.Location = new Point(916, 16);
             ButtonGuruDelete.Name = "ButtonGuruDelete";
             ButtonGuruDelete.Size = new Size(118, 35);
             ButtonGuruDelete.TabIndex = 10;
@@ -369,7 +371,7 @@
             ButtonGuruSave.BackColor = Color.ForestGreen;
             ButtonGuruSave.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             ButtonGuruSave.ForeColor = SystemColors.ControlLightLight;
-            ButtonGuruSave.Location = new Point(772, 24);
+            ButtonGuruSave.Location = new Point(774, 16);
             ButtonGuruSave.Name = "ButtonGuruSave";
             ButtonGuruSave.Size = new Size(118, 35);
             ButtonGuruSave.TabIndex = 9;
@@ -378,15 +380,15 @@
             // 
             // panel2
             // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.BackColor = Color.DarkGray;
+            panel2.BackColor = Color.WhiteSmoke;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(panel1);
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
-            panel2.Location = new Point(10, 12);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1061, 816);
+            panel2.Size = new Size(1079, 833);
             panel2.TabIndex = 6;
             // 
             // FormGuru

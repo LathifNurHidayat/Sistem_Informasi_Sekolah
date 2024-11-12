@@ -22,7 +22,6 @@ namespace Sistem_Informasi_Sekolah
         private readonly AbsensiDetilDal _absensiDetilDal;
         private readonly AbsensiDal _absensiDal;
         private readonly BindingList<SiswaDto> _siswaList = new();
-       // private readonly BindingSource bindingSource = new BindingSource();
 
         private int _absensiId = 0;
         private int[] _valueAbsen = {};
@@ -37,7 +36,6 @@ namespace Sistem_Informasi_Sekolah
             _absensiDetilDal = new AbsensiDetilDal();
             _absensiDal = new AbsensiDal();
 
-           // bindingSource.DataSource = _siswaList;
 
             InitCombo();
             ControlEvent();
@@ -71,33 +69,70 @@ namespace Sistem_Informasi_Sekolah
         {
             if (e.RowIndex >= 0 && (GridListPresensi.Columns[e.ColumnIndex].Name == "Hadir" ||
                                    GridListPresensi.Columns[e.ColumnIndex].Name == "S" ||
-                                   GridListPresensi.Columns[e.ColumnIndex].Name == "I" ||
+                                   GridListPresensi.Columns[e.ColumnIndex].Name == "I" || 
                                    GridListPresensi.Columns[e.ColumnIndex].Name == "A"))
             {
+                MessageBox.Show("hgsnvdc");
                 string[] columnName = {"Hadir", "S", "I", "A"};
                 foreach (var namaColumn in  columnName)
                 {
-                    if (namaColumn != GridListPresensi.Columns[e.ColumnIndex].Name)
+                    if (GridListPresensi.Columns[e.ColumnIndex].Name != namaColumn)
                     {
                         GridListPresensi.Rows[e.RowIndex].Cells[namaColumn].Value = false;
                     }
                 }
             }
+            TotalStatusAbsen();
+        }
+
+        private void TotalStatusAbsen()
+        {
+            int Hadir = 0;
+            int Sakit = 0;
+            int Izin = 0;
+            int Alpha = 0;
+
+            foreach (var item in _siswaList)
+            {
+                if (item.Hadir ) Hadir++;
+                if (item.S ) Sakit++;
+                if (item.I ) Izin ++;
+                if (item.A ) Alpha++;
+            }
+
+            TextTotalHadir.Text = Hadir.ToString();
+            TextTotalSakit.Text = Sakit.ToString();
+            TextTotalIzin.Text = Izin.ToString();
+            TextTotalAlpha.Text = Alpha.ToString();
         }
 
         private void InitCombo()
         {
-            ComboKelas.DataSource = _kelasDal.ListData();
+            var kelas = new List<KelasModel>
+            {
+                new KelasModel{KelasId = -1, KelasName = "--Pilih Kelas--"}
+            };
+            kelas.AddRange(_kelasDal.ListData()?.ToList() ?? new());
+            ComboKelas.DataSource = kelas;
             ComboKelas.DisplayMember = "KelasName";
             ComboKelas.ValueMember = "KelasId";
             ComboKelas.SelectedIndex = 0;
 
+            var Mapel = new List<MataPelajaranModel>
+            {
+                new MataPelajaranModel {MapelId = -1, MapelName = "--Pilih Mapel"}
+            };
             ComboMataPelajaran.DataSource = _mataPelajaranDal.ListData();
             ComboMataPelajaran.DisplayMember = "MapelName";
             ComboMataPelajaran.ValueMember = "MapelId";
             ComboMataPelajaran.SelectedIndex = 0;
 
-            ComboGuru.DataSource = _guruDal.ListData();
+            var guru = new List<GuruModel>
+            {
+                new GuruModel{GuruId = -1, GuruName = "--Pilih Guru--"}
+            };
+            guru.AddRange(_guruDal.ListData()?.ToList() ?? new());
+            ComboGuru.DataSource = guru;
             ComboGuru.DisplayMember = "GuruName";
             ComboGuru.ValueMember = "GuruId";
             ComboGuru.SelectedIndex = 0;
@@ -191,13 +226,14 @@ namespace Sistem_Informasi_Sekolah
             GridListPresensi.AllowUserToAddRows = false;
             GridListPresensi.DataSource = _siswaList;
             InitDataGrid();
+            TotalStatusAbsen();
         }
 
         private void SaveData()
         {
-            if (_absensiId == 0 && TextJamKe.Text == "")
+            if (string.IsNullOrEmpty(TextJamKe.Text) || ComboKelas.SelectedIndex == 0 || ComboMataPelajaran.SelectedIndex == 0 || ComboGuru.SelectedIndex == 0 )
             {
-                MessageBox.Show("Jam wajib diisi !!", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("!!", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (_absensiId == 0)

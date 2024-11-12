@@ -55,7 +55,7 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.BackColor = Color.DarkGray;
+            panel2.BackColor = Color.WhiteSmoke;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
@@ -67,7 +67,7 @@
             // panel4
             // 
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel4.BackColor = Color.Silver;
+            panel4.BackColor = Color.Gainsboro;
             panel4.Controls.Add(panel1);
             panel4.Controls.Add(GridListMapel);
             panel4.Location = new Point(3, 3);
@@ -114,7 +114,7 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            panel3.BackColor = Color.Silver;
+            panel3.BackColor = Color.Gainsboro;
             panel3.Controls.Add(TextMapelId);
             panel3.Controls.Add(panel6);
             panel3.Controls.Add(panel5);
@@ -125,7 +125,7 @@
             // 
             // TextMapelId
             // 
-            TextMapelId.BackColor = SystemColors.ActiveBorder;
+            TextMapelId.BackColor = Color.WhiteSmoke;
             TextMapelId.BorderStyle = BorderStyle.FixedSingle;
             TextMapelId.Location = new Point(26, 128);
             TextMapelId.Name = "TextMapelId";

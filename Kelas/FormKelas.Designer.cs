@@ -60,7 +60,7 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.BackColor = Color.DarkGray;
+            panel2.BackColor = Color.WhiteSmoke;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(panel4);
             panel2.Controls.Add(panel3);
@@ -72,7 +72,7 @@
             // panel4
             // 
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel4.BackColor = Color.Silver;
+            panel4.BackColor = Color.Gainsboro;
             panel4.Controls.Add(GridListKelas);
             panel4.Location = new Point(3, 3);
             panel4.Name = "panel4";
@@ -94,7 +94,7 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            panel3.BackColor = Color.Silver;
+            panel3.BackColor = Color.Gainsboro;
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(panel1);
             panel3.Controls.Add(panel5);
@@ -147,7 +147,7 @@
             // 
             // TextKelasName
             // 
-            TextKelasName.BackColor = SystemColors.ActiveBorder;
+            TextKelasName.BackColor = Color.Gainsboro;
             TextKelasName.BorderStyle = BorderStyle.FixedSingle;
             TextKelasName.Location = new Point(13, 142);
             TextKelasName.Name = "TextKelasName";
@@ -252,7 +252,7 @@
             // 
             // TextKelasId
             // 
-            TextKelasId.BackColor = SystemColors.ActiveBorder;
+            TextKelasId.BackColor = Color.Gainsboro;
             TextKelasId.BorderStyle = BorderStyle.FixedSingle;
             TextKelasId.Location = new Point(14, 65);
             TextKelasId.Name = "TextKelasId";

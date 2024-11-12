@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             panel4 = new Panel();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            TextTotalAlpha = new TextBox();
+            TextTotalIzin = new TextBox();
+            TextTotalSakit = new TextBox();
+            TextTotalHadir = new TextBox();
             label1 = new Label();
             ButtonSave = new Button();
             GridListPresensi = new DataGridView();
@@ -61,10 +61,10 @@
             panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.BackColor = Color.Gainsboro;
             panel4.BorderStyle = BorderStyle.FixedSingle;
-            panel4.Controls.Add(textBox4);
-            panel4.Controls.Add(textBox3);
-            panel4.Controls.Add(textBox2);
-            panel4.Controls.Add(textBox1);
+            panel4.Controls.Add(TextTotalAlpha);
+            panel4.Controls.Add(TextTotalIzin);
+            panel4.Controls.Add(TextTotalSakit);
+            panel4.Controls.Add(TextTotalHadir);
             panel4.Controls.Add(label1);
             panel4.Controls.Add(ButtonSave);
             panel4.Controls.Add(GridListPresensi);
@@ -73,41 +73,41 @@
             panel4.Size = new Size(713, 729);
             panel4.TabIndex = 1;
             // 
-            // textBox4
+            // TextTotalAlpha
             // 
-            textBox4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            textBox4.BorderStyle = BorderStyle.FixedSingle;
-            textBox4.Location = new Point(438, 641);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(37, 27);
-            textBox4.TabIndex = 46;
+            TextTotalAlpha.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            TextTotalAlpha.BorderStyle = BorderStyle.FixedSingle;
+            TextTotalAlpha.Location = new Point(438, 641);
+            TextTotalAlpha.Name = "TextTotalAlpha";
+            TextTotalAlpha.Size = new Size(37, 27);
+            TextTotalAlpha.TabIndex = 46;
             // 
-            // textBox3
+            // TextTotalIzin
             // 
-            textBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            textBox3.BorderStyle = BorderStyle.FixedSingle;
-            textBox3.Location = new Point(395, 641);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(37, 27);
-            textBox3.TabIndex = 45;
+            TextTotalIzin.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            TextTotalIzin.BorderStyle = BorderStyle.FixedSingle;
+            TextTotalIzin.Location = new Point(395, 641);
+            TextTotalIzin.Name = "TextTotalIzin";
+            TextTotalIzin.Size = new Size(37, 27);
+            TextTotalIzin.TabIndex = 45;
             // 
-            // textBox2
+            // TextTotalSakit
             // 
-            textBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Location = new Point(352, 641);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(37, 27);
-            textBox2.TabIndex = 44;
+            TextTotalSakit.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            TextTotalSakit.BorderStyle = BorderStyle.FixedSingle;
+            TextTotalSakit.Location = new Point(352, 641);
+            TextTotalSakit.Name = "TextTotalSakit";
+            TextTotalSakit.Size = new Size(37, 27);
+            TextTotalSakit.TabIndex = 44;
             // 
-            // textBox1
+            // TextTotalHadir
             // 
-            textBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(309, 641);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(37, 27);
-            textBox1.TabIndex = 43;
+            TextTotalHadir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            TextTotalHadir.BorderStyle = BorderStyle.FixedSingle;
+            TextTotalHadir.Location = new Point(309, 641);
+            TextTotalHadir.Name = "TextTotalHadir";
+            TextTotalHadir.Size = new Size(37, 27);
+            TextTotalHadir.TabIndex = 43;
             // 
             // label1
             // 
@@ -145,7 +145,7 @@
             GridListPresensi.Name = "GridListPresensi";
             GridListPresensi.RowHeadersWidth = 51;
             GridListPresensi.RowTemplate.Height = 29;
-            GridListPresensi.Size = new Size(690, 595);
+            GridListPresensi.Size = new Size(690, 573);
             GridListPresensi.TabIndex = 3;
             // 
             // panel1
@@ -292,6 +292,7 @@
             // panel2
             // 
             panel2.BackColor = Color.Gainsboro;
+            panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(TextJamKe);
             panel2.Controls.Add(PickerTanggal);
             panel2.Controls.Add(label7);
@@ -348,10 +349,10 @@
         private Label label7;
         private DateTimePicker PickerTanggal;
         private Label label1;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox TextTotalAlpha;
+        private TextBox TextTotalIzin;
+        private TextBox TextTotalSakit;
+        private TextBox TextTotalHadir;
         private Panel panel2;
         private TextBox TextJamKe;
     }
