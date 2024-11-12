@@ -122,7 +122,8 @@ namespace Sistem_Informasi_Sekolah
             {
                 new MataPelajaranModel {MapelId = -1, MapelName = "--Pilih Mapel"}
             };
-            ComboMataPelajaran.DataSource = _mataPelajaranDal.ListData();
+            Mapel.AddRange(_mataPelajaranDal.ListData()?.ToList() ?? new());
+            ComboMataPelajaran.DataSource = Mapel;
             ComboMataPelajaran.DisplayMember = "MapelName";
             ComboMataPelajaran.ValueMember = "MapelId";
             ComboMataPelajaran.SelectedIndex = 0;
@@ -152,6 +153,7 @@ namespace Sistem_Informasi_Sekolah
             ButtonNew.Click += ButtonNew_Click;
             ButtonListSiswa.Click += ButtonListSiswa_Click;
             ButtonSave.Click += ButtonSave_Click; ;
+            ComboKelas.SelectedValueChanged += (s, e) => _siswaList.Clear();
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
