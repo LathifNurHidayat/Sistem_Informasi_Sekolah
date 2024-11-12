@@ -24,7 +24,7 @@ namespace Sistem_Informasi_Sekolah
         private readonly BindingList<SiswaDto> _siswaList = new();
 
         private int _absensiId = 0;
-        private int[] _valueAbsen = {};
+        private int[] _valueAbsen = { };
 
         public FormAbsensi()
         {
@@ -69,20 +69,19 @@ namespace Sistem_Informasi_Sekolah
         {
             if (e.RowIndex >= 0 && (GridListPresensi.Columns[e.ColumnIndex].Name == "Hadir" ||
                                    GridListPresensi.Columns[e.ColumnIndex].Name == "S" ||
-                                   GridListPresensi.Columns[e.ColumnIndex].Name == "I" || 
+                                   GridListPresensi.Columns[e.ColumnIndex].Name == "I" ||
                                    GridListPresensi.Columns[e.ColumnIndex].Name == "A"))
             {
-                MessageBox.Show("hgsnvdc");
-                string[] columnName = {"Hadir", "S", "I", "A"};
-                foreach (var namaColumn in  columnName)
+                string[] columnName = { "Hadir", "S", "I", "A" };
+                foreach (var namaColumn in columnName)
                 {
                     if (GridListPresensi.Columns[e.ColumnIndex].Name != namaColumn)
                     {
                         GridListPresensi.Rows[e.RowIndex].Cells[namaColumn].Value = false;
                     }
                 }
+                TotalStatusAbsen();
             }
-            TotalStatusAbsen();
         }
 
         private void TotalStatusAbsen()
@@ -94,10 +93,10 @@ namespace Sistem_Informasi_Sekolah
 
             foreach (var item in _siswaList)
             {
-                if (item.Hadir ) Hadir++;
-                if (item.S ) Sakit++;
-                if (item.I ) Izin ++;
-                if (item.A ) Alpha++;
+                if (item.Hadir) Hadir++;
+                if (item.S) Sakit++;
+                if (item.I) Izin++;
+                if (item.A) Alpha++;
             }
 
             TextTotalHadir.Text = Hadir.ToString();
@@ -223,7 +222,7 @@ namespace Sistem_Informasi_Sekolah
                     }).ToList();
 
                 data.ForEach(item => _siswaList.Add(item));
-                GridListPresensi.Refresh(); 
+                GridListPresensi.Refresh();
             }
             GridListPresensi.AllowUserToAddRows = false;
             GridListPresensi.DataSource = _siswaList;
@@ -233,9 +232,9 @@ namespace Sistem_Informasi_Sekolah
 
         private void SaveData()
         {
-            if (string.IsNullOrEmpty(TextJamKe.Text) || ComboKelas.SelectedIndex == 0 || ComboMataPelajaran.SelectedIndex == 0 || ComboGuru.SelectedIndex == 0 )
+            if (TextJamKe.Text == "" || ComboKelas.SelectedIndex == 0 || ComboMataPelajaran.SelectedIndex == 0 || ComboGuru.SelectedIndex == 0)
             {
-                MessageBox.Show("!!", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Mohon lengkapi data !!", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if (_absensiId == 0)
@@ -263,10 +262,10 @@ namespace Sistem_Informasi_Sekolah
                         NoUrut = item.NoUrut,
                         SiswaId = item.SiswaId,
                         SiswaName = item.SiswaName,
-                        StatusAbsen = item.Hadir == true ? 1 
-                                    : item.S == true ? 2 
-                                    : item.I == true ? 3 
-                                    : item.A == true ? 4 
+                        StatusAbsen = item.Hadir == true ? 1
+                                    : item.S == true ? 2
+                                    : item.I == true ? 3
+                                    : item.A == true ? 4
                                     : 0,
                         Keterangan = item.Keterangan ?? "",
                     };
