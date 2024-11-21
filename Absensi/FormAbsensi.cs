@@ -22,9 +22,9 @@ namespace Sistem_Informasi_Sekolah
         private readonly AbsensiDetilDal _absensiDetilDal;
         private readonly AbsensiDal _absensiDal;
         private readonly BindingList<SiswaDto> _siswaList = new();
+        private readonly BindingSource _siswaBinding = new BindingSource();
 
         private int _absensiId = 0;
-        private int[] _valueAbsen = { };
 
         public FormAbsensi()
         {
@@ -35,6 +35,8 @@ namespace Sistem_Informasi_Sekolah
             _kelasSiswaDetilDal = new KelasSiswaDetilDal();
             _absensiDetilDal = new AbsensiDetilDal();
             _absensiDal = new AbsensiDal();
+
+            _siswaBinding.DataSource = _siswaList;
 
 
             InitCombo();
@@ -62,27 +64,30 @@ namespace Sistem_Informasi_Sekolah
             GridListPresensi.Columns["Keterangan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             GridListPresensi.Columns["SiswaName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            GridListPresensi.CellContentClick += GridListPresensi_CellContentClick;
+           // GridListPresensi.CellContentClick += GridListPresensi_CellContentClick;
         }
 
-        private void GridListPresensi_CellContentClick(object? sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && (GridListPresensi.Columns[e.ColumnIndex].Name == "Hadir" ||
-                                   GridListPresensi.Columns[e.ColumnIndex].Name == "S" ||
-                                   GridListPresensi.Columns[e.ColumnIndex].Name == "I" ||
-                                   GridListPresensi.Columns[e.ColumnIndex].Name == "A"))
-            {
-                string[] columnName = { "Hadir", "S", "I", "A" };
-                foreach (var namaColumn in columnName)
+        /*        private void GridListPresensi_CellContentClick(object? sender, DataGridViewCellEventArgs e)
                 {
-                    if (GridListPresensi.Columns[e.ColumnIndex].Name != namaColumn)
+                    if (e.RowIndex >= 0 && (GridListPresensi.Columns[e.ColumnIndex].Name == "Hadir" ||
+                                           GridListPresensi.Columns[e.ColumnIndex].Name == "S" ||
+                                           GridListPresensi.Columns[e.ColumnIndex].Name == "I" ||
+                                           GridListPresensi.Columns[e.ColumnIndex].Name == "A"))
                     {
-                        GridListPresensi.Rows[e.RowIndex].Cells[namaColumn].Value = false;
+                        string[] columnName = { "Hadir", "S", "I", "A" };
+                        foreach (var namaColumn in columnName)
+                        {
+                            if (GridListPresensi.Columns[e.ColumnIndex].Name != namaColumn)
+                            {
+                                GridListPresensi.Rows[e.RowIndex].Cells[namaColumn].Value = false;
+                            }
+                        }
+                        TotalStatusAbsen();
                     }
-                }
-                TotalStatusAbsen();
-            }
-        }
+                }*/
+
+
+       
 
         private void TotalStatusAbsen()
         {
@@ -153,6 +158,34 @@ namespace Sistem_Informasi_Sekolah
             ButtonListSiswa.Click += ButtonListSiswa_Click;
             ButtonSave.Click += ButtonSave_Click; ;
             ComboKelas.SelectedValueChanged += (s, e) => _siswaList.Clear();
+
+            GridListPresensi.CurrentCellDirtyStateChanged += GridListPresensi_CurrentCellDirtyStateChanged;
+            GridListPresensi.CellValueChanged += GridListPresensi_CellValueChanged;
+        }
+
+        private void GridListPresensi_CellValueChanged(object? sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < GridListPresensi.Rows.Count &&
+                e.ColumnIndex >= 0 && e.RowIndex < GridListPresensi.Columns.Count)
+            {
+                if (Convert.ToBoolean(GridListPresensi.Rows[e.RowIndex].Cells[e.ColumnIndex].Value))
+                    for (int i = 2; i <= 5; i++)
+                    {
+                        if (i != e.ColumnIndex)
+                        {
+                            GridListPresensi.Rows[e.RowIndex].Cells[i].Value = false;
+                            TotalStatusAbsen();
+                        }
+                    }
+            }
+        }
+
+        private void GridListPresensi_CurrentCellDirtyStateChanged(object? sender, EventArgs e)
+        {
+            if (GridListPresensi.CurrentCell is DataGridViewCheckBoxCell)
+            {
+                GridListPresensi.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
@@ -225,7 +258,7 @@ namespace Sistem_Informasi_Sekolah
                 GridListPresensi.Refresh();
             }
             GridListPresensi.AllowUserToAddRows = false;
-            GridListPresensi.DataSource = _siswaList;
+            GridListPresensi.DataSource = _siswaBinding;
             InitDataGrid();
             TotalStatusAbsen();
         }

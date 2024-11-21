@@ -23,4 +23,5 @@ CREATE TABLE SiswaRiwayat (
     TglTinggalSekolah DATETIME NOT NULL DEFAULT ('2000-01-01'),
     AlasanTinggal VARCHAR(100) NOT NULL DEFAULT (''),
     AkhirTamatBljr DATETIME NOT NULL DEFAULT ('2000-01-01'),
-    AkhirNoIjazah VARCHAR(20) NOT NULL DEFAULT (''));
+    AkhirNoIjazah VARCHAR(20) NOT NULL DEFAULT ('')
+    );

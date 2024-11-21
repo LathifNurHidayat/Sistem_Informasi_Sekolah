@@ -79,7 +79,7 @@
             GridListAllSiswa.Name = "GridListAllSiswa";
             GridListAllSiswa.RowHeadersWidth = 51;
             GridListAllSiswa.RowTemplate.Height = 29;
-            GridListAllSiswa.Size = new Size(547, 492);
+            GridListAllSiswa.Size = new Size(373, 492);
             GridListAllSiswa.TabIndex = 6;
             // 
             // ButtonSaveData
@@ -101,11 +101,11 @@
             GridListKelasSiswa.BackgroundColor = Color.WhiteSmoke;
             GridListKelasSiswa.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GridListKelasSiswa.GridColor = SystemColors.Control;
-            GridListKelasSiswa.Location = new Point(566, 79);
+            GridListKelasSiswa.Location = new Point(392, 79);
             GridListKelasSiswa.Name = "GridListKelasSiswa";
             GridListKelasSiswa.RowHeadersWidth = 51;
             GridListKelasSiswa.RowTemplate.Height = 29;
-            GridListKelasSiswa.Size = new Size(204, 492);
+            GridListKelasSiswa.Size = new Size(378, 492);
             GridListKelasSiswa.TabIndex = 3;
             // 
             // panel5

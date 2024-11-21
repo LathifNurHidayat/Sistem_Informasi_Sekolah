@@ -14,4 +14,4 @@
 	 CONSTRAINT PK_JadwalPelajaran PRIMARY KEY CLUSTERED(JadwalId)
 	 )
 
-	 DROP TABLE JadwalPelajaran	
+	 

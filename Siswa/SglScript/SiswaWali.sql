@@ -1,5 +1,4 @@
-﻿
-    CREATE TABLE SiswaWali(
+﻿    CREATE TABLE SiswaWali(
         SiswaId INT NOT NULL DEFAULT (0),
         JenisWali INT NOT NULL DEFAULT (0),
         Nama VARCHAR(50) NOT NULL DEFAULT (''),
@@ -15,8 +14,6 @@
         NoTelp VARCHAR (15) NOT NULL DEFAULT (''),
         StatusHidup VARCHAR(30) NOT NULL DEFAULT (''),
         NIK VARCHAR (20)  NOT NULL DEFAULT ('')
-
-
     );
 
 

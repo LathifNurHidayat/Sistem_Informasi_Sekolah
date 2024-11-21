@@ -8,13 +8,3 @@
 
 		CONSTRAINT PK_Absensi PRIMARY KEY (AbsensiId)
 		)
-insert into Absensi (Tanggal, Jam, KelasId, MapelId, GuruId)
-values ('2024-01-01', '2', 2, 6, 29)
-
-SELECT 
-            AbsensiId
-        FROM 
-            Absensi
-        WHERE 
-            KelasId = 2 AND Tanggal = '2024-01-01' AND
-            Jam = '2' AND MapelId = 6 AND GuruId = 29

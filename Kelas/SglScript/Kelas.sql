@@ -6,7 +6,3 @@
 	JurusanId INT NOT NULL DEFAULT (0),
 	Flag  VARCHAR(5) NOT NULL DEFAULT ('')
 	);
-
-
-	INSERT INTO Kelas (KelasName, KelasTingkat, JurusanId, Flag)
-	VALUES ('10 RPL-2',10,3,'2');

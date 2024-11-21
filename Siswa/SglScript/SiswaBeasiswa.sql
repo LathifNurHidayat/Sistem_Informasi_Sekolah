@@ -3,4 +3,5 @@ CREATE TABLE SiswaBeasiswa(
     Nomor INT Default'0',
     Tahun VARCHAR(10),
     Kelas VARCHAR(10),
-    AsalBeasiswa VARCHAR(30));
+    AsalBeasiswa VARCHAR(30)
+    );

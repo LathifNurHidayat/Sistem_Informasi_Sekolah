@@ -21,10 +21,10 @@ namespace Sistem_Informasi_Sekolah
         private readonly KelasSiswaDetilDal _kelasSiswaDetilDal;
         private readonly KelasSiswaDal _kelasSiswaDal;
 
-        private BindingList<SiswaDto> _listAllSiswa = new ();
-        private BindingList<SiswaDto> _listKelasSiswaDetil = new ();
-        private BindingSource _allSiswaBinding = new ();
-        private BindingSource _allKelasSiswaBinding = new ();
+        private BindingList<SiswaDto> _listAllSiswa = new();
+        private BindingList<SiswaDto> _listKelasSiswaDetil = new();
+        private BindingSource _allSiswaBinding = new();
+        private BindingSource _allKelasSiswaBinding = new();
 
         private bool _isChange = false;
         private int _kelasId = 0;
@@ -43,7 +43,7 @@ namespace Sistem_Informasi_Sekolah
             _allKelasSiswaBinding.DataSource = _listKelasSiswaDetil;
             GridListAllSiswa.DataSource = _listAllSiswa;
             GridListKelasSiswa.DataSource = _listKelasSiswaDetil;
-            
+
             InitialCombo();
             ControlEvent();
 
@@ -57,7 +57,7 @@ namespace Sistem_Informasi_Sekolah
             {
                 new KelasModel{KelasId = -1, KelasName = "--Pilih Kelas--"}
             };
-            kelas.AddRange(_kelasDal.ListData()? .ToList() ?? new ());
+            kelas.AddRange(_kelasDal.ListData()?.ToList() ?? new());
             ComboKelas.DataSource = kelas;
             ComboKelas.DisplayMember = "KelasName";
             ComboKelas.ValueMember = "KelasId";
@@ -67,7 +67,7 @@ namespace Sistem_Informasi_Sekolah
             {
                 new GuruModel{GuruId = -1, GuruName = "--Pilih Guru--"}
             };
-            guru.AddRange(_guruDal.ListData()?.ToList() ?? new ());
+            guru.AddRange(_guruDal.ListData()?.ToList() ?? new());
             ComboWaliKelas.DataSource = guru;
             ComboWaliKelas.DisplayMember = "GuruName";
             ComboWaliKelas.ValueMember = "GuruId";
@@ -100,13 +100,13 @@ namespace Sistem_Informasi_Sekolah
         private void GridListKelasSiswa_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.RowIndex >= _listKelasSiswaDetil.Count) return;
-            
+
             var dataGrid = sender as DataGridView;
             var selectedSiswa = _listKelasSiswaDetil[e.RowIndex];
 
             if (selectedSiswa != null)
             {
-                if (selectedSiswa.SiswaId == 0) return; 
+                if (selectedSiswa.SiswaId == 0) return;
 
                 _listAllSiswa.Add(selectedSiswa);
                 _listKelasSiswaDetil.Remove(selectedSiswa);
@@ -116,7 +116,7 @@ namespace Sistem_Informasi_Sekolah
             }
             _isChange = true;
         }
-         
+
         private void GridListAllSiswa_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.RowIndex >= _listAllSiswa.Count) return;
@@ -187,7 +187,7 @@ namespace Sistem_Informasi_Sekolah
         }
 
         private void LoadData(string nama)
-        {   
+        {
             var kelasId = (int)ComboKelas.SelectedValue;
             if (kelasId == -1)
             {
@@ -198,19 +198,19 @@ namespace Sistem_Informasi_Sekolah
             var kelasSiswa = _kelasSiswaDal.GetData(kelasId);
             if (kelasSiswa == null) ClearForm();
 
-            TextTahunAjaran.Text = kelasSiswa?.TahunAjaran?? string.Empty;
-            ComboWaliKelas.SelectedValue = kelasSiswa?.WaliKelasId?? -1 ;
+            TextTahunAjaran.Text = kelasSiswa?.TahunAjaran ?? string.Empty;
+            ComboWaliKelas.SelectedValue = kelasSiswa?.WaliKelasId ?? -1;
             _listAllSiswa.Clear();
             _listKelasSiswaDetil.Clear();
 
-            var dataAllSiswa = _siswaDal.ListDataFilter(nama).Select(x => new SiswaDto(x.SiswaId, x.NamaLengkap))?.ToList() ?? new ();
-            var dataKelasSiswaDetil = _kelasSiswaDetilDal.ListData().Select( x => new SiswaDto(x.SiswaId, x.SiswaName))?.ToList() ?? new ();
+            var dataAllSiswa = _siswaDal.ListDataFilter(nama).Select(x => new SiswaDto(x.SiswaId, x.NamaLengkap))?.ToList() ?? new();
+            var dataKelasSiswaDetil = _kelasSiswaDetilDal.ListData().Select(x => new SiswaDto(x.SiswaId, x.SiswaName))?.ToList() ?? new();
             var dataPerKelas = _kelasSiswaDetilDal.ListDataPerKelas(kelasId).Select(x => new SiswaDto(x.SiswaId, x.SiswaName))?.ToList() ?? new();
-            
+
             var IdKelasSiswa = dataKelasSiswaDetil.Select(x => x.SiswaId).ToList();
             dataAllSiswa.RemoveAll(x => IdKelasSiswa.Contains(x.SiswaId));
 
-            foreach (var item in dataAllSiswa) 
+            foreach (var item in dataAllSiswa)
                 _listAllSiswa.Add(item);
             foreach (var item in dataPerKelas)
                 _listKelasSiswaDetil.Add(item);
@@ -225,12 +225,13 @@ namespace Sistem_Informasi_Sekolah
             _listKelasSiswaDetil.Clear();
         }
 
-       
+
         public class SiswaDto
         {
             public SiswaDto(int id, string name) => (SiswaId, NamaLengkap) = (id, name);
             public int SiswaId { get; set; }
             public string NamaLengkap { get; set; }
         }
+
     }
 }
