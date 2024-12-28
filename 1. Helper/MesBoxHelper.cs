@@ -23,5 +23,12 @@ namespace Sistem_Informasi_Sekolah
 
             return cek;
         }
+
+        public bool MessagePeringatan(string isiMessage)
+        {
+            bool cek = false;
+            if (MessageBox.Show($"{isiMessage}", "Peringatan", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK) cek = true;
+            return cek;
+        }
     }
 }
