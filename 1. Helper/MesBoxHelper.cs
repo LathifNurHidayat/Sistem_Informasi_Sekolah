@@ -20,7 +20,6 @@ namespace Sistem_Informasi_Sekolah
         {
             bool cek = false;
             if (MessageBox.Show($"{isiMessage}", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)cek = true;
-
             return cek;
         }
 
